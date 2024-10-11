@@ -2,12 +2,12 @@ import NewCustomerTable from './components/NewCustomerTable';
 import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SyntheticEvent, useState } from 'react';
-import PageWrapper from 'components/PageWrapper';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { Divider, Paper, Tab, Tabs, Typography } from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
-import Page from 'components/Page';
+import Page from '@/components/Page';
 
 // Tab components
 const tabs = [
@@ -40,20 +40,12 @@ const NewCustomer = () => {
       />
       <TabContext value={value}>
         <Paper sx={{ display: 'grid', gridTemplateRows: 'auto auto 1fr' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-          >
+          <Tabs value={value} onChange={handleChange} variant='scrollable' scrollButtons='auto'>
             {tabs.map((tab, i) => (
               <Tab
                 key={i}
                 label={
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ textTransform: 'none' }}
-                  >
+                  <Typography variant='subtitle2' sx={{ textTransform: 'none' }}>
                     {tab.label}
                   </Typography>
                 }

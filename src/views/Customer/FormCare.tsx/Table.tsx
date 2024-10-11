@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useRef, useState } from 'react';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import FilterForm from './FilterForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filter';
@@ -36,8 +36,7 @@ const Table = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -53,7 +52,7 @@ const Table = () => {
   });
   return (
     <ProTable<IFormCareType>
-      title="Hình thức chăm sóc"
+      title='Hình thức chăm sóc'
       loading={loading}
       columns={columns}
       data={banners}
@@ -77,9 +76,9 @@ const Table = () => {
       toolBar={
         <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
           <ActionButton
-            variant="contained"
-            color="primary"
-            actionType="add"
+            variant='contained'
+            color='primary'
+            actionType='add'
             // onClick={handleSubmitFilters}
           >
             Thêm mới

@@ -2,9 +2,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import { IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { useMemo } from 'react';
 
 const columnHelper = getColumnHelper<any>();
@@ -43,7 +43,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => 'ID',
         cell: (context) => (
-          <Typography fontWeight="bold" color="primary">
+          <Typography fontWeight='bold' color='primary'>
             15
           </Typography>
         ),
@@ -73,9 +73,7 @@ const useTableColumns = (props: Props) => {
         id: 'name',
         size: 100,
         header: () => 'Số lô',
-        cell: (context) => (
-          <Typography sx={{ color: 'rgb(0, 0, 238)' }}>768886</Typography>
-        ),
+        cell: (context) => <Typography sx={{ color: 'rgb(0, 0, 238)' }}>768886</Typography>,
         meta: {
           title: HEAD_CELLS.name,
         },
@@ -108,11 +106,11 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { note, id } = context.row.original;
           return (
-            <Stack alignItems="center">
+            <Stack alignItems='center'>
               <IconButton onClick={() => handleEditPrice(id, note)}>
-                <EditIcon color="primary" />
+                <EditIcon color='primary' />
               </IconButton>
-              <Typography color="primary">39.330</Typography>
+              <Typography color='primary'>39.330</Typography>
             </Stack>
           );
         },

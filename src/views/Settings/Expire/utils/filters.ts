@@ -1,7 +1,7 @@
-import type { ProTableSortingState } from 'components/ProTable/types';
-import { SORT_DIRECTION } from 'constants/common';
+import type { ProTableSortingState } from '@/components/ProTable/types';
+import { SORT_DIRECTION } from '@/constants/common';
 import { useState } from 'react';
-import type { PaginationParams } from 'types/common';
+import type { PaginationParams } from '@/types/common';
 
 export interface FilterParams extends PaginationParams {
   store: number;

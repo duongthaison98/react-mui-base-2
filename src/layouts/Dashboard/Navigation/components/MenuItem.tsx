@@ -5,7 +5,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
-import type { MouseEvent } from 'types/react';
+import type { MouseEvent } from '@/types/react';
 import type { ListItemMenuItem } from './ListItemMenu';
 import ListItemMenu from './ListItemMenu';
 
@@ -41,7 +41,7 @@ const MenuItem = (props: MenuListItemProps) => {
         })}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Typography variant="body2">{title}</Typography>
+          <Typography variant='body2'>{title}</Typography>
           {children.length > 0 && (
             <ExpandMoreIcon
               sx={{
@@ -52,12 +52,7 @@ const MenuItem = (props: MenuListItemProps) => {
           )}
         </Box>
       </ListItemButton>
-      <ListItemMenu
-        root={anchor}
-        open={Boolean(anchor)}
-        onClose={handleClose}
-        items={children}
-      />
+      <ListItemMenu root={anchor} open={Boolean(anchor)} onClose={handleClose} items={children} />
     </ListItem>
   );
 };

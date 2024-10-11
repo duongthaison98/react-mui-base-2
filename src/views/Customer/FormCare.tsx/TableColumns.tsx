@@ -1,8 +1,8 @@
 import { Typography } from '@mui/material';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { IFormCareType } from './utils/type';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
@@ -29,7 +29,7 @@ const useTableColumns = (props: Props) => {
         size: 80,
         header: () => HEAD_CELLS.action,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -42,7 +42,7 @@ const useTableColumns = (props: Props) => {
         size: 80,
         header: () => HEAD_CELLS.name,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -55,7 +55,7 @@ const useTableColumns = (props: Props) => {
         size: 80,
         header: () => HEAD_CELLS.creator,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -68,7 +68,7 @@ const useTableColumns = (props: Props) => {
         size: 80,
         header: () => HEAD_CELLS.createTime,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -84,7 +84,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Sửa',
@@ -98,7 +98,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

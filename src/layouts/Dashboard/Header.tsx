@@ -1,10 +1,11 @@
-import { Box, Button } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
-import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Profile from './Sidebar/Profile';
+import { Theme, CSSObject, useTheme } from '@mui/material/styles';
+import { MINI_SIDEBAR_WIDTH, SIDEBAR_WIDTH } from '@/constants/layouts';
+import { useMediaQuery } from '@mui/material';
 
 interface Props {
   collapsed: boolean;
@@ -12,16 +13,38 @@ interface Props {
   onToggleCollapsed: () => void;
 }
 
+const openedMixin = (theme: Theme): CSSObject => ({
+  width: `calc(100% - ${MINI_SIDEBAR_WIDTH}px)`,
+  transition: theme.transitions.create('width', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.enteringScreen,
+  })
+});
+
+const closedMixin = (theme: Theme): CSSObject => ({
+  width: `calc(100% - ${SIDEBAR_WIDTH}px)`,
+  transition: theme.transitions.create('width', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  })
+});
+
 const Header = (props: Props) => {
+  const theme = useTheme();
+  const lgUp = useMediaQuery(theme.breakpoints.up('lg'));
+
   return (
     <AppBar
-      position="static"
-      elevation={1}
+      position="fixed"
+      elevation={10}
       sx={{ 
         color: 'common.black', 
         backgroundColor: '#fff', 
         height: '64px',
         borderBottom: 'thin solid #E6E8F0',
+        marginLeft: 'auto',
+        zIndex: 9,
+        width: lgUp ? (props.collapsed ? openedMixin(theme).width : closedMixin(theme).width) : '100%'
       }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', height: '100%' }}>

@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import React, { useMemo } from 'react';
 import { IInventoryByProductsType } from './utils/type';
 
@@ -42,11 +42,11 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => HEAD_CELLS.code,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+          <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
             {context.getValue()}
           </Typography>
         ),
-        footer: (context) => <Typography variant="subtitle2">Tổng</Typography>,
+        footer: (context) => <Typography variant='subtitle2'>Tổng</Typography>,
         meta: {
           title: HEAD_CELLS.code,
           colSpan: () => 5,
@@ -58,7 +58,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => HEAD_CELLS.barcode,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+          <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -73,7 +73,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => HEAD_CELLS.product,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+          <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -87,9 +87,7 @@ const useTableColumns = (props: Props) => {
         size: 60,
         enableSorting: false,
         header: () => HEAD_CELLS.currentInventory,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.currentInventory,
           colSpan: () => null,
@@ -100,9 +98,7 @@ const useTableColumns = (props: Props) => {
         size: 60,
         enableSorting: false,
         header: () => HEAD_CELLS.totalInventory,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.totalInventory,
           colSpan: () => null,
@@ -118,9 +114,7 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.quantityBeginningInventory,
             cell: (context) => context.getValue(),
-            footer: (context) => (
-              <Typography variant="subtitle2">1831</Typography>
-            ),
+            footer: (context) => <Typography variant='subtitle2'>1831</Typography>,
             meta: {
               title: HEAD_CELLS.quantityBeginningInventory,
               // colSpan: () => null,
@@ -132,8 +126,8 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.costBeginningInventory,
             footer: (context) => (
-              <Typography variant="subtitle2">
-                {1493?.toLocaleString('it-IT', {
+              <Typography variant='subtitle2'>
+                {(1493)?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
                 })}
@@ -160,8 +154,8 @@ const useTableColumns = (props: Props) => {
                 currency: 'VND',
               }),
             footer: (context) => (
-              <Typography variant="subtitle2">
-                {3502578?.toLocaleString('it-IT', {
+              <Typography variant='subtitle2'>
+                {(3502578)?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
                 })}
@@ -186,9 +180,7 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.quantityImport,
             cell: (context) => context.getValue(),
-            footer: (context) => (
-              <Typography variant="subtitle2">9010</Typography>
-            ),
+            footer: (context) => <Typography variant='subtitle2'>9010</Typography>,
             meta: {
               title: HEAD_CELLS.quantityImport,
               // colSpan: () => null,
@@ -200,8 +192,8 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.costImport,
             footer: (context) => (
-              <Typography variant="subtitle2">
-                {1428?.toLocaleString('it-IT', {
+              <Typography variant='subtitle2'>
+                {(1428)?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
                 })}
@@ -227,8 +219,8 @@ const useTableColumns = (props: Props) => {
                 currency: 'VND',
               }),
             footer: (context) => (
-              <Typography variant="subtitle2">
-                {12866280?.toLocaleString('it-IT', {
+              <Typography variant='subtitle2'>
+                {(12866280)?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
                 })}
@@ -254,9 +246,7 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.quantityExport,
             cell: (context) => context.getValue(),
-            footer: (context) => (
-              <Typography variant="subtitle2">9525</Typography>
-            ),
+            footer: (context) => <Typography variant='subtitle2'>9525</Typography>,
             meta: {
               title: HEAD_CELLS.quantityExport,
             },
@@ -267,8 +257,8 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.costExport,
             footer: (context) => (
-              <Typography variant="subtitle2">
-                {1428?.toLocaleString('it-IT', {
+              <Typography variant='subtitle2'>
+                {(1428)?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
                 })}
@@ -294,8 +284,8 @@ const useTableColumns = (props: Props) => {
                 currency: 'VND',
               }),
             footer: (context) => (
-              <Typography variant="subtitle2">
-                {13601700?.toLocaleString('it-IT', {
+              <Typography variant='subtitle2'>
+                {(13601700)?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
                 })}
@@ -320,9 +310,7 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.quantityEndingInventory,
             cell: (context) => context.getValue(),
-            footer: (context) => (
-              <Typography variant="subtitle2">1831</Typography>
-            ),
+            footer: (context) => <Typography variant='subtitle2'>1831</Typography>,
             meta: {
               title: HEAD_CELLS.quantityEndingInventory,
             },
@@ -333,8 +321,8 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.costEndingInventory,
             footer: (context) => (
-              <Typography variant="subtitle2">
-                {1428?.toLocaleString('it-IT', {
+              <Typography variant='subtitle2'>
+                {(1428)?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
                 })}
@@ -360,8 +348,8 @@ const useTableColumns = (props: Props) => {
                 currency: 'VND',
               }),
             footer: (context) => (
-              <Typography variant="subtitle2">
-                {2614668?.toLocaleString('it-IT', {
+              <Typography variant='subtitle2'>
+                {(2614668)?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
                 })}

@@ -1,8 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ProForm from 'components/ProForm';
-import Validation from 'utils/Validation';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ProForm from '@/components/ProForm';
+import Validation from '@/utils/Validation';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { AddCash } from './utils/types';
@@ -18,14 +18,14 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import ProFormContent from 'components/ProForm/ProFormContent';
+import ProFormContent from '@/components/ProForm/ProFormContent';
 import InfoIcon from '@mui/icons-material/Info';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import ActionButton from 'components/ProButton/ActionButton';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import ActionButton from '@/components/ProButton/ActionButton';
 import PrintIcon from '@mui/icons-material/Print';
 import { useState } from 'react';
-import ProFormLabel from 'components/ProForm/ProFormLabel';
+import ProFormLabel from '@/components/ProForm/ProFormLabel';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 const validationSchema = yup.object().shape({
   date: Validation.date().optional(),
@@ -51,16 +51,13 @@ const AddTicket = () => {
     console.log(value);
   };
 
-  const handleChangeRaio = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: string
-  ) => {
+  const handleChangeRaio = (event: React.ChangeEvent<HTMLInputElement>, value: string) => {
     setRadioValue(value);
   };
   return (
-    <PageWrapper title="Thêm phiếu chuyển kho nháp">
+    <PageWrapper title='Thêm phiếu chuyển kho nháp'>
       <PageBreadcrumbs
-        title="Thêm phiếu chuyển kho nháp"
+        title='Thêm phiếu chuyển kho nháp'
         items={[{ link: '/warehouse', text: 'Chuyển kho' }]}
       />
       <ProForm form={form} onFinish={handleSubmit}>
@@ -70,19 +67,19 @@ const AddTicket = () => {
               <Paper sx={{ p: 2, pb: 5 }}>
                 <Stack mb={1.5}>
                   <StorefrontIcon />
-                  <Typography variant="body1" sx={{ fontWeight: 'medium' }}>
+                  <Typography variant='body1' sx={{ fontWeight: 'medium' }}>
                     {'Kho hàng'}
                   </Typography>
                 </Stack>
                 <Divider />
                 <Grid container spacing={2} sx={{ mt: 2 }}>
                   <Grid item xs={12} sm={12} lg={3}>
-                    <ProFormLabel title={'Từ kho:'} required name="warehouse" />
+                    <ProFormLabel title={'Từ kho:'} required name='warehouse' />
                   </Grid>
                   <Grid item xs={12} sm={12} lg={9}>
                     <ProFormSelect
-                      name="objectType"
-                      placeholder="Từ kho hàng"
+                      name='objectType'
+                      placeholder='Từ kho hàng'
                       options={[
                         { value: 0, label: 'Hà Nội' },
                         { value: 1, label: 'Hải phòng' },
@@ -97,12 +94,12 @@ const AddTicket = () => {
                   </Grid>
                   <Divider />
                   <Grid item xs={12} sm={12} lg={3}>
-                    <ProFormLabel title={'Từ kho:'} required name="warehouse" />
+                    <ProFormLabel title={'Từ kho:'} required name='warehouse' />
                   </Grid>
                   <Grid item xs={12} sm={12} lg={9}>
                     <ProFormSelect
-                      name="move"
-                      placeholder="Đến kho hàng"
+                      name='move'
+                      placeholder='Đến kho hàng'
                       options={[
                         { value: 0, label: 'Ninh Bình' },
                         { value: 1, label: 'Sóc Sơn' },
@@ -122,22 +119,17 @@ const AddTicket = () => {
               <Paper sx={{ p: 2, pb: 5 }}>
                 <Stack mb={1.5}>
                   <InfoIcon />
-                  <Typography variant="body1" sx={{ fontWeight: 'medium' }}>
+                  <Typography variant='body1' sx={{ fontWeight: 'medium' }}>
                     {'Thông tin'}
                   </Typography>
                 </Stack>
                 <Divider />
                 <Grid container spacing={2} sx={{ mt: 2 }}>
                   <Grid item xs={12} sm={12} lg={3}>
-                    <ProFormLabel title={'Ghi chú'} name="note" />
+                    <ProFormLabel title={'Ghi chú'} name='note' />
                   </Grid>
                   <Grid item xs={12} sm={12} lg={9}>
-                    <ProFormTextField
-                      name="note"
-                      placeholder="Ghi chú"
-                      multiline
-                      rows={2}
-                    />
+                    <ProFormTextField name='note' placeholder='Ghi chú' multiline rows={2} />
                   </Grid>
                 </Grid>
               </Paper>
@@ -147,31 +139,26 @@ const AddTicket = () => {
           </Grid>
 
           <FormControl>
-            <RadioGroup
-              row
-              sx={{ mt: 4, mb: 4 }}
-              value={radioValue}
-              onChange={handleChangeRaio}
-            >
+            <RadioGroup row sx={{ mt: 4, mb: 4 }} value={radioValue} onChange={handleChangeRaio}>
               <FormControlLabel
-                value="1"
+                value='1'
                 control={<Radio />}
-                label="Xem chi tiết phiếu chuyển kho
-                "
+                label='Xem chi tiết phiếu chuyển kho
+                '
               />
               <FormControlLabel
-                value="2"
+                value='2'
                 control={<Radio />}
-                label="Tiếp tục lập phiếu chuyển kho"
+                label='Tiếp tục lập phiếu chuyển kho'
               />
             </RadioGroup>
           </FormControl>
         </ProFormContent>
         <Stack spacing={2}>
           <ActionButton
-            actionType="save"
-            variant="contained"
-            type="submit"
+            actionType='save'
+            variant='contained'
+            type='submit'
             sx={{ backgroundColor: '#4CAF50 ' }}
           >
             (F9) Lưu

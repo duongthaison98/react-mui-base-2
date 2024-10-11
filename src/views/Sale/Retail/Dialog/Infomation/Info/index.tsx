@@ -11,10 +11,10 @@ import { Grid, Link, Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import CustomerTable from './CustomerTable';
 import ProductTable from './ProductTable';
 import RestoreIcon from '@mui/icons-material/Restore';
@@ -53,9 +53,7 @@ const Info = () => {
             <Grid item xs={12} md={6}>
               <Box sx={{ display: 'flex' }}>
                 <PersonIcon />
-                <span style={{ color: '#2196f3' }}>
-                  A Pháp-45 Hùng Vương (SG)
-                </span>
+                <span style={{ color: '#2196f3' }}>A Pháp-45 Hùng Vương (SG)</span>
               </Box>
               <Box sx={{ display: 'flex' }} mt={0.5}>
                 <LocalPhoneIcon />
@@ -79,7 +77,7 @@ const Info = () => {
           }}
           container
           direction={'row'}
-          justifyContent="space-between"
+          justifyContent='space-between'
         >
           <Grid item>
             <Box sx={{ display: 'flex' }}>
@@ -123,7 +121,7 @@ const Info = () => {
               Tổng tiền
             </Grid>
             <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
-              <Typography variant="subtitle1" sx={{ color: 'primary.main' }}>
+              <Typography variant='subtitle1' sx={{ color: 'primary.main' }}>
                 960.000
               </Typography>
             </Grid>
@@ -131,7 +129,7 @@ const Info = () => {
               Lợi nhuận
             </Grid>
             <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
-              <Typography variant="subtitle1" sx={{ color: 'primary.main' }}>
+              <Typography variant='subtitle1' sx={{ color: 'primary.main' }}>
                 (31.7%) 304.551
               </Typography>
             </Grid>
@@ -140,7 +138,7 @@ const Info = () => {
             </Grid>
             <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
               <ProMenu
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Tạo phiếu thu tiền mặt',
@@ -154,10 +152,7 @@ const Info = () => {
                   },
                 ]}
               >
-                <ActionButton
-                  variant="outlined"
-                  sx={{ padding: 0, marginRight: 1 }}
-                >
+                <ActionButton variant='outlined' sx={{ padding: 0, marginRight: 1 }}>
                   +
                   <ExpandMoreIcon />
                 </ActionButton>
@@ -193,12 +188,12 @@ const Info = () => {
               Linh kiện sài gòn
             </Box>
             <Grid container>
-              <Grid item xs={12} md={6} container alignItems="center">
+              <Grid item xs={12} md={6} container alignItems='center'>
                 Thu ngân
               </Grid>
               <Grid item xs={12} md={6}>
-                <Typography variant="subtitle2">Hòa SG</Typography>
-                <Typography variant="subtitle2">14:39 03/02</Typography>
+                <Typography variant='subtitle2'>Hòa SG</Typography>
+                <Typography variant='subtitle2'>14:39 03/02</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -209,11 +204,7 @@ const Info = () => {
             marginBottom: '10px',
           }}
         >
-          <Grid
-            container
-            justifyContent="space-between"
-            sx={{ padding: '10px 15px' }}
-          >
+          <Grid container justifyContent='space-between' sx={{ padding: '10px 15px' }}>
             <Grid item>
               <Box sx={{ display: 'flex' }}>
                 <PrintIcon />
@@ -262,11 +253,7 @@ const Info = () => {
             marginBottom: '10px',
           }}
         >
-          <Grid
-            container
-            justifyContent="space-between"
-            sx={{ padding: '10px 15px' }}
-          >
+          <Grid container justifyContent='space-between' sx={{ padding: '10px 15px' }}>
             <Grid item>
               <Box sx={{ display: 'flex' }}>
                 <RestoreIcon />
@@ -289,7 +276,7 @@ const Info = () => {
             <Grid container>
               <Grid item xs={12} md={6}>
                 <Stack direction={'column'}>
-                  <Link href="#" color="info">
+                  <Link href='#' color='info'>
                     Phạm Thị Hồng Nhung
                   </Link>
                   14:39 03/02
@@ -297,12 +284,12 @@ const Info = () => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack direction={'column'} spacing={0}>
-                  <Link href="#" color="info">
+                  <Link href='#' color='info'>
                     Chuyển trạng thái 1
                   </Link>
                   <Box>
                     ID hóa đơn:{' '}
-                    <Link href="#" color="info">
+                    <Link href='#' color='info'>
                       1231312
                     </Link>
                   </Box>

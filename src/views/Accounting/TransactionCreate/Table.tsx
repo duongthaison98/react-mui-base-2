@@ -1,8 +1,8 @@
 import { Box } from '@mui/system';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-// import Selection from 'components/ProTable/components/Selection';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+// import Selection from '@/components/ProTable/components/Selection';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 
 const columnHelper = getColumnHelper<any>();

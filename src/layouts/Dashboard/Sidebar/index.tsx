@@ -1,3 +1,8 @@
+import Scrollbar from '@/components/Scrollbar';
+import { MINI_SIDEBAR_WIDTH, SIDEBAR_WIDTH } from '@/constants/layouts';
+import useDerivedState from '@/hooks/useDerivedState';
+import usePrevious from '@/hooks/usePrevious';
+import type { MouseEvent } from '@/types/react';
 import type { SvgIconComponent } from '@mui/icons-material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -14,23 +19,18 @@ import type { ListItemProps } from '@mui/material/ListItem';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
-import { alpha, styled, Theme, useTheme } from '@mui/material/styles';
+import { alpha, styled, useTheme } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Scrollbar from 'components/Scrollbar';
-import { MINI_SIDEBAR_WIDTH, SIDEBAR_WIDTH } from 'constants/layouts';
-import useDerivedState from 'hooks/useDerivedState';
-import usePrevious from 'hooks/usePrevious';
 import type { FC, ReactNode } from 'react';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
-import type { MouseEvent } from 'types/react';
 import Logo from './Logo';
-import Profile from './Profile';
 import type { SectionItem } from './Sections';
 import Sections from './Sections';
 import SubMenu from './SubMenu';
+import CloseIcon from '@mui/icons-material/Close';
 
 export const CollapseContext = createContext<boolean | null>(null);
 export const SidebarContext = createContext<boolean | null>(null);
@@ -60,18 +60,20 @@ const Sidebar = (props: Props) => {
   if (lgUp) {
     return (
       <CollapsibleDrawer
-        anchor="right"
-        variant="permanent"
+        anchor='left'
+        variant='permanent'
         collapsed={collapsed}
         onClose={onToggleCollapsed}
       >
         <SidebarContext.Provider value={openSidebar}>
           <CollapseContext.Provider value={collapsed}>
             <Scrollbar>
-              <Box sx={{
-                borderBottom: 'thin solid #E6E8F0',
-                height: '64px'
-              }}>
+              <Box
+                sx={{
+                  borderBottom: 'thin solid #E6E8F0',
+                  height: '64px',
+                }}
+              >
                 <Logo />
               </Box>
               {sections.map((section, i) => (
@@ -86,8 +88,8 @@ const Sidebar = (props: Props) => {
 
   return (
     <Drawer
-      anchor="left"
-      variant="temporary"
+      anchor='left'
+      variant='temporary'
       open={collapsed}
       onClose={onToggleCollapsed}
       sx={{
@@ -98,8 +100,24 @@ const Sidebar = (props: Props) => {
       <SidebarContext.Provider value={openSidebar}>
         <CollapseContext.Provider value={false}>
           <Scrollbar sx={{ height: 1 }}>
-            <Logo />
-            {/* <Profile /> */}
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Logo />
+              <IconButton
+                onClick={onToggleCollapsed}
+                edge="start"
+                sx={{
+                  color: '#000',
+                  borderRadius: '4px',
+                  width: '36px',
+                  height: '36px',
+                  fontSize: '1rem',
+                  // backgroundColor: '#f0f0f0',
+                  marginRight: '12px'
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
             <Divider sx={{ mb: 1.5 }} />
             {sections.map((section, i) => (
               <MenuSection key={i} pathname={pathname} {...section} />
@@ -169,12 +187,8 @@ const MenuItems = (props: MenuItemsProps) => {
               title={title}
               match={partialMatch}
             >
-              <MenuItems
-                items={children}
-                pathname={pathname}
-                level={level + 1}
-              />
-            </MenuItem>
+              <MenuItems items={children} pathname={pathname} level={level + 1} />
+            </MenuItem>,
           );
         } else {
           acc.push(
@@ -186,7 +200,7 @@ const MenuItems = (props: MenuItemsProps) => {
               key={key}
               path={path}
               title={title}
-            />
+            />,
           );
         }
         return acc;
@@ -259,14 +273,14 @@ const MenuItem: FC<MenuItemProps> = (props) => {
           flexDirection: 'column',
           justifyContent: 'flex-start',
           alignItems: 'flex-start',
-          height: '53px'
+          height: '53px',
         }}
         {...other}
       >
-        <Tooltip title={title} placement="right">
+        <Tooltip title={title} placement='right'>
           <IconButton
             onClick={children ? handleOpenSubMenu : void 0}
-            size="medium"
+            size='medium'
             {...(!children &&
               path && {
                 component: RouterLink,
@@ -280,11 +294,11 @@ const MenuItem: FC<MenuItemProps> = (props) => {
               ...(active && {
                 color: 'info.main',
                 bgcolor: alpha('#FFFFFF', 0.08),
-              })
+              }),
             }}
           >
             {Info && Icon ? (
-              <Badge color="secondary" variant="dot">
+              <Badge color='secondary' variant='dot'>
                 <Icon />
               </Badge>
             ) : (
@@ -292,11 +306,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
             )}
           </IconButton>
         </Tooltip>
-        <SubMenu
-          anchor={anchor}
-          handleClose={handleCloseSubMenu}
-          open={Boolean(anchor)}
-        >
+        <SubMenu anchor={anchor} handleClose={handleCloseSubMenu} open={Boolean(anchor)}>
           {children}
         </SubMenu>
       </ListItem>
@@ -322,8 +332,8 @@ const MenuItem: FC<MenuItemProps> = (props) => {
           endIcon={expanded ? <ChevronLeftIcon /> : <ExpandMoreIcon />}
           onClick={handleToggle}
           startIcon={Icon && <Icon />}
-          variant="text"
-          size="medium"
+          variant='text'
+          size='medium'
           fullWidth
           sx={{
             color: 'neutral.800',
@@ -339,14 +349,14 @@ const MenuItem: FC<MenuItemProps> = (props) => {
             }),
           }}
         >
-          <ListItemText 
-            primary={title} 
-            sx={{ 
-              whiteSpace: 'nowrap', 
+          <ListItemText
+            primary={title}
+            sx={{
+              whiteSpace: 'nowrap',
               '& .MuiTypography-root': {
-                fontSize: '14px'
-              }
-            }} 
+                fontSize: '14px',
+              },
+            }}
           />
           {Info && <Info />}
         </Button>
@@ -373,8 +383,8 @@ const MenuItem: FC<MenuItemProps> = (props) => {
       <Button
         startIcon={Icon && <Icon />}
         endIcon={chip}
-        variant="text"
-        size="medium"
+        variant='text'
+        size='medium'
         fullWidth
         sx={{
           color: 'neutral.800',
@@ -387,21 +397,21 @@ const MenuItem: FC<MenuItemProps> = (props) => {
             color: 'info.main',
             bgcolor: '#e6f4ff',
           }),
-          flexShrink: 0
+          flexShrink: 0,
         }}
         {...(path && {
           component: RouterLink,
           to: path,
         })}
       >
-        <ListItemText 
-          primary={title} 
-          sx={{ 
+        <ListItemText
+          primary={title}
+          sx={{
             '& .MuiTypography-root': {
-              whiteSpace: 'nowrap', 
-              fontSize: '14px'
+              whiteSpace: 'nowrap',
+              fontSize: '14px',
             },
-          }} 
+          }}
         />
         {Info && <Info />}
       </Button>
@@ -415,8 +425,10 @@ const CollapsibleDrawer = styled(Drawer, {
   [`& .${drawerClasses.paper}`]: {
     backgroundColor: theme.palette.common.white,
     borderRight: '1px solid #f0f0f0',
-    position: 'relative',
     color: theme.palette.common.black,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
     width: SIDEBAR_WIDTH,
     ...(collapsed && {
       width: MINI_SIDEBAR_WIDTH,
@@ -433,7 +445,20 @@ const CollapsibleDrawer = styled(Drawer, {
       }),
     })
   },
-  
+  ...(collapsed && {
+    width: MINI_SIDEBAR_WIDTH,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+  ...(!collapsed && {
+    width: SIDEBAR_WIDTH,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  })
 }));
 
 export default Sidebar;

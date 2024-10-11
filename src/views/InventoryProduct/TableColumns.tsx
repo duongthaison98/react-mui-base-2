@@ -1,11 +1,11 @@
-import Index from 'components/ProTable/components/Index';
-import Selection from 'components/ProTable/components/Selection';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import Index from '@/components/ProTable/components/Index';
+import Selection from '@/components/ProTable/components/Selection';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { Inventory, Product } from './utils/type';
-import Numeral from 'utils/Numeral';
-import ProductImage from 'components/ProductImage';
+import Numeral from '@/utils/Numeral';
+import ProductImage from '@/components/ProductImage';
 import { Link, Stack } from '@mui/material';
 
 const columnHelper = getColumnHelper<Inventory>();
@@ -51,12 +51,12 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { name, code } = context.getValue<Product>();
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               {name}
               <Link
-                href="https://www.google.com.vn/?hl=vi"
-                underline="none"
-                target="_blank"
+                href='https://www.google.com.vn/?hl=vi'
+                underline='none'
+                target='_blank'
                 color={'#007bff'}
               >
                 {code}

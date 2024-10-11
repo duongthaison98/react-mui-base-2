@@ -1,11 +1,11 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useCallback, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
@@ -324,8 +324,7 @@ const InventoryTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(data.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [rowIds, setRowIds] = useState<number[]>([]);
 
   const [, setEditRowId] = useState<number | null>(null);
@@ -353,13 +352,13 @@ const InventoryTable = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Kế toán">
+      <PageWrapper title='Kế toán'>
         <PageBreadcrumbs
-          title="Thu chi"
+          title='Thu chi'
           items={[{ link: '/accounting/transaction/index', text: 'Kế toán' }]}
         />
         <ProTable<Cash>
-          title="Danh sách giao dịch"
+          title='Danh sách giao dịch'
           loading={loading}
           columns={columns}
           data={data}
@@ -376,12 +375,12 @@ const InventoryTable = () => {
           filter={<FiltersForm ref={filtersRef} onSearch={onSearch} />}
           toolBar={
             <Fragment>
-              <ActionButton variant="text" onClick={handleResetFilters}>
+              <ActionButton variant='text' onClick={handleResetFilters}>
                 Xóa bộ lọc
               </ActionButton>
 
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Xuất Excel',
@@ -398,7 +397,7 @@ const InventoryTable = () => {
                   },
                 ]}
               >
-                <ActionButton color="info">Thao tác</ActionButton>
+                <ActionButton color='info'>Thao tác</ActionButton>
               </ProMenu>
             </Fragment>
           }

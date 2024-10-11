@@ -1,9 +1,9 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import Index from 'components/ProTable/components/Index';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import Index from '@/components/ProTable/components/Index';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { DebtSupplier } from './utils/type';
 
@@ -170,7 +170,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Lập phiếu thu',
@@ -184,7 +184,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

@@ -1,18 +1,18 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
 import { forwardRef, useImperativeHandle } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import type { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import type { FilterParams } from './utils/filters';
-import DateTime from 'utils/DateTime';
-import ProFormAutocomplete from 'components/ProForm/Label/ProFormAutocomplete';
+import DateTime from '@/utils/DateTime';
+import ProFormAutocomplete from '@/components/ProForm/Label/ProFormAutocomplete';
 
 interface FilterValues {
   store: number;
@@ -51,13 +51,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
   });
 
   const handleSubmit = (values: FilterValues) => {
-    const {
-      expireStartDate,
-      expireEndDate,
-      createStartDate,
-      createEndDate,
-      ...rest
-    } = values;
+    const { expireStartDate, expireEndDate, createStartDate, createEndDate, ...rest } = values;
 
     onSearch({
       ...rest,
@@ -86,7 +80,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3} lg={1.5}>
           <ProFormSelect
-            name="store"
+            name='store'
             placeholder={t('Cửa hàng')}
             options={[
               { value: 0, label: '-Cửa hàng-' },
@@ -96,7 +90,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={1.5}>
           <ProFormSelect
-            name="inventoryType"
+            name='inventoryType'
             placeholder={t('Kiểu kho')}
             options={[
               { value: 0, label: '-Kiểu kho-' },
@@ -106,22 +100,14 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.5}>
-          <ProDateRange
-            label="Hết hạn"
-            from="expireStartDate"
-            to="expireEndDate"
-          />
+          <ProDateRange label='Hết hạn' from='expireStartDate' to='expireEndDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.5}>
-          <ProDateRange
-            label="Ngày tạo"
-            from="createStartDate"
-            to="createEndDate"
-          />
+          <ProDateRange label='Ngày tạo' from='createStartDate' to='createEndDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={1.5}>
           <ProFormAutocomplete
-            name="city"
+            name='city'
             placeholder={t('Thành phố')}
             options={[
               { value: 1, label: 'Hà Nội' },
@@ -133,7 +119,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={1.5}>
           <ProFormAutocomplete
-            name="distric"
+            name='distric'
             placeholder={t('Quận huyện')}
             options={[
               { value: 1, label: 'Thanh Xuân' },
@@ -144,7 +130,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={2} lg={0.5}>
-          <Button type="submit" size="medium">
+          <Button type='submit' size='medium'>
             Lọc
           </Button>
         </Grid>

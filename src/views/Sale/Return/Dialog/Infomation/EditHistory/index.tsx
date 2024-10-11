@@ -1,8 +1,8 @@
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useState } from 'react';
 // import { useTranslation } from 'react-i18next';
-// import { Product } from 'types/products';
+// import { Product } from '@/types/products';
 import Box from '@mui/material/Box';
 import useTableColumns from './TableColumns';
 
@@ -158,7 +158,7 @@ const EditHistory = () => {
     <>
       <Box sx={{ height: '500px' }}>
         <ProTable<any>
-          title="Danh sách"
+          title='Danh sách'
           loading={loading}
           columns={columns}
           data={banners}

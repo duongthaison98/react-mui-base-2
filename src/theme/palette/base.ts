@@ -21,6 +21,25 @@ const base: ThemeOptions = {
         variant: 'outlined',
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          "& .MuiInputBase-input": {
+            fontSize: 14,
+            fontWeight: 400,
+            minHeight: '1.4375em',
+            height: 'auto'
+          }
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontWeight: 400
+        }
+      },
+    },
     MuiSelect: {
       defaultProps: {
         size: 'small',

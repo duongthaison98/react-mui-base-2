@@ -1,5 +1,5 @@
-import Index from 'components/ProTable/components/Index';
-import { ProColumn } from 'components/ProTable/types';
+import Index from '@/components/ProTable/components/Index';
+import { ProColumn } from '@/components/ProTable/types';
 import { useMemo } from 'react';
 
 interface Props {

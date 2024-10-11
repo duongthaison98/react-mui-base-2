@@ -9,7 +9,7 @@ interface Props {
 }
 
 const PageWrapper = (props: Props) => {
-  const { title = 'VSHIP', children } = props;
+  const { title, children } = props;
 
   return (
     <Fragment>

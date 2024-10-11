@@ -1,13 +1,13 @@
-import Selection from 'components/ProTable/components/Selection';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import Selection from '@/components/ProTable/components/Selection';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { Link } from '@mui/material';
 import { SupplierProduct } from './utils/type';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import useDialog from 'hooks/useDialog';
+import useDialog from '@/hooks/useDialog';
 
 const columnHelper = getColumnHelper<SupplierProduct>();
 
@@ -39,9 +39,9 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <Link
-              href="https://www.google.com.vn/?hl=vi"
-              underline="none"
-              target="_blank"
+              href='https://www.google.com.vn/?hl=vi'
+              underline='none'
+              target='_blank'
               color={'#007bff'}
             >
               {context.getValue()}
@@ -60,9 +60,9 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <Link
-              href="https://www.google.com.vn/?hl=vi"
-              underline="none"
-              target="_blank"
+              href='https://www.google.com.vn/?hl=vi'
+              underline='none'
+              target='_blank'
               color={'#007bff'}
             >
               {context.getValue()}
@@ -81,9 +81,9 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <Link
-              href="https://www.google.com.vn/?hl=vi"
-              underline="none"
-              target="_blank"
+              href='https://www.google.com.vn/?hl=vi'
+              underline='none'
+              target='_blank'
               color={'#007bff'}
             >
               {context.getValue()}
@@ -102,9 +102,9 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <Link
-              href="https://www.google.com.vn/?hl=vi"
-              underline="none"
-              target="_blank"
+              href='https://www.google.com.vn/?hl=vi'
+              underline='none'
+              target='_blank'
               color={'#007bff'}
             >
               {context.getValue()}
@@ -159,7 +159,7 @@ const useTableColumns = (props: Props) => {
           };
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Sửa',
@@ -174,7 +174,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

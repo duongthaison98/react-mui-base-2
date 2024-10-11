@@ -2,26 +2,19 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import InfoIcon from '@mui/icons-material/Info';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
-import {
-  Box,
-  Divider,
-  Grid,
-  InputAdornment,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Box, Divider, Grid, InputAdornment, Stack, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormContent from 'components/ProForm/ProFormContent';
-import ProFormLabel from 'components/ProForm/ProFormLabel';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormContent from '@/components/ProForm/ProFormContent';
+import ProFormLabel from '@/components/ProForm/ProFormLabel';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import AddNewSupplier from './AddNewSupplier';
 import EditOtherTable from './EditOtherTable';
 import { IImportExport } from './utils/types';
@@ -68,72 +61,54 @@ const ImportBill = () => {
             marginTop: '10px',
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            gridTemplateAreas:
-              '"left right" "mid mid" "bot bot" "divider divider" "note note"',
+            gridTemplateAreas: '"left right" "mid mid" "bot bot" "divider divider" "note note"',
             columnGap: '20px',
             rowGap: '10px',
           }}
         >
-          <Stack
-            direction={'column'}
-            sx={{ gridArea: 'left', minHeight: '100%' }}
-          >
+          <Stack direction={'column'} sx={{ gridArea: 'left', minHeight: '100%' }}>
             <ProFormContent sx={{ minHeight: '100%' }}>
               <Paper sx={{ p: 2, minHeight: '100%' }}>
                 <Box sx={{ p: 1, display: 'flex', alignItems: 'center' }}>
                   <InfoIcon />
-                  <Typography
-                    variant="body1"
-                    sx={{ fontWeight: 'medium', marginLeft: '4px' }}
-                  >
+                  <Typography variant='body1' sx={{ fontWeight: 'medium', marginLeft: '4px' }}>
                     {'Thông tin'}
                   </Typography>
                 </Box>
                 <Divider />
                 <Grid container spacing={2} marginTop={1} marginBottom={1}>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Loại nhập hàng'} name="abc" />
+                    <ProFormLabel title={'Loại nhập hàng'} name='abc' />
                     <ProFormSelect
-                      name="abc"
+                      name='abc'
                       options={[{ value: 1, label: '123' }]}
                       placeholder={'Loại nhập hàng'}
                     />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Kho hàng'} name="warehouse" />
+                    <ProFormLabel title={'Kho hàng'} name='warehouse' />
                     <ProFormSelect
-                      name="warehouse"
+                      name='warehouse'
                       options={[{ value: 1, label: '1234234234ss' }]}
                       placeholder={'Kho hàng'}
                     />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Khách hàng'} name="khachhang" />
-                    <ProFormTextField
-                      name="khachhang"
-                      placeholder={'Khách hàng'}
-                    />
+                    <ProFormLabel title={'Khách hàng'} name='khachhang' />
+                    <ProFormTextField name='khachhang' placeholder={'Khách hàng'} />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Số điện thoại'} name="sdt" />
-                    <ProFormTextField
-                      name="sdt"
-                      placeholder={'Số điện thoại'}
-                    />
+                    <ProFormLabel title={'Số điện thoại'} name='sdt' />
+                    <ProFormTextField name='sdt' placeholder={'Số điện thoại'} />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Ghi chú'} name="note" />
-                    <ProFormTextField
-                      name="note"
-                      placeholder={'Ghi chú'}
-                      rows={4}
-                      multiline
-                    />
+                    <ProFormLabel title={'Ghi chú'} name='note' />
+                    <ProFormTextField name='note' placeholder={'Ghi chú'} rows={4} multiline />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Nhãn'} name="hgf" />
+                    <ProFormLabel title={'Nhãn'} name='hgf' />
                     <ProFormSelect
-                      name="hgf"
+                      name='hgf'
                       options={[{ value: 1, label: '123' }]}
                       placeholder={'Nhãn'}
                     />
@@ -154,10 +129,7 @@ const ImportBill = () => {
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <CreditCardIcon />
-                    <Typography
-                      variant="body1"
-                      sx={{ fontWeight: 'medium', marginLeft: '4px' }}
-                    >
+                    <Typography variant='body1' sx={{ fontWeight: 'medium', marginLeft: '4px' }}>
                       {'Thanh toán'}
                     </Typography>
                   </Box>
@@ -165,16 +137,13 @@ const ImportBill = () => {
                 <Divider />
                 <Grid container spacing={2} marginTop={1} marginBottom={1}>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel
-                      title={'Tiền trả khách'}
-                      name="tientrakhach"
-                    />
+                    <ProFormLabel title={'Tiền trả khách'} name='tientrakhach' />
                     <ProFormTextField
-                      name="tientrakhach"
-                      placeholder=""
+                      name='tientrakhach'
+                      placeholder=''
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <LocalAtmIcon />
                           </InputAdornment>
                         ),
@@ -182,21 +151,21 @@ const ImportBill = () => {
                     />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Tài khoản'} name="taikhoan" />
+                    <ProFormLabel title={'Tài khoản'} name='taikhoan' />
                     <ProFormSelect
-                      name="taikhoan"
+                      name='taikhoan'
                       options={[{ value: 1, label: '123' }]}
                       placeholder={'Tài khoản'}
                     />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Chuyển khoản'} name="chuyenkhoan" />
+                    <ProFormLabel title={'Chuyển khoản'} name='chuyenkhoan' />
                     <ProFormTextField
-                      name="chuyenkhoan"
-                      placeholder="Số tiền"
+                      name='chuyenkhoan'
+                      placeholder='Số tiền'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <LocalAtmIcon />
                           </InputAdornment>
                         ),
@@ -204,9 +173,9 @@ const ImportBill = () => {
                     />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Tài khoản'} name="taikhoan2" />
+                    <ProFormLabel title={'Tài khoản'} name='taikhoan2' />
                     <ProFormSelect
-                      name="taikhoan2"
+                      name='taikhoan2'
                       options={[{ value: 1, label: '123' }]}
                       placeholder={'Tài khoản'}
                     />
@@ -219,7 +188,7 @@ const ImportBill = () => {
             <Grid container spacing={2} marginBottom={2}>
               <Grid item xs={2} sm={2} md={2} lg={2}>
                 <ProFormSelect
-                  name="company"
+                  name='company'
                   placeholder={''}
                   options={[
                     { value: 1, label: 'Sản phẩm' },
@@ -229,14 +198,14 @@ const ImportBill = () => {
               </Grid>
               <Grid item xs={5} sm={5} md={5} lg={5}>
                 <ProFormTextField
-                  name="nhapsanpham"
+                  name='nhapsanpham'
                   placeholder={''}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={5} sm={5} md={5} lg={5}>
                 <ProFormTextField
-                  name="nhapIMEI"
+                  name='nhapIMEI'
                   placeholder={'Nhập IMEI'}
                   InputLabelProps={{ shrink: true }}
                 />
@@ -244,24 +213,17 @@ const ImportBill = () => {
             </Grid>
             <EditOtherTable />
           </Box>
-          <Stack
-            direction="column"
-            spacing={2}
-            sx={{ gridArea: 'bot', marginTop: '40px' }}
-          >
+          <Stack direction='column' spacing={2} sx={{ gridArea: 'bot', marginTop: '40px' }}>
             <Box sx={{ p: 2 }}>
-              <Stack direction="row" spacing={1}>
-                <ActionButton actionType="save" type="submit">
+              <Stack direction='row' spacing={1}>
+                <ActionButton actionType='save' type='submit'>
                   Lưu
                 </ActionButton>
               </Stack>
             </Box>
           </Stack>
           {isOpenDialogInfo ? (
-            <AddNewSupplier
-              open={isOpenDialogInfo}
-              onClose={handleToggleDialog}
-            />
+            <AddNewSupplier open={isOpenDialogInfo} onClose={handleToggleDialog} />
           ) : null}
         </div>
       </ProForm>

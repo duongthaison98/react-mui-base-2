@@ -1,5 +1,5 @@
-import type { NotificationContextValue } from 'contexts/Notification';
-import { NotificationContext } from 'contexts/Notification';
+import type { NotificationContextValue } from '@/contexts/Notification';
+import { NotificationContext } from '@/contexts/Notification';
 import { useContext } from 'react';
 
 const useNotification = (): NotificationContextValue => {

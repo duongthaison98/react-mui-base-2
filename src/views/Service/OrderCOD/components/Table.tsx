@@ -1,8 +1,8 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useRef, useState } from 'react';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import useFilters from '../utils/filters';
 import { IOrderCODTypes } from '../utils/types';
 import FiltersForm from './FiltersForm';
@@ -65,8 +65,7 @@ const OrderTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -82,7 +81,7 @@ const OrderTable = () => {
   });
   return (
     <ProTable<IOrderCODTypes>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={banners}
@@ -104,7 +103,7 @@ const OrderTable = () => {
         />
       }
       toolBar={
-        <ActionButton iconPosition="end" actionType="upload" color="info">
+        <ActionButton iconPosition='end' actionType='upload' color='info'>
           Xuất Excel
         </ActionButton>
       }

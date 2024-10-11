@@ -1,8 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ProForm from 'components/ProForm';
-import Validation from 'utils/Validation';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ProForm from '@/components/ProForm';
+import Validation from '@/utils/Validation';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { AddSupplier } from './utils/types';
@@ -19,11 +19,11 @@ import {
 import HomeIcon from '@mui/icons-material/Home';
 import KeyIcon from '@mui/icons-material/Key';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import ProFormContent from 'components/ProForm/ProFormContent';
+import ProFormContent from '@/components/ProForm/ProFormContent';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import ActionButton from 'components/ProButton/ActionButton';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import ActionButton from '@/components/ProButton/ActionButton';
 import PrintIcon from '@mui/icons-material/Print';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -58,9 +58,9 @@ const AddSupplierTable = () => {
   };
 
   return (
-    <PageWrapper title="Thêm nhà cung cấp">
+    <PageWrapper title='Thêm nhà cung cấp'>
       <PageBreadcrumbs
-        title="Thêm phiếu cung cấp"
+        title='Thêm phiếu cung cấp'
         items={[{ link: '/products/supplier', text: 'Danh sách nhà cung cấp' }]}
       />
       <ProForm form={form} onFinish={handleSubmit}>
@@ -78,14 +78,14 @@ const AddSupplierTable = () => {
                 >
                   <Stack sx={{ alignItems: 'center' }}>
                     <ErrorOutlineIcon />
-                    <Typography variant="body1" sx={{ fontWeight: 'medium' }}>
+                    <Typography variant='body1' sx={{ fontWeight: 'medium' }}>
                       {'Thông tin'}
                     </Typography>
                   </Stack>
                   <Box sx={{ maxWidth: '30%' }}>
                     <ProFormSelect
-                      name="status"
-                      placeholder="Trạng thái"
+                      name='status'
+                      placeholder='Trạng thái'
                       options={[
                         { value: 1, label: 'Đang giao dịch' },
                         { value: 2, label: 'Ngừng giao dịch' },
@@ -99,11 +99,11 @@ const AddSupplierTable = () => {
                 <Grid container spacing={2} sx={{ mt: 2 }}>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormTextField
-                      name="name"
-                      placeholder="Tên *"
+                      name='name'
+                      placeholder='Tên *'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <HomeIcon />
                           </InputAdornment>
                         ),
@@ -112,11 +112,11 @@ const AddSupplierTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormTextField
-                      name="code"
-                      placeholder="Mã"
+                      name='code'
+                      placeholder='Mã'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <KeyIcon />
                           </InputAdornment>
                         ),
@@ -125,11 +125,11 @@ const AddSupplierTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormTextField
-                      name="phone"
-                      placeholder="Điện thoại *"
+                      name='phone'
+                      placeholder='Điện thoại *'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <LocalPhoneIcon />
                           </InputAdornment>
                         ),
@@ -138,11 +138,11 @@ const AddSupplierTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormTextField
-                      name="email"
-                      placeholder="Email"
+                      name='email'
+                      placeholder='Email'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <EmailIcon />
                           </InputAdornment>
                         ),
@@ -151,11 +151,11 @@ const AddSupplierTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormTextField
-                      name="address"
-                      placeholder="Địa chỉ"
+                      name='address'
+                      placeholder='Địa chỉ'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <LocationOnIcon />
                           </InputAdornment>
                         ),
@@ -164,11 +164,11 @@ const AddSupplierTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormTextField
-                      name="taxCode"
-                      placeholder="Mã số thuế"
+                      name='taxCode'
+                      placeholder='Mã số thuế'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <KeyIcon />
                           </InputAdornment>
                         ),
@@ -177,8 +177,8 @@ const AddSupplierTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormSelect
-                      name="object"
-                      placeholder="Đối tượng"
+                      name='object'
+                      placeholder='Đối tượng'
                       options={[
                         { value: 1, label: 'Trung Quốc' },
                         { value: 2, label: 'Việt Nam' },
@@ -189,11 +189,11 @@ const AddSupplierTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormTextField
-                      name="identityNumber"
-                      placeholder="Số CMND"
+                      name='identityNumber'
+                      placeholder='Số CMND'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <BadgeIcon />
                           </InputAdornment>
                         ),
@@ -207,9 +207,9 @@ const AddSupplierTable = () => {
         </ProFormContent>
         <Stack spacing={2} mt={2}>
           <ActionButton
-            actionType="save"
-            variant="contained"
-            type="submit"
+            actionType='save'
+            variant='contained'
+            type='submit'
             sx={{ backgroundColor: '#4CAF50 ' }}
           >
             Lưu

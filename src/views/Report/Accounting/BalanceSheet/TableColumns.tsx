@@ -1,5 +1,5 @@
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { Box, Typography } from '@mui/material';
 import type { BalanceSheet, Value } from './utils/type';
@@ -31,7 +31,7 @@ const useTableColumns = (props: Props) => {
           const rowIndex = context.row.index;
           if ([0, 25, 59, 89, 105, 106].includes(rowIndex)) {
             return (
-              <Typography variant="subtitle1" fontWeight="600">
+              <Typography variant='subtitle1' fontWeight='600'>
                 {context.getValue()}
               </Typography>
             );
@@ -69,9 +69,9 @@ const useTableColumns = (props: Props) => {
             return;
           }
           if (rowValue?.type === 'negative') {
-            return <Box color="red">{rowValue?.value}</Box>;
+            return <Box color='red'>{rowValue?.value}</Box>;
           } else {
-            return <Box color="#4CAF50">{rowValue?.value}</Box>;
+            return <Box color='#4CAF50'>{rowValue?.value}</Box>;
           }
         },
         meta: {
@@ -89,9 +89,9 @@ const useTableColumns = (props: Props) => {
             return;
           }
           if (rowValue?.type === 'negative') {
-            return <Box color="red">{rowValue?.value}</Box>;
+            return <Box color='red'>{rowValue?.value}</Box>;
           } else {
-            return <Box color="#4CAF50">{rowValue?.value}</Box>;
+            return <Box color='#4CAF50'>{rowValue?.value}</Box>;
           }
         },
         meta: {

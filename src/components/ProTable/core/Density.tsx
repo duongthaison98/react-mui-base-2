@@ -1,7 +1,7 @@
 import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import ProMenu from 'components/ProMenu';
+import ProMenu from '@/components/ProMenu';
 import type { DensitySeverity } from '../types';
 
 interface Props {
@@ -21,11 +21,11 @@ const Density = (props: Props) => {
       ]}
       selected={selected}
       onSelect={onChange}
-      position="left"
+      position='left'
     >
-      <Tooltip title="Mật độ hiển thị">
+      <Tooltip title='Mật độ hiển thị'>
         <IconButton>
-          <CalendarViewDayIcon fontSize="medium" />
+          <CalendarViewDayIcon fontSize='medium' />
         </IconButton>
       </Tooltip>
     </ProMenu>

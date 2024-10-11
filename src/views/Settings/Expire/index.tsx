@@ -1,11 +1,11 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useCallback, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import EditNote from './components/EditNote';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
@@ -81,8 +81,7 @@ const ExpireTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(data.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [, setEditRowId] = useState<number | null>(null);
   const [value, setValue] = useState<string>('');
   const [openEditNote, setEditNote] = useState<boolean>(false);
@@ -109,13 +108,10 @@ const ExpireTable = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Cửa hàng">
-        <PageBreadcrumbs
-          title="Cửa hàng"
-          items={[{ link: '/setting/expire', text: 'Cài đặt' }]}
-        />
+      <PageWrapper title='Cửa hàng'>
+        <PageBreadcrumbs title='Cửa hàng' items={[{ link: '/setting/expire', text: 'Cài đặt' }]} />
         <ProTable<Expire>
-          title="Danh sách sản phẩm"
+          title='Danh sách sản phẩm'
           loading={loading}
           columns={columns}
           data={data}
@@ -137,7 +133,7 @@ const ExpireTable = () => {
           toolBar={
             <Fragment>
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Xuất Toàn Bộ',
@@ -147,7 +143,7 @@ const ExpireTable = () => {
                   },
                 ]}
               >
-                <ActionButton color="info">Thao tác</ActionButton>
+                <ActionButton color='info'>Thao tác</ActionButton>
               </ProMenu>
             </Fragment>
           }

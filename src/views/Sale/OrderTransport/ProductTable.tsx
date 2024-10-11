@@ -1,10 +1,10 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-import { IRetail } from 'types/retail';
+import type { FiltersRef } from '@/types/refs';
+import { IRetail } from '@/types/retail';
 import CreateDialog from './Dialog/Create';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
@@ -67,8 +67,7 @@ const ProductTable = () => {
   const filtersRef = useRef<FiltersRef>(null);
   const [isOpenDialogInfo, setOpenDialogInfo] = useState<boolean>(false);
   const [isOpenDialogCreate, setOpenDialogCreate] = useState<boolean>(false);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleSubmitFilters = () => {
     filtersRef.current?.submit();
@@ -88,7 +87,7 @@ const ProductTable = () => {
   return (
     <>
       <ProTable<IRetail>
-        title="Danh sách"
+        title='Danh sách'
         loading={loading}
         columns={columns}
         data={banners}
@@ -104,27 +103,16 @@ const ProductTable = () => {
         filter={<FiltersForm ref={filtersRef} onSearch={onSearch} />}
         toolBar={
           <Fragment>
-            <ActionButton
-              variant="contained"
-              actionType="add"
-              onClick={handleOpenCreateDialog}
-            >
+            <ActionButton variant='contained' actionType='add' onClick={handleOpenCreateDialog}>
               {t('Thêm mới')}
             </ActionButton>
-            <ActionButton
-              actionType="download"
-              variant="outlined"
-              onClick={handleSubmitFilters}
-            >
+            <ActionButton actionType='download' variant='outlined' onClick={handleSubmitFilters}>
               {t('Xuất file')}
             </ActionButton>
           </Fragment>
         }
       />
-      <CreateDialog
-        open={isOpenDialogCreate}
-        onClose={() => setOpenDialogCreate(false)}
-      />
+      <CreateDialog open={isOpenDialogCreate} onClose={() => setOpenDialogCreate(false)} />
     </>
   );
 };

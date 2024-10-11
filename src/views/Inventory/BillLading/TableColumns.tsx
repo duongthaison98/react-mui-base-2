@@ -1,11 +1,11 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { useMemo } from 'react';
 
 const columnHelper = getColumnHelper<any>();
@@ -118,7 +118,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Sửa',
@@ -127,7 +127,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

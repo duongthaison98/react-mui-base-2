@@ -1,12 +1,12 @@
 import { Typography } from '@mui/material';
-import Index from 'components/ProTable/components/Index';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import Index from '@/components/ProTable/components/Index';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { IOrderCODTypes } from '../utils/types';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import ProMenu from 'components/ProMenu';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
 
 interface Props {
   pageNumber: number;
@@ -36,7 +36,7 @@ const useTableColumns = (props: Props) => {
         size: 200,
         header: () => HEAD_CELLS.customer,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -50,7 +50,7 @@ const useTableColumns = (props: Props) => {
         size: 200,
         header: () => HEAD_CELLS.store,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -64,7 +64,7 @@ const useTableColumns = (props: Props) => {
         size: 200,
         header: () => HEAD_CELLS.transporter,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -78,7 +78,7 @@ const useTableColumns = (props: Props) => {
         size: 200,
         header: () => HEAD_CELLS.COD,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -92,7 +92,7 @@ const useTableColumns = (props: Props) => {
         size: 200,
         header: () => HEAD_CELLS.status,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -106,7 +106,7 @@ const useTableColumns = (props: Props) => {
         size: 200,
         header: () => HEAD_CELLS.totalPrice,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000' }}>
             {context.getValue()?.toLocaleString('it-IT', {
               style: 'currency',
               currency: 'VND',
@@ -126,7 +126,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Cập nhật trạng thái đơn COD',
@@ -155,7 +155,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

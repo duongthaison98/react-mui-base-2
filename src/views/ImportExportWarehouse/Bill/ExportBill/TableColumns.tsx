@@ -1,12 +1,12 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Box, Grid, Stack, TextField, Tooltip } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProMenu from 'components/ProMenu';
-import Index from 'components/ProTable/components/Index';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProMenu from '@/components/ProMenu';
+import Index from '@/components/ProTable/components/Index';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo, useState } from 'react';
 import { IImportExport } from './utils/types';
 
@@ -47,13 +47,11 @@ const useTableColumns = (props: Props) => {
           const rowIndex = context.row.index;
           return (
             <Stack direction={'column'} spacing={2}>
-              <Typography variant="body2">{context.getValue().code}</Typography>
-              <Typography variant="body2">
-                {context.getValue().code2}
-              </Typography>
-              <Typography variant="body2">{context.getValue().name}</Typography>
+              <Typography variant='body2'>{context.getValue().code}</Typography>
+              <Typography variant='body2'>{context.getValue().code2}</Typography>
+              <Typography variant='body2'>{context.getValue().name}</Typography>
               {checkNote.includes(rowIndex) ? (
-                <TextField placeholder="Ghi chú" size="small" />
+                <TextField placeholder='Ghi chú' size='small' />
               ) : null}
             </Stack>
           );
@@ -87,14 +85,14 @@ const useTableColumns = (props: Props) => {
         size: 150,
         header: () => (
           <>
-            <TextField placeholder="SL" size="small" />
-            <ActionIconButton actionType="arrowDown" />
+            <TextField placeholder='SL' size='small' />
+            <ActionIconButton actionType='arrowDown' />
           </>
         ),
         enableSorting: false,
         cell: (context) => (
           <Box>
-            <TextField size="small" />
+            <TextField size='small' />
           </Box>
         ),
         meta: {
@@ -116,14 +114,14 @@ const useTableColumns = (props: Props) => {
         size: 150,
         header: () => (
           <>
-            <TextField placeholder="Giá" size="small" />
-            <ActionIconButton actionType="arrowDown" />
+            <TextField placeholder='Giá' size='small' />
+            <ActionIconButton actionType='arrowDown' />
           </>
         ),
         enableSorting: false,
         cell: (context) => (
           <Box>
-            <TextField size="small" />
+            <TextField size='small' />
           </Box>
         ),
         meta: {
@@ -149,26 +147,26 @@ const useTableColumns = (props: Props) => {
             <Grid container>
               <Grid item xs={4} sm={4} md={4} lg={4}>
                 <ProFormSelect
-                  name="unit"
+                  name='unit'
                   options={[
                     { value: 1, label: '%' },
                     { value: 2, label: 'VND' },
                   ]}
-                  placeholder=""
+                  placeholder=''
                 />
               </Grid>
               <Grid item xs={6} sm={6} md={6} lg={6}>
-                <TextField size="small" />
+                <TextField size='small' />
               </Grid>
               <Grid item xs={2} sm={2} md={2} lg={2}>
-                <ActionIconButton actionType="arrowDown" />
+                <ActionIconButton actionType='arrowDown' />
               </Grid>
             </Grid>
           </Tooltip>
         ),
         cell: (context) => (
           <Box>
-            <TextField size="small" />
+            <TextField size='small' />
           </Box>
         ),
         meta: {
@@ -184,7 +182,7 @@ const useTableColumns = (props: Props) => {
           const rowIndex = context.row.index;
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Hiện ô nhập ghi chú',
@@ -201,7 +199,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

@@ -1,9 +1,9 @@
-import DialogContainer from 'components/ProDialog/DialogContainer';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
 import { forwardRef, useImperativeHandle, useState } from 'react';
-import { DialogRef } from 'types/refs';
-import DialogContent from 'components/ProDialog/DialogContent';
-import DialogFooter from 'components/ProDialog/DialogFooter';
-import DialogHeader from 'components/ProDialog/DialogHeader';
+import { DialogRef } from '@/types/refs';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
+import DialogHeader from '@/components/ProDialog/DialogHeader';
 import { Box, Button, Grid } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
@@ -35,7 +35,7 @@ const Dialog = forwardRef<DialogRef, Props>((props, ref) => {
   }));
 
   return (
-    <DialogContainer maxWidth="xl" open={open}>
+    <DialogContainer maxWidth='xl' open={open}>
       <DialogHeader title={'Chi Tiết Log'} />
       <DialogContent>
         <Box>
@@ -92,11 +92,7 @@ const Dialog = forwardRef<DialogRef, Props>((props, ref) => {
         </Box>
       </DialogContent>
       <DialogFooter>
-        <Button
-          variant="outlined"
-          startIcon={<CloseIcon />}
-          onClick={handleClose}
-        >
+        <Button variant='outlined' startIcon={<CloseIcon />} onClick={handleClose}>
           {'Hủy bỏ'}
         </Button>
       </DialogFooter>

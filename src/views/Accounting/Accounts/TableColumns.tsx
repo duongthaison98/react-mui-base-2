@@ -1,11 +1,11 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import Index from 'components/ProTable/components/Index';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import Index from '@/components/ProTable/components/Index';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { Fragment, useMemo } from 'react';
 import CheckIcon from '@mui/icons-material/Check';
 
@@ -65,21 +65,13 @@ const useTableColumns = (props: Props) => {
             header: () => HEAD_CELLS.name,
             cell: (context) => {
               return context.getValue() === '1' ? (
-                <Typography sx={{ marginLeft: '12px' }}>
-                  TM Trương Định
-                </Typography>
+                <Typography sx={{ marginLeft: '12px' }}>TM Trương Định</Typography>
               ) : context.getValue() === '2' ? (
-                <Typography sx={{ marginLeft: '24px' }}>
-                  TM Hồ Chí Minh
-                </Typography>
+                <Typography sx={{ marginLeft: '24px' }}>TM Hồ Chí Minh</Typography>
               ) : context.getValue() === '3' ? (
-                <Typography sx={{ marginLeft: '48px' }}>
-                  Tài khoản màn hình
-                </Typography>
+                <Typography sx={{ marginLeft: '48px' }}>Tài khoản màn hình</Typography>
               ) : (
-                <Typography sx={{ marginLeft: '96px' }}>
-                  Quỹ xe tải Thanh Hóa
-                </Typography>
+                <Typography sx={{ marginLeft: '96px' }}>Quỹ xe tải Thanh Hóa</Typography>
               );
             },
             meta: {
@@ -136,8 +128,7 @@ const useTableColumns = (props: Props) => {
               headline: 'Xác nhận xóa?',
               supportingText: (
                 <Fragment>
-                  Bạn có chắc chắn muốn xóa:{' '}
-                  <strong>{context.row.original.name}</strong>
+                  Bạn có chắc chắn muốn xóa: <strong>{context.row.original.name}</strong>
                 </Fragment>
               ),
               onConfirm: async () => {},
@@ -146,7 +137,7 @@ const useTableColumns = (props: Props) => {
 
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Thêm tài khoản',
@@ -166,7 +157,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

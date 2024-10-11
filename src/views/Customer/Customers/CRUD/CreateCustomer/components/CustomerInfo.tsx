@@ -1,15 +1,15 @@
 import PersonIcon from '@mui/icons-material/Person';
 import Grid from '@mui/material/Grid';
-import ProForm from 'components/ProForm';
-import ProFormContent from 'components/ProForm/ProFormContent';
-import ProFormDate from 'components/ProForm/ProFormDate';
-import ProFormHeader from 'components/ProForm/ProFormHeader';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
+import ProForm from '@/components/ProForm';
+import ProFormContent from '@/components/ProForm/ProFormContent';
+import ProFormDate from '@/components/ProForm/ProFormDate';
+import ProFormHeader from '@/components/ProForm/ProFormHeader';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
 import { UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { CustomerInfoType } from '../utils/type';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
 
 interface Props {
   form: UseFormReturn<CustomerInfoType>;
@@ -23,12 +23,7 @@ const CustomerInfo = (props: Props) => {
     <ProForm form={form}>
       <ProFormContent m={2}>
         <ProFormHeader>
-          <Grid
-            container
-            spacing={2}
-            alignItems="center"
-            justifyContent="center"
-          >
+          <Grid container spacing={2} alignItems='center' justifyContent='center'>
             <Grid item xs={12} sm={6} md={4} lg={8}>
               <div style={{ display: 'inline-flex', alignItems: 'center' }}>
                 <PersonIcon sx={{ marginRight: '8px' }} />
@@ -37,7 +32,7 @@ const CustomerInfo = (props: Props) => {
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <ProFormSelect
-                name="typeCustomer"
+                name='typeCustomer'
                 placeholder={t('Loại khách')}
                 options={[
                   { value: 1, label: 'Khách lẻ' },
@@ -50,10 +45,10 @@ const CustomerInfo = (props: Props) => {
             </Grid>
           </Grid>
         </ProFormHeader>
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
+        <Grid container spacing={2} alignItems='center' justifyContent='center'>
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormSelect
-              name="group"
+              name='group'
               placeholder={t('Nhóm khách hàng')}
               options={[
                 { value: 1, label: 'Tất cả' },
@@ -66,7 +61,7 @@ const CustomerInfo = (props: Props) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormSelect
-              name="province"
+              name='province'
               placeholder={t('Thành phố')}
               options={[
                 { value: 1, label: 'Hà Nội' },
@@ -79,7 +74,7 @@ const CustomerInfo = (props: Props) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormTextField
-              name="name"
+              name='name'
               placeholder={t('Họ tên')}
               InputLabelProps={{ shrink: true }}
             />
@@ -87,7 +82,7 @@ const CustomerInfo = (props: Props) => {
 
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormTextField
-              name="address"
+              name='address'
               placeholder={t('Địa chỉ')}
               InputLabelProps={{ shrink: true }}
             />
@@ -95,7 +90,7 @@ const CustomerInfo = (props: Props) => {
 
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormTextField
-              name="code"
+              name='code'
               placeholder={t('Mã khách hàng')}
               InputLabelProps={{ shrink: true }}
             />
@@ -103,19 +98,19 @@ const CustomerInfo = (props: Props) => {
 
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormTextField
-              name="phoneNumber"
+              name='phoneNumber'
               placeholder={t('Điện thoại')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
-            <ProFormDate name="birthDay" type="start" />
+            <ProFormDate name='birthDay' type='start' />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormSelect
-              name="gender"
+              name='gender'
               placeholder={t('Giới tính')}
               options={[
                 { value: 1, label: 'Nam' },
@@ -128,7 +123,7 @@ const CustomerInfo = (props: Props) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormSelect
-              name="sellers"
+              name='sellers'
               placeholder={t('NVPT')}
               options={[
                 { value: 1, label: 'A' },
@@ -142,21 +137,21 @@ const CustomerInfo = (props: Props) => {
 
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormTextField
-              name="debtLimit"
+              name='debtLimit'
               placeholder={t('Giới hạn công nợ')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormTextField
-              name="carer"
+              name='carer'
               placeholder={t('Người chăm sóc')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormSelect
-              name="debtClassification"
+              name='debtClassification'
               placeholder={t('Phân loại công nợ')}
               options={[
                 { value: 1, label: 'A' },
@@ -169,7 +164,7 @@ const CustomerInfo = (props: Props) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={5.5}>
             <ProFormCheckboxSelect
-              name="store"
+              name='store'
               placeholder={t('CHPT')}
               options={[
                 { value: 1, label: 'Hà Nội' },

@@ -6,12 +6,12 @@ import MenuItem from '@mui/material/MenuItem';
 import type { SelectProps } from '@mui/material/Select';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
-import PlaceHolder from 'components/ProForm/components/PlaceHolder';
-import useScrollbar from 'hooks/useScrollbar';
+import PlaceHolder from '@/components/ProForm/components/PlaceHolder';
+import useScrollbar from '@/hooks/useScrollbar';
 import { forwardRef, Fragment, useEffect } from 'react';
 import { useController, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import type { AnySchema } from 'yup';
 
 interface Option<T> {
@@ -36,9 +36,7 @@ export interface FormSelectProps<T extends string | number = number>
   validate?: AnySchema;
 }
 
-const ProFormSelect = <T extends string | number>(
-  props: FormSelectProps<T>
-) => {
+const ProFormSelect = <T extends string | number>(props: FormSelectProps<T>) => {
   const {
     name,
     label,
@@ -68,15 +66,12 @@ const ProFormSelect = <T extends string | number>(
     rules: { validate: Validation.validate(validate) },
   });
 
-  const entries = options.reduce<Record<string | number, Value<T>>>(
-    (acc, option, i) => {
-      const { value, label } = option;
-      const disabled = getOptionDisabled?.(option) || false;
-      acc[value] = { value, label, disabled, key: i };
-      return acc;
-    },
-    {}
-  );
+  const entries = options.reduce<Record<string | number, Value<T>>>((acc, option, i) => {
+    const { value, label } = option;
+    const disabled = getOptionDisabled?.(option) || false;
+    acc[value] = { value, label, disabled, key: i };
+    return acc;
+  }, {});
 
   // Rollback
   useEffect(() => {
@@ -119,21 +114,17 @@ const ProFormSelect = <T extends string | number>(
             {placeholder}
           </PlainMenuItem>
         )}
-        {!options.length && (
-          <PlainMenuItem value={-1}>{t('Không có lựa chọn')}</PlainMenuItem>
-        )}
+        {!options.length && <PlainMenuItem value={-1}>{t('Không có lựa chọn')}</PlainMenuItem>}
         {Object.keys(entries).map((valueKey) => {
           const { value, label, disabled, key } = entries[valueKey];
           return (
             <MenuItem key={key} value={value} disabled={disabled}>
-              <Typography variant="subtitle2">{label}</Typography>
+              <Typography variant='subtitle2'>{label}</Typography>
             </MenuItem>
           );
         })}
       </Select>
-      {error?.message && (
-        <FormHelperText variant="outlined">{t(error.message)}</FormHelperText>
-      )}
+      {error?.message && <FormHelperText variant='outlined'>{t(error.message)}</FormHelperText>}
     </FormControl>
   );
 };

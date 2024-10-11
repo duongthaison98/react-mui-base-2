@@ -1,19 +1,19 @@
-import type { ProTableSortingState } from 'components/ProTable/types';
-import { SORT_DIRECTION } from 'constants/common';
+import type { ProTableSortingState } from '@/components/ProTable/types';
+import { SORT_DIRECTION } from '@/constants/common';
 import { useState } from 'react';
-import type { PaginationParams } from 'types/common';
+import type { PaginationParams } from '@/types/common';
 // import { STATUS } from './constants';
 
 export interface FilterParams extends PaginationParams {
   id: number | null;
-  cardCode : string | null;
+  cardCode: string | null;
   name: string;
 }
 
 const useFilters = () => {
   const [filters, setFilters] = useState<FilterParams>({
-    id : null,
-    cardCode : null,
+    id: null,
+    cardCode: null,
     name: '',
     // status: STATUS.all,
 

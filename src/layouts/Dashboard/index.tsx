@@ -32,6 +32,8 @@ const DashboardLayout = () => {
           display: 'flex',
           flexDirection: 'column',
           minHeight: '100svh',
+          paddingTop: '64px',
+          overflow: 'hidden'
         }}
       >
         <Header
@@ -46,7 +48,6 @@ const DashboardLayout = () => {
         <Footer />
       </Box>
     </Box>
-
   );
 };
 

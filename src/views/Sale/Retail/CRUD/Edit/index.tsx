@@ -4,15 +4,15 @@ import TokenIcon from '@mui/icons-material/Token';
 import { Grid, TextField, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProForm from 'components/ProForm';
-import ProFormAutocomplete from 'components/ProForm/ProFormAutocomplete';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProForm from '@/components/ProForm';
+import ProFormAutocomplete from '@/components/ProForm/ProFormAutocomplete';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import ChangePriceDialog from './ChangePriceDialog';
 import Customer from './Customer';
 import Delivery from './Delivery';
@@ -32,16 +32,12 @@ const EditRetail = () => {
     defaultValues: schema.getDefault(),
   });
 
-  const [openDialogChangePrice, setOpenDialogChangePrice] =
-    useState<boolean>(false);
+  const [openDialogChangePrice, setOpenDialogChangePrice] = useState<boolean>(false);
 
   const handleSubmit = () => {};
   return (
     <PageWrapper title={t('Sửa hóa đơn')}>
-      <PageBreadcrumbs
-        title={t('Sửa hóa đơn')}
-        items={[{ link: '/products', text: 'Bán hàng' }]}
-      />
+      <PageBreadcrumbs title={t('Sửa hóa đơn')} items={[{ link: '/products', text: 'Bán hàng' }]} />
       <ProForm
         form={form}
         onFinish={handleSubmit}
@@ -50,11 +46,7 @@ const EditRetail = () => {
         <Grid container spacing={2} sx={{ paddingTop: '5px' }}>
           <Grid item xs={12} md={8} lg={8}>
             <Box sx={{ marginBottom: 1 }}>
-              <Typography
-                gutterBottom
-                variant="subtitle2"
-                sx={{ color: '#2196f3' }}
-              >
+              <Typography gutterBottom variant='subtitle2' sx={{ color: '#2196f3' }}>
                 Lịch sử mua hàng
               </Typography>
             </Box>
@@ -87,34 +79,22 @@ const EditRetail = () => {
                   }}
                 >
                   <Grid item xs={2}>
-                    <Typography
-                      gutterBottom
-                      variant="subtitle2"
-                      sx={{ color: 'primary.main' }}
-                    >
+                    <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
                       GHCN
                     </Typography>
                   </Grid>
                   <Grid item xs={4}>
-                    <Typography
-                      gutterBottom
-                      variant="subtitle2"
-                      sx={{ color: 'primary.main' }}
-                    >
+                    <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
                       Tổng: 3.700.00
                     </Typography>
                   </Grid>
                   <Grid item xs={2}>
-                    <Typography gutterBottom variant="subtitle2">
+                    <Typography gutterBottom variant='subtitle2'>
                       CN: 0
                     </Typography>
                   </Grid>
                   <Grid item xs={4}>
-                    <Typography
-                      gutterBottom
-                      variant="subtitle2"
-                      sx={{ color: 'primary.main' }}
-                    >
+                    <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
                       CN cuối: 3.700.00
                     </Typography>
                   </Grid>
@@ -138,8 +118,8 @@ const EditRetail = () => {
                 <Grid item xs={12} md={6} container spacing={1}>
                   <Grid item xs={12} md={4}>
                     <ProFormAutocomplete
-                      name="store"
-                      placeholder="Tìm sản phẩm"
+                      name='store'
+                      placeholder='Tìm sản phẩm'
                       options={[
                         { value: 1, label: 'Tìm sản phẩm' },
                         { value: 2, label: 'Bán theo ri' },
@@ -149,17 +129,13 @@ const EditRetail = () => {
                     />
                   </Grid>
                   <Grid item xs={12} md={8}>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      placeholder="Tìm sản phẩm"
-                    />
+                    <TextField id='outlined-basic' variant='outlined' placeholder='Tìm sản phẩm' />
                   </Grid>
                 </Grid>
                 <Grid item xs={12} md={2}>
                   <ProFormAutocomplete
-                    name="store"
-                    placeholder="Chọn bảng giá"
+                    name='store'
+                    placeholder='Chọn bảng giá'
                     options={[
                       { value: 1, label: 'Chọn bảng giá' },
                       { value: 2, label: 'SL1' },
@@ -195,17 +171,13 @@ const EditRetail = () => {
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               <ActionButton
                 sx={{ marginRight: 1 }}
-                iconPosition="start"
-                actionType="save"
-                color="success"
+                iconPosition='start'
+                actionType='save'
+                color='success'
               >
                 {t('Lưu hóa đơn')}
               </ActionButton>
-              <ActionButton
-                iconPosition="start"
-                actionType="print"
-                color="info"
-              >
+              <ActionButton iconPosition='start' actionType='print' color='info'>
                 {t('Lưu và in')}
               </ActionButton>
             </Box>

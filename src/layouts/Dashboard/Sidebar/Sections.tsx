@@ -10,8 +10,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
-import type { TFunction } from 'react-i18next';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import { TFunction } from 'i18next';
 export interface SectionItem {
   title: string;
   path: string;

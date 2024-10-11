@@ -1,8 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ProForm from 'components/ProForm';
-import Validation from 'utils/Validation';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ProForm from '@/components/ProForm';
+import Validation from '@/utils/Validation';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { AddCash } from './utils/types';
@@ -19,18 +19,18 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import ProFormContent from 'components/ProForm/ProFormContent';
+import ProFormContent from '@/components/ProForm/ProFormContent';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import ProFormDate from 'components/ProForm/ProFormDate';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import ProFormDate from '@/components/ProForm/ProFormDate';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
-import ActionButton from 'components/ProButton/ActionButton';
+import ActionButton from '@/components/ProButton/ActionButton';
 import PrintIcon from '@mui/icons-material/Print';
 import { useState } from 'react';
-import Numeral from 'utils/Numeral';
-import { PriceInput } from 'plugins/NumberFormat';
+import Numeral from '@/utils/Numeral';
+import { PriceInput } from '@/plugins/NumberFormat';
 
 const validationSchema = yup.object().shape({
   date: Validation.date().optional(),
@@ -56,16 +56,13 @@ const AddcashTable = () => {
     console.log(value);
   };
 
-  const handleChangeRaio = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: string
-  ) => {
+  const handleChangeRaio = (event: React.ChangeEvent<HTMLInputElement>, value: string) => {
     setRadioValue(value);
   };
   return (
-    <PageWrapper title="Thêm phiếu thu chi">
+    <PageWrapper title='Thêm phiếu thu chi'>
       <PageBreadcrumbs
-        title="Thêm phiếu thu chi"
+        title='Thêm phiếu thu chi'
         items={[{ link: '/accounting/cash', text: 'Thu chi' }]}
       />
       <ProForm form={form} onFinish={handleSubmit}>
@@ -75,18 +72,17 @@ const AddcashTable = () => {
               <Paper sx={{ p: 2, pb: 5 }}>
                 <Stack mb={1.5}>
                   <ErrorOutlineIcon />
-                  <Typography variant="body1" sx={{ fontWeight: 'medium' }}>
+                  <Typography variant='body1' sx={{ fontWeight: 'medium' }}>
                     {'Thông tin'}
                   </Typography>
                 </Stack>
                 <Divider />
                 <Grid container spacing={2} sx={{ mt: 0 }}>
                   <Grid item xs={12} sm={12} lg={12}>
-                    <Typography variant="subtitle2">
-                      Hiện khách hàng đang nợ:{' '}
-                      <span style={{ color: 'red' }}>0</span>
+                    <Typography variant='subtitle2'>
+                      Hiện khách hàng đang nợ: <span style={{ color: 'red' }}>0</span>
                     </Typography>
-                    <Typography variant="subtitle2">
+                    <Typography variant='subtitle2'>
                       Sau khi thêm phiếu sẽ nợ Khách hàng:{' '}
                       <span style={{ color: 'red' }}>
                         {Numeral.price(form.watch('amount')) || 0}
@@ -96,15 +92,15 @@ const AddcashTable = () => {
 
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormDate
-                      name="date"
+                      name='date'
                       DatePickerProps={{ label: 'Ngày thu chi' }}
-                      type="start"
+                      type='start'
                     />
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormSelect
-                      name="objectType"
-                      placeholder="Loại đối tượng"
+                      name='objectType'
+                      placeholder='Loại đối tượng'
                       options={[
                         { value: 0, label: '-Loại đối tượng-' },
                         { value: 1, label: 'Khách hàng' },
@@ -116,8 +112,8 @@ const AddcashTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormSelect
-                      name="cashAccount"
-                      placeholder="Tài khoản tiền mặt"
+                      name='cashAccount'
+                      placeholder='Tài khoản tiền mặt'
                       options={[
                         { value: 0, label: '-Tài khoản tiền mặt-' },
                         { value: 1, label: '1111- Tiền mặt Lê Hồng Phong' },
@@ -128,12 +124,12 @@ const AddcashTable = () => {
                     />
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
-                    <ProFormTextField name="object" placeholder="Đối tượng" />
+                    <ProFormTextField name='object' placeholder='Đối tượng' />
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormSelect
-                      name="billType"
-                      placeholder="Loại phiếu"
+                      name='billType'
+                      placeholder='Loại phiếu'
                       options={[
                         { value: 0, label: '-Loại phiếu-' },
                         { value: 1, label: 'Phiếu thu' },
@@ -145,8 +141,8 @@ const AddcashTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <ProFormSelect
-                      name="documentType"
-                      placeholder="Loại chứng từ"
+                      name='documentType'
+                      placeholder='Loại chứng từ'
                       options={[
                         { value: 0, label: '-Loại chứng từ-' },
                         { value: 1, label: 'Phiếu XNK' },
@@ -158,20 +154,17 @@ const AddcashTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
                     <Button
-                      variant="contained"
-                      size="medium"
-                      component="label"
+                      variant='contained'
+                      size='medium'
+                      component='label'
                       sx={{ height: '100%' }}
                     >
                       Chọn File
-                      <input hidden accept="*" type="file" />
+                      <input hidden accept='*' type='file' />
                     </Button>
                   </Grid>
                   <Grid item xs={12} sm={12} lg={6}>
-                    <ProFormTextField
-                      name="documentId"
-                      placeholder="ID chứng từ"
-                    />
+                    <ProFormTextField name='documentId' placeholder='ID chứng từ' />
                   </Grid>
                 </Grid>
               </Paper>
@@ -180,7 +173,7 @@ const AddcashTable = () => {
               <Paper sx={{ p: 2, pb: 5 }}>
                 <Stack mb={1.5}>
                   <LocalAtmIcon />
-                  <Typography variant="body1" sx={{ fontWeight: 'medium' }}>
+                  <Typography variant='body1' sx={{ fontWeight: 'medium' }}>
                     {'Thanh toán'}
                   </Typography>
                 </Stack>
@@ -188,12 +181,12 @@ const AddcashTable = () => {
                 <Grid container spacing={2} sx={{ mt: 2 }}>
                   <Grid item xs={12} sm={12} lg={12}>
                     <ProFormTextField
-                      name="amount"
-                      placeholder="Số tiền"
+                      name='amount'
+                      placeholder='Số tiền'
                       InputProps={{
                         inputComponent: PriceInput,
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <LocalAtmIcon />
                           </InputAdornment>
                         ),
@@ -202,13 +195,13 @@ const AddcashTable = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} lg={12}>
                     <ProFormTextField
-                      name="note"
-                      placeholder="Ghi chú"
+                      name='note'
+                      placeholder='Ghi chú'
                       multiline
                       rows={2}
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <ChatBubbleIcon />
                           </InputAdornment>
                         ),
@@ -220,30 +213,17 @@ const AddcashTable = () => {
             </Grid>
           </Grid>
           <FormControl>
-            <RadioGroup
-              row
-              sx={{ mt: 4, mb: 4 }}
-              value={radioValue}
-              onChange={handleChangeRaio}
-            >
-              <FormControlLabel
-                value="1"
-                control={<Radio />}
-                label="Tiếp tục thêm phiếu thu chi"
-              />
-              <FormControlLabel
-                value="2"
-                control={<Radio />}
-                label="Về danh sách thu chi"
-              />
+            <RadioGroup row sx={{ mt: 4, mb: 4 }} value={radioValue} onChange={handleChangeRaio}>
+              <FormControlLabel value='1' control={<Radio />} label='Tiếp tục thêm phiếu thu chi' />
+              <FormControlLabel value='2' control={<Radio />} label='Về danh sách thu chi' />
             </RadioGroup>
           </FormControl>
         </ProFormContent>
         <Stack spacing={2}>
           <ActionButton
-            actionType="save"
-            variant="contained"
-            type="submit"
+            actionType='save'
+            variant='contained'
+            type='submit'
             sx={{ backgroundColor: '#4CAF50 ' }}
           >
             Lưu

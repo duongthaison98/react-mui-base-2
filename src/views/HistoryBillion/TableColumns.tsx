@@ -1,12 +1,12 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { Fragment, useMemo } from 'react';
-import Index from 'components/ProTable/components/Index';
+import Index from '@/components/ProTable/components/Index';
 
 const columnHelper = getColumnHelper<any>();
 
@@ -44,9 +44,7 @@ const useTableColumns = (props: Props) => {
         id: 'code',
         size: 160,
         header: () => HEAD_CELLS.code,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.code,
         },
@@ -55,9 +53,7 @@ const useTableColumns = (props: Props) => {
         id: 'name',
         size: 250,
         header: () => HEAD_CELLS.name,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.name,
         },
@@ -66,9 +62,7 @@ const useTableColumns = (props: Props) => {
         id: 'importPrice',
         size: 250,
         header: () => HEAD_CELLS.importPrice,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.importPrice,
         },
@@ -78,9 +72,7 @@ const useTableColumns = (props: Props) => {
         id: 'imageUrl',
         size: 250,
         header: () => HEAD_CELLS.imageUrl,
-        cell: (context) => (
-          <Typography variant="subtitle2">{'Kho hàng Long Biên'}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{'Kho hàng Long Biên'}</Typography>,
         meta: {
           title: HEAD_CELLS.imageUrl,
         },
@@ -91,9 +83,7 @@ const useTableColumns = (props: Props) => {
         size: 250,
         enableSorting: false,
         header: () => HEAD_CELLS.inventory,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.inventory,
         },
@@ -124,9 +114,7 @@ const useTableColumns = (props: Props) => {
         size: 250,
         enableSorting: false,
         header: () => HEAD_CELLS.markCode,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.markCode,
         },
@@ -143,8 +131,7 @@ const useTableColumns = (props: Props) => {
               headline: 'Xác nhận xóa?',
               supportingText: (
                 <Fragment>
-                  Bạn có chắc chắn muốn xóa:{' '}
-                  <strong>{context.row.original.name}</strong>
+                  Bạn có chắc chắn muốn xóa: <strong>{context.row.original.name}</strong>
                 </Fragment>
               ),
               onConfirm: async () => {},
@@ -153,7 +140,7 @@ const useTableColumns = (props: Props) => {
 
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Sửa thông tin',
@@ -178,7 +165,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

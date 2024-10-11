@@ -1,6 +1,6 @@
 import Paper from '@mui/material/Paper';
 import { useRef } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './components/FiltersForm';
 import Store from './components/RevenueStaff';
 import useFilters from './utils/filters';

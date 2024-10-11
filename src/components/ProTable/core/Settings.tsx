@@ -2,15 +2,15 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Tooltip from '@mui/material/Tooltip';
-import ProPopover from 'components/ProPopover';
+import ProPopover from '@/components/ProPopover';
 
 const Settings = () => {
   return (
     <ProPopover
       anchor={
-        <Tooltip title="Cài đặt">
+        <Tooltip title='Cài đặt'>
           <IconButton>
-            <SettingsIcon fontSize="medium" />
+            <SettingsIcon fontSize='medium' />
           </IconButton>
         </Tooltip>
       }

@@ -1,17 +1,17 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import { FilterParams } from '../utils/filters';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import DateTime from 'utils/DateTime';
-import ProForm from 'components/ProForm';
+import DateTime from '@/utils/DateTime';
+import ProForm from '@/components/ProForm';
 import { Collapse, Grid, Typography } from '@mui/material';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
 
 interface FilterValues {
   startDate: string | null;
@@ -80,22 +80,14 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
-          <ProDateRange
-            label={t('Khoảng ngày')}
-            from="startDate"
-            to="endDate"
-          />
+          <ProDateRange label={t('Khoảng ngày')} from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={6} sm={3} md={2} lg={2.4}>
-          <ProFormTextField
-            name="id"
-            placeholder="ID"
-            InputLabelProps={{ shrink: true }}
-          />
+          <ProFormTextField name='id' placeholder='ID' InputLabelProps={{ shrink: true }} />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormSelect
-            name="store"
+            name='store'
             placeholder={t('Cửa hàng')}
             options={[
               { value: 1, label: 'Hà Nội' },
@@ -107,7 +99,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormSelect
-            name="oldCustomer"
+            name='oldCustomer'
             placeholder={t('Khách hàng cũ')}
             options={[
               { value: 1, label: 'A' },
@@ -125,14 +117,14 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
       </Grid>
-      <Collapse in={isShowFilter} timeout="auto">
-        <Grid container spacing={2} alignItems="center" mt={2}>
+      <Collapse in={isShowFilter} timeout='auto'>
+        <Grid container spacing={2} alignItems='center' mt={2}>
           <Grid item xs={12} sm={6} md={4} lg={0.75}>
             <Typography>ID hóa đơn</Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={2.25}>
             <ProFormTextField
-              name="billsId"
+              name='billsId'
               placeholder={t('ID hóa đơn')}
               InputLabelProps={{ shrink: true }}
             />
@@ -142,7 +134,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={2.25}>
             <ProFormSelect
-              name="status"
+              name='status'
               placeholder={t('Trạng thái')}
               options={[
                 { value: 1, label: 'A' },
@@ -152,22 +144,22 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
               renderValue={(option) => option.value}
             />
           </Grid>
-					<Grid item xs={12} sm={6} md={4} lg={0.75}>
+          <Grid item xs={12} sm={6} md={4} lg={0.75}>
             <Typography>Ghi chú</Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={2.25}>
             <ProFormTextField
-              name="note"
+              name='note'
               placeholder={t('Ghi chú')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
-					<Grid item xs={12} sm={6} md={4} lg={0.75}>
+          <Grid item xs={12} sm={6} md={4} lg={0.75}>
             <Typography>Mã COD</Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={2.25}>
             <ProFormTextField
-              name="COD"
+              name='COD'
               placeholder={t('Mã COD')}
               InputLabelProps={{ shrink: true }}
             />

@@ -1,6 +1,6 @@
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { useMemo } from 'react';
 
 const columnHelper = getColumnHelper<any>();

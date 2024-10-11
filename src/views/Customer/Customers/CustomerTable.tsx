@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useRef, useState } from 'react';
-import { Customer } from 'types/customer';
-import { FiltersRef } from 'types/refs';
+import { Customer } from '@/types/customer';
+import { FiltersRef } from '@/types/refs';
 import ActionButtonComponent from './components/ActionButton';
 import CreateCustomerButton from './components/CreateCustomerButton';
 import FiltersForm from './FilterForm';
@@ -17,7 +17,7 @@ const Data = [
     address: 'Hà Nội',
     typeCustomer: 'Khách lẻ',
     phoneNumber: '0123456789',
-    store : 'Thái Hà',
+    store: 'Thái Hà',
     email: null,
     birthDay: null,
     level: '',
@@ -36,7 +36,7 @@ const Data = [
     id: 2,
     customer: 'Anh Hùng Huế ĐL(SG)',
     address: 'Hà Nội',
-    store : 'Thái Hà',
+    store: 'Thái Hà',
     typeCustomer: 'Khách lẻ',
     phoneNumber: '0123456789',
     email: null,
@@ -58,7 +58,7 @@ const Data = [
     id: 3,
     customer: 'Anh Hùng Huế ĐL(SG)',
     address: 'Hà Nội',
-    store : 'Thái Hà',
+    store: 'Thái Hà',
     typeCustomer: 'Khách lẻ',
     phoneNumber: '0123456789',
     email: null,
@@ -79,7 +79,7 @@ const Data = [
     id: 4,
     customer: 'Anh Hùng Huế ĐL(SG)',
     address: 'Hà Nội',
-    store : 'Thái Hà',
+    store: 'Thái Hà',
     typeCustomer: 'Khách lẻ',
     phoneNumber: '0123456789',
     email: null,
@@ -101,7 +101,7 @@ const Data = [
     id: 15,
     customer: 'Anh Hùng Huế ĐL(SG)',
     address: 'Hà Nội',
-    store : 'Thái Hà',
+    store: 'Thái Hà',
     typeCustomer: 'Khách lẻ',
     phoneNumber: '0123456789',
     email: null,
@@ -122,7 +122,7 @@ const Data = [
     id: 16,
     customer: 'Anh Hùng Huế ĐL(SG)',
     address: 'Hà Nội',
-    store : 'Thái Hà',
+    store: 'Thái Hà',
     typeCustomer: 'Khách lẻ',
     phoneNumber: '0123456789',
     email: null,
@@ -143,7 +143,7 @@ const Data = [
     id: 17,
     customer: 'Anh Hùng Huế ĐL(SG)',
     address: 'Hà Nội',
-    store : 'Thái Hà',
+    store: 'Thái Hà',
     typeCustomer: 'Khách lẻ',
     phoneNumber: '0123456789',
     email: null,
@@ -164,7 +164,7 @@ const Data = [
     id: 18,
     customer: 'Anh Hùng Huế ĐL(SG)',
     address: 'Hà Nội',
-    store : 'Thái Hà',
+    store: 'Thái Hà',
     typeCustomer: 'Khách lẻ',
     phoneNumber: '0123456789',
     email: null,
@@ -189,8 +189,7 @@ const CustomerTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -207,7 +206,7 @@ const CustomerTable = () => {
 
   return (
     <ProTable<Customer>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={banners}

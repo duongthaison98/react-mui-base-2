@@ -1,20 +1,20 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button, Divider, Grid, Stack, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import Image from 'components/Image';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormContent from 'components/ProForm/ProFormContent';
-import ProFormLabel from 'components/ProForm/ProFormLabel';
-import ProFormRadio from 'components/ProForm/ProFormRadio';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import UploadInput from 'components/UploadInput';
+import Image from '@/components/Image';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormContent from '@/components/ProForm/ProFormContent';
+import ProFormLabel from '@/components/ProForm/ProFormLabel';
+import ProFormRadio from '@/components/ProForm/ProFormRadio';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import UploadInput from '@/components/UploadInput';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import { IForm } from './utils/types';
 
 const schema = Validation.shape({
@@ -95,14 +95,13 @@ const EditCategoryTab = () => {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateRows:
-            'fit-content(20%) fit-content(40%) fit-content(40%)',
+          gridTemplateRows: 'fit-content(20%) fit-content(40%) fit-content(40%)',
           gridTemplateColumns: '1fr 1fr',
           columnGap: '20px',
           marginTop: '10px',
         }}
       >
-        <Stack direction="column" spacing={2}>
+        <Stack direction='column' spacing={2}>
           <ProForm form={form} onFinish={handleSubmit}>
             <ProFormContent>
               <Paper sx={{ p: 2 }}>
@@ -113,12 +112,12 @@ const EditCategoryTab = () => {
                     justifyContent: 'space-between',
                   }}
                 >
-                  <Typography variant="body1" sx={{ fontWeight: 'medium' }}>
+                  <Typography variant='body1' sx={{ fontWeight: 'medium' }}>
                     {'Thông tin'}
                   </Typography>
                   <Box sx={{ width: '30%' }}>
                     <ProFormSelect
-                      name="status"
+                      name='status'
                       options={[
                         { value: 1, label: 'Hiển thị' },
                         { value: 2, label: 'Ẩn' },
@@ -130,55 +129,55 @@ const EditCategoryTab = () => {
                 <Divider />
                 <Grid container spacing={2} marginTop={1} marginBottom={1}>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Danh mục'} name="category" />
+                    <ProFormLabel title={'Danh mục'} name='category' />
                     <ProFormSelect
-                      name="category"
+                      name='category'
                       options={[{ value: 1, label: '123' }]}
                       placeholder={'Nhập danh mục'}
                     />
                   </Grid>
 
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Tên'} name="name" />
-                    <ProFormTextField name="name" placeholder={'Nhập tên'} />
+                    <ProFormLabel title={'Tên'} name='name' />
+                    <ProFormTextField name='name' placeholder={'Nhập tên'} />
                   </Grid>
 
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Mã danh mục'} name="code" />
-                    <ProFormTextField name="code" placeholder={'Nhập mã danh mục'} />
+                    <ProFormLabel title={'Mã danh mục'} name='code' />
+                    <ProFormTextField name='code' placeholder={'Nhập mã danh mục'} />
                   </Grid>
 
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Tags'} name="tag" />
-                    <ProFormTextField name="tag" placeholder={'Nhập tags'} />
+                    <ProFormLabel title={'Tags'} name='tag' />
+                    <ProFormTextField name='tag' placeholder={'Nhập tags'} />
                   </Grid>
 
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Mô tả'} name="des" />
-                    <ProFormTextField name="des" placeholder={'Nhập mô tả'} />
+                    <ProFormLabel title={'Mô tả'} name='des' />
+                    <ProFormTextField name='des' placeholder={'Nhập mô tả'} />
                   </Grid>
 
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Hiển thị trang chủ'} name="display" />
+                    <ProFormLabel title={'Hiển thị trang chủ'} name='display' />
                     <ProFormSelect
-                      name="display"
+                      name='display'
                       options={[{ value: 1, label: '123' }]}
                       placeholder={'Hiển thị trang chủ'}
                     />
                   </Grid>
 
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Thứ tự'} name="order" />
-                    <ProFormTextField name="order" placeholder={'Thứ tự'} />
+                    <ProFormLabel title={'Thứ tự'} name='order' />
+                    <ProFormTextField name='order' placeholder={'Thứ tự'} />
                   </Grid>
                 </Grid>
               </Paper>
               <Box sx={{ p: 2 }}>
                 <Grid container spacing={2} marginTop={1} marginBottom={1}>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Sau khi lưu dữ liệu'} name="code" />
+                    <ProFormLabel title={'Sau khi lưu dữ liệu'} name='code' />
                     <ProFormRadio
-                      name="afterSave"
+                      name='afterSave'
                       options={[
                         { value: 1, label: 'Tiếp tục thêm danh mục' },
                         { value: 2, label: 'Hiển thị danh mục' },
@@ -189,33 +188,30 @@ const EditCategoryTab = () => {
               </Box>
             </ProFormContent>
             <Box sx={{ p: 2 }}>
-              <Stack direction="row" spacing={1}>
-                <ActionButton actionType="save" type="submit">
+              <Stack direction='row' spacing={1}>
+                <ActionButton actionType='save' type='submit'>
                   Lưu
                 </ActionButton>
               </Stack>
             </Box>
           </ProForm>
         </Stack>
-        <Stack direction="column" spacing={2}>
+        <Stack direction='column' spacing={2}>
           <ProForm form={form}>
             <ProFormContent sx={{ minWidth: 'fit-content' }}>
               <Paper sx={{ p: 2 }}>
                 <Box sx={{ p: 1 }}>
-                  <Typography variant="body1" sx={{ fontWeight: 'medium' }}>
+                  <Typography variant='body1' sx={{ fontWeight: 'medium' }}>
                     {'Ảnh'}
                   </Typography>
                 </Box>
                 <Divider />
                 <Grid container spacing={2} marginTop={1} marginBottom={1}>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Ảnh'} name="name" />
-                    <Button variant="contained" component="label">
+                    <ProFormLabel title={'Ảnh'} name='name' />
+                    <Button variant='contained' component='label'>
                       Upload
-                      <UploadInput
-                        accept="image/*"
-                        onChange={onSelectFileImage}
-                      />
+                      <UploadInput accept='image/*' onChange={onSelectFileImage} />
                     </Button>
                   </Grid>
 
@@ -233,13 +229,10 @@ const EditCategoryTab = () => {
                   </Grid>
 
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Icon'} name="code" />
-                    <Button variant="contained" component="label">
+                    <ProFormLabel title={'Icon'} name='code' />
+                    <Button variant='contained' component='label'>
                       Upload
-                      <UploadInput
-                        accept="image/*"
-                        onChange={onSelectFileIcon}
-                      />
+                      <UploadInput accept='image/*' onChange={onSelectFileIcon} />
                     </Button>
                   </Grid>
 

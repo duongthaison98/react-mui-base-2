@@ -1,27 +1,27 @@
-import EventIcon from '@mui/icons-material/Event';
-import TodayIcon from '@mui/icons-material/Today';
+import { Event as EventIcon, Today as TodayIcon } from '@mui/icons-material';
 import type { TextFieldProps } from '@mui/material/TextField';
 import TextField from '@mui/material/TextField';
-import type { DatePickerProps } from '@mui/x-date-pickers/DatePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { DateFormat } from 'constants/locale';
+import type { DatePickerProps } from '@mui/x-date-pickers/DatePicker';
+import { DateFormat } from '@/constants/locale';
 import { useController, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import ProFormLabel from './ProFormLabel';
+import { Dayjs } from 'dayjs';
 
 interface Props {
   name: string;
   label?: string;
-  onSelect?: (date: Date | null) => void;
+  onSelect?: (date: Dayjs | null) => void;
   TextFieldProps?: TextFieldProps;
-  shouldDisableDate?: (date: Date | null) => boolean;
-  DatePickerProps?: Partial<DatePickerProps<Date, Date>>;
+  shouldDisableDate?: (date: Dayjs) => boolean;
+  DatePickerProps?: Partial<DatePickerProps<Dayjs>>;
   type: 'start' | 'end';
   disabled?: boolean;
   required?: boolean;
 }
 
-const ProFormDate = (props: Props) => {
+export default function ProFormDate(props: Props) {
   const {
     name,
     label,
@@ -32,72 +32,71 @@ const ProFormDate = (props: Props) => {
     TextFieldProps,
     DatePickerProps,
     shouldDisableDate,
-  } = props;
+  } = props
 
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const { control } = useFormContext();
+  const { control } = useFormContext()
 
   const {
     field: { value, onChange },
     fieldState: { error },
-  } = useController({ name, control });
+  } = useController({ name, control })
 
-  const OpenPickerIcon = type === 'start' ? TodayIcon : EventIcon;
+  const OpenPickerIcon = type === 'start' ? TodayIcon : EventIcon
 
   return (
     <ProFormLabel name={name} title={label} required={required} gutterBottom>
       <DatePicker
         disabled={disabled}
-        inputFormat={DateFormat}
-        PaperProps={{
-          sx: {
-            '& button.MuiPickersDay-root': {
-              borderRadius: 1,
-            },
-            '& button.MuiPickersDay-root.Mui-disabled': {
-              opacity: 0.3, // Fix later
-            },
-          },
-        }}
-        renderInput={(props) => {
-          const { inputProps = {}, ...rest } = props;
-          if (disabled) {
-            inputProps.placeholder = void 0;
-          }
-          return (
-            <TextField
-              inputProps={inputProps}
-              {...rest}
-              {...TextFieldProps}
-              fullWidth
-              size="small"
-              error={Boolean(error)}
-              helperText={error?.message && t(error.message)}
-              id={name}
-            />
-          );
-        }}
-        components={{
-          OpenPickerIcon: disabled ? () => null : OpenPickerIcon,
-        }}
-        componentsProps={{
-          actionBar: { actions: ['today'] },
-        }}
+        format={DateFormat}
         shouldDisableDate={shouldDisableDate}
-        dayOfWeekFormatter={(day) => `${day}`}
-        InputAdornmentProps={{
-          position: 'end',
-        }}
-        onChange={(date: Date | null) => {
+        onChange={(date: Dayjs | null) => {
           onChange(date);
           onSelect?.(date);
         }}
         value={value}
         {...DatePickerProps}
+        slots={{
+          openPickerIcon: disabled ? () => null : OpenPickerIcon,
+          textField: (params) => (
+            <TextField
+              {...params}
+              {...TextFieldProps}
+              fullWidth
+              size='small'
+              error={Boolean(error)}
+              helperText={error?.message && t(error.message)}
+              id={name}
+              slotProps={{
+                input: {
+                  ...params.InputProps,
+                  ...TextFieldProps?.slotProps?.input,
+                  placeholder: disabled ? undefined : params.inputProps?.placeholder,
+                },
+              }}
+            />
+          ),
+        }}
+        slotProps={{
+          popper: {
+            sx: {
+              '& .MuiPickersDay-root': {
+                borderRadius: 1,
+              },
+              '& .MuiPickersDay-root.Mui-disabled': {
+                opacity: 0.3,
+              },
+            },
+          },
+          actionBar: {
+            actions: ['today'],
+          },
+          openPickerButton: {
+            sx: { marginRight: 0 },
+          },
+        }}
       />
     </ProFormLabel>
   );
-};
-
-export default ProFormDate;
+}

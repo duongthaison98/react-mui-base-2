@@ -15,8 +15,8 @@ import { forwardRef, Fragment, useEffect, useRef, useState } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import { useController, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { ChangeEvent } from 'types/react';
-import TypedArrray from 'utils/TypedArrray';
+import type { ChangeEvent } from '@/types/react';
+import TypedArrray from '@/utils/TypedArrray';
 import PlaceHolder from './components/PlaceHolder';
 
 interface Value<T> {
@@ -40,11 +40,8 @@ interface Props<O extends FieldValues, V extends string | number>
   actionText?: string; // Like placeholder, but for instruction
 }
 
-const ProFormMultipleAutocomplete = <
-  O extends FieldValues,
-  V extends string | number
->(
-  props: Props<O, V>
+const ProFormMultipleAutocomplete = <O extends FieldValues, V extends string | number>(
+  props: Props<O, V>,
 ) => {
   const {
     name,
@@ -74,10 +71,7 @@ const ProFormMultipleAutocomplete = <
     setOpen(false);
   };
 
-  const handleClosePopup = (
-    _event: SyntheticEvent,
-    reason: AutocompleteCloseReason
-  ) => {
+  const handleClosePopup = (_event: SyntheticEvent, reason: AutocompleteCloseReason) => {
     if (reason === 'escape') {
       handleClose();
     }
@@ -91,20 +85,16 @@ const ProFormMultipleAutocomplete = <
     field: { value, onChange, ...others },
   } = useController({ name, control });
 
-  const entries = options.reduce<Map<string | number, Value<V>>>(
-    (acc, option, i) => {
-      const value = renderValue(option);
-      const label = renderLabel(option);
-      const subLabel = renderSubLabel?.(option);
-      const disabled = getOptionDisabled?.(option) || false;
-      acc.set(value, { value, label, subLabel, disabled, key: i });
-      return acc;
-    },
-    new Map()
-  );
+  const entries = options.reduce<Map<string | number, Value<V>>>((acc, option, i) => {
+    const value = renderValue(option);
+    const label = renderLabel(option);
+    const subLabel = renderSubLabel?.(option);
+    const disabled = getOptionDisabled?.(option) || false;
+    acc.set(value, { value, label, subLabel, disabled, key: i });
+    return acc;
+  }, new Map());
 
-  const isValid =
-    Array.isArray(value) && value.every((item) => entries.has(item));
+  const isValid = Array.isArray(value) && value.every((item) => entries.has(item));
 
   const handleChange: ChangeEvent = (event) => {
     const checked = event.target.checked;
@@ -130,7 +120,7 @@ const ProFormMultipleAutocomplete = <
     <Fragment>
       <Box ref={ref}>
         <Select
-          value=""
+          value=''
           open={false}
           displayEmpty
           onClick={handleClick}
@@ -175,9 +165,7 @@ const ProFormMultipleAutocomplete = <
           ListboxComponent={ListboxComponent}
           options={options.map(renderValue)}
           getOptionLabel={(option) => entries.get(option)?.label || ''}
-          noOptionsText={
-            !options.length && !actionText ? t('Không có lựa chọn') : actionText
-          }
+          noOptionsText={!options.length && !actionText ? t('Không có lựa chọn') : actionText}
           getOptionDisabled={(option) => entries.get(option)?.disabled || false}
           PopperComponent={PopperComponent}
           renderTags={() => null}
@@ -212,12 +200,12 @@ const ProFormMultipleAutocomplete = <
                 inputProps={params.inputProps}
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment position="end">
+                    <InputAdornment position='end'>
                       <SearchIcon />
                     </InputAdornment>
                   ),
                 }}
-                placeholder="Tìm kiếm"
+                placeholder='Tìm kiếm'
                 {...rest}
               />
             </Box>
@@ -226,13 +214,11 @@ const ProFormMultipleAutocomplete = <
             const label = entries.get(option)?.label;
             const subLabel = entries.get(option)?.subLabel;
             return (
-              <Box component="li" {...props} key={option}>
+              <Box component='li' {...props} key={option}>
                 <Checkbox sx={{ mr: 1 }} checked={selected} />
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                  <Typography variant="subtitle2">{label}</Typography>
-                  {subLabel && (
-                    <Typography variant="caption">{subLabel}</Typography>
-                  )}
+                  <Typography variant='subtitle2'>{label}</Typography>
+                  {subLabel && <Typography variant='caption'>{subLabel}</Typography>}
                 </Box>
               </Box>
             );
@@ -269,22 +255,20 @@ const PopperComponent = (props: PopperComponentProps) => {
 };
 
 // Dropdown list
-const ListboxComponent = forwardRef(
-  (props: HTMLAttributes<HTMLUListElement>, ref) => {
-    return (
-      <Box
-        ref={ref}
-        component="ul"
-        sx={{
-          maxHeight: 36 * 10 + 16,
-          overflowY: 'auto',
-          [`& > li.${autocompleteClasses.option}`]: {
-            pl: 1,
-          },
-        }}
-        {...props}
-      />
-    );
-  }
-);
+const ListboxComponent = forwardRef((props: HTMLAttributes<HTMLUListElement>, ref) => {
+  return (
+    <Box
+      ref={ref}
+      component='ul'
+      sx={{
+        maxHeight: 36 * 10 + 16,
+        overflowY: 'auto',
+        [`& > li.${autocompleteClasses.option}`]: {
+          pl: 1,
+        },
+      }}
+      {...props}
+    />
+  );
+});
 export default ProFormMultipleAutocomplete;

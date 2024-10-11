@@ -1,13 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import Grid from '@mui/material/Grid';
-import ProForm from 'components/ProForm';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
+import ProForm from '@/components/ProForm';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
 import { forwardRef, useImperativeHandle } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import { STATUS } from './utils/constants';
 import type { FilterParams } from './utils/filters';
 
@@ -61,7 +61,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormTextField
-            name="name"
+            name='name'
             label={t('Tên danh mục')}
             placeholder={t('Nhập tên danh mục')}
             InputLabelProps={{ shrink: true }}

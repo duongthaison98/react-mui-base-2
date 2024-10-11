@@ -1,9 +1,9 @@
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { Box } from '@mui/material';
-import Index from 'components/ProTable/components/Index';
+import Index from '@/components/ProTable/components/Index';
 import type { BusinessResult, Value } from './utils/type';
 
 const columnHelper = getColumnHelper<BusinessResult>();

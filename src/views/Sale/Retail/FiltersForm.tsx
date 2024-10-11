@@ -1,20 +1,20 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Collapse } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProForm from 'components/ProForm';
-import ProFormAutocomplete from 'components/ProForm/Label/ProFormAutocomplete';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
-// import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProForm from '@/components/ProForm';
+import ProFormAutocomplete from '@/components/ProForm/Label/ProFormAutocomplete';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
+// import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-// import DateFns from 'utils/DateFns';
+import type { FiltersRef } from '@/types/refs';
+// import DateFns from '@/utils/DateFns';
 import { nanoid } from '@reduxjs/toolkit';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
-import Validation from 'utils/Validation';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
+import Validation from '@/utils/Validation';
 import type { FilterParams } from './utils/filters';
 
 interface FilterValues {
@@ -77,7 +77,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2}>
           <ProFormCheckboxSelect
-            name="store"
+            name='store'
             placeholder={t('Chọn cửa hàng')}
             options={[
               { value: nanoid(), label: 'TM' },
@@ -90,24 +90,24 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={1}>
           <ProFormTextField
-            name="name"
+            name='name'
             placeholder={t('ID hóa đơn')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2}>
-          <ProDateRange label="" from="startDate" to="endDate" />
+          <ProDateRange label='' from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2}>
           <ProFormTextField
-            name="customer"
+            name='customer'
             placeholder={t('Khách hàng')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2}>
           <ProFormTextField
-            name="product"
+            name='product'
             placeholder={t('Sản phẩm')}
             InputLabelProps={{ shrink: true }}
           />
@@ -120,25 +120,25 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={2} sm={2} md={3} lg={1.5}>
-          <Button size="medium" color="info">
+          <Button size='medium' color='info'>
             {t('Check số liệu')}
           </Button>
         </Grid>
       </Grid>
       {/* <ProFormHiddenInput /> */}
       {/* advance filter */}
-      <Collapse in={collapseFilter} timeout="auto">
+      <Collapse in={collapseFilter} timeout='auto'>
         <Grid container spacing={2} style={{ marginTop: 1 }}>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProFormTextField
-              name="name"
+              name='name'
               placeholder={t('NV thu ngân')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProFormTextField
-              name="customer"
+              name='customer'
               placeholder={t('Mã Coupon')}
               InputLabelProps={{ shrink: true }}
             />
@@ -146,14 +146,14 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           {/* 2 */}
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProFormTextField
-              name="name"
+              name='name'
               placeholder={t('IMEI')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProFormAutocomplete
-              name="store"
+              name='store'
               placeholder={t('Chọn danh mục')}
               options={[
                 { value: 1, label: 'TM' },
@@ -168,14 +168,14 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProFormTextField
-              name="name"
+              name='name'
               placeholder={t('NV bán hàng')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProFormTextField
-              name="customer"
+              name='customer'
               placeholder={t('Mô tả')}
               InputLabelProps={{ shrink: true }}
             />
@@ -183,14 +183,14 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           {/* 3 */}
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProFormTextField
-              name="name"
+              name='name'
               placeholder={t('NV kỹ thuật')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProFormTextField
-              name="customer"
+              name='customer'
               placeholder={t('Nguồn khách hàng')}
               InputLabelProps={{ shrink: true }}
             />

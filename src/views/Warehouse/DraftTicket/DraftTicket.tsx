@@ -1,15 +1,15 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumnnsDraft from './TableColumns';
 import useFilters from '../utils/filters';
 import type { Product } from '../utils/types';
-import LinkButton from 'components/ProButton/LinkButton';
+import LinkButton from '@/components/ProButton/LinkButton';
 
 const DATA = [
   {
@@ -133,8 +133,7 @@ const CreateDraftTicket = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(products.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -151,7 +150,7 @@ const CreateDraftTicket = () => {
 
   return (
     <ProTable<any>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={products}
@@ -174,16 +173,11 @@ const CreateDraftTicket = () => {
       }
       toolBar={
         <Fragment>
-          <LinkButton
-            iconPosition="end"
-            actionType="add"
-            color="success"
-            to="/warehouse/draft"
-          >
+          <LinkButton iconPosition='end' actionType='add' color='success' to='/warehouse/draft'>
             {t('Thêm mới')}
           </LinkButton>
           <ProMenu
-            position="right"
+            position='right'
             items={[
               {
                 label: 'Xuất Excel',
@@ -218,7 +212,7 @@ const CreateDraftTicket = () => {
               },
             ]}
           >
-            <ActionButton iconPosition="end" actionType="expand" color="info">
+            <ActionButton iconPosition='end' actionType='expand' color='info'>
               {t('Thao tác')}
             </ActionButton>
           </ProMenu>

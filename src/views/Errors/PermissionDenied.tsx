@@ -3,12 +3,12 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import LinkButton from 'components/LinkButton';
-import Page from 'components/Page';
+import LinkButton from '@/components/LinkButton';
+import Page from '@/components/Page';
 
 const PermissionDenied = () => {
   return (
-    <Page title="Permission Denied">
+    <Page title='Permission Denied'>
       <Container
         sx={{
           display: 'grid',
@@ -23,23 +23,23 @@ const PermissionDenied = () => {
             alignItems: 'center',
           }}
         >
-          <AdminPanelSettingsIcon fontSize="large" color="error" />
+          <AdminPanelSettingsIcon fontSize='large' color='error' />
           <Typography
-            variant="h5"
+            variant='h5'
             gutterBottom
             sx={{ mt: 1.5, fontWeight: 'medium' }}
-            color="error"
+            color='error'
           >
             Permission Denied
           </Typography>
-          <Typography variant="subtitle2">
+          <Typography variant='subtitle2'>
             You do not have permission to access this page
           </Typography>
           <LinkButton
-            to="/"
-            variant="contained"
+            to='/'
+            variant='contained'
             startIcon={<ArrowBackIcon />}
-            color="error"
+            color='error'
             sx={{ mt: 4 }}
           >
             Back to Home

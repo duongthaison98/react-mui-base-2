@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import filter from 'lodash.filter';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import filter from 'lodash/filter';
 import { useMemo } from 'react';
 import { IPurchaseHistoryType } from './utils/type';
 
@@ -34,17 +34,17 @@ const useTableColumns = (props: Props) => {
         size: 120,
         header: () => HEAD_CELLS.id,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#000000' }}>
+          <Typography variant='subtitle2' sx={{ color: '#000000' }}>
             {context.getValue()}
           </Typography>
         ),
-        footer: (context) => <Typography variant="subtitle2">Tổng</Typography>,
+        footer: (context) => <Typography variant='subtitle2'>Tổng</Typography>,
         meta: {
           title: HEAD_CELLS.id,
           rowSpan: (context, rows) => {
             const result: any = filter(
               rows.map((row) => row.original),
-              { id: context.getValue() }
+              { id: context.getValue() },
             );
 
             if (context.row.original.products === result[0]?.products) {
@@ -63,7 +63,7 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.type,
         cell: (context) => {
           if (context.getValue() == 'Trả hàng [L] DP-142482-1') {
-            return <Typography color="error">{context.getValue()}</Typography>;
+            return <Typography color='error'>{context.getValue()}</Typography>;
           } else {
             return <Typography>{context.getValue()}</Typography>;
           }
@@ -73,7 +73,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result: any = filter(
               rows.map((row) => row.original),
-              { type: context.getValue() }
+              { type: context.getValue() },
             );
 
             if (context.row.original.products === result[0]?.products) {
@@ -96,7 +96,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result: any = filter(
               rows.map((row) => row.original),
-              { customer: context.getValue() }
+              { customer: context.getValue() },
             );
 
             if (context.row.original.products === result[0]?.products) {
@@ -140,7 +140,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => HEAD_CELLS.quantity,
         cell: (context) => context.getValue(),
-        footer: (context) => <Typography variant="subtitle2">4</Typography>,
+        footer: (context) => <Typography variant='subtitle2'>4</Typography>,
 
         meta: {
           title: HEAD_CELLS.quantity,
@@ -157,7 +157,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result: any = filter(
               rows.map((row) => row.original),
-              { discount: context.getValue() }
+              { discount: context.getValue() },
             );
 
             if (context.row.original.products === result[0]?.products) {
@@ -184,7 +184,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result: any = filter(
               rows.map((row) => row.original),
-              { money: context.getValue() }
+              { money: context.getValue() },
             );
 
             if (context.row.original.products === result[0]?.products) {
@@ -214,7 +214,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result: any = filter(
               rows.map((row) => row.original),
-              { totalMoney: context.getValue() }
+              { totalMoney: context.getValue() },
             );
 
             if (context.row.original.products === result[0]?.products) {

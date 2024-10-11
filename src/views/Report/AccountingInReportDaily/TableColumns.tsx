@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { SumaryCashStore } from './utils/type';
 
 const columnHelper = getColumnHelper<SumaryCashStore>();
@@ -32,9 +32,7 @@ const useTableColumns = (props: Props) => {
         id: 'store',
         size: 100,
         header: () => HEAD_CELLS.store,
-        cell: (context) => (
-          <Typography color={'blue'}>{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography color={'blue'}>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.store,
         },

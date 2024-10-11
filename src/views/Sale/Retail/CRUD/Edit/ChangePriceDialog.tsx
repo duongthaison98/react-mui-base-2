@@ -1,10 +1,10 @@
 import { Box, Divider, Typography } from '@mui/material';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import DialogFooter from 'components/ProDialog/DialogFooter';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
 import { useTranslation } from 'react-i18next';
-import sleep from 'utils/sleep';
+import sleep from '@/utils/sleep';
 
 interface Props {
   open: boolean;
@@ -22,10 +22,10 @@ const ChangePriceDialog = (props: Props) => {
   };
 
   return (
-    <DialogContainer open={open} onClose={handleReset} maxWidth="sm">
+    <DialogContainer open={open} onClose={handleReset} maxWidth='sm'>
       <DialogContent>
         <Typography
-          variant="subtitle1"
+          variant='subtitle1'
           sx={{
             fontWeight: 'medium',
             mb: 2,
@@ -38,7 +38,7 @@ const ChangePriceDialog = (props: Props) => {
           <Divider />
         </Box>
         <Typography
-          variant="subtitle1"
+          variant='subtitle1'
           sx={{
             fontWeight: 'medium',
             mb: 2,
@@ -54,10 +54,10 @@ const ChangePriceDialog = (props: Props) => {
         </ul>
       </DialogContent>
       <DialogFooter>
-        <ActionButton actionType="cancel" onClick={handleReset}>
+        <ActionButton actionType='cancel' onClick={handleReset}>
           {t('Không')}
         </ActionButton>
-        <ActionButton type="submit" color="success">
+        <ActionButton type='submit' color='success'>
           {t('Có')}
         </ActionButton>
       </DialogFooter>

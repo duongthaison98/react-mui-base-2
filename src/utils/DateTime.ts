@@ -1,4 +1,4 @@
-import { DateFormat } from 'constants/locale';
+import { DateFormat } from '@/constants/locale';
 import dayjs from 'dayjs';
 
 // Plugins

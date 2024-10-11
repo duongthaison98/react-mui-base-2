@@ -1,9 +1,9 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import FiltersForm from './FIltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -30,8 +30,7 @@ const DebtSupplierTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const { columns } = useTableColumns({
     pageNumber: filters.pageNumber,
@@ -48,7 +47,7 @@ const DebtSupplierTable = () => {
 
   return (
     <ProTable<DebtSupplier>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={DATA}
@@ -71,7 +70,7 @@ const DebtSupplierTable = () => {
       }
       toolBar={
         <Fragment>
-          <ActionButton iconPosition="start" actionType="upload" color="info">
+          <ActionButton iconPosition='start' actionType='upload' color='info'>
             {t('Xuất excel')}
           </ActionButton>
         </Fragment>

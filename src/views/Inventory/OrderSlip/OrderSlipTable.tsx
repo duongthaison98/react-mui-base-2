@@ -3,13 +3,13 @@ import DownloadIcon from '@mui/icons-material/Download';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import TableRow from '@mui/material/TableRow';
-import ProTable from 'components/ProTable';
-import ProTableCell from 'components/ProTable/ProTableCell';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import ProTableCell from '@/components/ProTable/ProTableCell';
+import useRefresh from '@/hooks/useRefresh';
 import React, { Fragment, useCallback, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import ConfirmDialog from './components/ConfirmDialog';
 import EditNote from './components/EditNote';
 import FiltersForm from './components/FiltersForm';
@@ -143,8 +143,7 @@ const OrderSlipTable = () => {
   const [total] = useState<number>(products.length || 0);
   const [openEditNote, setEditNote] = useState<boolean>(false);
   const [openConfirmDialog, setOpenConfirmDialog] = useState<boolean>(false);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [, setEditRowId] = useState<number | null>(null);
 
   const handleResetFilters = () => {
@@ -178,7 +177,7 @@ const OrderSlipTable = () => {
   return (
     <>
       <ProTable<any>
-        title="Danh sách sản phẩm"
+        title='Danh sách sản phẩm'
         loading={loading}
         columns={columns}
         data={products}
@@ -204,7 +203,7 @@ const OrderSlipTable = () => {
             <Button onClick={() => navigate('add')}>
               <AddIcon /> {t('Thêm mới')}
             </Button>
-            <Button variant="outlined">
+            <Button variant='outlined'>
               <DownloadIcon /> {t('Xuất file')}
             </Button>
           </Fragment>
@@ -217,22 +216,22 @@ const OrderSlipTable = () => {
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">Tổng</Typography>
+                <Typography fontWeight='bold'>Tổng</Typography>
               </ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">6.900</Typography>
+                <Typography fontWeight='bold'>6.900</Typography>
               </ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">39.330</Typography>
+                <Typography fontWeight='bold'>39.330</Typography>
               </ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">140.014.800</Typography>
+                <Typography fontWeight='bold'>140.014.800</Typography>
               </ProTableCell>
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">1.900</Typography>
+                <Typography fontWeight='bold'>1.900</Typography>
               </ProTableCell>
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}></ProTableCell>
@@ -240,10 +239,7 @@ const OrderSlipTable = () => {
           </>
         }
       />
-      <ConfirmDialog
-        open={openConfirmDialog}
-        onClose={() => setOpenConfirmDialog(false)}
-      />
+      <ConfirmDialog open={openConfirmDialog} onClose={() => setOpenConfirmDialog(false)} />
       <EditNote
         open={openEditNote}
         onClose={handleCloseEditNote}

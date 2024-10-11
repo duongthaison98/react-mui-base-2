@@ -7,14 +7,14 @@ import Divider from '@mui/material/Divider';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
-import Page from 'components/Page';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
+import Page from '@/components/Page';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
 import type { SyntheticEvent } from 'react';
 import { useState } from 'react';
 // import { useTranslation } from 'react-i18next';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
 import EditHistory from './EditHistory';
 import Info from './Info';
 import ReturnBill from './ReturnBill';
@@ -75,20 +75,12 @@ const InfoDialog = (props: Props) => {
             background: '#fff',
           }}
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-          >
+          <Tabs value={value} onChange={handleChange} variant='scrollable' scrollButtons='auto'>
             {tabs.map((tab, i) => (
               <Tab
                 key={i}
                 label={
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ textTransform: 'none' }}
-                  >
+                  <Typography variant='subtitle2' sx={{ textTransform: 'none' }}>
                     {tab.label}
                   </Typography>
                 }
@@ -98,7 +90,7 @@ const InfoDialog = (props: Props) => {
           </Tabs>
           <Box sx={{ margin: '2px' }}>
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'In phiếu',
@@ -137,7 +129,7 @@ const InfoDialog = (props: Props) => {
                 },
               ]}
             >
-              <ActionButton variant="contained">
+              <ActionButton variant='contained'>
                 Thao tác
                 <ExpandMoreIcon />
               </ActionButton>

@@ -2,14 +2,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Box, IconButton, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import Selection from 'components/ProTable/components/Selection';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import Selection from '@/components/ProTable/components/Selection';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { IImportExport } from './utils/types';
 
 const columnHelper = getColumnHelper<IImportExport>();
@@ -48,13 +48,13 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.idAndDay,
         cell: (context) => (
           <Box>
-            <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+            <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
               {context.getValue().id}
             </Typography>
-            <Link href="#" color="orange">
+            <Link href='#' color='orange'>
               {`(Log sửa)`}
             </Link>
-            <Typography variant="body2">{context.getValue().day}</Typography>
+            <Typography variant='body2'>{context.getValue().day}</Typography>
           </Box>
         ),
         meta: {
@@ -67,8 +67,8 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.warehouse,
         cell: (context) => (
           <Box>
-            <Typography variant="body1">{context.getValue().name}</Typography>
-            <Typography variant="body1" sx={{ color: 'red' }}>
+            <Typography variant='body1'>{context.getValue().name}</Typography>
+            <Typography variant='body1' sx={{ color: 'red' }}>
               {context.getValue().type}
             </Typography>
           </Box>
@@ -130,8 +130,8 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.customer,
         cell: (context) => (
           <Box>
-            <Typography variant="body1">{context.getValue().name}</Typography>
-            <Typography variant="body1">{context.getValue().mobile}</Typography>
+            <Typography variant='body1'>{context.getValue().name}</Typography>
+            <Typography variant='body1'>{context.getValue().mobile}</Typography>
           </Box>
         ),
         meta: {
@@ -181,7 +181,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'In phiếu',
@@ -222,7 +222,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

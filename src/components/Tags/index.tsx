@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import type { FCC } from 'types/react';
+import type { FCC } from '@/types/react';
 
 export type TagSeverity =
   | 'primary'
@@ -20,10 +20,7 @@ export const Tag: FCC<TagProps> = (props) => {
   const { color: severity = 'primary', children } = props;
   const theme = useTheme();
 
-  const bgcolor =
-    severity === 'grey'
-      ? theme.palette['grey']['300']
-      : theme.palette[severity].main;
+  const bgcolor = severity === 'grey' ? theme.palette['grey']['300'] : theme.palette[severity].main;
 
   const color =
     severity === 'grey'
@@ -32,7 +29,7 @@ export const Tag: FCC<TagProps> = (props) => {
 
   return (
     <Typography
-      variant="caption"
+      variant='caption'
       sx={{
         display: 'inline-flex',
         alignItems: 'center',

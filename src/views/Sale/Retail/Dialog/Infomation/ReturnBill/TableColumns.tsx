@@ -2,8 +2,8 @@ import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import SouthIcon from '@mui/icons-material/South';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 
 const columnHelper = getColumnHelper<any>();
@@ -44,10 +44,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         header: () => HEAD_CELLS.id,
         cell: (context) => (
-          <Typography
-            variant="subtitle2"
-            sx={{ color: '#007bff', cursor: 'pointer' }}
-          >
+          <Typography variant='subtitle2' sx={{ color: '#007bff', cursor: 'pointer' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -108,8 +105,8 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Chiết khấu">
-            <SouthIcon color="error" />
+          <Tooltip title='Chiết khấu'>
+            <SouthIcon color='error' />
           </Tooltip>
         ),
         cell: (context) => context.getValue(),
@@ -133,7 +130,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => HEAD_CELLS.totalPrice,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: 'primary.main' }}>
+          <Typography variant='subtitle2' sx={{ color: 'primary.main' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -147,7 +144,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Ghi chú">
+          <Tooltip title='Ghi chú'>
             <NoteAltIcon />
           </Tooltip>
         ),

@@ -1,13 +1,13 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useState } from 'react';
 import useFilters from './utils/filters';
 import { TransactionHistory } from './utils/type';
 import FiltersForm from './FiltersForm';
-import ProMenu from 'components/ProMenu';
-import ActionButton from 'components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ActionButton from '@/components/ProButton/ActionButton';
 import useTableColumns from './TableColumns';
 
 const DATA: TransactionHistory[] = [
@@ -62,8 +62,7 @@ const TransactionLog = () => {
   const [data] = useState<TransactionHistory[]>(DATA);
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(data.length || 0);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const { columns } = useTableColumns({
     pageNumber: filters.pageNumber,
@@ -72,9 +71,9 @@ const TransactionLog = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Giao dịch kế toán">
+      <PageWrapper title='Giao dịch kế toán'>
         <PageBreadcrumbs
-          title="Lịch sử"
+          title='Lịch sử'
           items={[
             {
               link: '/accounting/transaction/index',
@@ -87,7 +86,7 @@ const TransactionLog = () => {
           ]}
         />
         <ProTable<TransactionHistory>
-          title="Danh sách giao dịch"
+          title='Danh sách giao dịch'
           loading={loading}
           columns={columns}
           data={data}
@@ -105,7 +104,7 @@ const TransactionLog = () => {
           toolBar={
             <Fragment>
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Xuất Excel',
@@ -114,7 +113,7 @@ const TransactionLog = () => {
                   },
                 ]}
               >
-                <ActionButton color="info">Thao tác</ActionButton>
+                <ActionButton color='info'>Thao tác</ActionButton>
               </ProMenu>
             </Fragment>
           }

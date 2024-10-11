@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Page: FC<PropsWithChildren<Props>> = (props) => {
-  const { title = 'VSHIP', children } = props;
+  const { title, children } = props;
 
   return (
     <Fragment>

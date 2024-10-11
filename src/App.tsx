@@ -1,20 +1,18 @@
-import CssBaseline from '@mui/material/CssBaseline';
 import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import GlobalBaseline from 'components/GlobalBaseline';
-import { DateTimeLocaleText } from 'constants/locale';
-import { AuthProvider } from 'contexts/Auth';
-import DialogProvider from 'contexts/Dialog';
-import { NotificationProvider } from 'contexts/Notification';
-import { SettingsProvider } from 'contexts/Settings';
-import viLocale from 'date-fns/locale/vi';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import 'dayjs/locale/vi';
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider as ReduxProvider } from 'react-redux';
-import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
-import Routers from 'routers';
-import store from 'store';
-import history from 'utils/history';
+
 import './i18n';
+import store from './store';
+import Routers from './routers';
+import { DateTimeLocaleText } from './constants/locale';
+import { SettingsProvider } from './contexts/Settings';
+import { NotificationProvider } from './contexts/Notification';
+import { AuthProvider } from './contexts/Auth';
+import DialogProvider from './contexts/Dialog';
+import InitLoadingProvider from './contexts/InitLoadingProvider';
 
 const App = () => {
   return (
@@ -24,17 +22,11 @@ const App = () => {
           <SettingsProvider>
             <NotificationProvider>
               <DialogProvider>
-                <HistoryRouter history={history}>
-                  <LocalizationProvider
-                    dateAdapter={AdapterDateFns}
-                    adapterLocale={viLocale}
-                    localeText={DateTimeLocaleText}
-                  >
-                    <CssBaseline enableColorScheme />
-                    <GlobalBaseline />
+                <InitLoadingProvider>
+                  <LocalizationProvider dateAdapter={AdapterDayjs} localeText={DateTimeLocaleText}>
                     <Routers />
                   </LocalizationProvider>
-                </HistoryRouter>
+                </InitLoadingProvider>
               </DialogProvider>
             </NotificationProvider>
           </SettingsProvider>

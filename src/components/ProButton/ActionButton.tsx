@@ -15,7 +15,7 @@ import UploadIcon from '@mui/icons-material/Upload';
 import type { LoadingButtonProps } from '@mui/lab/LoadingButton';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { useState } from 'react';
-import Logger from 'utils/Logger';
+import Logger from '@/utils/Logger';
 import PrintIcon from '@mui/icons-material/Print';
 
 const Icons = {
@@ -43,13 +43,7 @@ interface Props extends LoadingButtonProps {
 }
 
 const ActionButton = (props: Props) => {
-  const {
-    actionType,
-    iconPosition = 'start',
-    onSubmit,
-    loading,
-    ...rest
-  } = props;
+  const { actionType, iconPosition = 'start', onSubmit, loading, ...rest } = props;
 
   const [submitting, setSubmitting] = useState<boolean>(false);
 

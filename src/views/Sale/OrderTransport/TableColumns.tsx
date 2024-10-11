@@ -1,12 +1,12 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import { IRetail } from 'types/retail';
+import { IRetail } from '@/types/retail';
 const columnHelper = getColumnHelper<IRetail>();
 
 const HEAD_CELLS: HeadCell<IRetail> = {
@@ -39,7 +39,7 @@ const useTableColumns = (props: Props) => {
         id: 'creator',
         size: 100,
         header: () => 'ID',
-        cell: (context) => <Typography color="#007bff">12481</Typography>,
+        cell: (context) => <Typography color='#007bff'>12481</Typography>,
         meta: {
           title: HEAD_CELLS.creator,
         },
@@ -59,8 +59,8 @@ const useTableColumns = (props: Props) => {
         header: () => 'Tên khách hàng',
         cell: (context) => (
           <Box>
-            <Typography color="#007bff">12481</Typography>
-            <Typography color="primary">cod</Typography>
+            <Typography color='#007bff'>12481</Typography>
+            <Typography color='primary'>cod</Typography>
           </Box>
         ),
         meta: {
@@ -153,7 +153,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Cập nhật',
@@ -177,7 +177,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

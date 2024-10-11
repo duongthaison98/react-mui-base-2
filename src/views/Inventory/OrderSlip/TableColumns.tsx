@@ -4,11 +4,11 @@ import { IconButton } from '@mui/material';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { Fragment, useMemo } from 'react';
 
 const columnHelper = getColumnHelper<any>();
@@ -49,10 +49,10 @@ const useTableColumns = (props: Props) => {
         header: () => 'ID | ngày',
         cell: (context) => (
           <Box sx={{ textAlign: 'center' }}>
-            <Typography fontWeight="bold" color="primary">
+            <Typography fontWeight='bold' color='primary'>
               15
             </Typography>
-            <Typography color="primary">02/02/2023</Typography>
+            <Typography color='primary'>02/02/2023</Typography>
           </Box>
         ),
         meta: {
@@ -63,7 +63,7 @@ const useTableColumns = (props: Props) => {
         id: 'code',
         size: 90,
         header: () => 'Kho hàng',
-        cell: (context) => <Typography color="primary">HN-1 </Typography>,
+        cell: (context) => <Typography color='primary'>HN-1 </Typography>,
         meta: {
           title: HEAD_CELLS.code,
         },
@@ -72,7 +72,7 @@ const useTableColumns = (props: Props) => {
         id: 'name',
         size: 100,
         header: () => 'NCC',
-        cell: (context) => <Typography color="primary">NCC 47</Typography>,
+        cell: (context) => <Typography color='primary'>NCC 47</Typography>,
         meta: {
           title: HEAD_CELLS.code,
         },
@@ -92,7 +92,7 @@ const useTableColumns = (props: Props) => {
         size: 90,
         enableSorting: false,
         header: () => 'SL SP ',
-        cell: (context) => <Typography color="primary">1</Typography>,
+        cell: (context) => <Typography color='primary'>1</Typography>,
         meta: {
           title: HEAD_CELLS.costPrice,
         },
@@ -101,7 +101,7 @@ const useTableColumns = (props: Props) => {
         id: 'price',
         size: 100,
         header: () => 'Tổng SL',
-        cell: (context) => <Typography color="primary">6900</Typography>,
+        cell: (context) => <Typography color='primary'>6900</Typography>,
         meta: {
           title: HEAD_CELLS.price,
         },
@@ -111,7 +111,7 @@ const useTableColumns = (props: Props) => {
         id: 'price',
         size: 100,
         header: () => 'TT tệ',
-        cell: (context) => <Typography color="primary">39.330</Typography>,
+        cell: (context) => <Typography color='primary'>39.330</Typography>,
         meta: {
           title: HEAD_CELLS.price,
         },
@@ -121,7 +121,7 @@ const useTableColumns = (props: Props) => {
         id: 'price',
         size: 100,
         header: () => 'Tổng tiền',
-        cell: (context) => <Typography color="primary">140.014.800</Typography>,
+        cell: (context) => <Typography color='primary'>140.014.800</Typography>,
         meta: {
           title: HEAD_CELLS.price,
         },
@@ -136,7 +136,7 @@ const useTableColumns = (props: Props) => {
           const { note, id } = context.row.original;
           return (
             <IconButton onClick={() => handleEditNote(id, note)}>
-              <EditIcon color="primary" />
+              <EditIcon color='primary' />
             </IconButton>
           );
         },
@@ -171,7 +171,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => 'Trạng thái duyệt',
-        cell: (context) => <Typography color="primary">5000 / 6900</Typography>,
+        cell: (context) => <Typography color='primary'>5000 / 6900</Typography>,
         meta: {
           title: HEAD_CELLS.inventory,
         },
@@ -186,9 +186,7 @@ const useTableColumns = (props: Props) => {
             dialog({
               headline: 'Xác nhận?',
               supportingText: (
-                <Fragment>
-                  Bạn có chắc chắn muốn hoàn thành đơn hàng này không?
-                </Fragment>
+                <Fragment>Bạn có chắc chắn muốn hoàn thành đơn hàng này không?</Fragment>
               ),
               onConfirm: async () => {},
             });
@@ -212,8 +210,7 @@ const useTableColumns = (props: Props) => {
               headline: 'Xác nhận xóa?',
               supportingText: (
                 <Fragment>
-                  Bạn có chắc chắn muốn xóa:{' '}
-                  <strong>{context.row.original.name}</strong>
+                  Bạn có chắc chắn muốn xóa: <strong>{context.row.original.name}</strong>
                 </Fragment>
               ),
               onConfirm: async () => {},
@@ -222,7 +219,7 @@ const useTableColumns = (props: Props) => {
 
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Xem chi tiết',
@@ -260,7 +257,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

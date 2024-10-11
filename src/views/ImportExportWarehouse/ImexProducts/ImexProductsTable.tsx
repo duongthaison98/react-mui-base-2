@@ -1,9 +1,9 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -78,8 +78,7 @@ const ImexProductsTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -132,11 +131,7 @@ const ImexProductsTable = () => {
               },
             ]}
           >
-            <ActionButton
-              iconPosition="end"
-              actionType="expand"
-              color="success"
-            >
+            <ActionButton iconPosition='end' actionType='expand' color='success'>
               {'Thêm mới'}
             </ActionButton>
           </ProMenu>
@@ -168,7 +163,7 @@ const ImexProductsTable = () => {
               },
             ]}
           >
-            <ActionButton iconPosition="end" actionType="expand" color="info">
+            <ActionButton iconPosition='end' actionType='expand' color='info'>
               {'Thao tác'}
             </ActionButton>
           </ProMenu>

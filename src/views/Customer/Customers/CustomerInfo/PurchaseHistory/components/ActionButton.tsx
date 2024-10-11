@@ -1,14 +1,14 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Box from '@mui/material/Box/Box';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 const ActionButtonComponent = () => {
   return (
     <Box sx={{ margin: '2px' }}>
       <ProMenu
-        position="left"
+        position='left'
         items={[
           {
             label: 'Xuất excel',
@@ -17,11 +17,7 @@ const ActionButtonComponent = () => {
           },
         ]}
       >
-        <ActionButton
-          variant="contained"
-          color="success"
-          startIcon=<SettingsIcon />
-        >
+        <ActionButton variant='contained' color='success' startIcon=<SettingsIcon />>
           Thao tác
           <ExpandMoreIcon />
         </ActionButton>

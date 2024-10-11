@@ -4,7 +4,7 @@ import FormLabel, { formLabelClasses } from '@mui/material/FormLabel';
 import type { TypographyProps } from '@mui/material/Typography';
 import Typography from '@mui/material/Typography';
 import { Fragment } from 'react';
-import type { FCC } from 'types/react';
+import type { FCC } from '@/types/react';
 
 interface Props extends FormLabelProps {
   name: string;
@@ -12,6 +12,7 @@ interface Props extends FormLabelProps {
   gutterBottom?: TypographyProps['gutterBottom'];
   gutterLeft?: TypographyProps['gutterBottom'];
   TypographyProps?: Partial<TypographyProps>;
+  onClick?: () => void;
 }
 
 const ProFormLabel: FCC<Props> = (props) => {
@@ -22,6 +23,7 @@ const ProFormLabel: FCC<Props> = (props) => {
     gutterBottom = true,
     gutterLeft = false,
     TypographyProps = {},
+    onClick,
     ...rest
   } = props;
 
@@ -30,7 +32,14 @@ const ProFormLabel: FCC<Props> = (props) => {
   }
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Box
+      sx={{ display: 'flex', flexDirection: 'column' }}
+      onClick={() => {
+        if (onClick) {
+          onClick();
+        }
+      }}
+    >
       <FormLabel
         sx={{
           [`& .${formLabelClasses.asterisk}`]: {
@@ -41,7 +50,7 @@ const ProFormLabel: FCC<Props> = (props) => {
         {...rest}
       >
         <Typography
-          variant="subtitle2"
+          variant='subtitle2'
           gutterBottom={gutterBottom}
           sx={{
             ml: gutterLeft ? '0.5em' : void 0,

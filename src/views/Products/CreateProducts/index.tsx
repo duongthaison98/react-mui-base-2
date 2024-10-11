@@ -1,24 +1,23 @@
+import Image from '@/components/Image';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormContent from '@/components/ProForm/ProFormContent';
+import ProFormLabel from '@/components/ProForm/ProFormLabel';
+import ProFormRadio from '@/components/ProForm/ProFormRadio';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import UploadInput from '@/components/UploadInput';
+import { NumberInput } from '@/plugins/NumberFormat';
+import Validation from '@/utils/Validation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import AddIcon from '@mui/icons-material/Add';
 import { Button, Grid, Stack } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import Image from 'components/Image';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormContent from 'components/ProForm/ProFormContent';
-import ProFormLabel from 'components/ProForm/ProFormLabel';
-import ProFormRadio from 'components/ProForm/ProFormRadio';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import UploadInput from 'components/UploadInput';
-import { NumberInput } from 'plugins/NumberFormat';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
 import AddNewCategory from './AddNewCategory';
-import { IImportExport } from './utils/types';
 
 const schema = Validation.shape({
   warehouse: Validation.select(1),
@@ -26,17 +25,23 @@ const schema = Validation.shape({
   danhMuc: Validation.select(1),
 });
 
+interface IForm {
+  warehouse: number;
+  trangThai: number;
+  danhMuc: number;
+}
+
 const CreateProducts = () => {
-  const form = useForm<IImportExport>({
+  const form = useForm<IForm>({
     mode: 'onChange',
     resolver: yupResolver(schema),
     defaultValues: schema.getDefault(),
   });
-  const handleSubmit = (data: any) => {
+  const handleSubmit = (data: IForm) => {
     console.log(data);
   };
 
-  const getTypeImport = form.watch('abc');
+  const getTypeImport = form.watch('warehouse');
   console.log(getTypeImport);
 
   const [isOpenDialogInfo, setOpenDialogInfo] = useState<boolean>(false);
@@ -73,10 +78,7 @@ const CreateProducts = () => {
 
   return (
     <PageWrapper title={'Thêm sản phẩm'}>
-      <PageBreadcrumbs
-        title={'Thêm sản phẩm'}
-        items={[{ link: '/products', text: 'Sản phẩm' }]}
-      />
+      <PageBreadcrumbs title={'Thêm sản phẩm'} items={[{ link: '/products', text: 'Sản phẩm' }]} />
       <ProForm form={form} onFinish={handleSubmit}>
         <div
           style={{
@@ -88,22 +90,20 @@ const CreateProducts = () => {
             rowGap: '10px',
           }}
         >
-          <Stack
-            direction={'column'}
-            sx={{ gridArea: 'left', minHeight: '100%' }}
-          >
+          <Stack direction={'column'} sx={{ gridArea: 'left', minHeight: '100%' }}>
             <ProFormContent sx={{ minHeight: '100%' }}>
               <Paper sx={{ p: 2, minHeight: '100%' }}>
                 <Grid container spacing={2} marginBottom={1}>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Tên'} name="ten" />
-                    <ProFormTextField name="ten" />
+                    <ProFormLabel title={'Tên'} name='ten' />
+                    <ProFormTextField name='ten' />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Loại'} name="warehouse" />
+                    {/* <ProFormLabel title={'Loại'} name='warehouse' /> */}
                     <ProFormSelect
-                      name="warehouse"
-                      placeholder=""
+                      name='warehouse'
+                      label='Loại'
+                      placeholder=''
                       options={[
                         { value: 1, label: 'Sản phẩm' },
                         { value: 2, label: 'Voucher' },
@@ -119,58 +119,58 @@ const CreateProducts = () => {
                     />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Tỷ lệ'} name="tyLe" />
-                    <ProFormTextField name="tyLe" />
+                    <ProFormLabel title={'Tỷ lệ'} name='tyle' />
+                    <ProFormTextField name='tyle' />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Mã'} name="ma" />
-                    <ProFormTextField name="ma" />
+                    <ProFormLabel title={'Mã'} name='ma' />
+                    <ProFormTextField name='ma' />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Mã vạch'} name="maVach" />
-                    <ProFormTextField name="maVach" />
+                    <ProFormLabel title={'Mã vạch'} name='maVach' />
+                    <ProFormTextField name='maVach' />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Giá bán'} name="giaBan" />
+                    <ProFormLabel title={'Giá bán'} name='giaBan' />
                     <ProFormTextField
-                      name="giaBan"
+                      name='giaBan'
                       InputProps={{
                         inputComponent: NumberInput,
                       }}
                     />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Giá sỉ'} name="giaSi" />
+                    <ProFormLabel title={'Giá sỉ'} name='giaSi' />
                     <ProFormTextField
-                      name="giaSi"
+                      name='giaSi'
                       InputProps={{
                         inputComponent: NumberInput,
                       }}
                     />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Giá cũ'} name="giaCu" />
+                    <ProFormLabel title={'Giá cũ'} name='giaCu' />
                     <ProFormTextField
-                      name="giaCu"
+                      name='giaCu'
                       InputProps={{
                         inputComponent: NumberInput,
                       }}
                     />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Giá spa'} name="giaSpa" />
+                    <ProFormLabel title={'Giá spa'} name='giaSpa' />
                     <ProFormTextField
-                      name="giaSpa"
+                      name='giaSpa'
                       InputProps={{
                         inputComponent: NumberInput,
                       }}
                     />
                   </Grid>
                   <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <ProFormLabel title={'Trạng thái'} name="trangThai" />
+                    <ProFormLabel title={'Trạng thái'} name='trangThai' />
                     <ProFormSelect
-                      name="trangThai"
-                      placeholder=""
+                      name='trangThai'
+                      placeholder=''
                       options={[
                         { value: 1, label: 'Mới' },
                         { value: 2, label: 'Đang bán' },
@@ -188,27 +188,17 @@ const CreateProducts = () => {
               <Paper sx={{ p: 2 }}>
                 <Grid container spacing={2} marginBottom={1}>
                   <Grid item container xs={12} sm={12} md={12} lg={12}>
-                    <Grid item xs={12} sm={12} md={12} lg={12}>
-                      <ProFormLabel title={'Danh mục'} name="danhMuc" />
-                    </Grid>
-                    <Grid
-                      item
-                      container
-                      xs={12}
-                      sm={12}
-                      md={12}
-                      lg={12}
-                      spacing={2}
-                    >
+                    <Grid item container xs={12} sm={12} md={12} lg={12} spacing={2}>
                       <Grid item xs={10} sm={10} md={10} lg={10}>
                         <ProFormSelect
-                          name="danhMuc"
+                          name='danhMuc'
+                          label='Danh mục'
                           options={[
                             { value: 1, label: '- Danh mục -' },
                             { value: 2, label: 'Tuavit' },
                             { value: 3, label: 'Pin' },
                           ]}
-                          placeholder=""
+                          placeholder=''
                         />
                       </Grid>
                       <Grid item xs={2} sm={2} md={2} lg={2}>
@@ -219,20 +209,14 @@ const CreateProducts = () => {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Đơn vị tính'} name="donViTinh" />
-                    <ProFormTextField
-                      name="donViTinh"
-                      placeholder="VD: cái, hộp, chiếc, lon"
-                    />
+                    <ProFormLabel title={'Đơn vị tính'} name='donViTinh' />
+                    <ProFormTextField name='donViTinh' placeholder='VD: cái, hộp, chiếc, lon' />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ProFormLabel title={'Ảnh'} name="name" />
-                    <Button variant="contained" component="label">
+                    <ProFormLabel title={'Ảnh'} name='name' />
+                    <Button variant='contained' component='label'>
                       Upload
-                      <UploadInput
-                        accept="image/*"
-                        onChange={onSelectFileImage}
-                      />
+                      <UploadInput accept='image/*' onChange={onSelectFileImage} />
                     </Button>
                   </Grid>
 
@@ -252,11 +236,11 @@ const CreateProducts = () => {
               </Paper>
             </ProFormContent>
           </Stack>
-          <Stack direction="column" spacing={2} sx={{ gridArea: 'bot' }}>
+          <Stack direction='column' spacing={2} sx={{ gridArea: 'bot' }}>
             <Grid container spacing={2} marginTop={1} marginBottom={1}>
               <Grid item xs={12} sm={12} md={12} lg={12}>
                 <ProFormRadio
-                  name="afterAdd"
+                  name='afterAdd'
                   options={[
                     { value: 1, label: 'Tiếp tục thêm' },
                     { value: 2, label: 'Hiện danh sách sản phẩm' },
@@ -265,18 +249,15 @@ const CreateProducts = () => {
                 />
               </Grid>
             </Grid>
-            <Stack direction="row" spacing={1}>
-              <ActionButton actionType="save" type="submit">
+            <Stack direction='row' spacing={1}>
+              <ActionButton actionType='save' type='submit'>
                 Lưu
               </ActionButton>
             </Stack>
           </Stack>
 
           {isOpenDialogInfo ? (
-            <AddNewCategory
-              open={isOpenDialogInfo}
-              onClose={handleToggleDialog}
-            />
+            <AddNewCategory open={isOpenDialogInfo} onClose={handleToggleDialog} />
           ) : null}
         </div>
       </ProForm>

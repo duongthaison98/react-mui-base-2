@@ -1,11 +1,11 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useCallback, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
-import ConfirmChangeStore from 'views/Accounting/Cash/components/ConfirmChangeStore';
-import EditNote from 'views/Accounting/Cash/components/EditNote';
+import type { FiltersRef } from '@/types/refs';
+import ConfirmChangeStore from '@/views/Accounting/Cash/components/ConfirmChangeStore';
+import EditNote from '@/views/Accounting/Cash/components/EditNote';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -64,13 +64,11 @@ const BillTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [openEditNote, setEditNote] = useState<boolean>(false);
   const [, setEditRowId] = useState<number | null>(null);
   const [value, setValue] = useState<string>('');
-  const [openConfirmChangeStore, setOpenConfirmChangeStore] =
-    useState<boolean>(false);
+  const [openConfirmChangeStore, setOpenConfirmChangeStore] = useState<boolean>(false);
 
   // edit note
   const handleEditNote = useCallback((rowId: number, note: string) => {
@@ -145,11 +143,7 @@ const BillTable = () => {
                 },
               ]}
             >
-              <ActionButton
-                iconPosition="end"
-                actionType="expand"
-                color="success"
-              >
+              <ActionButton iconPosition='end' actionType='expand' color='success'>
                 {'Thêm mới'}
               </ActionButton>
             </ProMenu>
@@ -189,7 +183,7 @@ const BillTable = () => {
                 },
               ]}
             >
-              <ActionButton iconPosition="end" actionType="expand" color="info">
+              <ActionButton iconPosition='end' actionType='expand' color='info'>
                 {'Thao tác'}
               </ActionButton>
             </ProMenu>

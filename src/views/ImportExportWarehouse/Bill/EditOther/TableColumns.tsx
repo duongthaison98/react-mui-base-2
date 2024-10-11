@@ -1,10 +1,10 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Box, Stack, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { IImportExport } from './utils/types';
 
@@ -51,8 +51,8 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.product,
         cell: (context) => (
           <Stack direction={'column'} spacing={2}>
-            <Typography variant="body2">{context.getValue().code}</Typography>
-            <TextField size="small" placeholder="Mô tả sản phẩm" />
+            <Typography variant='body2'>{context.getValue().code}</Typography>
+            <TextField size='small' placeholder='Mô tả sản phẩm' />
           </Stack>
         ),
         meta: {
@@ -76,7 +76,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         cell: (context) => (
           <Box>
-            <TextField size="small" />
+            <TextField size='small' />
           </Box>
         ),
         meta: {
@@ -100,7 +100,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         cell: (context) => (
           <Box>
-            <TextField size="small" />
+            <TextField size='small' />
           </Box>
         ),
         meta: {
@@ -125,7 +125,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Xóa sản phẩm',
@@ -134,7 +134,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

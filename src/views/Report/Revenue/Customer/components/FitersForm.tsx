@@ -1,16 +1,16 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Collapse, Grid, Typography } from '@mui/material';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
-import DateTime from 'utils/DateTime';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import DateTime from '@/utils/DateTime';
+import Validation from '@/utils/Validation';
 import { FilterParams } from '../utils/filter';
 
 interface FilterValues {
@@ -90,15 +90,11 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
-          <ProDateRange
-            label={t('Khoảng ngày')}
-            from="startDate"
-            to="endDate"
-          />
+          <ProDateRange label={t('Khoảng ngày')} from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormSelect
-            name="store"
+            name='store'
             placeholder={t('Chọn cửa hàng')}
             options={[
               { value: 1, label: 'Linh kiện SG' },
@@ -110,16 +106,16 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={6} sm={3} md={2} lg={2.4}>
           <ProFormTextField
-            name="customer"
-            placeholder="Khách hàng"
+            name='customer'
+            placeholder='Khách hàng'
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
 
         <Grid item xs={6} sm={3} md={2} lg={2.4}>
           <ProFormSelect
-            name="typeCustomer"
-            placeholder="Loại khách hàng"
+            name='typeCustomer'
+            placeholder='Loại khách hàng'
             options={[
               { value: 1, label: 'Khách sỉ' },
               { value: 2, label: 'Khách lẻ' },
@@ -131,21 +127,17 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
 
         <Grid item xs={6} sm={3} md={2} lg={1.2}>
-          <ProFormFilterAction
-            onSubmit={onSubmit}
-            onClear={onClear}
-            onExpanded={onExpended}
-          />
+          <ProFormFilterAction onSubmit={onSubmit} onClear={onClear} onExpanded={onExpended} />
         </Grid>
       </Grid>
-      <Collapse in={openMoreFilter} timeout="auto">
-        <Grid container spacing={2} mt={2} alignItems="center">
+      <Collapse in={openMoreFilter} timeout='auto'>
+        <Grid container spacing={2} mt={2} alignItems='center'>
           <Grid item xs={12} sm={6} md={4} lg={0.85}>
             <Typography>Thành phố</Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={2.15}>
             <ProFormSelect
-              name="province"
+              name='province'
               placeholder={t('Thành phố')}
               options={[
                 { value: 1, label: 'Hà Nội' },
@@ -159,7 +151,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={2.25}>
             <ProFormTextField
-              name="price"
+              name='price'
               placeholder={t('Số tiền')}
               InputLabelProps={{ shrink: true }}
             />
@@ -171,7 +163,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
 
           <Grid item xs={12} sm={6} md={4} lg={2.15}>
             <ProFormSelect
-              name="level"
+              name='level'
               placeholder={t('Cấp độ')}
               options={[
                 { value: 1, label: '--' },
@@ -186,7 +178,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
 
           <Grid item xs={12} sm={6} md={4} lg={2.15}>
             <ProFormSelect
-              name="filterRevenue"
+              name='filterRevenue'
               placeholder={t('Lọc doanh thu')}
               options={[
                 { value: 1, label: '--' },
@@ -201,7 +193,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
 
           <Grid item xs={12} sm={6} md={4} lg={2.15}>
             <ProFormSelect
-              name="district"
+              name='district'
               placeholder={t('Quận huyện')}
               options={[
                 { value: 1, label: 'Hà Nội' },
@@ -213,10 +205,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             <Typography>Nhân viên bán hàng</Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={2.15}>
-            <ProFormTextField
-              name="seller"
-              placeholder={t('Nhân viên bán hàng')}
-            />
+            <ProFormTextField name='seller' placeholder={t('Nhân viên bán hàng')} />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={0.85}>
             <Typography>Nhóm khách hàng</Typography>
@@ -224,7 +213,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
 
           <Grid item xs={12} sm={6} md={4} lg={2.15}>
             <ProFormSelect
-              name="customerGroup"
+              name='customerGroup'
               placeholder={t('Nhóm khách hàng')}
               options={[
                 { value: 1, label: '---' },
@@ -233,13 +222,13 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             />
           </Grid>
 
-					<Grid item xs={12} sm={6} md={4} lg={0.85}>
+          <Grid item xs={12} sm={6} md={4} lg={0.85}>
             <Typography>Tùy chọn</Typography>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4} lg={2.15}>
             <ProFormSelect
-              name="options"
+              name='options'
               placeholder={t('Tùy chọn')}
               options={[
                 { value: 1, label: '---' },

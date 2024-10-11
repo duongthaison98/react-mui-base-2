@@ -11,9 +11,9 @@ import Typography from '@mui/material/Typography';
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { FCC } from 'types/react';
-import Logger from 'utils/Logger';
-import sleep from 'utils/sleep';
+import type { FCC } from '@/types/react';
+import Logger from '@/utils/Logger';
+import sleep from '@/utils/sleep';
 
 type Operation = () => Promise<void> | void;
 
@@ -95,8 +95,8 @@ const DialogProvider: FCC = (props) => {
       <Dialog
         open={open}
         onClose={handleReject}
-        scroll="paper"
-        maxWidth="xs"
+        scroll='paper'
+        maxWidth='xs'
         PaperProps={{ elevation: 3 }}
       >
         <Box
@@ -111,17 +111,13 @@ const DialogProvider: FCC = (props) => {
             bgcolor: 'grey.50',
           }}
         >
-          <Typography variant="subtitle1">{headline}</Typography>
+          <Typography variant='subtitle1'>{headline}</Typography>
           <IconButton onClick={handleReject}>
             <CloseIcon />
           </IconButton>
         </Box>
         <Box sx={{ p: 3 }}>
-          {supportingText ? (
-            <Typography variant="subtitle1">{supportingText}</Typography>
-          ) : (
-            content
-          )}
+          {supportingText ? <Typography variant='subtitle1'>{supportingText}</Typography> : content}
         </Box>
         <Box
           sx={{
@@ -145,8 +141,8 @@ const DialogProvider: FCC = (props) => {
             </LoadingButton>
             {typeof reject === 'function' && (
               <Button
-                variant="outlined"
-                color="inherit"
+                variant='outlined'
+                color='inherit'
                 startIcon={<CloseIcon />}
                 onClick={handleReject}
               >

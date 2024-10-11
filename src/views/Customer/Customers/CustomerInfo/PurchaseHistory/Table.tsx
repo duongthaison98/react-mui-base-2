@@ -1,8 +1,8 @@
 import { Box } from '@mui/material';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useRef, useState } from 'react';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import ActionButtonComponent from './components/ActionButton';
 import CreateCustomerButton from './components/CreateCustomerButton';
 import FiltersForm from './FiltersForm';
@@ -75,8 +75,7 @@ const PurchaseHistoryTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -93,7 +92,7 @@ const PurchaseHistoryTable = () => {
 
   return (
     <ProTable<IPurchaseHistoryType>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={banners}

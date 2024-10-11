@@ -6,10 +6,10 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { nanoid } from '@reduxjs/toolkit';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import { PriceInput } from 'plugins/NumberFormat';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import { PriceInput } from '@/plugins/NumberFormat';
 import { useState } from 'react';
 
 interface ICheckShow {
@@ -44,49 +44,38 @@ const Payment = () => {
           padding: '10px 15px',
         }}
       >
-        <Box sx={{ display: 'flex', fontSize: '17px', fontWeight: 'bold' }}>
-          Tổng tiền hàng
-        </Box>
-        <Box sx={{ display: 'flex', fontSize: '21px', color: 'red' }}>
-          870.000
-        </Box>
+        <Box sx={{ display: 'flex', fontSize: '17px', fontWeight: 'bold' }}>Tổng tiền hàng</Box>
+        <Box sx={{ display: 'flex', fontSize: '21px', color: 'red' }}>870.000</Box>
       </Box>
       <Box>
         <Divider />
       </Box>
       <Box sx={{ padding: '15px' }}>
-        <Grid
-          xs={12}
-          container
-          item
-          md={12}
-          sx={{ marginBottom: 1, marginTop: 1 }}
-          spacing={1}
-        >
-          <Grid item xs={3} container alignContent="center">
+        <Grid xs={12} container item md={12} sx={{ marginBottom: 1, marginTop: 1 }} spacing={1}>
+          <Grid item xs={3} container alignContent='center'>
             Trạng thái
           </Grid>
           <Grid item xs={9}>
             <ProFormSelect
-              name="status"
+              name='status'
               options={[
                 { id: 1, label: 'Trạng thái 1' },
                 { id: 2, label: 'Trạng thái 2' },
               ]}
               renderValue={(item) => item.id}
               renderLabel={(item) => item.label}
-              placeholder="Trạng thái"
+              placeholder='Trạng thái'
             />
           </Grid>
           {/* chiết khấu */}
 
-          <Grid item xs={3} container alignContent="center">
+          <Grid item xs={3} container alignContent='center'>
             Chiết khấu (F6)
           </Grid>
           <Grid item xs={1}>
             <ProFormCheckboxSelect
-              name="store"
-              placeholder=""
+              name='store'
+              placeholder=''
               options={[
                 { value: nanoid(), label: 'Bỏ chiết khấu tự động' },
                 { value: nanoid(), label: 'Bỏ tính điểm tự động' },
@@ -95,24 +84,24 @@ const Payment = () => {
           </Grid>
           <Grid item xs={3}>
             <ProFormSelect
-              name="unit"
+              name='unit'
               options={[
                 { id: 1, label: '%' },
                 { id: 2, label: 'VND' },
               ]}
               renderValue={(item) => item.id}
               renderLabel={(item) => item.label}
-              placeholder="Đơn vị"
+              placeholder='Đơn vị'
             />
           </Grid>
           <Grid item xs={5}>
             <ProFormTextField
-              name="price"
-              placeholder="Chiết khấu"
+              name='price'
+              placeholder='Chiết khấu'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment position='start'>
                     <ArrowForwardIcon />
                   </InputAdornment>
                 ),
@@ -121,16 +110,16 @@ const Payment = () => {
           </Grid>
           {/* coupon */}
 
-          <Grid item xs={3} container alignContent="center">
+          <Grid item xs={3} container alignContent='center'>
             Coupon
           </Grid>
           <Grid item xs={9}>
             <ProFormTextField
-              name="price"
-              placeholder="Chiết khấu"
+              name='price'
+              placeholder='Chiết khấu'
               InputProps={{
                 endAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment position='start'>
                     <SyncIcon />
                   </InputAdornment>
                 ),
@@ -146,13 +135,11 @@ const Payment = () => {
             padding: '10px 0',
           }}
         >
-          <Box sx={{ display: 'flex', fontSize: '17px', fontWeight: 'bold' }}>
-            Khách cần trả
-          </Box>
+          <Box sx={{ display: 'flex', fontSize: '17px', fontWeight: 'bold' }}>Khách cần trả</Box>
           <Typography
             gutterBottom
-            variant="subtitle1"
-            align="right"
+            variant='subtitle1'
+            align='right'
             sx={{
               fontWeight: 'bold',
               fontSize: '21px',
@@ -163,18 +150,18 @@ const Payment = () => {
           </Typography>
         </Box>
         <Grid container spacing={2} sx={{ marginBottom: 1 }}>
-          <Grid item xs={3} container alignContent="center">
+          <Grid item xs={3} container alignContent='center'>
             Tiền mặt(F8)
           </Grid>
           <Grid item xs={9}>
             <ProFormTextField
-              name="price"
-              placeholder="Tiền mặt"
+              name='price'
+              placeholder='Tiền mặt'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
                   <InputAdornment
-                    position="start"
+                    position='start'
                     sx={{ cursor: 'pointer' }}
                     onClick={() => handleClickShowInput('tienMat')}
                   >
@@ -189,14 +176,14 @@ const Payment = () => {
               <Grid item xs={3}></Grid>
               <Grid item xs={9}>
                 <ProFormSelect
-                  name="unit"
+                  name='unit'
                   options={[
                     { id: 1, label: '%' },
                     { id: 2, label: 'VND' },
                   ]}
                   renderValue={(item) => item.id}
                   renderLabel={(item) => item.label}
-                  placeholder="Quỹ Tiền mặt"
+                  placeholder='Quỹ Tiền mặt'
                 />
               </Grid>
             </>
@@ -204,18 +191,18 @@ const Payment = () => {
         </Grid>
         <Grid container spacing={2} sx={{ marginBottom: 1 }}>
           {/* Tài khoản ngân hàng */}
-          <Grid item xs={3} container alignContent="center">
+          <Grid item xs={3} container alignContent='center'>
             Chuyển khoản
           </Grid>
           <Grid item xs={9}>
             <ProFormTextField
-              name="price"
-              placeholder="Chuyển khoản"
+              name='price'
+              placeholder='Chuyển khoản'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
                   <InputAdornment
-                    position="start"
+                    position='start'
                     sx={{ cursor: 'pointer' }}
                     onClick={() => handleClickShowInput('chuyenKhoan')}
                   >
@@ -230,14 +217,14 @@ const Payment = () => {
               <Grid item xs={3}></Grid>
               <Grid item xs={9}>
                 <ProFormSelect
-                  name="unit"
+                  name='unit'
                   options={[
                     { id: 1, label: '%' },
                     { id: 2, label: 'VND' },
                   ]}
                   renderValue={(item) => item.id}
                   renderLabel={(item) => item.label}
-                  placeholder="Tài khoản ngân hàng"
+                  placeholder='Tài khoản ngân hàng'
                 />
               </Grid>
             </>
@@ -257,19 +244,15 @@ const Payment = () => {
               />
             </Grid> */}
         </Grid>
-        <Grid
-          container
-          spacing={2}
-          sx={{ marginBottom: 1, fontSize: '17px', fontWeight: 'bold' }}
-        >
+        <Grid container spacing={2} sx={{ marginBottom: 1, fontSize: '17px', fontWeight: 'bold' }}>
           <Grid item xs={12} md={6}>
             Còn thiếu
           </Grid>
           <Grid item xs={12} md={6}>
             <Typography
               gutterBottom
-              variant="subtitle1"
-              align="right"
+              variant='subtitle1'
+              align='right'
               sx={{ color: 'primary.main', fontSize: '21px' }}
             >
               870.000
@@ -277,14 +260,14 @@ const Payment = () => {
           </Grid>
         </Grid>
         <ProFormTextField
-          name="customer"
+          name='customer'
           placeholder={'Ghi chú'}
           InputLabelProps={{ shrink: true }}
           multiline
           rows={3}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <EventNoteIcon />
               </InputAdornment>
             ),

@@ -1,15 +1,15 @@
 import { Grid } from '@mui/material';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormContent from 'components/ProForm/ProFormContent';
-import ProFormHeader from 'components/ProForm/ProFormHeader';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormContent from '@/components/ProForm/ProFormContent';
+import ProFormHeader from '@/components/ProForm/ProFormHeader';
 import { UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { ICreateSettingPriceListType } from '../utils/type';
 import InfoIcon from '@mui/icons-material/Info';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
 
 interface Props {
   form: UseFormReturn<ICreateSettingPriceListType>;
@@ -22,21 +22,16 @@ const Infomation = (props: Props) => {
     <ProForm form={form}>
       <ProFormContent m={2}>
         <ProFormHeader>
-          <Grid
-            container
-            spacing={2}
-            alignItems="center"
-            justifyContent="center"
-          >
+          <Grid container spacing={2} alignItems='center' justifyContent='center'>
             <Grid item xs={12} sm={6} md={4} lg={8}>
               <div style={{ display: 'inline-flex', alignItems: 'center' }}>
-                <InfoIcon sx={{ marginRight: '8px' }} color="inherit" />
+                <InfoIcon sx={{ marginRight: '8px' }} color='inherit' />
                 Thông tin
               </div>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <ProFormSelect
-                name="status"
+                name='status'
                 placeholder={t('Trạng thái')}
                 options={[
                   { value: 1, label: 'Hoạt động' },
@@ -48,30 +43,20 @@ const Infomation = (props: Props) => {
             </Grid>
           </Grid>
         </ProFormHeader>
-        <Grid
-          container
-          spacing={2}
-          justifyContent="center"
-          alignItems="center"
-          mt={1}
-        >
+        <Grid container spacing={2} justifyContent='center' alignItems='center' mt={1}>
           <Grid item xs={12} sm={12} md={10} lg={11}>
             <ProFormTextField
-              name="priceName"
+              name='priceName'
               placeholder={t('Tên bảng giá')}
               InputLabelProps={{ shrink: true }}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={11}>
-            <ProDateRange
-              label={t('Ngày áp dụng')}
-              from="applyStartDate"
-              to="applyEndDate"
-            />
+            <ProDateRange label={t('Ngày áp dụng')} from='applyStartDate' to='applyEndDate' />
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={11}>
             <ProFormCheckboxSelect
-              name="category"
+              name='category'
               label={t('Danh mục')}
               placeholder={t('Chọn danh mục')}
               options={[
@@ -87,7 +72,7 @@ const Infomation = (props: Props) => {
           </Grid>
           <Grid item xs={12} sm={12} md={10} lg={11}>
             <ProFormTextField
-              name="note"
+              name='note'
               placeholder={t('Ghi chú')}
               InputLabelProps={{ shrink: true }}
               multiline

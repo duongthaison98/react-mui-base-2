@@ -4,17 +4,17 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, ButtonGroup, Collapse } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { nanoid } from '@reduxjs/toolkit';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
-import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
+import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import type { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import type { FilterParams } from './utils/filters';
 
 interface FilterValues {
@@ -66,7 +66,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormSelect
-            name="company"
+            name='company'
             placeholder={t('Chọn doanh nghiệp')}
             options={[
               { value: 1, label: 'TM' },
@@ -79,7 +79,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormCheckboxSelect
-            name="store"
+            name='store'
             placeholder={t('Chọn cửa hàng')}
             options={[
               { value: nanoid(), label: 'TM' },
@@ -101,14 +101,14 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormTextField
-            name="id"
+            name='id'
             placeholder={t('Nhập ID')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormSelect
-            name="type"
+            name='type'
             placeholder={t('Chọn loại phiếu')}
             options={[
               { value: 1, label: 'Nhập' },
@@ -118,7 +118,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormCheckboxSelect
-            name="shape"
+            name='shape'
             placeholder={t('Chọn kiểu')}
             options={[
               { value: nanoid(), label: 'A' },
@@ -130,84 +130,81 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
-          <ProDateRange label={t('Từ - đến')} from="startDate" to="endDate" />
+          <ProDateRange label={t('Từ - đến')} from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={2} lg={1.5}>
-          <ButtonGroup
-            variant="contained"
-            aria-label="outlined primary button group"
-          >
-            <Button type="submit">Lọc</Button>
+          <ButtonGroup variant='contained' aria-label='outlined primary button group'>
+            <Button type='submit'>Lọc</Button>
             <Button
-              variant="contained"
+              variant='contained'
               endIcon={openExpand ? <ExpandMoreIcon /> : <ExpandLessIcon />}
               onClick={handleExpand}
-              size="medium"
+              size='medium'
             />
           </ButtonGroup>
         </Grid>
         <Grid item xs={12} lg={12}>
-          <Collapse in={openExpand} timeout="auto">
+          <Collapse in={openExpand} timeout='auto'>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="iddonhang"
+                  name='iddonhang'
                   placeholder={t('ID đơn hàng')}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="khachhang"
+                  name='khachhang'
                   placeholder={t('Khách hàng')}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="nhacungcap"
+                  name='nhacungcap'
                   placeholder={t('Nhà cung cấp')}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="sanpham"
+                  name='sanpham'
                   placeholder={t('Sản phẩm')}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="idphieukk"
+                  name='idphieukk'
                   placeholder={t('ID phiếu kiểm kho')}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="ghichu"
+                  name='ghichu'
                   placeholder={t('Ghi chú')}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="imei"
+                  name='imei'
                   placeholder={t('IMEI')}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="idphieubaohanh"
+                  name='idphieubaohanh'
                   placeholder={t('ID phiếu bảo hành')}
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormCheckboxSelect
-                  name="nhan"
+                  name='nhan'
                   placeholder={t('Chọn nhãn')}
                   options={[
                     { value: nanoid(), label: 'TM' },
@@ -220,7 +217,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
               </Grid>
               <Grid item xs={12} sm={6} md={3} lg={3}>
                 <ProFormTextField
-                  name="idphieunhap"
+                  name='idphieunhap'
                   placeholder={t('ID phiếu nháp')}
                   InputLabelProps={{ shrink: true }}
                 />

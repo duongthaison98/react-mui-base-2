@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import ProTable from 'components/ProTable';
+import ProTable from '@/components/ProTable';
 import React, { Fragment, useState } from 'react';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import useTableColumns from './TableColumns';
@@ -46,7 +46,7 @@ const Inventory = () => {
     <Fragment>
       <Box sx={{ height: '300px' }}>
         <ProTable<Inventorys>
-          title="Danh sách giao dịch"
+          title='Danh sách giao dịch'
           columns={columns}
           data={data}
           initialstate={{ hiddenColumns: [] }}
@@ -57,32 +57,27 @@ const Inventory = () => {
           <LightbulbIcon sx={{ fontSize: '40px' }} />
         </Box>
         <Box>
-          <Typography variant="subtitle1">Chú ý:</Typography>
-          <Typography variant="subtitle1">
-            - Số "Đang giao hàng" là số sản phẩm trong các đơn hàng đang vận
-            chuyển.
+          <Typography variant='subtitle1'>Chú ý:</Typography>
+          <Typography variant='subtitle1'>
+            - Số "Đang giao hàng" là số sản phẩm trong các đơn hàng đang vận chuyển.
           </Typography>
-          <Typography variant="subtitle1">
-            - Số "Tạm giữ" là số sản phẩm trong các đơn hàng chưa xử lý trạng
-            thái.
+          <Typography variant='subtitle1'>
+            - Số "Tạm giữ" là số sản phẩm trong các đơn hàng chưa xử lý trạng thái.
           </Typography>
-          <Typography variant="subtitle1">
-            - Số "Đang xuất chuyển kho" là số lượng chuyển kho mới duyệt, chưa
-            xác nhận ở kho đi.
+          <Typography variant='subtitle1'>
+            - Số "Đang xuất chuyển kho" là số lượng chuyển kho mới duyệt, chưa xác nhận ở kho đi.
           </Typography>
-          <Typography variant="subtitle1">
-            - Số "Chờ nhập chuyển kho" là số lượng chuyển kho mới duyệt, chưa
-            xác nhận ở kho đến.
+          <Typography variant='subtitle1'>
+            - Số "Chờ nhập chuyển kho" là số lượng chuyển kho mới duyệt, chưa xác nhận ở kho đến.
           </Typography>
-          <Typography variant="subtitle1">
-            - Số "Có thể bán" = Tồn - Lỗi - Đang giao hàng - Tạm giữ - Tạm giữ
-            linh kiện.
+          <Typography variant='subtitle1'>
+            - Số "Có thể bán" = Tồn - Lỗi - Đang giao hàng - Tạm giữ - Tạm giữ linh kiện.
           </Typography>
-          <Typography variant="subtitle1">
-            - Số "Chờ nhập hàng" là số sản phẩm yêu cầu nhập nhà cung cấp đã
-            được duyệt nhưng chưa nhập về cửa hàng.
+          <Typography variant='subtitle1'>
+            - Số "Chờ nhập hàng" là số sản phẩm yêu cầu nhập nhà cung cấp đã được duyệt nhưng chưa
+            nhập về cửa hàng.
           </Typography>
-          <Typography variant="subtitle1">
+          <Typography variant='subtitle1'>
             - Số "Đặt trước" là số sản phẩm ở đơn hàng loại đặt trước.
           </Typography>
         </Box>

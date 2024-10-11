@@ -2,12 +2,12 @@ import DownloadIcon from '@mui/icons-material/Download';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import TableRow from '@mui/material/TableRow';
-import ProTable from 'components/ProTable';
-import ProTableCell from 'components/ProTable/ProTableCell';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import ProTableCell from '@/components/ProTable/ProTableCell';
+import useRefresh from '@/hooks/useRefresh';
 import React, { useCallback, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import EditPrice from './components/EditPrice';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
@@ -139,8 +139,7 @@ const OrderSlipProducts = () => {
   const [, setEditRowId] = useState<number | null>(null);
   const [total] = useState<number>(products.length || 0);
   const [openEditNote, setEditNote] = useState<boolean>(false);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -172,7 +171,7 @@ const OrderSlipProducts = () => {
   return (
     <>
       <ProTable<any>
-        title="Danh sách sản phẩm"
+        title='Danh sách sản phẩm'
         loading={loading}
         columns={columns}
         data={products}
@@ -194,7 +193,7 @@ const OrderSlipProducts = () => {
           />
         }
         toolBar={
-          <Button variant="outlined">
+          <Button variant='outlined'>
             <DownloadIcon /> {t('Xuất file')}
           </Button>
         }
@@ -207,16 +206,16 @@ const OrderSlipProducts = () => {
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">Tổng</Typography>
+                <Typography fontWeight='bold'>Tổng</Typography>
               </ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">39.330</Typography>
+                <Typography fontWeight='bold'>39.330</Typography>
               </ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">140.014.800</Typography>
+                <Typography fontWeight='bold'>140.014.800</Typography>
               </ProTableCell>
               <ProTableCell offset={0}>
-                <Typography fontWeight="bold">1.900</Typography>
+                <Typography fontWeight='bold'>1.900</Typography>
               </ProTableCell>
               <ProTableCell offset={0}></ProTableCell>
               <ProTableCell offset={0}></ProTableCell>

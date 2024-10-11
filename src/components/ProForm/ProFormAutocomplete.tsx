@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import type { TextFieldProps } from '@mui/material/TextField';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import useScrollbar from 'hooks/useScrollbar';
+import useScrollbar from '@/hooks/useScrollbar';
 import type { FieldValues } from 'react-hook-form';
 import { useController, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -24,13 +24,13 @@ interface Props<O extends FieldValues, V extends string | number>
   renderLabel: (option: O) => string;
   renderValue: (option: O) => V;
   getOptionDisabled?: (option: V) => boolean;
-    onSelect?: (id: V[] | null) => Promise<void> | void;
+  onSelect?: (id: V[] | null) => Promise<void> | void;
   placeholder: string;
   actionText?: string; // Like placeholder, but for instruction
 }
 
 const ProFormAutocomplete = <O extends FieldValues, V extends string | number>(
-  props: Props<O, V>
+  props: Props<O, V>,
 ) => {
   const {
     name,
@@ -57,15 +57,12 @@ const ProFormAutocomplete = <O extends FieldValues, V extends string | number>(
   } = useController({ name, control });
 
   //Convert Array to object set value!!!! Warning
-  const entries = options.reduce<Record<string | number, Value<V>>>(
-    (acc, option, i) => {
-      const value = renderValue(option);
-      const label = renderLabel(option);
-      acc[value] = { value, label, key: i };
-      return acc;
-    },
-    {}
-  );
+  const entries = options.reduce<Record<string | number, Value<V>>>((acc, option, i) => {
+    const value = renderValue(option);
+    const label = renderLabel(option);
+    acc[value] = { value, label, key: i };
+    return acc;
+  }, {});
   console.log(value);
   return (
     <ProFormLabel name={name} title={label} gutterBottom>
@@ -81,9 +78,7 @@ const ProFormAutocomplete = <O extends FieldValues, V extends string | number>(
         getOptionLabel={(option) => entries[option].label}
         noOptionsText={
           <PlaceHolder>
-            {!options.length && actionText
-              ? actionText
-              : t('Không có lựa chọn')}
+            {!options.length && actionText ? actionText : t('Không có lựa chọn')}
           </PlaceHolder>
         }
         componentsProps={{
@@ -105,8 +100,8 @@ const ProFormAutocomplete = <O extends FieldValues, V extends string | number>(
         renderOption={(props, option) => {
           const { value, label, key } = entries[option];
           return (
-            <Box component="li" {...props} value={value} key={key}>
-              <Typography variant="subtitle2">{label}</Typography>
+            <Box component='li' {...props} value={value} key={key}>
+              <Typography variant='subtitle2'>{label}</Typography>
             </Box>
           );
         }}
@@ -114,8 +109,8 @@ const ProFormAutocomplete = <O extends FieldValues, V extends string | number>(
         value={value || []}
         onChange={(_event, value) => {
           // if (typeof isValid !== 'function' || isValid(value)) {
-            onChange(value);
-            onSelect?.(value);
+          onChange(value);
+          onSelect?.(value);
           // }
         }}
       />

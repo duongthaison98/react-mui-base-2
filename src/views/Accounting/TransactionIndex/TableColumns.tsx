@@ -1,24 +1,17 @@
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { useMemo } from 'react';
 import { Account, Entry } from './utils/type';
-import Selection from 'components/ProTable/components/Selection';
-import {
-  Box,
-  IconButton,
-  Link,
-  Stack,
-  Tooltip,
-  Typography,
-} from '@mui/material';
-import DateTime from 'utils/DateTime';
-import Numeral from 'utils/Numeral';
+import Selection from '@/components/ProTable/components/Selection';
+import { Box, IconButton, Link, Stack, Tooltip, Typography } from '@mui/material';
+import DateTime from '@/utils/DateTime';
+import Numeral from '@/utils/Numeral';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
-import ProMenu from 'components/ProMenu';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
 
 const columnHelper = getColumnHelper<Entry>();
 
@@ -57,8 +50,8 @@ const useTableColumns = (props: Props) => {
           const { transactionId, date } = context.row.original;
           return (
             <Tooltip title={DateTime.Format(date, 'YYYY-MM-DD')}>
-              <Stack direction="column">
-                <Link href="" underline="none" target="_blank" color="#007bff">
+              <Stack direction='column'>
+                <Link href='' underline='none' target='_blank' color='#007bff'>
                   {transactionId}
                 </Link>
                 <Box>{DateTime.Format(date, 'MM-DD')}</Box>
@@ -99,13 +92,13 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.object,
         cell: (context) => {
           return (
-            <Stack direction="column" alignItems="start" spacing={0}>
+            <Stack direction='column' alignItems='start' spacing={0}>
               <Box>{`KH.${context.getValue<Account>().id}`}</Box>
               <Link
-                href=""
-                underline="none"
-                target="_blank"
-                color="#007bff"
+                href=''
+                underline='none'
+                target='_blank'
+                color='#007bff'
               >{`${context.getValue<Account>().info}`}</Link>
             </Stack>
           );
@@ -123,9 +116,9 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.document,
         cell: (context) => {
           return (
-            <Stack direction="row" alignItems="baseline">
+            <Stack direction='row' alignItems='baseline'>
               <Box>Phiếu XNK</Box>
-              <Link href="" underline="none" target="_blank" color="#007bff">
+              <Link href='' underline='none' target='_blank' color='#007bff'>
                 {context.getValue()}
               </Link>
             </Stack>
@@ -144,7 +137,7 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.amount,
         cell: (context) => {
           return (
-            <Box display="flex" justifyContent="end">
+            <Box display='flex' justifyContent='end'>
               {Numeral.price(context.getValue())}
             </Box>
           );
@@ -191,7 +184,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { note, id } = context.row.original;
           return (
-            <Stack direction={'row'} alignItems="center" spacing={2}>
+            <Stack direction={'row'} alignItems='center' spacing={2}>
               <Box>{note}</Box>
 
               <IconButton onClick={() => handleEditNote(id, note)}>
@@ -214,7 +207,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <IconButton>
-              <AddIcon color="primary" />
+              <AddIcon color='primary' />
             </IconButton>
           );
         },
@@ -237,7 +230,7 @@ const useTableColumns = (props: Props) => {
           };
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'In Phieu',
@@ -257,7 +250,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

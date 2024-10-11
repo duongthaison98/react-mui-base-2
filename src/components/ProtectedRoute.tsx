@@ -1,17 +1,19 @@
-import useAuth from 'hooks/useAuth';
-import { Fragment } from 'react';
-import { Navigate } from 'react-router-dom';
-import type { FCC } from 'types/react';
+import { Navigate, useLocation } from 'react-router-dom';
+import type { FCC } from '@/types/react';
+import { useAppSelector } from '@/store';
+import { ROUTE_PATH } from '@/constants/routes';
 
-const ProtectedRoute: FCC = (props) => {
-  const { children } = props;
-  const { isAuthenticated } = useAuth();
+const ProtectedRoute: FCC = ({ children }) => {
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
+  const location = useLocation();
 
   if (!isAuthenticated) {
-    return <Navigate to="/auth/login" replace />;
+    return (
+      <Navigate to={`/${ROUTE_PATH.AUTH}/${ROUTE_PATH.LOGIN}`} state={location.pathname} replace />
+    );
   }
 
-  return <Fragment>{children}</Fragment>;
+  return children;
 };
 
 export default ProtectedRoute;

@@ -13,10 +13,8 @@ export interface PaginationParams {
   sortDirection?: string | null;
 }
 
-export interface HttpResponse<D = any> {
-  data: D | null;
-  errors: string[] | null;
-  message: string | null;
-  messageCode: string | null;
-  total: number;
+export interface HttpResponse<T = any> {
+  data: T | null;
+  message: string;
+  statusCode: number;
 }

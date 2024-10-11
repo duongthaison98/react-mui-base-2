@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import type { HTMLAttributes, MouseEvent, ReactElement } from 'react';
 import { cloneElement, Fragment, isValidElement, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Logger from 'utils/Logger';
+import Logger from '@/utils/Logger';
 import DialogContainer from './DialogContainer';
 import DialogContent from './DialogContent';
 import DialogFooter from './DialogFooter';
@@ -33,13 +33,7 @@ const Popconfirm = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const {
-    label,
-    title,
-    description,
-    subdescription,
-    submitIcon: SubmitIcon = CheckIcon,
-  } = content;
+  const { label, title, description, subdescription, submitIcon: SubmitIcon = CheckIcon } = content;
 
   const handleClick = (_event: MouseEvent<HTMLButtonElement>) => {
     setOpen(true);
@@ -69,40 +63,29 @@ const Popconfirm = (props: Props) => {
             onClick: handleClick,
           })
         : null}
-      <DialogContainer open={open} onClose={handleClose} maxWidth="xs">
+      <DialogContainer open={open} onClose={handleClose} maxWidth='xs'>
         <DialogHeader title={title}>
           <InfoIcon sx={{ fontSize: 40, color: 'text.secondary' }} />
         </DialogHeader>
         <DialogContent>
-          <Typography
-            variant="subtitle1"
-            gutterBottom
-            sx={{ textAlign: 'center' }}
-          >
+          <Typography variant='subtitle1' gutterBottom sx={{ textAlign: 'center' }}>
             {description}
           </Typography>
           {subdescription && (
-            <Typography
-              variant="subtitle1"
-              sx={{ fontWeight: 'bold', textAlign: 'center' }}
-            >
+            <Typography variant='subtitle1' sx={{ fontWeight: 'bold', textAlign: 'center' }}>
               {subdescription}
             </Typography>
           )}
         </DialogContent>
         <DialogFooter>
-          <Button
-            variant="outlined"
-            startIcon={<CloseIcon />}
-            onClick={handleClose}
-          >
+          <Button variant='outlined' startIcon={<CloseIcon />} onClick={handleClose}>
             {t('Hủy bỏ')}
           </Button>
           <LoadingButton
             loading={loading}
-            loadingPosition="start"
+            loadingPosition='start'
             startIcon={<SubmitIcon />}
-            color="success"
+            color='success'
             onClick={handleSubmit}
           >
             {label}

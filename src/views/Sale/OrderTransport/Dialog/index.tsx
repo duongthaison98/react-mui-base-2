@@ -7,11 +7,11 @@ import Divider from '@mui/material/Divider';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
-import Page from 'components/Page';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import ProMenu from 'components/ProMenu';
+import Page from '@/components/Page';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import ProMenu from '@/components/ProMenu';
 import type { SyntheticEvent } from 'react';
 import { useState } from 'react';
 import EditHistory from './EditHistory';
@@ -52,10 +52,10 @@ const InfoDialog = (props: Props) => {
   //   const [loading, setLoading] = useState<boolean>(false);
 
   return (
-    <DialogContainer open={open} onClose={onClose} maxWidth="lg">
+    <DialogContainer open={open} onClose={onClose} maxWidth='lg'>
       <Box sx={{ display: 'flex', alignItems: 'center', margin: '5px' }}>
         <OpenInNewIcon />
-        <Typography variant="h6">123</Typography>
+        <Typography variant='h6'>123</Typography>
       </Box>
       <Box>
         <Divider />
@@ -71,20 +71,12 @@ const InfoDialog = (props: Props) => {
               padding: 0,
             }}
           >
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              variant="scrollable"
-              scrollButtons="auto"
-            >
+            <Tabs value={value} onChange={handleChange} variant='scrollable' scrollButtons='auto'>
               {tabs.map((tab, i) => (
                 <Tab
                   key={i}
                   label={
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ textTransform: 'none' }}
-                    >
+                    <Typography variant='subtitle2' sx={{ textTransform: 'none' }}>
                       {tab.label}
                     </Typography>
                   }
@@ -94,7 +86,7 @@ const InfoDialog = (props: Props) => {
             </Tabs>
             <Box sx={{ margin: '2px' }}>
               <ProMenu
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'In phiếu',
@@ -133,7 +125,7 @@ const InfoDialog = (props: Props) => {
                   },
                 ]}
               >
-                <ActionButton variant="contained">
+                <ActionButton variant='contained'>
                   Thao tác
                   <ExpandMoreIcon />
                 </ActionButton>

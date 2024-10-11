@@ -3,18 +3,11 @@ import EditIcon from '@mui/icons-material/Edit';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
-import {
-  Box,
-  Button,
-  Collapse,
-  Grid,
-  InputAdornment,
-  Typography,
-} from '@mui/material';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProFormAutocomplete from 'components/ProForm/Label/ProFormAutocomplete';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormDate from 'components/ProForm/ProFormDate';
+import { Box, Button, Collapse, Grid, InputAdornment, Typography } from '@mui/material';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProFormAutocomplete from '@/components/ProForm/Label/ProFormAutocomplete';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormDate from '@/components/ProForm/ProFormDate';
 import { useState } from 'react';
 
 const Customer = () => {
@@ -38,42 +31,30 @@ const Customer = () => {
         </Grid>
         <Grid item xs={12} md={4.5} container alignContent={'center'}>
           <Grid item xs={2}>
-            <Typography
-              gutterBottom
-              variant="subtitle2"
-              sx={{ color: 'primary.main' }}
-            >
+            <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
               GHCN
             </Typography>
           </Grid>
           <Grid item xs={4}>
-            <Typography
-              gutterBottom
-              variant="subtitle2"
-              sx={{ color: 'primary.main' }}
-            >
+            <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
               Tổng: 3.700.00
             </Typography>
           </Grid>
           <Grid item xs={2}>
-            <Typography gutterBottom variant="subtitle2">
+            <Typography gutterBottom variant='subtitle2'>
               CN: 0
             </Typography>
           </Grid>
           <Grid item xs={4}>
-            <Typography
-              gutterBottom
-              variant="subtitle2"
-              sx={{ color: 'primary.main' }}
-            >
+            <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
               CN cuối: 3.700.00
             </Typography>
           </Grid>
         </Grid>
         <Grid item xs={12} md={2.4}>
           <ProFormAutocomplete
-            name="store"
-            placeholder="Nhân viên chăm sóc"
+            name='store'
+            placeholder='Nhân viên chăm sóc'
             options={[
               { value: 1, label: 'TM' },
               { value: 2, label: 'HN-1' },
@@ -87,8 +68,8 @@ const Customer = () => {
         </Grid>
         <Grid item xs={12} md={2.4}>
           <ProFormAutocomplete
-            name="store"
-            placeholder="Nhân viên bán hàng"
+            name='store'
+            placeholder='Nhân viên bán hàng'
             options={[
               { value: 1, label: 'TM' },
               { value: 2, label: 'HN-1' },
@@ -101,23 +82,21 @@ const Customer = () => {
           />
         </Grid>
         <Grid item xs={12} md={1}>
-          <Button onClick={() => setCollapse(!collapse)} color="inherit">
-            <ExpandMoreIcon
-              sx={!collapse ? { transform: 'rotate(180deg)' } : null}
-            />
+          <Button onClick={() => setCollapse(!collapse)} color='inherit'>
+            <ExpandMoreIcon sx={!collapse ? { transform: 'rotate(180deg)' } : null} />
           </Button>
         </Grid>
       </Grid>
-      <Collapse in={collapse} timeout="auto">
+      <Collapse in={collapse} timeout='auto'>
         <Grid container spacing={2} sx={{ marginTop: 1 }}>
           <Grid item xs={12} md={3}>
             <ProFormTextField
-              name="name"
-              placeholder="Họ tên"
+              name='name'
+              placeholder='Họ tên'
               InputLabelProps={{ shrink: true }}
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment position='start'>
                     <PersonIcon />
                   </InputAdornment>
                 ),
@@ -126,12 +105,12 @@ const Customer = () => {
           </Grid>
           <Grid item xs={12} md={3}>
             <ProFormTextField
-              name="name"
-              placeholder="Số điện thoại"
+              name='name'
+              placeholder='Số điện thoại'
               InputLabelProps={{ shrink: true }}
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment position='start'>
                     <CallIcon />
                   </InputAdornment>
                 ),
@@ -140,8 +119,8 @@ const Customer = () => {
           </Grid>
           <Grid item xs={12} md={3}>
             <ProFormAutocomplete
-              name="store"
-              placeholder="Thành phố"
+              name='store'
+              placeholder='Thành phố'
               options={[
                 { value: 1, label: 'TM' },
                 { value: 2, label: 'HN-1' },
@@ -154,18 +133,18 @@ const Customer = () => {
             />
           </Grid>
           <Grid item xs={12} md={3}>
-            <ProFormDate name="firstDate" type="start" />
+            <ProFormDate name='firstDate' type='start' />
           </Grid>
           <Grid item xs={12} md={3}>
             <ProFormTextField
-              name="name"
-              placeholder="Địa chỉ"
+              name='name'
+              placeholder='Địa chỉ'
               multiline
               rows={2}
               InputLabelProps={{ shrink: true }}
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment position='start'>
                     <HomeIcon />
                   </InputAdornment>
                 ),
@@ -174,14 +153,14 @@ const Customer = () => {
           </Grid>
           <Grid item xs={12} md={6}>
             <ProFormTextField
-              name="name"
-              placeholder="Ghi chú"
+              name='name'
+              placeholder='Ghi chú'
               multiline
               rows={2}
               InputLabelProps={{ shrink: true }}
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment position='start'>
                     <EditIcon />
                   </InputAdornment>
                 ),
@@ -189,7 +168,7 @@ const Customer = () => {
             />
           </Grid>
           <Grid item xs={12} md={3}>
-            <ActionButton iconPosition="start" color="info">
+            <ActionButton iconPosition='start' color='info'>
               <PersonIcon />
               Lưu thông tin
             </ActionButton>

@@ -1,10 +1,10 @@
 import { Checkbox, FormControlLabel, FormGroup, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
 import { useState } from 'react';
 import DeliveryDialog from './ProductTable/Dialog/DeliveryDialog';
-import ProFormDate from 'components/ProForm/ProFormDate';
+import ProFormDate from '@/components/ProForm/ProFormDate';
 
 const Delivery = () => {
   const [openDeliveryDialog, setOpenDeliveryDialog] = useState<boolean>(false);
@@ -21,25 +21,16 @@ const Delivery = () => {
           padding: '10px 15px',
         }}
       >
-        <Box sx={{ display: 'flex', fontSize: '17px', fontWeight: 'bold' }}>
-          Giao hàng
-        </Box>
+        <Box sx={{ display: 'flex', fontSize: '17px', fontWeight: 'bold' }}>Giao hàng</Box>
       </Box>
       <Box>
         <Divider />
       </Box>
-      <Box pr="15px" pl="15px" pb="15px">
-        <Grid
-          xs={12}
-          container
-          item
-          md={12}
-          sx={{ marginBottom: 1, marginTop: 1 }}
-          spacing={1}
-        >
+      <Box pr='15px' pl='15px' pb='15px'>
+        <Grid xs={12} container item md={12} sx={{ marginBottom: 1, marginTop: 1 }} spacing={1}>
           <Grid item xs={12} mt={-1.5}>
             <ProFormSelect
-              name="unit"
+              name='unit'
               options={[
                 { id: 1, label: 'Không VC' },
                 { id: 2, label: 'Giao hàng' },
@@ -47,11 +38,11 @@ const Delivery = () => {
               ]}
               renderValue={(item) => item.id}
               renderLabel={(item) => item.label}
-              placeholder="Giao hàng"
+              placeholder='Giao hàng'
             />
           </Grid>
           <Grid item xs={12}>
-            <ProFormDate name="firstDate" type="start" />
+            <ProFormDate name='firstDate' type='start' />
           </Grid>
           <Grid item xs={12}>
             <FormGroup sx={{ display: 'flex', marginLeft: 1 }}>
@@ -63,7 +54,7 @@ const Delivery = () => {
                     }}
                   />
                 }
-                label="Chuyển phát"
+                label='Chuyển phát'
               />
               <FormControlLabel
                 control={
@@ -73,7 +64,7 @@ const Delivery = () => {
                     }}
                   />
                 }
-                label="COD"
+                label='COD'
               />
             </FormGroup>
           </Grid>

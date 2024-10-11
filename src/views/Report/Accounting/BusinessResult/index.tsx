@@ -1,13 +1,13 @@
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import { Box, Link, Stack, Typography } from '@mui/material';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -141,9 +141,9 @@ const InventoryTable = () => {
   });
 
   return (
-    <PageWrapper title="Báo cáo kết quả hoạt động kinh doanh của doanh nghiệp">
+    <PageWrapper title='Báo cáo kết quả hoạt động kinh doanh của doanh nghiệp'>
       <PageBreadcrumbs
-        title="Báo cáo kết quả hoạt động kinh doanh của doanh nghiệp"
+        title='Báo cáo kết quả hoạt động kinh doanh của doanh nghiệp'
         items={[
           { text: 'Kế toán', link: '#' },
           { link: '/report/revenue/depot', text: 'Báo cáo' },
@@ -152,7 +152,7 @@ const InventoryTable = () => {
       <Fragment>
         <Box sx={{ height: '800px' }}>
           <ProTable<BusinessResult>
-            title="Danh sách giao dịch"
+            title='Danh sách giao dịch'
             loading={loading}
             columns={columns}
             data={data}
@@ -163,7 +163,7 @@ const InventoryTable = () => {
             toolBar={
               <Fragment>
                 <ProMenu<number>
-                  position="left"
+                  position='left'
                   items={[
                     {
                       label: 'Xuất Excel',
@@ -180,7 +180,7 @@ const InventoryTable = () => {
                     },
                   ]}
                 >
-                  <ActionButton color="info">Thao tác</ActionButton>
+                  <ActionButton color='info'>Thao tác</ActionButton>
                 </ProMenu>
               </Fragment>
             }
@@ -191,24 +191,22 @@ const InventoryTable = () => {
             <LightbulbIcon sx={{ fontSize: '40px' }} />
           </Box>
           <Box>
-            <Typography variant="subtitle1">Chú ý:</Typography>
-            <Typography variant="subtitle1">
-              - % / doanh thu = % / doanh thu thuần về bán hàng và cung cấp dịch
-              vụ ( dòng 3)
+            <Typography variant='subtitle1'>Chú ý:</Typography>
+            <Typography variant='subtitle1'>
+              - % / doanh thu = % / doanh thu thuần về bán hàng và cung cấp dịch vụ ( dòng 3)
             </Typography>
-            <Typography variant="subtitle1">
-              - Mặc định hệ thống sẽ tính hoạt động kinh doanh trong khoảng thời
-              gian lọc
+            <Typography variant='subtitle1'>
+              - Mặc định hệ thống sẽ tính hoạt động kinh doanh trong khoảng thời gian lọc
             </Typography>
-            <Typography variant="subtitle1">
+            <Typography variant='subtitle1'>
               - <span style={{ color: 'green' }}>Màu xanh</span> là số dương
               <span>, </span>
               <span style={{ color: 'red' }}>Màu đỏ</span> là số âm
             </Typography>
-            <Typography variant="subtitle1">
+            <Typography variant='subtitle1'>
               - Tham khảo thêm về cách hạch toán kết chuyển cuối kỳ{' '}
               <span>
-                <Link href="#" color="red">
+                <Link href='#' color='red'>
                   Tại đây
                 </Link>
               </span>

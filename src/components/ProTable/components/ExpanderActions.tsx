@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import type { FCC } from 'types/react';
+import type { FCC } from '@/types/react';
 
 const ExpanderActions: FCC = (props) => {
   const { children } = props;
@@ -13,7 +13,7 @@ const ExpanderActions: FCC = (props) => {
         alignItems: 'center',
       }}
     >
-      <Stack direction="row" spacing={1}>
+      <Stack direction='row' spacing={1}>
         {children}
       </Stack>
     </Box>

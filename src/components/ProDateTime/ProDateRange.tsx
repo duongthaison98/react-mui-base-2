@@ -1,16 +1,20 @@
-import DateRangeIcon from '@mui/icons-material/DateRange';
-import { IconButton } from '@mui/material';
+'use client';
+
+import { Fragment, useRef, useState } from 'react';
+import { useController, useFormContext } from 'react-hook-form';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import InputBase from '@mui/material/InputBase';
 import Popover from '@mui/material/Popover';
-import { styled } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
-import { DateFormat } from 'constants/locale';
-import { Fragment, useRef, useState } from 'react';
-import { useController, useFormContext } from 'react-hook-form';
-import DateTime from 'utils/DateTime';
+import IconButton from '@mui/material/IconButton';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import { DateFormat, DateTimeLocaleText } from '@/constants/locale';
+import dayjs from 'dayjs';
+import 'dayjs/locale/vi';
 
 interface Props {
   from: string;
@@ -18,29 +22,18 @@ interface Props {
   label?: string;
 }
 
-const ProDateRange = (props: Props) => {
+export default function ProDateRange(props: Props) {
   const { from, to, label } = props;
   const [open, setOpen] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState<boolean>(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleFocus = () => setFocused(true);
+  const handleBlur = () => setFocused(false);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleFocus = () => {
-    setFocused(true);
-  };
-
-  const handleBlur = () => {
-    setFocused(false);
-  };
-
-  const { control, getValues } = useFormContext();
+  const { control } = useFormContext();
 
   const {
     field: { value: fromValue, onChange: fromOnChange },
@@ -50,121 +43,112 @@ const ProDateRange = (props: Props) => {
     field: { value: toValue, onChange: toOnChange },
   } = useController({ name: to, control });
 
-  const fromDate = getValues(from);
-  const toDate = getValues(to);
+  const formatDate = (date: dayjs.Dayjs | null) => {
+    return date && date.isValid() ? date.locale('vi').format(DateFormat) : '';
+  };
 
   return (
-    <Fragment>
-      <Wrapper ref={ref} focused={focused} onClick={handleOpen}>
-        <Label
-          component="label"
-          focused={focused}
-          variant="body1"
-          htmlFor={from}
-          noWrap
-        >
-          {label}
-        </Label>
-        <InputBase
-          name={from}
-          value={DateTime.Format(fromDate) || ''}
-          placeholder="dd/mm/yyyy"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          sx={{
-            zIndex: 1,
-            pointerEvents: 'none',
-            '& .MuiInputBase-input': {
-              py: '8.5px',
-              pl: 1.75,
-              width: '10.5ch',
-            },
-          }}
-        />
-        <Box sx={{ px: 0.5 }}>{'-'}</Box>
-        <InputBase
-          name={to}
-          value={DateTime.Format(toDate) || ''}
-          placeholder="dd/mm/yyyy"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          sx={{
-            zIndex: 1,
-            pointerEvents: 'none',
-            '& .MuiInputBase-input': {
-              py: '8.5px',
-              pl: 0.5,
-              width: '10.5ch',
-            },
-          }}
-        />
-        <IconButton onClick={handleOpen} sx={{ mr: 1, zIndex: 1, ml: 'auto' }}>
-          <DateRangeIcon />
-        </IconButton>
-        <Fieldset focused={focused}>
-          <Legend>
-            <Span>{label}</Span>
-          </Legend>
-        </Fieldset>
-      </Wrapper>
-      <Popover
-        open={open}
-        anchorEl={ref.current}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            '& button.MuiPickersDay-root': {
-              borderRadius: 1,
-            },
-          }}
-        >
-          <StaticDatePicker
-            inputFormat={DateFormat}
-            displayStaticWrapperAs="desktop"
-            onChange={(date: Date | null) => {
-              fromOnChange(date);
-            }}
-            value={fromValue}
-            renderInput={(params) => <TextField {...params} />}
-            componentsProps={{
-              actionBar: { actions: ['clear', 'today'] },
-            }}
-            dayOfWeekFormatter={(day) => `${day}`}
-            onAccept={(value) => {
-              if (value && toDate) {
-                setOpen(false);
-              }
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='vi' localeText={DateTimeLocaleText}>
+      <Fragment>
+        <Wrapper ref={ref} focused={focused} onClick={handleOpen}>
+          <Label component='label' focused={focused} variant='body1' htmlFor={from} noWrap>
+            {label}
+          </Label>
+          <InputBase
+            name={from}
+            value={formatDate(dayjs(fromValue))}
+            placeholder='dd/mm/yyyy'
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            sx={{
+              zIndex: 1,
+              pointerEvents: 'none',
+              '& .MuiInputBase-input': {
+                py: '8.5px',
+                pl: 1.75,
+                width: '10.5ch',
+              },
             }}
           />
-          <StaticDatePicker
-            inputFormat={DateFormat}
-            displayStaticWrapperAs="desktop"
-            onChange={(date: Date | null) => {
-              toOnChange(date);
-            }}
-            value={toValue}
-            renderInput={(params) => <TextField {...params} />}
-            componentsProps={{
-              actionBar: { actions: ['clear', 'today'] },
-            }}
-            dayOfWeekFormatter={(day) => `${day}`}
-            onAccept={(value) => {
-              if (value && fromDate) {
-                setOpen(false);
-              }
+          <Box sx={{ px: 0.5 }}>{'-'}</Box>
+          <InputBase
+            name={to}
+            value={formatDate(dayjs(toValue))}
+            placeholder='dd/mm/yyyy'
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            sx={{
+              zIndex: 1,
+              pointerEvents: 'none',
+              '& .MuiInputBase-input': {
+                py: '8.5px',
+                pl: 0.5,
+                width: '10.5ch',
+              },
             }}
           />
-        </Box>
-      </Popover>
-    </Fragment>
+          <IconButton onClick={handleOpen} sx={{ mr: 1, zIndex: 1, ml: 'auto' }}>
+            <DateRangeIcon />
+          </IconButton>
+          <Fieldset focused={focused}>
+            <Legend>
+              <Span>{label}</Span>
+            </Legend>
+          </Fieldset>
+        </Wrapper>
+        <Popover
+          open={open}
+          anchorEl={ref.current}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              '& .MuiPickersDay-root': {
+                borderRadius: 1,
+              },
+            }}
+          >
+            <StaticDatePicker
+              displayStaticWrapperAs='desktop'
+              dayOfWeekFormatter={(day) => {
+                console.log(day);
+                return '123';
+              }}
+              value={dayjs(fromValue)}
+              onChange={(date) => {
+                fromOnChange(date?.toDate());
+                if (date && toValue && date.isAfter(dayjs(toValue))) {
+                  toOnChange(date.toDate());
+                }
+              }}
+              slotProps={{
+                actionBar: { actions: ['clear', 'today'] },
+              }}
+            />
+            <StaticDatePicker
+              displayStaticWrapperAs='desktop'
+              value={dayjs(toValue)}
+              onChange={(date) => {
+                toOnChange(date?.toDate());
+                if (date && fromValue && date.isBefore(dayjs(fromValue))) {
+                  fromOnChange(date.toDate());
+                }
+              }}
+              slotProps={{
+                actionBar: { actions: ['clear', 'today'] },
+              }}
+            />
+          </Box>
+        </Popover>
+      </Fragment>
+    </LocalizationProvider>
   );
-};
+}
 
 const Wrapper = styled('div', {
   shouldForwardProp: (prop: string) => !['focused'].includes(prop),
@@ -174,7 +158,7 @@ const Wrapper = styled('div', {
   alignItems: 'center',
   borderRadius: 4,
   position: 'relative',
-  cursor: 'pointer', // Remove later
+  cursor: 'pointer',
   ...(!focused && {
     '&:hover': {
       '& fieldset': {
@@ -245,5 +229,3 @@ const Label = styled(Typography<'label'>, {
     color: theme.palette.primary.main,
   }),
 }));
-
-export default ProDateRange;

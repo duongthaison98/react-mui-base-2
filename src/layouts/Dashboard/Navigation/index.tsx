@@ -13,7 +13,7 @@ const Navigation = () => {
       sx={{
         bgcolor: 'background.paper',
         color: 'common.white',
-        zIndex: (theme) => theme.zIndex.modal - 1,
+        zIndex: 1,
         borderBottom: 1,
         borderColor: 'divider',
       }}
@@ -28,6 +28,8 @@ const Navigation = () => {
               alignItems: 'center',
               width: 1,
               height: 48,
+              overflowX: 'auto',
+              whiteSpace: 'nowrap'
             }}
           >
             {sections.map((section, i) => (

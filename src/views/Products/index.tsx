@@ -5,9 +5,9 @@ import Paper from '@mui/material/Paper';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
-import Page from 'components/Page';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
+import Page from '@/components/Page';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
 import type { SyntheticEvent } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -35,7 +35,7 @@ const tabs = [
 ];
 
 const ProductTab = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('products');
   const [value, setValue] = useState<string>('filter');
 
   const handleChange = (_event: SyntheticEvent, tab: string) => {
@@ -43,10 +43,10 @@ const ProductTab = () => {
   };
 
   return (
-    <PageWrapper title={t('Danh sách sản phẩm')}>
+    <PageWrapper title={t('products_list')}>
       <PageBreadcrumbs
-        title={t('Danh sách sản phẩm')}
-        items={[{ link: '/products', text: 'Sản phẩm' }]}
+        title={t('products_list')}
+        items={[{ link: '/products', text: t('product') }]}
       />
       <TabContext value={value}>
         <Paper
@@ -56,20 +56,12 @@ const ProductTab = () => {
             borderRadius: 0,
           }}
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-          >
+          <Tabs value={value} onChange={handleChange} variant='scrollable' scrollButtons='auto'>
             {tabs.map((tab, i) => (
               <Tab
                 key={i}
                 label={
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ textTransform: 'none' }}
-                  >
+                  <Typography variant='subtitle2' sx={{ textTransform: 'none' }}>
                     {tab.label}
                   </Typography>
                 }

@@ -1,4 +1,4 @@
-import LoadingIndicator from 'components/LoadingIndicator';
+import LoadingIndicator from '@/components/LoadingIndicator';
 import { lazy, Suspense } from 'react';
 
 interface Props {
@@ -7,11 +7,10 @@ interface Props {
 
 type LazyComponent = ReturnType<typeof lazy>;
 
-const Loadable = (Component: LazyComponent) => (props: Props) =>
-  (
-    <Suspense fallback={<LoadingIndicator />}>
-      <Component {...props} />
-    </Suspense>
-  );
+const Loadable = (Component: LazyComponent) => (props: Props) => (
+  <Suspense fallback={<LoadingIndicator />}>
+    <Component {...props} />
+  </Suspense>
+);
 
 export default Loadable;

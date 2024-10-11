@@ -7,12 +7,12 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Link } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import Selection from 'components/ProTable/components/Selection';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import Selection from '@/components/ProTable/components/Selection';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { Fragment, useMemo } from 'react';
 
 const columnHelper = getColumnHelper<any>();
@@ -51,7 +51,7 @@ const useTableColumns = (props: Props) => {
         size: 60,
         enableSorting: false,
         header: () => HEAD_CELLS.imageUrl,
-        cell: (context) => <AddCircleIcon color="success" />,
+        cell: (context) => <AddCircleIcon color='success' />,
         meta: {
           title: HEAD_CELLS.imageUrl,
         },
@@ -61,7 +61,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         header: () => 'Mã vạch',
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+          <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -74,7 +74,7 @@ const useTableColumns = (props: Props) => {
         size: 250,
         header: () => 'Mã',
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+          <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -91,7 +91,7 @@ const useTableColumns = (props: Props) => {
           return (
             <Link
               href={`/products/detail?id=${id}`}
-              underline="hover"
+              underline='hover'
               sx={{ color: '#007bff', fontWeight: '500' }}
             >
               {context.getValue()}
@@ -158,8 +158,8 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Đang giao hàng">
-            <LocalShippingIcon color="primary" />
+          <Tooltip title='Đang giao hàng'>
+            <LocalShippingIcon color='primary' />
           </Tooltip>
         ),
         cell: (context) => Math.round(Math.random() * 500),
@@ -172,7 +172,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Tồn trong kho">
+          <Tooltip title='Tồn trong kho'>
             <HouseIcon />
           </Tooltip>
         ),
@@ -186,8 +186,8 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Tạm giữ">
-            <InventoryIcon color="warning" />
+          <Tooltip title='Tạm giữ'>
+            <InventoryIcon color='warning' />
           </Tooltip>
         ),
         cell: (context) => Math.round(Math.random() * 500),
@@ -200,8 +200,8 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Có thể bán">
-            <CheckBoxIcon color="success" />
+          <Tooltip title='Có thể bán'>
+            <CheckBoxIcon color='success' />
           </Tooltip>
         ),
         cell: (context) => Math.round(Math.random() * 500),
@@ -231,8 +231,7 @@ const useTableColumns = (props: Props) => {
               headline: 'Xác nhận xóa?',
               supportingText: (
                 <Fragment>
-                  Bạn có chắc chắn muốn xóa:{' '}
-                  <strong>{context.row.original.name}</strong>
+                  Bạn có chắc chắn muốn xóa: <strong>{context.row.original.name}</strong>
                 </Fragment>
               ),
               onConfirm: async () => {},
@@ -241,7 +240,7 @@ const useTableColumns = (props: Props) => {
 
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Sửa',
@@ -277,7 +276,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

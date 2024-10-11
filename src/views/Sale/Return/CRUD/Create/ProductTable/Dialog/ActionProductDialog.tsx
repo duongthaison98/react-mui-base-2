@@ -1,20 +1,20 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import LoopIcon from '@mui/icons-material/Loop';
 import { Grid, InputAdornment, Typography } from '@mui/material';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import DialogFooter from 'components/ProDialog/DialogFooter';
-import ProForm from 'components/ProForm';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
+import ProForm from '@/components/ProForm';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import sleep from 'utils/sleep';
-import TypedObject from 'utils/TypedObject';
-import Validation from 'utils/Validation';
+import sleep from '@/utils/sleep';
+import TypedObject from '@/utils/TypedObject';
+import Validation from '@/utils/Validation';
 import useTableColumns from './TableColumns';
 
 interface FormValues {
@@ -96,11 +96,11 @@ const ActionProductDialog = (props: Props) => {
     pageSize: filters.pageSize,
   });
   return (
-    <DialogContainer open={open} onClose={handleReset} maxWidth="md">
+    <DialogContainer open={open} onClose={handleReset} maxWidth='md'>
       <ProForm<FormValues> form={form} onFinish={handleSubmit}>
         <DialogContent>
           <Typography
-            variant="subtitle1"
+            variant='subtitle1'
             sx={{
               fontWeight: 'medium',
               mb: 2,
@@ -115,10 +115,10 @@ const ActionProductDialog = (props: Props) => {
             </Grid>
             <Grid item xs={9}>
               <ProFormTextField
-                name="search"
+                name='search'
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start" sx={{ cursor: 'pointer' }}>
+                    <InputAdornment position='start' sx={{ cursor: 'pointer' }}>
                       <LoopIcon />
                     </InputAdornment>
                   ),
@@ -127,7 +127,7 @@ const ActionProductDialog = (props: Props) => {
             </Grid>
             <Grid item xs={12} minHeight={300}>
               <ProTable<any>
-                title="Danh sách"
+                title='Danh sách'
                 loading={loading}
                 columns={columns}
                 data={banners}
@@ -145,16 +145,16 @@ const ActionProductDialog = (props: Props) => {
               Ghi chú
             </Grid>
             <Grid item xs={9}>
-              <ProFormTextField name="note" placeholder="" multiline rows={2} />
+              <ProFormTextField name='note' placeholder='' multiline rows={2} />
             </Grid>
           </Grid>
         </DialogContent>
         <DialogFooter>
-          <ActionButton actionType="cancel" onClick={handleReset}>
+          <ActionButton actionType='cancel' onClick={handleReset}>
             {t('Đóng')}
           </ActionButton>
           <ActionButton
-            type="submit"
+            type='submit'
             color='success'
             disabled={TypedObject.isExist(form.formState.errors)}
           >

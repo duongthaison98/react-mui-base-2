@@ -4,11 +4,11 @@ import { Grid, InputAdornment } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import ProFormAutocomplete from 'components/ProForm/ProFormAutocomplete';
-import ProFormDate from 'components/ProForm/ProFormDate';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import { PriceInput } from 'plugins/NumberFormat';
+import ProFormAutocomplete from '@/components/ProForm/ProFormAutocomplete';
+import ProFormDate from '@/components/ProForm/ProFormDate';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import { PriceInput } from '@/plugins/NumberFormat';
 import { useState } from 'react';
 
 interface ICheckShow {
@@ -42,7 +42,7 @@ const Payment = () => {
         marginBottom: '10px',
       }}
     >
-      <Grid container alignItems={'center'} sx={{padding: 1}}>
+      <Grid container alignItems={'center'} sx={{ padding: 1 }}>
         <Grid item xs={6}>
           <Box sx={{ display: 'flex' }}>
             <MoneyOutlinedIcon />
@@ -59,8 +59,8 @@ const Payment = () => {
         </Grid>
         <Grid item xs={6}>
           <ProFormAutocomplete
-            name="store"
-            placeholder="Chọn trạng thái"
+            name='store'
+            placeholder='Chọn trạng thái'
             options={[
               { value: 1, label: 'Vận chuyển' },
               { value: 2, label: 'Check code' },
@@ -128,34 +128,27 @@ const Payment = () => {
           </Grid>
         </Collapse> */}
         {/* quỹ tiền mặt */}
-        <Grid
-          xs={12}
-          container
-          item
-          md={12}
-          sx={{ marginBottom: 1, marginTop: 1 }}
-          spacing={2}
-        >
+        <Grid xs={12} container item md={12} sx={{ marginBottom: 1, marginTop: 1 }} spacing={2}>
           <Grid item xs={3}>
             <ProFormSelect
-              name="unit"
+              name='unit'
               options={[
                 { id: 1, label: '%' },
                 { id: 2, label: 'VND' },
               ]}
               renderValue={(item) => item.id}
               renderLabel={(item) => item.label}
-              placeholder="Đơn vị"
+              placeholder='Đơn vị'
             />
           </Grid>
           <Grid item xs={9}>
             <ProFormTextField
-              name="price"
-              placeholder="Chiết khấu"
+              name='price'
+              placeholder='Chiết khấu'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
-                  <InputAdornment position="start" sx={{ cursor: 'pointer' }}>
+                  <InputAdornment position='start' sx={{ cursor: 'pointer' }}>
                     <ArrowForwardIcon />
                   </InputAdornment>
                 ),
@@ -164,13 +157,13 @@ const Payment = () => {
           </Grid>
           <Grid item xs={12}>
             <ProFormTextField
-              name="price"
-              placeholder="Tiền mặt"
+              name='price'
+              placeholder='Tiền mặt'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
                   <InputAdornment
-                    position="start"
+                    position='start'
                     sx={{ cursor: 'pointer' }}
                     onClick={() => handleClickShowInput('tienMat')}
                   >
@@ -183,27 +176,27 @@ const Payment = () => {
           {checkShow.tienMat && (
             <Grid item xs={12}>
               <ProFormSelect
-                name="unit"
+                name='unit'
                 options={[
                   { id: 1, label: '%' },
                   { id: 2, label: 'VND' },
                 ]}
                 renderValue={(item) => item.id}
                 renderLabel={(item) => item.label}
-                placeholder="Quỹ Tiền mặt"
+                placeholder='Quỹ Tiền mặt'
               />
             </Grid>
           )}
           {/* Tài khoản ngân hàng */}
           <Grid item xs={12}>
             <ProFormTextField
-              name="price"
-              placeholder="Chuyển khoản"
+              name='price'
+              placeholder='Chuyển khoản'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
                   <InputAdornment
-                    position="start"
+                    position='start'
                     sx={{ cursor: 'pointer' }}
                     onClick={() => handleClickShowInput('chuyenKhoan')}
                   >
@@ -216,25 +209,25 @@ const Payment = () => {
           {checkShow.chuyenKhoan && (
             <Grid item xs={12}>
               <ProFormSelect
-                name="unit"
+                name='unit'
                 options={[
                   { id: 1, label: '%' },
                   { id: 2, label: 'VND' },
                 ]}
                 renderValue={(item) => item.id}
                 renderLabel={(item) => item.label}
-                placeholder="Tài khoản ngân hàng"
+                placeholder='Tài khoản ngân hàng'
               />
             </Grid>
           )}
           <Grid item xs={12}>
             <ProFormTextField
-              name="price"
-              placeholder="Tiền khách đưa"
+              name='price'
+              placeholder='Tiền khách đưa'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
-                  <InputAdornment position="start" sx={{ cursor: 'pointer' }}>
+                  <InputAdornment position='start' sx={{ cursor: 'pointer' }}>
                     <ArrowForwardIcon />
                   </InputAdornment>
                 ),
@@ -247,12 +240,12 @@ const Payment = () => {
           Tiền thừa
         </Grid>
         <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
-          <Typography align="right" variant="subtitle2" color="error">
+          <Typography align='right' variant='subtitle2' color='error'>
             170.000
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <ProFormDate name="firstDate" type="start" />
+          <ProFormDate name='firstDate' type='start' />
         </Grid>
       </Grid>
     </Box>

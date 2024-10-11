@@ -1,17 +1,17 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Paper, Stack } from '@mui/material';
-import Page from 'components/Page';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
+import Page from '@/components/Page';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import Infomation from './components/Infomation';
 import { ICreateSettingPriceListType } from './utils/type';
 import ApplyScope from './components/ApplyScope';
 import AdvancedSetting from './components/AdvancedSetting';
-import ActionButton from 'components/ProButton/ActionButton';
+import ActionButton from '@/components/ProButton/ActionButton';
 
 const schema = Validation.shape({
   status: Validation.select(1).optional().nullable(),
@@ -51,8 +51,8 @@ const Create = () => {
           ]}
         />
 
-        <Stack direction="column">
-          <Stack direction="row" mb={2}>
+        <Stack direction='column'>
+          <Stack direction='row' mb={2}>
             <Paper sx={{ width: '50%' }}>
               <Infomation form={form} />
             </Paper>
@@ -60,13 +60,13 @@ const Create = () => {
               <ApplyScope form={form} />
             </Paper>
           </Stack>
-          <Stack direction="row" mb={2}>
+          <Stack direction='row' mb={2}>
             <Paper sx={{ width: '100%' }}>
               <AdvancedSetting form={form} />
             </Paper>
           </Stack>
           <Box m={2.5}>
-            <ActionButton variant="contained" color="success" actionType="save">
+            <ActionButton variant='contained' color='success' actionType='save'>
               Lưu
             </ActionButton>
           </Box>

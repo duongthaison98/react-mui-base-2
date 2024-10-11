@@ -1,12 +1,12 @@
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { useMemo } from 'react';
 import { TransactionHistory } from './utils/type';
-import Selection from 'components/ProTable/components/Selection';
+import Selection from '@/components/ProTable/components/Selection';
 import { Box } from '@mui/system';
-import DateTime from 'utils/DateTime';
-import Numeral from 'utils/Numeral';
+import DateTime from '@/utils/DateTime';
+import Numeral from '@/utils/Numeral';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { IconButton } from '@mui/material';
 
@@ -55,9 +55,7 @@ const useTableColumns = (props: Props) => {
         size: 50,
         enableSorting: false,
         header: () => HEAD_CELLS.transactionId,
-        cell: (context) => (
-          <Box sx={{ color: '#007bff' }}>{context.getValue()}</Box>
-        ),
+        cell: (context) => <Box sx={{ color: '#007bff' }}>{context.getValue()}</Box>,
         meta: {
           title: HEAD_CELLS.transactionId,
           align: 'center',
@@ -81,9 +79,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => HEAD_CELLS.documentType,
-        cell: (context) => (
-          <Box>{context.getValue() === 1 ? 'Phiếu XNK' : 'Đơn hàng'}</Box>
-        ),
+        cell: (context) => <Box>{context.getValue() === 1 ? 'Phiếu XNK' : 'Đơn hàng'}</Box>,
         meta: {
           title: HEAD_CELLS.documentType,
           align: 'center',
@@ -107,9 +103,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => HEAD_CELLS.type,
-        cell: (context) => (
-          <Box>{context.getValue() === 1 ? 'Phiếu thu' : 'Khác'}</Box>
-        ),
+        cell: (context) => <Box>{context.getValue() === 1 ? 'Phiếu thu' : 'Khác'}</Box>,
         meta: {
           title: HEAD_CELLS.type,
           align: 'center',
@@ -122,7 +116,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => HEAD_CELLS.amount,
         cell: (context) => (
-          <Box display="flex" justifyContent="end">
+          <Box display='flex' justifyContent='end'>
             {Numeral.price(context.getValue())}
           </Box>
         ),
@@ -149,9 +143,7 @@ const useTableColumns = (props: Props) => {
         size: 50,
         enableSorting: false,
         header: () => HEAD_CELLS.actionType,
-        cell: (context) => (
-          <Box>{context.getValue() === 1 ? 'Sửa' : 'Xóa'}</Box>
-        ),
+        cell: (context) => <Box>{context.getValue() === 1 ? 'Sửa' : 'Xóa'}</Box>,
         meta: {
           title: HEAD_CELLS.actionType,
           align: 'center',

@@ -9,7 +9,7 @@ import {
   useImperativeHandle,
   useState,
 } from 'react';
-import type { DialogRef } from 'types/refs';
+import type { DialogRef } from '@/types/refs';
 
 interface Props {
   open?: boolean;
@@ -45,7 +45,7 @@ const ProDialog = forwardRef<DialogRef, Props>((props, ref) => {
       <Dialog
         open={openDialog}
         onClose={handleClose}
-        scroll="paper"
+        scroll='paper'
         PaperProps={{ elevation: 3, sx: { borderRadius: 3 } }}
         fullWidth
         {...DialogProps}

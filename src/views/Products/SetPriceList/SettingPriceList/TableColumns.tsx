@@ -1,13 +1,13 @@
 import { Typography } from '@mui/material';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import React, { useMemo } from 'react';
 import { ISettingPriceListType } from './utils/type';
 import CheckIcon from '@mui/icons-material/Check';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
-import ProMenu from 'components/ProMenu';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
 interface Props {
   pageNumber: number;
   pageSize: number;
@@ -32,9 +32,7 @@ const useTableColumns = (props: Props) => {
         id: 'id',
         size: 100,
         header: () => HEAD_CELLS.id,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.id,
         },
@@ -44,7 +42,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         header: () => HEAD_CELLS.priceName,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+          <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -56,9 +54,7 @@ const useTableColumns = (props: Props) => {
         id: 'timeApplication',
         size: 100,
         header: () => HEAD_CELLS.timeApplication,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.timeApplication,
         },
@@ -67,9 +63,7 @@ const useTableColumns = (props: Props) => {
         id: 'category',
         size: 100,
         header: () => HEAD_CELLS.category,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.category,
         },
@@ -80,9 +74,9 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.status,
         cell: (context) =>
           context.getValue() === true ? (
-            <CheckIcon color="success" />
+            <CheckIcon color='success' />
           ) : (
-            <RemoveCircleOutlineIcon color="error" />
+            <RemoveCircleOutlineIcon color='error' />
           ),
         meta: {
           title: HEAD_CELLS.status,
@@ -94,8 +88,8 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.creator,
         cell: (context) => (
           <>
-            <Typography variant="subtitle2">{context.getValue()}</Typography>
-            <Typography variant="subtitle2" mt={2}>
+            <Typography variant='subtitle2'>{context.getValue()}</Typography>
+            <Typography variant='subtitle2' mt={2}>
               {context.row.original.createTime}
             </Typography>
           </>
@@ -112,7 +106,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Sửa',
@@ -121,7 +115,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

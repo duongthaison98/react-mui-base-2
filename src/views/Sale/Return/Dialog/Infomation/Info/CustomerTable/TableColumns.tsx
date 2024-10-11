@@ -1,7 +1,7 @@
 import SouthIcon from '@mui/icons-material/South';
 import Tooltip from '@mui/material/Tooltip';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 
 const columnHelper = getColumnHelper<any>();
@@ -65,8 +65,8 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Chiết khấu">
-            <SouthIcon color="error" />
+          <Tooltip title='Chiết khấu'>
+            <SouthIcon color='error' />
           </Tooltip>
         ),
         cell: (context) => context.getValue(),

@@ -1,9 +1,9 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import { PaymentTerm } from '../../utils/type';
 import useFilters from '../DebtCustomer/utils/filters';
 import FiltersForm from './FilterForm';
@@ -35,8 +35,7 @@ const PaymentTermTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const { columns } = useTableColumns({
     pageNumber: filters.pageNumber,
@@ -52,7 +51,7 @@ const PaymentTermTable = () => {
   };
   return (
     <ProTable<PaymentTerm>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={DATA}
@@ -74,7 +73,7 @@ const PaymentTermTable = () => {
         />
       }
       toolBar={
-        <ActionButton iconPosition="end" actionType="upload" color="info">
+        <ActionButton iconPosition='end' actionType='upload' color='info'>
           {t('Xuất Excel')}
         </ActionButton>
       }

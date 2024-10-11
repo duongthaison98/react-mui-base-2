@@ -1,12 +1,12 @@
 import { nanoid } from '@reduxjs/toolkit';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useCallback, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import EditNote from './components/EditNote';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
@@ -70,8 +70,7 @@ const BranchTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(data.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onSearch, onPageChange, onPageSizeChange } =
-    useFilters();
+  const { filters, onSortingChange, onSearch, onPageChange, onPageSizeChange } = useFilters();
   const [, setEditRowId] = useState<string | null>(null);
   const [value, setValue] = useState<string>('');
   const [openEditNote, setEditNote] = useState<boolean>(false);
@@ -97,16 +96,16 @@ const BranchTable = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Báo cáo tổng hợp theo tài khoản">
+      <PageWrapper title='Báo cáo tổng hợp theo tài khoản'>
         <PageBreadcrumbs
-          title="Báo cáo tổng hợp theo tài khoản"
+          title='Báo cáo tổng hợp theo tài khoản'
           items={[
             { link: '#', text: 'Báo cáo' },
             { link: '#', text: 'Kế toán' },
           ]}
         />
         <ProTable<Branch>
-          title="Danh sách sản phẩm"
+          title='Danh sách sản phẩm'
           loading={loading}
           columns={columns}
           data={data}
@@ -127,7 +126,7 @@ const BranchTable = () => {
           toolBar={
             <Fragment>
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Xuất Excel',
@@ -141,7 +140,7 @@ const BranchTable = () => {
                   },
                 ]}
               >
-                <ActionButton color="info">Thao tác</ActionButton>
+                <ActionButton color='info'>Thao tác</ActionButton>
               </ProMenu>
             </Fragment>
           }

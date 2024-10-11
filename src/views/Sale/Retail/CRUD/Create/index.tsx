@@ -1,10 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TabContext, TabPanel } from '@mui/lab';
 import { Grid } from '@mui/material';
-import ProForm from 'components/ProForm';
+import ProForm from '@/components/ProForm';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import SelectedStoreDialog from './SelectedStoreDialog';
 
 import BillSale from './BillSale';
@@ -23,8 +23,7 @@ const Index = () => {
   const [tab, setTab] = useState<string>('0');
   const [ids, setIds] = useState<number[]>([1]);
 
-  const [openDialogSelectedStore, setOpenDialogSelectedStore] =
-    useState<boolean>(false);
+  const [openDialogSelectedStore, setOpenDialogSelectedStore] = useState<boolean>(false);
 
   const handleSubmit = () => {};
 
@@ -40,11 +39,7 @@ const Index = () => {
 
   return (
     <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
-      <Grid
-        container
-        spacing={2}
-        sx={{ paddingTop: '5px', background: '#fff' }}
-      >
+      <Grid container spacing={2} sx={{ paddingTop: '5px', background: '#fff' }}>
         <TabContext value={tab}>
           <Header
             tab={tab}
@@ -60,10 +55,7 @@ const Index = () => {
           {ids.map((item, index) => {
             return (
               <React.Fragment key={index}>
-                <TabPanel
-                  value={index.toString()}
-                  sx={{ padding: '0 24px 24px 24px' }}
-                >
+                <TabPanel value={index.toString()} sx={{ padding: '0 24px 24px 24px' }}>
                   <BillSale />
                 </TabPanel>
               </React.Fragment>

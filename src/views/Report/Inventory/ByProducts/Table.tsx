@@ -1,7 +1,7 @@
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import React, { useRef, useState } from 'react';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import ActionButton from './components/ActionButton';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
@@ -36,8 +36,7 @@ const Table = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -54,7 +53,7 @@ const Table = () => {
 
   return (
     <ProTable<IInventoryByProductsType>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={banners}

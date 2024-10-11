@@ -1,18 +1,18 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
 import { forwardRef, useImperativeHandle } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import type { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import type { FilterParams } from './utils/filters';
-import DateTime from 'utils/DateTime';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
+import DateTime from '@/utils/DateTime';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
 
 interface FilterValues {
   id: string;
@@ -81,22 +81,18 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3} lg={0.5}>
-          <ProFormTextField
-            name="id"
-            placeholder={t('ID')}
-            InputLabelProps={{ shrink: true }}
-          />
+          <ProFormTextField name='id' placeholder={t('ID')} InputLabelProps={{ shrink: true }} />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={1.5}>
           <ProFormTextField
-            name="product"
+            name='product'
             placeholder={t('Sản phẩm')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormCheckboxSelect
-            name="store"
+            name='store'
             placeholder={t('Chọn cửa hàng')}
             options={[
               { value: 1, label: 'Linh kiện Sài Gòn' },
@@ -108,7 +104,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormSelect
-            name="inventory"
+            name='inventory'
             placeholder={t('Chọn hàng tồn')}
             options={[
               { value: 0, label: 'Tất cả' },
@@ -119,7 +115,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2}>
           <ProFormSelect
-            name="category"
+            name='category'
             placeholder={t('Danh mục')}
             options={[
               { value: 0, label: '-Danh mục-' },
@@ -131,7 +127,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2}>
           <ProFormSelect
-            name="status"
+            name='status'
             placeholder={t('Trạng thái')}
             options={[
               { value: 0, label: '-Trạng Thái-' },
@@ -142,7 +138,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={2} lg={0.5}>
-          <Button type="submit" size="medium">
+          <Button type='submit' size='medium'>
             Lọc
           </Button>
         </Grid>

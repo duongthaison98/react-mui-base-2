@@ -1,5 +1,5 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Table from './Table';

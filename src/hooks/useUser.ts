@@ -1,4 +1,4 @@
-import AuthContext from 'contexts/Auth';
+import AuthContext from '@/contexts/Auth';
 import { useContext } from 'react';
 
 const useUser = () => {
@@ -11,8 +11,7 @@ const useUser = () => {
   const { user } = authContext;
 
   if (!user) {
-    return
-    
+    return;
   }
 
   return user;

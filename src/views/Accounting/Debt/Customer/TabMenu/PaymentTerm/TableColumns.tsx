@@ -1,12 +1,12 @@
 import React from 'react';
 import { PaymentTerm } from '../../utils/type';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
 import { useMemo } from 'react';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 const columnHelper = getColumnHelper<PaymentTerm>();
@@ -98,9 +98,7 @@ const useTableColumns = (props: Props) => {
         size: 80,
         enableSorting: false,
         header: () => HEAD_CELLS.phoneNumber,
-        cell: (context) => (
-          <Typography sx={{ color: 'blue' }}>{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography sx={{ color: 'blue' }}>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.phoneNumber,
           align: 'center',
@@ -111,9 +109,7 @@ const useTableColumns = (props: Props) => {
         size: 80,
         enableSorting: false,
         header: () => HEAD_CELLS.bill,
-        cell: (context) => (
-          <Typography sx={{ color: 'blue' }}>{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography sx={{ color: 'blue' }}>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.bill,
           align: 'center',
@@ -213,7 +209,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Thanh toán công nợ bằng tiền mặt',
@@ -227,7 +223,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

@@ -1,4 +1,4 @@
-import { __DEV__ } from 'config';
+import { __DEV__ } from '@/config';
 
 class Logger {
   public log(...args: any[]) {
@@ -8,6 +8,4 @@ class Logger {
   }
 }
 
-const instance = new Logger();
-
-export default instance;
+export default new Logger();

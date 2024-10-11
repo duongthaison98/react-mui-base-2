@@ -2,7 +2,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import type { Header } from '@tanstack/react-table';
-import ProMenu from 'components/ProMenu';
+import ProMenu from '@/components/ProMenu';
 import { HEAD_ACTIONS } from '../constants';
 import type { HeadAction } from '../types';
 
@@ -106,7 +106,7 @@ const HeadActions = (props: Props) => {
       ]}
       onSelect={handleChange}
     >
-      <Tooltip title="Công cụ">
+      <Tooltip title='Công cụ'>
         <IconButton sx={{ ml: 1 }}>
           <MoreVertIcon />
         </IconButton>

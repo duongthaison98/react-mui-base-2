@@ -1,13 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import ProForm from 'components/ProForm';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
+import ProForm from '@/components/ProForm';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import type { FilterParams } from './utils/filters';
 
 interface FilterValues {
@@ -62,15 +62,11 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3} lg={0.8}>
-          <ProFormTextField
-            name="id"
-            placeholder={t('ID')}
-            InputLabelProps={{ shrink: true }}
-          />
+          <ProFormTextField name='id' placeholder={t('ID')} InputLabelProps={{ shrink: true }} />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormTextField
-            name="supplier"
+            name='supplier'
             placeholder={t('Nhà cung cấp')}
             InputLabelProps={{ shrink: true }}
           />
@@ -91,13 +87,13 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
               control={
                 <Checkbox
                   sx={{ ml: 1 }}
-                  size="medium"
-                  color="secondary"
+                  size='medium'
+                  color='secondary'
                   checked={loop}
                   onChange={() => setLoop((prev) => !prev)}
                 />
               }
-              label="Lặp"
+              label='Lặp'
             />
           </FormGroup>
         </Grid>
@@ -117,25 +113,25 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
               control={
                 <Checkbox
                   sx={{ ml: 1 }}
-                  size="medium"
-                  color="secondary"
+                  size='medium'
+                  color='secondary'
                   checked={parentProduct}
                   onChange={() => setParentProduct((prev) => !prev)}
                 />
               }
-              label="SP cha"
+              label='SP cha'
             />
           </FormGroup>
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={1.5}>
           <ProFormTextField
-            name="product"
+            name='product'
             placeholder={t('Sản phẩm')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={2} lg={1.5}>
-          <Button variant="contained" size="medium" type="submit">
+          <Button variant='contained' size='medium' type='submit'>
             Lọc
           </Button>
         </Grid>

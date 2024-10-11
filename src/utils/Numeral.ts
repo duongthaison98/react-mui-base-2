@@ -1,4 +1,4 @@
-import round from 'lodash.round';
+import round from 'lodash/round';
 import numeral from 'numeral';
 import 'numeral/locales/vi';
 import Regexs from './Regexs';

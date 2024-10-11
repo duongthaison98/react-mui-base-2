@@ -1,17 +1,17 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import DialogFooter from 'components/ProDialog/DialogFooter';
-import DialogHeader from 'components/ProDialog/DialogHeader';
-import ProForm from 'components/ProForm';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
+import DialogHeader from '@/components/ProDialog/DialogHeader';
+import ProForm from '@/components/ProForm';
 import { useForm } from 'react-hook-form';
-import TypedObject from 'utils/TypedObject';
-import Validation from 'utils/Validation';
+import TypedObject from '@/utils/TypedObject';
+import Validation from '@/utils/Validation';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import sleep from 'utils/sleep';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import sleep from '@/utils/sleep';
 
 interface FormValues {
   store: number | null;
@@ -54,7 +54,7 @@ const ConfirmChangeStore = (props: Props) => {
       <ProForm<FormValues> form={form} onFinish={handleSubmit}>
         <DialogContent>
           <Typography
-            variant="subtitle1"
+            variant='subtitle1'
             sx={{
               fontWeight: 'medium',
               mb: 2,
@@ -68,8 +68,8 @@ const ConfirmChangeStore = (props: Props) => {
             Bạn phải chọn cửa hàng trước khi làm phiếu chuyển kho nháp
           </Typography>
           <ProFormSelect
-            name="store"
-            label="Từ cửa hàng"
+            name='store'
+            label='Từ cửa hàng'
             placeholder={t('Cửa hàng')}
             options={[
               { value: 1, label: 'Link kiện sài gòn' },
@@ -78,13 +78,10 @@ const ConfirmChangeStore = (props: Props) => {
           />
         </DialogContent>
         <DialogFooter>
-          <ActionButton actionType="cancel" onClick={handleReset}>
+          <ActionButton actionType='cancel' onClick={handleReset}>
             {t('Hủy bỏ')}
           </ActionButton>
-          <ActionButton
-            type="submit"
-            disabled={TypedObject.isExist(form.formState.errors)}
-          >
+          <ActionButton type='submit' disabled={TypedObject.isExist(form.formState.errors)}>
             {t('Xác nhận xuất kho')}
           </ActionButton>
         </DialogFooter>

@@ -1,8 +1,8 @@
 import PersonIcon from '@mui/icons-material/Person';
 import { Grid, InputAdornment } from '@mui/material';
 import Box from '@mui/material/Box';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormAutocomplete from 'components/ProForm/ProFormAutocomplete';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormAutocomplete from '@/components/ProForm/ProFormAutocomplete';
 const Information = () => {
   return (
     <Box
@@ -38,8 +38,8 @@ const Information = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <ProFormAutocomplete
-              name="store"
-              placeholder="Cửa hàng"
+              name='store'
+              placeholder='Cửa hàng'
               options={[
                 { value: 1, label: 'TM' },
                 { value: 2, label: 'HN-1' },
@@ -54,12 +54,12 @@ const Information = () => {
           <Grid item xs={12} sm={6}>
             <ProFormTextField
               sx={{ marginBottom: 1 }}
-              name="customer"
+              name='customer'
               placeholder={'Nhân viên bán hàng'}
               InputLabelProps={{ shrink: true }}
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment position='start'>
                     <PersonIcon />
                   </InputAdornment>
                 ),

@@ -1,10 +1,10 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { DialogRef, FiltersRef } from 'types/refs';
+import type { DialogRef, FiltersRef } from '@/types/refs';
 import Dialog from './Dialog';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
@@ -133,8 +133,7 @@ const ProductTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(products.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const dialogRef = useRef<DialogRef>(null);
 
   const handleOpenDialog = () => {
@@ -158,7 +157,7 @@ const ProductTable = () => {
   return (
     <>
       <ProTable<any>
-        title="Danh sách sản phẩm"
+        title='Danh sách sản phẩm'
         loading={loading}
         columns={columns}
         data={products}
@@ -182,7 +181,7 @@ const ProductTable = () => {
         toolBar={
           <Fragment>
             <ProMenu
-              position="right"
+              position='right'
               items={[
                 {
                   label: 'Xuất Excel',
@@ -191,7 +190,7 @@ const ProductTable = () => {
                 },
               ]}
             >
-              <ActionButton iconPosition="end" actionType="expand" color="info">
+              <ActionButton iconPosition='end' actionType='expand' color='info'>
                 {t('Thao tác')}
               </ActionButton>
             </ProMenu>

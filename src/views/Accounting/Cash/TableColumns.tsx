@@ -1,20 +1,20 @@
-import Selection from 'components/ProTable/components/Selection';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import Selection from '@/components/ProTable/components/Selection';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { Box, IconButton, Link, Stack, Tooltip } from '@mui/material';
 import { Account, Cash } from './utils/type';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PersonIcon from '@mui/icons-material/Person';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import AddIcon from '@mui/icons-material/Add';
-import useDialog from 'hooks/useDialog';
-import DateTime from 'utils/DateTime';
+import useDialog from '@/hooks/useDialog';
+import DateTime from '@/utils/DateTime';
 import EditIcon from '@mui/icons-material/Edit';
 
 const columnHelper = getColumnHelper<Cash>();
@@ -56,11 +56,11 @@ const useTableColumns = (props: Props) => {
           const { transactionId, date } = context.row.original;
           return (
             <Tooltip title={DateTime.Format(date, 'YYYY-MM-DD HH:MM:ss')}>
-              <Stack direction="column" spacing={0}>
+              <Stack direction='column' spacing={0}>
                 <Link
-                  href="https://www.google.com.vn/?hl=vi"
-                  underline="none"
-                  target="_blank"
+                  href='https://www.google.com.vn/?hl=vi'
+                  underline='none'
+                  target='_blank'
                   color={'#007bff'}
                 >
                   {transactionId}
@@ -84,19 +84,19 @@ const useTableColumns = (props: Props) => {
           const value = context.getValue();
           if (!value) return;
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               {[1, 2].includes(value) && (
-                <Tooltip title="Phiếu thu" placement="top">
-                  <ArrowBackIcon color="info" />
+                <Tooltip title='Phiếu thu' placement='top'>
+                  <ArrowBackIcon color='info' />
                 </Tooltip>
               )}
               {[3, 4].includes(value) && (
-                <Tooltip title="Phiếu chi" placement="top">
-                  <ArrowForwardIcon color="error" />
+                <Tooltip title='Phiếu chi' placement='top'>
+                  <ArrowForwardIcon color='error' />
                 </Tooltip>
               )}
               {[2, 4].includes(value) && (
-                <Tooltip title="Hạch toán tự tạo">
+                <Tooltip title='Hạch toán tự tạo'>
                   <PersonIcon />
                 </Tooltip>
               )}
@@ -115,7 +115,7 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.account,
         cell: (context) => {
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               <Box>{`${context.getValue<Account>().id}`}</Box>
               <Box>{`${context.getValue<Account>().info}`}</Box>
             </Stack>
@@ -132,7 +132,7 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.contraAccount,
         cell: (context) => {
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               <Box>{`${context.getValue<Account>().id}`}</Box>
               <Box>{`${context.getValue<Account>().info}`}</Box>
             </Stack>
@@ -149,12 +149,12 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.object,
         cell: (context) => {
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               <Box>{`KH.${context.getValue<Account>().id}`}</Box>
               <Link
-                href="https://www.google.com.vn/?hl=vi"
-                underline="none"
-                target="_blank"
+                href='https://www.google.com.vn/?hl=vi'
+                underline='none'
+                target='_blank'
                 color={'#007bff'}
               >
                 {`${context.getValue<Account>().info}`}
@@ -176,9 +176,9 @@ const useTableColumns = (props: Props) => {
           <Box>
             Phiếu XNK:{' '}
             <Link
-              href="https://www.google.com.vn/?hl=vi"
-              underline="none"
-              target="_blank"
+              href='https://www.google.com.vn/?hl=vi'
+              underline='none'
+              target='_blank'
               color={'#007bff'}
             >
               {context.getValue()}
@@ -250,11 +250,11 @@ const useTableColumns = (props: Props) => {
         size: 50,
         enableSorting: false,
         header: () => (
-          <Tooltip title="File đính kèm" placement="top">
+          <Tooltip title='File đính kèm' placement='top'>
             <AttachFileIcon sx={{ color: 'text.secondary' }} />
           </Tooltip>
         ),
-        cell: (context) => <AddIcon color="primary" />,
+        cell: (context) => <AddIcon color='primary' />,
         meta: {
           title: HEAD_CELLS.file,
         },
@@ -273,7 +273,7 @@ const useTableColumns = (props: Props) => {
           };
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'In phiếu',
@@ -293,7 +293,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

@@ -3,19 +3,19 @@ import { Checkbox } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system';
 import { nanoid } from '@reduxjs/toolkit';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
-import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
-import ProNumberRange from 'components/ProNumberInput/ProNumberRange';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
+import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
+import ProNumberRange from '@/components/ProNumberInput/ProNumberRange';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import type { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import { STATUS } from './utils/constants';
 import type { FilterParams } from './utils/filters';
 
@@ -96,6 +96,9 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
   const { t } = useTranslation();
   const [openMoreFilter, setOpenMoreFilter] = useState<boolean>(false);
 
+  const [fromValue, setFromValue] = useState<number | ''>('');
+  const [toValue, setToValue] = useState<number | ''>('');  
+
   const form = useForm<FilterValues>({
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -122,7 +125,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormCheckboxSelect
-            name="store"
+            name='store'
             label={t('Cửa hàng')}
             placeholder={t('Chọn cửa hàng')}
             options={[
@@ -144,22 +147,18 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={6} sm={3} md={2} lg={1.2}>
-          <ProFormTextField
-            name="name"
-            placeholder={t('ID')}
-            InputLabelProps={{ shrink: true }}
-          />
+          <ProFormTextField name='name' placeholder={t('ID')} InputLabelProps={{ shrink: true }} />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormTextField
-            name="name"
+            name='name'
             placeholder={t('Tên, mã sản phẩm')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormCheckboxSelect
-            name="status"
+            name='status'
             label={t('Danh mục')}
             placeholder={t('Chọn danh mục')}
             options={[
@@ -175,7 +174,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={6} sm={3} md={2} lg={1.2}>
           <ProFormSelect
-            name="inventory"
+            name='inventory'
             placeholder={t('- Tồn -')}
             options={[
               { value: 1, label: '- Tồn -' },
@@ -194,32 +193,26 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
       </Grid>
       {openMoreFilter && (
-        <Grid
-          container
-          spacing={1}
-          columnSpacing={3}
-          mt={2}
-          alignItems="center"
-        >
+        <Grid container spacing={1} columnSpacing={3} mt={2} alignItems='center'>
           <StyledLabel item xs={12} sm={6} md={4} lg={1}>
             ID cha
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
-            <ProFormTextField name="brand" />
+            <ProFormTextField name='brand' />
           </Grid>
           <StyledLabel item xs={12} sm={6} md={4} lg={1}>
             IMEI
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
-            <ProFormTextField name="brand" />
+            <ProFormTextField name='brand' />
           </Grid>
           <StyledLabel item xs={12} sm={6} md={4} lg={1}>
             Giá
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <ProFormSelect
-              name="inventory"
-              placeholder=""
+              name='inventory'
+              placeholder=''
               options={priceOptions}
               renderLabel={(option) => option.label}
               renderValue={(option) => option.value}
@@ -233,15 +226,15 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             ID từ API
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
-            <ProFormTextField name="brand" />
+            <ProFormTextField name='brand' />
           </Grid>
           <StyledLabel item xs={12} sm={6} md={4} lg={1}>
             Thương hiệu
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <ProFormSelect
-              name="inventory"
-              placeholder=""
+              name='inventory'
+              placeholder=''
               options={brandOptions}
               renderLabel={(option) => option.label}
               renderValue={(option) => option.value}
@@ -251,29 +244,21 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             Giá
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
-            <ProNumberRange
-              label={t('Từ - Đến')}
-              from="startDate"
-              to="endDate"
-            />
+            <ProNumberRange from={fromValue} to={toValue} onFromChange={setFromValue} onToChange={setToValue} />
           </Grid>
           <StyledLabel item xs={12} sm={6} md={4} lg={1}>
             Tồn
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
-            <ProNumberRange
-              label={t('Từ - Đến')}
-              from="startDate"
-              to="endDate"
-            />
+            <ProNumberRange from={fromValue} to={toValue} onFromChange={setFromValue} onToChange={setToValue} />
           </Grid>
           <StyledLabel item xs={12} sm={6} md={4} lg={1}>
             Cha con
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <ProFormSelect
-              name="inventory"
-              placeholder=""
+              name='inventory'
+              placeholder=''
               options={linkOptions}
               renderLabel={(option) => option.label}
               renderValue={(option) => option.value}
@@ -284,8 +269,8 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <ProFormSelect
-              name="inventory"
-              placeholder=""
+              name='inventory'
+              placeholder=''
               options={typeOptions}
               renderLabel={(option) => option.label}
               renderValue={(option) => option.value}
@@ -296,7 +281,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <ProFormCheckboxSelect
-              name="store"
+              name='store'
               label={t('Đặc điểm')}
               placeholder={t('Đặc điểm')}
               options={[
@@ -322,8 +307,8 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <ProFormSelect
-              name="inventory"
-              placeholder=""
+              name='inventory'
+              placeholder=''
               options={existenceStatus}
               renderLabel={(option) => option.label}
               renderValue={(option) => option.value}
@@ -334,7 +319,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <ProFormCheckboxSelect
-              name="status"
+              name='status'
               label={t('Danh mục nội bộ')}
               placeholder={t('Danh mục nội bộ')}
               options={[
@@ -352,21 +337,21 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             Nhà cung cấp
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
-            <ProFormTextField name="brand" />
+            <ProFormTextField name='brand' />
           </Grid>
           <StyledLabel item xs={12} sm={6} md={4} lg={1}>
             Tags
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
-            <ProFormTextField name="brand" />
+            <ProFormTextField name='brand' />
           </Grid>
           <StyledLabel item xs={12} sm={6} md={4} lg={1}>
             Trạng thái bán
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <ProFormSelect
-              name="inventory"
-              placeholder=""
+              name='inventory'
+              placeholder=''
               options={saleStatus}
               renderLabel={(option) => option.label}
               renderValue={(option) => option.value}
@@ -376,7 +361,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             Ngày tạo
           </StyledLabel>
           <Grid item xs={12} sm={6} md={4} lg={2}>
-            <ProDateRange label={t('Từ - Đến')} from="startDate" to="endDate" />
+            <ProDateRange label={t('Từ - Đến')} from='startDate' to='endDate' />
           </Grid>
         </Grid>
       )}

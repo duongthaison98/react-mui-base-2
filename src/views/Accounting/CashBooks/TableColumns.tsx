@@ -1,11 +1,11 @@
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { Box, Stack } from '@mui/material';
 import { Cash } from './utils/type';
 
-import DateTime from 'utils/DateTime';
+import DateTime from '@/utils/DateTime';
 
 const columnHelper = getColumnHelper<Cash>();
 
@@ -42,7 +42,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { transactionId } = context.row.original;
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               {transactionId}
             </Stack>
           );
@@ -60,7 +60,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { date } = context.row.original;
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               {DateTime.Format(date, 'MM-DD-YYYY')}
             </Stack>
           );
@@ -89,7 +89,7 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.contraAccount,
         cell: (context) => {
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               <Box>{`${context.getValue()}`}</Box>
             </Stack>
           );
@@ -117,7 +117,7 @@ const useTableColumns = (props: Props) => {
 
         cell: (context) => {
           return (
-            <Stack direction="column" spacing={0}>
+            <Stack direction='column' spacing={0}>
               <Box sx={{ color: 'blue' }}>{context.getValue()}</Box>
             </Stack>
           );

@@ -1,13 +1,13 @@
-import LinkButton from 'components/LinkButton';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useDialog from 'hooks/useDialog';
-import useRefresh from 'hooks/useRefresh';
+import LinkButton from '@/components/LinkButton';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useDialog from '@/hooks/useDialog';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-import { IRetail } from 'types/retail';
+import type { FiltersRef } from '@/types/refs';
+import { IRetail } from '@/types/retail';
 import AttackSelectedBillDialog from './Dialog/AttackSelectedBillDialog';
 import CreateBillDialog from './Dialog/CreateBillDialog';
 import EditNoteDialog from './Dialog/EditNoteDialog';
@@ -61,15 +61,12 @@ const ProductTable = () => {
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
   const [isOpenDialogInfo, setOpenDialogInfo] = useState<boolean>(false);
-  const [isOpenDialogEditNote, setOpenDialogEditNote] =
-    useState<boolean>(false);
+  const [isOpenDialogEditNote, setOpenDialogEditNote] = useState<boolean>(false);
   const [dataSelected, setDataSelected] = useState<any>({});
-  const [isOpenCreateBillDialog, setOpenCreateBillDialog] =
-    useState<boolean>(false);
+  const [isOpenCreateBillDialog, setOpenCreateBillDialog] = useState<boolean>(false);
   const [isOpenAttackSelectedBillDialog, setOpenAttackSelectedBillDialog] =
     useState<boolean>(false);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const dialog = useDialog();
 
   const handleResetFilters = () => {
@@ -112,7 +109,7 @@ const ProductTable = () => {
   return (
     <>
       <ProTable<IRetail>
-        title="Danh sách"
+        title='Danh sách'
         loading={loading}
         columns={columns}
         data={banners}
@@ -135,16 +132,11 @@ const ProductTable = () => {
         }
         toolBar={
           <Fragment>
-            <LinkButton
-              to="/sales/retail/create"
-              variant="contained"
-              type="create"
-              color="success"
-            >
+            <LinkButton to='/sales/retail/create' variant='contained' type='create' color='success'>
               {t('Thêm mới')}
             </LinkButton>
             <ProMenu
-              position="right"
+              position='right'
               items={[
                 {
                   label: 'Xuất Excel',
@@ -161,16 +153,11 @@ const ProductTable = () => {
                 },
               ]}
             >
-              <ActionButton iconPosition="end" actionType="expand" color="info">
+              <ActionButton iconPosition='end' actionType='expand' color='info'>
                 {t('Thao tác')}
               </ActionButton>
             </ProMenu>
-            <LinkButton
-              to="/sales/return"
-              variant="contained"
-              type="create"
-              color="error"
-            >
+            <LinkButton to='/sales/return' variant='contained' type='create' color='error'>
               {t('Trả hàng')}
             </LinkButton>
           </Fragment>

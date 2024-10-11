@@ -17,13 +17,9 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/react-table';
-import {
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
-import ProFormProvider from 'components/ProForm/ProFormProvider';
-import useScrollbar from 'hooks/useScrollbar';
+import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import ProFormProvider from '@/components/ProForm/ProFormProvider';
+import useScrollbar from '@/hooks/useScrollbar';
 import type { DispatchWithoutAction, ReactNode } from 'react';
 import React, {
   ForwardedRef,
@@ -34,7 +30,7 @@ import React, {
   useState,
 } from 'react';
 import type { UseFormReturn } from 'react-hook-form';
-import TypedObject from 'utils/TypedObject';
+import TypedObject from '@/utils/TypedObject';
 import { DENSITY } from './constants';
 import EditableCell from './core/EditableCell';
 import HeadActions from './core/HeadActions';
@@ -80,10 +76,7 @@ interface Props<T> {
   totalRow?: React.ReactElement;
 }
 
-const ProTable = <T extends object>(
-  props: Props<T>,
-  tableRef: ForwardedRef<TableRef>
-) => {
+const ProTable = <T extends object>(props: Props<T>, tableRef: ForwardedRef<TableRef>) => {
   const {
     toolBar,
     filter,
@@ -135,14 +128,13 @@ const ProTable = <T extends object>(
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
   // Visibility state
-  const [columnVisibility, onColumnVisibilityChange] =
-    useState<VisibilityState>(() => {
-      const hiddenColumns = initialstate.hiddenColumns as string[];
-      return hiddenColumns.reduce<VisibilityState>((acc, column) => {
-        acc[column] = false;
-        return acc;
-      }, {});
-    });
+  const [columnVisibility, onColumnVisibilityChange] = useState<VisibilityState>(() => {
+    const hiddenColumns = initialstate.hiddenColumns as string[];
+    return hiddenColumns.reduce<VisibilityState>((acc, column) => {
+      acc[column] = false;
+      return acc;
+    }, {});
+  });
   const [hiddenColumnActions] = useState<boolean>(() => {
     const { hiddenColumnActions } = initialstate;
     if (typeof hiddenColumnActions === 'boolean') {
@@ -171,9 +163,7 @@ const ProTable = <T extends object>(
     new Promise<SortingState>((resolve) => {
       setSorting((state) => {
         const updatedState =
-          typeof updaterOrValue === 'function'
-            ? updaterOrValue(state)
-            : updaterOrValue;
+          typeof updaterOrValue === 'function' ? updaterOrValue(state) : updaterOrValue;
         resolve(updatedState);
         return updatedState;
       });
@@ -183,15 +173,11 @@ const ProTable = <T extends object>(
   };
 
   // Handle row selection
-  const handleRowSelectionChange: OnChangeFn<RowSelectionState> = (
-    updaterOrValue
-  ) => {
+  const handleRowSelectionChange: OnChangeFn<RowSelectionState> = (updaterOrValue) => {
     new Promise<RowSelectionState>((resolve) => {
       setRowSelection((state) => {
         const updatedState =
-          typeof updaterOrValue === 'function'
-            ? updaterOrValue(state)
-            : updaterOrValue;
+          typeof updaterOrValue === 'function' ? updaterOrValue(state) : updaterOrValue;
         resolve(updatedState);
         return updatedState;
       });
@@ -287,13 +273,7 @@ const ProTable = <T extends object>(
     },
   });
 
-  const {
-    getHeaderGroups,
-    getRowModel,
-    getFooterGroups,
-    resetRowSelection,
-    resetExpanded,
-  } = table;
+  const { getHeaderGroups, getRowModel, getFooterGroups, resetRowSelection, resetExpanded } = table;
 
   const handleExpandFilter = () => {
     setCollapsed(!collapsed);
@@ -348,22 +328,19 @@ const ProTable = <T extends object>(
         height: 1,
       }}
     >
-      <Collapse in={collapsed} timeout="auto">
+      <Collapse in={collapsed} timeout='auto'>
         {filter}
       </Collapse>
       <Box sx={{ p: 1.5, display: 'flex', alignItems: 'center', gap: 1.5 }}>
-        <Stack direction="row" spacing={1}>
+        <Stack direction='row' spacing={1}>
           {toolBar}
         </Stack>
         <Box sx={{ flexGrow: 1 }} />
         {(!hiddenVisibilityColumns || !hiddenFilterActions) && (
-          <Stack direction="row" spacing={1}>
+          <Stack direction='row' spacing={1}>
             {!hiddenVisibilityColumns && <VisibilityColumns table={table} />}
             {!hiddenFilterActions && (
-              <ToggleFilter
-                expanded={collapsed}
-                onExpand={handleExpandFilter}
-              />
+              <ToggleFilter expanded={collapsed} onExpand={handleExpandFilter} />
             )}
           </Stack>
         )}
@@ -383,11 +360,7 @@ const ProTable = <T extends object>(
           <NoRowsOverlay visible={!loading && pagination?.total === 0} />
           <Table
             stickyHeader={stickyHeader}
-            size={
-              [DENSITY.default, DENSITY.dense].includes(density)
-                ? 'small'
-                : 'medium'
-            }
+            size={[DENSITY.default, DENSITY.dense].includes(density) ? 'small' : 'medium'}
             sx={{
               minWidth: 'max-content',
               position: 'absolute',
@@ -423,16 +396,12 @@ const ProTable = <T extends object>(
                         <Box
                           sx={{
                             display: 'flex',
-                            justifyContent:
-                              align === 'center' ? 'center' : 'space-between',
+                            justifyContent: align === 'center' ? 'center' : 'space-between',
                             alignItems: 'center',
                           }}
                         >
                           <HeaderSortLabel header={header} />
-                          <HeadActions
-                            hidden={hiddenColumnActions}
-                            header={header}
-                          />
+                          <HeadActions hidden={hiddenColumnActions} header={header} />
                         </Box>
                       </ProTableCell>
                     );
@@ -454,7 +423,7 @@ const ProTable = <T extends object>(
                         const align = cell.column.columnDef.meta?.align;
                         const rowSpan = cell.column.columnDef.meta?.rowSpan?.(
                           cell.getContext(),
-                          getRowModel().rows
+                          getRowModel().rows,
                         );
 
                         if (rowSpan === null) {
@@ -485,10 +454,7 @@ const ProTable = <T extends object>(
                                 }),
                             }}
                           >
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext()
-                            )}
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
                           </ProTableCell>
                         );
                       })}
@@ -523,7 +489,7 @@ const ProTable = <T extends object>(
 
                         const colSpan = header.column.columnDef.meta?.colSpan?.(
                           header.getContext(),
-                          getRowModel().rows
+                          getRowModel().rows,
                         );
 
                         if (colSpan === null) {
@@ -531,18 +497,10 @@ const ProTable = <T extends object>(
                         }
 
                         return (
-                          <ProTableCell
-                            key={header.id}
-                            offset={0}
-                            align={align}
-                            colSpan={colSpan}
-                          >
+                          <ProTableCell key={header.id} offset={0} align={align} colSpan={colSpan}>
                             {header.isPlaceholder
                               ? null
-                              : flexRender(
-                                  header.column.columnDef.footer,
-                                  header.getContext()
-                                )}
+                              : flexRender(header.column.columnDef.footer, header.getContext())}
                           </ProTableCell>
                         );
                       })}

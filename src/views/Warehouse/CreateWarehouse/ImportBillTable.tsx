@@ -1,5 +1,5 @@
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useState } from 'react';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -40,8 +40,7 @@ const ImportBillTable = () => {
   const [banners] = useState<IImportExport[]>(DATA);
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange } = useFilters();
 
   const { columns } = useTableColumns({
     pageNumber: filters.pageNumber,

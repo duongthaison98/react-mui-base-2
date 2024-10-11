@@ -1,12 +1,12 @@
 import { nanoid } from '@reduxjs/toolkit';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -62,16 +62,16 @@ const AccountTable = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Báo cáo tổng hợp theo tài khoản">
+      <PageWrapper title='Báo cáo tổng hợp theo tài khoản'>
         <PageBreadcrumbs
-          title="Báo cáo tổng hợp theo tài khoản"
+          title='Báo cáo tổng hợp theo tài khoản'
           items={[
             { link: '#', text: 'Báo cáo' },
             { link: '#', text: 'Kế toán' },
           ]}
         />
         <ProTable<Account>
-          title="Danh sách sản phẩm"
+          title='Danh sách sản phẩm'
           loading={loading}
           columns={columns}
           data={data}
@@ -85,7 +85,7 @@ const AccountTable = () => {
           toolBar={
             <Fragment>
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Xuất Excel',
@@ -99,7 +99,7 @@ const AccountTable = () => {
                   },
                 ]}
               >
-                <ActionButton color="info">Thao tác</ActionButton>
+                <ActionButton color='info'>Thao tác</ActionButton>
               </ProMenu>
             </Fragment>
           }

@@ -13,17 +13,17 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import ProForm from 'components/ProForm';
-import ProFormContent from 'components/ProForm/ProFormContent';
-import ProFormHeader from 'components/ProForm/ProFormHeader';
+import ProForm from '@/components/ProForm';
+import ProFormContent from '@/components/ProForm/ProFormContent';
+import ProFormHeader from '@/components/ProForm/ProFormHeader';
 import { UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { ICreateSettingPriceListType, ISelectButtonType, ISelectUnitType } from '../utils/type';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import Switch from '@mui/material/Switch';
 import { useState } from 'react';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
 
 interface Props {
   form: UseFormReturn<ICreateSettingPriceListType>;
@@ -89,58 +89,41 @@ const AdvancedSetting = (props: Props) => {
     <ProForm form={form}>
       <ProFormContent m={2} mb={4}>
         <ProFormHeader>
-          <Grid
-            container
-            spacing={2}
-            alignItems="center"
-            justifyContent="center"
-          >
+          <Grid container spacing={2} alignItems='center' justifyContent='center'>
             <Grid item xs={12} sm={12} md={10} lg={11}>
               <div style={{ display: 'inline-flex', alignItems: 'center' }}>
-                <SettingsSuggestIcon
-                  sx={{ marginRight: '8px' }}
-                  color="inherit"
-                />
+                <SettingsSuggestIcon sx={{ marginRight: '8px' }} color='inherit' />
                 Thiết lập nâng cao
               </div>
             </Grid>
           </Grid>
         </ProFormHeader>
-        <Stack
-          direction="row"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Grid container spacing={2} ml={6} width="60%" mb={2} mt={2}>
+        <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
+          <Grid container spacing={2} ml={6} width='60%' mb={2} mt={2}>
             <Grid item xs={12} sm={12} md={12} lg={12}>
               <FormGroup>
                 <FormControlLabel
                   control={
                     <Switch
                       checked={isAutoSettingPrice}
-                      color="success"
-                      size="medium"
+                      color='success'
+                      size='medium'
                       onChange={onChangeAutoSettingPrice}
                     />
                   }
-                  label="Thiết lập giá tự động"
+                  label='Thiết lập giá tự động'
                 />
               </FormGroup>
             </Grid>
 
-            <Collapse in={isAutoSettingPrice} timeout="auto">
+            <Collapse in={isAutoSettingPrice} timeout='auto'>
               <Box mt={2}>
                 <Grid item xs={12} sm={12} md={12} lg={12} mt={2}>
-                  <Box
-                    display="inline-flex"
-                    alignItems="center"
-                    flexDirection="row"
-                  >
-                    <Typography width="50%">Giá mới =</Typography>
+                  <Box display='inline-flex' alignItems='center' flexDirection='row'>
+                    <Typography width='50%'>Giá mới =</Typography>
 
                     <ProFormSelect
-                      name="newPriceSelect"
+                      name='newPriceSelect'
                       placeholder={t('Giá bán lẻ')}
                       options={[
                         { value: 1, label: 'Giá bán lẻ' },
@@ -167,14 +150,11 @@ const AdvancedSetting = (props: Props) => {
                     >
                       -
                     </Button>
-                    <ProFormTextField
-                      name="newPrice"
-                      InputLabelProps={{ shrink: true }}
-                    />
+                    <ProFormTextField name='newPrice' InputLabelProps={{ shrink: true }} />
                     <Button
                       color={isSelectUnit.VND ? 'info' : 'inherit'}
                       sx={{ ml: '8px' }}
-                      size="small"
+                      size='small'
                       onClick={onClickVND}
                     >
                       VND
@@ -194,56 +174,56 @@ const AdvancedSetting = (props: Props) => {
                       control={
                         <Checkbox
                           checked={isAutoUpdate}
-                          color="success"
-                          size="small"
+                          color='success'
+                          size='small'
                           onChange={onChangeAutoUpdate}
                         />
                       }
-                      label="Tự động cập nhật bảng giá khi giá sản phẩm thay đổi"
+                      label='Tự động cập nhật bảng giá khi giá sản phẩm thay đổi'
                     />
                   </FormGroup>
                 </Grid>
               </Box>
             </Collapse>
           </Grid>
-          <Grid container spacing={2} ml={6} width="50%">
+          <Grid container spacing={2} ml={6} width='50%'>
             <Grid item xs={12} sm={12} md={12} lg={12}>
               <FormGroup>
                 <FormControlLabel
                   control={
                     <Switch
                       checked={isWarning}
-                      color="success"
-                      size="medium"
+                      color='success'
+                      size='medium'
                       onChange={onChangeWarning}
                     />
                   }
-                  label="Cảnh báo khi bán hàng"
+                  label='Cảnh báo khi bán hàng'
                 />
               </FormGroup>
             </Grid>
 
-            <Collapse in={isWarning} timeout="auto">
+            <Collapse in={isWarning} timeout='auto'>
               <FormControl>
                 <RadioGroup
-                  aria-labelledby="demo-radio-buttons-group-label"
-                  defaultValue="female"
-                  name="radio-buttons-group"
+                  aria-labelledby='demo-radio-buttons-group-label'
+                  defaultValue='female'
+                  name='radio-buttons-group'
                 >
                   <FormControlLabel
-                    value="female"
-                    control={<Radio color="info" />}
-                    label="Cho phép chọn hàng hóa khác bảng giá"
+                    value='female'
+                    control={<Radio color='info' />}
+                    label='Cho phép chọn hàng hóa khác bảng giá'
                   />
                   <FormControlLabel
-                    value="male"
-                    control={<Radio color="info" />}
-                    label="Cho phép chọn hàng hóa khác bảng giá kèm cảnh báo"
+                    value='male'
+                    control={<Radio color='info' />}
+                    label='Cho phép chọn hàng hóa khác bảng giá kèm cảnh báo'
                   />
                   <FormControlLabel
-                    value="other"
-                    control={<Radio color="info" />}
-                    label="Không cho phép chọn hàng hóa khác bảng giá"
+                    value='other'
+                    control={<Radio color='info' />}
+                    label='Không cho phép chọn hàng hóa khác bảng giá'
                   />
                 </RadioGroup>
               </FormControl>

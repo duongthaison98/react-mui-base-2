@@ -1,11 +1,11 @@
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { __VERSION__ } from 'config';
+import { __VERSION__ } from '@/config';
 
 const Footer = () => {
   return (
     <FooterRoot>
-      <Typography variant="caption" sx={{ fontWeight: 500 }}>
+      <Typography variant='caption' sx={{ fontWeight: 500 }}>
         VSOFT v{__VERSION__}.
       </Typography>
     </FooterRoot>

@@ -2,9 +2,9 @@ import CallIcon from '@mui/icons-material/Call';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import { Grid, InputAdornment } from '@mui/material';
-import ProFormAutocomplete from 'components/ProForm/Label/ProFormAutocomplete';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormDate from 'components/ProForm/ProFormDate';
+import ProFormAutocomplete from '@/components/ProForm/Label/ProFormAutocomplete';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormDate from '@/components/ProForm/ProFormDate';
 import EditIcon from '@mui/icons-material/Edit';
 
 const Customer = () => {
@@ -12,12 +12,12 @@ const Customer = () => {
     <Grid container spacing={2} sx={{ marginTop: 1, p: 1 }}>
       <Grid item xs={12} md={3}>
         <ProFormTextField
-          name="name"
-          placeholder="Họ tên"
+          name='name'
+          placeholder='Họ tên'
           InputLabelProps={{ shrink: true }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <PersonIcon />
               </InputAdornment>
             ),
@@ -26,12 +26,12 @@ const Customer = () => {
       </Grid>
       <Grid item xs={12} md={3}>
         <ProFormTextField
-          name="name"
-          placeholder="Số điện thoại"
+          name='name'
+          placeholder='Số điện thoại'
           InputLabelProps={{ shrink: true }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <CallIcon />
               </InputAdornment>
             ),
@@ -40,8 +40,8 @@ const Customer = () => {
       </Grid>
       <Grid item xs={12} md={3}>
         <ProFormAutocomplete
-          name="store"
-          placeholder="Thành phố"
+          name='store'
+          placeholder='Thành phố'
           options={[
             { value: 1, label: 'TM' },
             { value: 2, label: 'HN-1' },
@@ -54,18 +54,18 @@ const Customer = () => {
         />
       </Grid>
       <Grid item xs={12} md={3}>
-        <ProFormDate name="firstDate" type="start" />
+        <ProFormDate name='firstDate' type='start' />
       </Grid>
       <Grid item xs={12} md={3}>
         <ProFormTextField
-          name="name"
-          placeholder="Địa chỉ"
+          name='name'
+          placeholder='Địa chỉ'
           multiline
           rows={2}
           InputLabelProps={{ shrink: true }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <HomeIcon />
               </InputAdornment>
             ),
@@ -74,14 +74,14 @@ const Customer = () => {
       </Grid>
       <Grid item xs={12} md={6}>
         <ProFormTextField
-          name="name"
-          placeholder="Ghi chú"
+          name='name'
+          placeholder='Ghi chú'
           multiline
           rows={2}
           InputLabelProps={{ shrink: true }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <EditIcon />
               </InputAdornment>
             ),

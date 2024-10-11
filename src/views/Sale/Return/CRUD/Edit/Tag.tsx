@@ -5,12 +5,12 @@ import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProForm from 'components/ProForm';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProForm from '@/components/ProForm';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 
 const schema = Validation.shape({
   name: Validation.string().optional(),
@@ -33,11 +33,7 @@ const Tag = () => {
         marginBottom: '10px',
       }}
     >
-      <Grid
-        container
-        justifyContent="space-between"
-        sx={{ padding: '10px 15px' }}
-      >
+      <Grid container justifyContent='space-between' sx={{ padding: '10px 15px' }}>
         <Box sx={{ display: 'flex' }}>
           <StyleIcon />
           <span
@@ -58,31 +54,20 @@ const Tag = () => {
 
       <Box sx={{ padding: '10px 15px' }}>
         {isSHowTag && (
-          <ProForm
-            form={form}
-            onFinish={handleSubmit}
-            PaperProps={{ sx: { p: 2 } }}
-          >
+          <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
             <Box sx={{ marginBottom: '5px', display: 'flex' }}>
               <Checkbox />
               <ProFormTextField
-                name="name"
+                name='name'
                 InputLabelProps={{ shrink: true }}
-                placeholder="Tìm kiếm nhãn"
+                placeholder='Tìm kiếm nhãn'
               />
             </Box>
-            <Grid container justifyContent="flex-end">
-              <ActionButton
-                variant="outlined"
-                sx={{ padding: 0, marginRight: 1 }}
-              >
+            <Grid container justifyContent='flex-end'>
+              <ActionButton variant='outlined' sx={{ padding: 0, marginRight: 1 }}>
                 Đóng
               </ActionButton>
-              <ActionButton
-                variant="contained"
-                sx={{ padding: 0, marginRight: 1 }}
-                color="success"
-              >
+              <ActionButton variant='contained' sx={{ padding: 0, marginRight: 1 }} color='success'>
                 Lưu
               </ActionButton>
             </Grid>

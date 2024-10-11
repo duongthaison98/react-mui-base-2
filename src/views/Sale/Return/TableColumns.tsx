@@ -6,15 +6,14 @@ import SouthIcon from '@mui/icons-material/South';
 import { Box, IconButton } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
-// import filter from 'lodash.filter';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { Fragment, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import filter from 'lodash.filter';
+import filter from 'lodash/filter';
 
 const columnHelper = getColumnHelper<any>();
 
@@ -58,7 +57,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { date: context.getValue() }
+              { date: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -76,7 +75,7 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.idBill,
         cell: (context) => (
           <Typography
-            variant="subtitle2"
+            variant='subtitle2'
             sx={{ color: '#007bff', cursor: 'pointer' }}
             onClick={() => handleOpenDialog(context)}
           >
@@ -89,7 +88,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result: any = filter(
               rows.map((row) => row.original),
-              { idBill: context.getValue() }
+              { idBill: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -106,14 +105,14 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => HEAD_CELLS.customer,
         cell: (context) => context.getValue(),
-        footer: (context) => <Typography variant="subtitle2">Tổng</Typography>,
+        footer: (context) => <Typography variant='subtitle2'>Tổng</Typography>,
         meta: {
           title: HEAD_CELLS.customer,
           colSpan: () => 5,
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { customer: context.getValue() }
+              { customer: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -152,7 +151,7 @@ const useTableColumns = (props: Props) => {
         meta: {
           title: HEAD_CELLS.amount,
         },
-        footer: (context) => <Typography variant="subtitle2">70000</Typography>,
+        footer: (context) => <Typography variant='subtitle2'>70000</Typography>,
       }),
       columnHelper.accessor('vat', {
         id: 'vat',
@@ -165,7 +164,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { vat: context.getValue() }
+              { vat: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -182,8 +181,8 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Chiết khấu">
-            <SouthIcon color="error" />
+          <Tooltip title='Chiết khấu'>
+            <SouthIcon color='error' />
           </Tooltip>
         ),
         cell: (context) => context.getValue(),
@@ -192,7 +191,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { discount: context.getValue() }
+              { discount: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -215,7 +214,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { return: context.getValue() }
+              { return: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -238,7 +237,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { fee: context.getValue() }
+              { fee: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -255,12 +254,10 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => HEAD_CELLS.totalPrice,
-        footer: (context) => (
-          <Typography variant="subtitle2">80.000.000</Typography>
-        ),
+        footer: (context) => <Typography variant='subtitle2'>80.000.000</Typography>,
 
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
+          <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -269,7 +266,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { totalPrice: context.getValue() }
+              { totalPrice: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -287,7 +284,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Ghi chú">
+          <Tooltip title='Ghi chú'>
             <NoteAltIcon />
           </Tooltip>
         ),
@@ -304,7 +301,7 @@ const useTableColumns = (props: Props) => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { note: context.getValue() }
+              { note: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -327,8 +324,7 @@ const useTableColumns = (props: Props) => {
               headline: 'Xác nhận xóa?',
               supportingText: (
                 <Fragment>
-                  Bạn có chắc chắn muốn xóa:{' '}
-                  <strong>{context.row.original.name}</strong>
+                  Bạn có chắc chắn muốn xóa: <strong>{context.row.original.name}</strong>
                 </Fragment>
               ),
               onConfirm: async () => {},
@@ -336,7 +332,7 @@ const useTableColumns = (props: Props) => {
           };
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'In hóa đơn',
@@ -359,7 +355,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

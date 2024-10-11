@@ -1,9 +1,9 @@
 import { Box, Divider, Grid, Paper, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import { Tag } from 'components/Tags';
-import Numeral from 'utils/Numeral';
-import DateTime from 'utils/DateTime';
+import { Tag } from '@/components/Tags';
+import Numeral from '@/utils/Numeral';
+import DateTime from '@/utils/DateTime';
 
 interface Basics {
   code: string;
@@ -50,13 +50,13 @@ const Basic = () => {
         {/* <Stack sx={{ justifyContent: 'space-between' }}> */}
         <Stack sx={{ alignItems: 'center' }}>
           <ErrorOutlineIcon />
-          <Typography variant="body1" sx={{ fontWeight: 'medium' }}>
+          <Typography variant='body1' sx={{ fontWeight: 'medium' }}>
             {'Thông tin'}
           </Typography>
         </Stack>
         <Box>
           <Typography pl={2}>
-            Trạng thái: <Tag color="info">Mới</Tag>
+            Trạng thái: <Tag color='info'>Mới</Tag>
           </Typography>
         </Box>
         {/* </Stack> */}
@@ -70,9 +70,7 @@ const Basic = () => {
           <Typography>{`Mã vạch: ${data.barCode}`}</Typography>
         </Grid>
         <Grid item xs={6} sm={3} lg={3}>
-          <Typography>{`Giá nhập: ${Numeral.price(
-            data.importPrice
-          )}`}</Typography>
+          <Typography>{`Giá nhập: ${Numeral.price(data.importPrice)}`}</Typography>
         </Grid>
         <Grid item xs={6} sm={3} lg={3}>
           <Typography>{`Giá vốn: ${Numeral.price(data.costPrice)}`}</Typography>
@@ -84,20 +82,13 @@ const Basic = () => {
           <Typography>{`Người tạo: ${data.creator}`}</Typography>
         </Grid>
         <Grid item xs={6} sm={3} lg={3}>
-          <Typography>{`Giá bán: ${Numeral.price(
-            data.sellPrice
-          )} (Lãi: 0%)`}</Typography>
+          <Typography>{`Giá bán: ${Numeral.price(data.sellPrice)} (Lãi: 0%)`}</Typography>
         </Grid>
         <Grid item xs={6} sm={3} lg={3}>
-          <Typography>{`Giá sỉ: ${Numeral.price(
-            data.manyPrice
-          )} (Lãi: 0%)`}</Typography>
+          <Typography>{`Giá sỉ: ${Numeral.price(data.manyPrice)} (Lãi: 0%)`}</Typography>
         </Grid>
         <Grid item xs={6} sm={3} lg={3}>
-          <Typography>{`Ngày tạo: ${DateTime.Format(
-            data.createDate,
-            'YYYY-MM-DD'
-          )}`}</Typography>
+          <Typography>{`Ngày tạo: ${DateTime.Format(data.createDate, 'YYYY-MM-DD')}`}</Typography>
         </Grid>
         <Grid item xs={6} sm={3} lg={3}>
           <Typography>{`Đơn vị tính: ${Numeral.price(data.unit)}`}</Typography>

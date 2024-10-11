@@ -1,20 +1,20 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import Grid from '@mui/material/Grid';
 import { nanoid } from '@reduxjs/toolkit';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProForm from 'components/ProForm';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
-import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProForm from '@/components/ProForm';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
+import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
 import { forwardRef, useImperativeHandle } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import { STATUS } from './utils/constants';
 import type { FilterParams } from './utils/filters';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
 
 interface FilterValues {
   name: string;
@@ -68,7 +68,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={1.2}>
           <ProFormSelect
-            name="inventory"
+            name='inventory'
             placeholder={t('Theo ngày')}
             options={[
               { value: nanoid(), label: 'Theo ngày' },
@@ -77,11 +77,11 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.0}>
-          <ProDateRange label={t('Ngày tạo')} from="startDate" to="endDate" />
+          <ProDateRange label={t('Ngày tạo')} from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.0}>
           <ProFormCheckboxSelect
-            name="store"
+            name='store'
             label={t('Cửa hàng')}
             placeholder={t('Chọn cửa hàng')}
             options={[
@@ -104,21 +104,21 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={1.2}>
           <ProFormTextField
-            name="staff"
+            name='staff'
             placeholder={t('Đối tượng')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={1.2}>
           <ProFormTextField
-            name="account"
+            name='account'
             placeholder={t('Tài khoản')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.0}>
           <ProFormSelect
-            name="objectType"
+            name='objectType'
             placeholder={t('Loại đối tượng')}
             options={[
               { value: nanoid(), label: 'Nhà cung cấp' },

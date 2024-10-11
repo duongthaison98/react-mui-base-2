@@ -1,11 +1,11 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useCallback, useRef, useState } from 'react';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -83,8 +83,7 @@ const Transaction = () => {
   const [, refetch] = useRefresh();
   const [data] = useState<Entry[]>(DATA);
   const [loading] = useState<boolean>(false);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [total] = useState<number>(data.length || 0);
   const [rowIds, setRowIds] = useState<number[]>([]);
   const filtersRef = useRef<FiltersRef>(null);
@@ -102,9 +101,9 @@ const Transaction = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Danh sách bút toán">
+      <PageWrapper title='Danh sách bút toán'>
         <PageBreadcrumbs
-          title="Bút toán"
+          title='Bút toán'
           items={[
             {
               link: '/accounting/transaction/index',
@@ -113,7 +112,7 @@ const Transaction = () => {
           ]}
         />
         <ProTable<Entry>
-          title="Danh sách bút toán"
+          title='Danh sách bút toán'
           loading={loading}
           columns={columns}
           data={data}
@@ -130,17 +129,14 @@ const Transaction = () => {
           filter={<FiltersForm ref={filtersRef} onSearch={onSearch} />}
           toolBar={
             <Fragment>
-              <ActionButton variant="text" onClick={() => null}>
+              <ActionButton variant='text' onClick={() => null}>
                 Xóa bộ lọc
               </ActionButton>
-              <ActionButton
-                href="/accounting/transaction/create"
-                color="success"
-              >
+              <ActionButton href='/accounting/transaction/create' color='success'>
                 Thêm mới
               </ActionButton>
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Xuất Excel',
@@ -155,7 +151,7 @@ const Transaction = () => {
                   },
                 ]}
               >
-                <ActionButton color="info">Thao tác</ActionButton>
+                <ActionButton color='info'>Thao tác</ActionButton>
               </ProMenu>
             </Fragment>
           }

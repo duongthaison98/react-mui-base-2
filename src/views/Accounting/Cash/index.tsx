@@ -1,11 +1,11 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useCallback, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import ConfirmChangeStore from './components/ConfirmChangeStore';
 import EditNote from './components/EditNote';
 import FiltersForm from './FiltersForm';
@@ -68,11 +68,9 @@ const InventoryTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(data.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [rowIds, setRowIds] = useState<number[]>([]);
-  const [openConfirmChangeStore, setOpenConfirmChangeStore] =
-    useState<boolean>(false);
+  const [openConfirmChangeStore, setOpenConfirmChangeStore] = useState<boolean>(false);
   const [, setEditRowId] = useState<number | null>(null);
   const [value, setValue] = useState<string>('');
   const [openEditNote, setEditNote] = useState<boolean>(false);
@@ -109,13 +107,13 @@ const InventoryTable = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Kế toán">
+      <PageWrapper title='Kế toán'>
         <PageBreadcrumbs
-          title="Thu chi tiền mặt"
+          title='Thu chi tiền mặt'
           items={[{ link: '/accounting/transaction/index', text: 'Kế toán' }]}
         />
         <ProTable<Cash>
-          title="Danh sách giao dịch"
+          title='Danh sách giao dịch'
           loading={loading}
           columns={columns}
           data={data}
@@ -134,7 +132,7 @@ const InventoryTable = () => {
           toolBar={
             <Fragment>
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Thêm phiếu thu chi',
@@ -152,10 +150,10 @@ const InventoryTable = () => {
                   },
                 ]}
               >
-                <ActionButton color="success">Thêm mới</ActionButton>
+                <ActionButton color='success'>Thêm mới</ActionButton>
               </ProMenu>
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Xuất Excel',
@@ -172,7 +170,7 @@ const InventoryTable = () => {
                   },
                 ]}
               >
-                <ActionButton color="info">Thao tác</ActionButton>
+                <ActionButton color='info'>Thao tác</ActionButton>
               </ProMenu>
             </Fragment>
           }

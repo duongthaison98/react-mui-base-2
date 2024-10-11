@@ -5,7 +5,7 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import { Grid, InputAdornment } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
 
 const Information = () => {
   return (
@@ -46,12 +46,12 @@ const Information = () => {
         <Grid container>
           <ProFormTextField
             sx={{ marginBottom: 1 }}
-            name="customer"
+            name='customer'
             placeholder={'Nhân viên bán hàng'}
             InputLabelProps={{ shrink: true }}
             InputProps={{
               startAdornment: (
-                <InputAdornment position="start">
+                <InputAdornment position='start'>
                   <PersonIcon />
                 </InputAdornment>
               ),
@@ -59,26 +59,26 @@ const Information = () => {
           />
           <ProFormTextField
             sx={{ marginBottom: 1 }}
-            name="customer"
+            name='customer'
             placeholder={'Nhân viên kỹ thuật'}
             InputLabelProps={{ shrink: true }}
             InputProps={{
               startAdornment: (
-                <InputAdornment position="start">
+                <InputAdornment position='start'>
                   <PersonIcon />
                 </InputAdornment>
               ),
             }}
           />
           <ProFormTextField
-            name="customer"
+            name='customer'
             placeholder={'Ghi chú'}
             InputLabelProps={{ shrink: true }}
             multiline
             rows={3}
             InputProps={{
               startAdornment: (
-                <InputAdornment position="start">
+                <InputAdornment position='start'>
                   <EventNoteIcon />
                 </InputAdornment>
               ),

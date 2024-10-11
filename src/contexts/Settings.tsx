@@ -1,16 +1,13 @@
 import { ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {
-  createContext,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
-import createGlobalTheme from 'theme';
-import type { FCC } from 'types/react';
-import type { Mode } from 'types/theme';
-import LocalStorage from 'utils/LocalStorage';
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
+import createGlobalTheme from '@/theme';
+import type { FCC } from '@/types/react';
+import type { Mode } from '@/types/theme';
+import LocalStorage from '@/utils/LocalStorage';
+import { __DEV__ } from '@/config';
+import CssBaseline from '@mui/material/CssBaseline';
+import GlobalBaseline from '@/theme/globalBaseline';
 
 interface Settings {
   direction: 'ltr' | 'rtl';
@@ -29,7 +26,7 @@ const initialSettings: Settings = {
 
 export const SettingsContext = createContext<SettingsContextValue | null>(null);
 
-if (process.env.NODE_ENV === 'development') {
+if (__DEV__) {
   SettingsContext.displayName = 'SettingsContext';
 }
 
@@ -66,7 +63,11 @@ const SettingsProvider: FCC = (props) => {
 
   return (
     <SettingsContext.Provider value={{ settings, saveSettings }}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        {children}
+        <CssBaseline enableColorScheme />
+        <GlobalBaseline />
+      </ThemeProvider>
     </SettingsContext.Provider>
   );
 };

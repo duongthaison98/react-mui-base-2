@@ -1,4 +1,4 @@
-import type { Dictionary } from 'types/common';
+import type { Dictionary } from '@/types/common';
 
 type Values<T> = T[keyof T];
 
@@ -43,10 +43,7 @@ class TypedObject {
     return Object.keys(object).length !== 0;
   }
 
-  public in<K extends PropertyKey>(
-    obj: object,
-    key: K
-  ): obj is Record<K, unknown> {
+  public in<K extends PropertyKey>(obj: object, key: K): obj is Record<K, unknown> {
     return key in obj;
   }
 }

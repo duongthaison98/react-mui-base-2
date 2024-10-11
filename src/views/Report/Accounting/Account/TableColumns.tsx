@@ -1,8 +1,8 @@
-import Index from 'components/ProTable/components/Index';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import Index from '@/components/ProTable/components/Index';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { Link, Typography } from '@mui/material';
 import { Account, Balance } from './utils/type';
 
@@ -37,7 +37,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => HEAD_CELLS.code,
         cell: (context) => (
-          <Link href="#" color="#2196F3">
+          <Link href='#' color='#2196F3'>
             {context.getValue()}
           </Link>
         ),
@@ -54,11 +54,11 @@ const useTableColumns = (props: Props) => {
           const value = context.getValue();
           const rowIndex = context.row.index;
           return rowIndex === 0 ? (
-            <Typography variant="subtitle2" fontWeight={600}>
+            <Typography variant='subtitle2' fontWeight={600}>
               {value}
             </Typography>
           ) : (
-            <Link href="#" color="#2196F3">
+            <Link href='#' color='#2196F3'>
               {context.getValue()}
             </Link>
           );
@@ -81,7 +81,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (!value) return;
               return rowIndex === 0 ? (
-                <Typography variant="subtitle2" fontWeight={600}>
+                <Typography variant='subtitle2' fontWeight={600}>
                   {Numeral.price(value.debit)}
                 </Typography>
               ) : (
@@ -102,7 +102,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (!startBalance) return;
               return rowIndex === 0 ? (
-                <Typography variant="subtitle2" fontWeight={600}>
+                <Typography variant='subtitle2' fontWeight={600}>
                   {Numeral.price(startBalance.credit)}
                 </Typography>
               ) : (
@@ -132,7 +132,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (!value) return;
               return rowIndex === 0 ? (
-                <Typography variant="subtitle2" fontWeight={600}>
+                <Typography variant='subtitle2' fontWeight={600}>
                   {Numeral.price(value.debit)}
                 </Typography>
               ) : (
@@ -153,7 +153,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (!ariseBalance) return;
               return rowIndex === 0 ? (
-                <Typography variant="subtitle2" fontWeight={600}>
+                <Typography variant='subtitle2' fontWeight={600}>
                   {Numeral.price(ariseBalance.credit)}
                 </Typography>
               ) : (
@@ -183,7 +183,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (!value) return;
               return rowIndex === 0 ? (
-                <Typography variant="subtitle2" fontWeight={600}>
+                <Typography variant='subtitle2' fontWeight={600}>
                   {Numeral.price(value.debit)}
                 </Typography>
               ) : (
@@ -204,7 +204,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (!ariseBalance) return;
               return rowIndex === 0 ? (
-                <Typography variant="subtitle2" fontWeight={600}>
+                <Typography variant='subtitle2' fontWeight={600}>
                   {Numeral.price(ariseBalance.credit)}
                 </Typography>
               ) : (

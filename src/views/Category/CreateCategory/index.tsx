@@ -5,9 +5,9 @@ import Paper from '@mui/material/Paper';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
-import Page from 'components/Page';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
+import Page from '@/components/Page';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
 import type { SyntheticEvent } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -40,24 +40,15 @@ const CreateCategoryTab = () => {
         <Paper
           sx={{
             display: 'grid',
-            gridTemplateRows:
-              'fit-content(20%) fit-content(40%) fit-content(40%)',
+            gridTemplateRows: 'fit-content(20%) fit-content(40%) fit-content(40%)',
           }}
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-          >
+          <Tabs value={value} onChange={handleChange} variant='scrollable' scrollButtons='auto'>
             {tabs.map((tab, i) => (
               <Tab
                 key={i}
                 label={
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ textTransform: 'none' }}
-                  >
+                  <Typography variant='subtitle2' sx={{ textTransform: 'none' }}>
                     {tab.label}
                   </Typography>
                 }

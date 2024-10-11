@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 const columnHelper = getColumnHelper<any>();
 
@@ -32,10 +32,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         header: () => HEAD_CELLS.date,
         cell: (context) => (
-          <Typography
-            variant="subtitle2"
-            sx={{ color: '#007bff', cursor: 'pointer' }}
-          >
+          <Typography variant='subtitle2' sx={{ color: '#007bff', cursor: 'pointer' }}>
             {context.getValue()}
           </Typography>
         ),

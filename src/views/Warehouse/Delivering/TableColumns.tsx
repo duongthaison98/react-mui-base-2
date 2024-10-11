@@ -1,12 +1,12 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import Selection from 'components/ProTable/components/Selection';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import Selection from '@/components/ProTable/components/Selection';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { Fragment, useMemo } from 'react';
 import SmsFailedIcon from '@mui/icons-material/SmsFailed';
 import SwipeRightIcon from '@mui/icons-material/SwipeRight';
@@ -49,9 +49,9 @@ const useTableColumnsDelivering = (props: Props) => {
             size: 60,
             header: () => 'ID | Ngày',
             cell: (context) => (
-              <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+              <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
                 7578658{' '}
-                <Typography variant="subtitle2" sx={{ color: '#000' }}>
+                <Typography variant='subtitle2' sx={{ color: '#000' }}>
                   09/02
                 </Typography>
               </Typography>
@@ -72,9 +72,9 @@ const useTableColumnsDelivering = (props: Props) => {
             size: 250,
             header: () => HEAD_CELLS.warehouse,
             cell: (context) => (
-              <Typography variant="subtitle2">
+              <Typography variant='subtitle2'>
                 VTech Thanh Hoá - HCM
-                <Typography variant="subtitle2" sx={{ color: '#f44336' }}>
+                <Typography variant='subtitle2' sx={{ color: '#f44336' }}>
                   Xuất chuyển kho
                 </Typography>
               </Typography>
@@ -117,9 +117,9 @@ const useTableColumnsDelivering = (props: Props) => {
             size: 250,
             header: () => HEAD_CELLS.creator,
             cell: (context) => (
-              <Typography variant="subtitle2">
+              <Typography variant='subtitle2'>
                 Nguyễn Xuân Anh
-                <Typography variant="subtitle1"> 18:47 09/02</Typography>
+                <Typography variant='subtitle1'> 18:47 09/02</Typography>
               </Typography>
             ),
             meta: {
@@ -131,9 +131,9 @@ const useTableColumnsDelivering = (props: Props) => {
             size: 250,
             header: () => HEAD_CELLS.browser,
             cell: (context) => (
-              <Typography variant="subtitle2" sx={{ color: 'green' }}>
+              <Typography variant='subtitle2' sx={{ color: 'green' }}>
                 Nguyễn Xuân Anh
-                <Typography variant="subtitle1" sx={{ color: '#000' }}>
+                <Typography variant='subtitle1' sx={{ color: '#000' }}>
                   {' '}
                   23:11 09/02
                 </Typography>
@@ -148,9 +148,9 @@ const useTableColumnsDelivering = (props: Props) => {
             size: 160,
             header: () => HEAD_CELLS.confirm,
             cell: (context) => (
-              <Tooltip title="Xác nhận">
-                <Typography variant="subtitle2" sx={{ color: '#f44336' }}>
-                  <SwipeRightIcon color="error" sx={{ marginRight: '8px' }} />
+              <Tooltip title='Xác nhận'>
+                <Typography variant='subtitle2' sx={{ color: '#f44336' }}>
+                  <SwipeRightIcon color='error' sx={{ marginRight: '8px' }} />
                   Xác nhận
                 </Typography>
               </Tooltip>
@@ -164,14 +164,12 @@ const useTableColumnsDelivering = (props: Props) => {
             size: 250,
             enableSorting: false,
             header: () => (
-              <Tooltip title="Ghi chú">
-                <SmsFailedIcon color="error" />
+              <Tooltip title='Ghi chú'>
+                <SmsFailedIcon color='error' />
               </Tooltip>
             ),
             cell: (context) => (
-              <Typography variant="subtitle2">
-                Dây sạc nhanh 3 đầu. lệ yêu cầu gửi
-              </Typography>
+              <Typography variant='subtitle2'>Dây sạc nhanh 3 đầu. lệ yêu cầu gửi</Typography>
             ),
             meta: {
               title: HEAD_CELLS.totalInventory,
@@ -195,8 +193,7 @@ const useTableColumnsDelivering = (props: Props) => {
               headline: 'Xác nhận xóa?',
               supportingText: (
                 <Fragment>
-                  Bạn có chắc chắn muốn xóa:{' '}
-                  <strong>{context.row.original.name}</strong>
+                  Bạn có chắc chắn muốn xóa: <strong>{context.row.original.name}</strong>
                 </Fragment>
               ),
               onConfirm: async () => {},
@@ -205,7 +202,7 @@ const useTableColumnsDelivering = (props: Props) => {
 
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'In Phiếu',
@@ -230,7 +227,7 @@ const useTableColumnsDelivering = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

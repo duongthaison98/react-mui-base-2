@@ -1,11 +1,11 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Box, Stack, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import Index from 'components/ProTable/components/Index';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import Index from '@/components/ProTable/components/Index';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo, useState } from 'react';
 import { IImportExport } from './utils/types';
 
@@ -46,13 +46,11 @@ const useTableColumns = (props: Props) => {
           const rowIndex = context.row.index;
           return (
             <Stack direction={'column'} spacing={2}>
-              <Typography variant="body2">{context.getValue().code}</Typography>
-              <Typography variant="body2">
-                {context.getValue().code2}
-              </Typography>
-              <Typography variant="body2">{context.getValue().name}</Typography>
+              <Typography variant='body2'>{context.getValue().code}</Typography>
+              <Typography variant='body2'>{context.getValue().code2}</Typography>
+              <Typography variant='body2'>{context.getValue().name}</Typography>
               {checkNote.includes(rowIndex) ? (
-                <TextField placeholder="Ghi chú" size="small" />
+                <TextField placeholder='Ghi chú' size='small' />
               ) : null}
             </Stack>
           );
@@ -86,14 +84,14 @@ const useTableColumns = (props: Props) => {
         size: 150,
         header: () => (
           <>
-            <TextField placeholder="SL" size="small" />
-            <ActionIconButton actionType="arrowDown" />
+            <TextField placeholder='SL' size='small' />
+            <ActionIconButton actionType='arrowDown' />
           </>
         ),
         enableSorting: false,
         cell: (context) => (
           <Box>
-            <TextField size="small" />
+            <TextField size='small' />
           </Box>
         ),
         meta: {
@@ -110,7 +108,7 @@ const useTableColumns = (props: Props) => {
           const rowIndex = context.row.index;
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Hiện ô nhập ghi chú',
@@ -127,7 +125,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

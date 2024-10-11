@@ -1,8 +1,8 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useRef, useState } from 'react';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import useFilters from '../utils/filter';
 import { IReportRevenueCustomer } from '../utils/type';
 import FiltersForm from './FitersForm';
@@ -35,8 +35,7 @@ const CustomerTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -53,7 +52,7 @@ const CustomerTable = () => {
 
   return (
     <ProTable<IReportRevenueCustomer>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={banners}
@@ -75,7 +74,7 @@ const CustomerTable = () => {
         />
       }
       toolBar={
-        <ActionButton iconPosition="end" actionType="upload" color="info">
+        <ActionButton iconPosition='end' actionType='upload' color='info'>
           Xuất Excel
         </ActionButton>
       }

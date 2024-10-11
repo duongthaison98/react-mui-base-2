@@ -2,11 +2,11 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import filter from 'lodash.filter';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import filter from 'lodash/filter';
 import { useMemo } from 'react';
 import type { FlattenedBill } from './utils/types';
 
@@ -49,7 +49,7 @@ const useTableColumns = () => {
             />
           </Box>
         ),
-        footer: (context) => <Typography variant="subtitle2">Tổng</Typography>,
+        footer: (context) => <Typography variant='subtitle2'>Tổng</Typography>,
         meta: {
           title: 'Chọn tất cả',
           colSpan: () => 6,
@@ -67,7 +67,7 @@ const useTableColumns = () => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { id: context.getValue() }
+              { id: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -90,7 +90,7 @@ const useTableColumns = () => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { createdBy: context.getValue() }
+              { createdBy: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -113,7 +113,7 @@ const useTableColumns = () => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { store: context.getValue() }
+              { store: context.getValue() },
             );
 
             if (context.row.original.product === result[0]?.product) {
@@ -136,7 +136,7 @@ const useTableColumns = () => {
           rowSpan: (context, rows) => {
             const result = filter(
               rows.map((row) => row.original),
-              { customer: context.getValue() }
+              { customer: context.getValue() },
             );
 
             // Apply rowSpan at first row of each product group
@@ -182,7 +182,7 @@ const useTableColumns = () => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Thông tin khuyến mãi',
@@ -201,7 +201,7 @@ const useTableColumns = () => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

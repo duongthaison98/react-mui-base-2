@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Logger from 'utils/Logger';
+import Logger from '@/utils/Logger';
 import DialogContainer from './DialogContainer';
 import DialogContent from './DialogContent';
 import DialogFooter from './DialogFooter';
@@ -38,19 +38,10 @@ const ConfirmDialog = (props: Props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { label, title, description, subdescription, headerIcon, submitIcon } =
-    content;
+  const { label, title, description, subdescription, headerIcon, submitIcon } = content;
 
-  const HeaderIcon = headerIcon
-    ? headerIcon
-    : type === 'confirm'
-    ? CheckIcon
-    : DeleteIcon;
-  const SubmitIcon = submitIcon
-    ? submitIcon
-    : type === 'confirm'
-    ? CheckIcon
-    : DeleteIcon;
+  const HeaderIcon = headerIcon ? headerIcon : type === 'confirm' ? CheckIcon : DeleteIcon;
+  const SubmitIcon = submitIcon ? submitIcon : type === 'confirm' ? CheckIcon : DeleteIcon;
 
   const handleSubmit = async () => {
     try {
@@ -69,34 +60,22 @@ const ConfirmDialog = (props: Props) => {
     <DialogContainer open={open} onClose={onClose}>
       <DialogHeader title={title} icon={HeaderIcon} />
       <DialogContent>
-        <Typography
-          variant="subtitle1"
-          gutterBottom
-          sx={{ textAlign: 'center' }}
-        >
+        <Typography variant='subtitle1' gutterBottom sx={{ textAlign: 'center' }}>
           {description}
         </Typography>
         {subdescription && (
-          <Typography
-            variant="subtitle1"
-            sx={{ fontWeight: 'bold', textAlign: 'center' }}
-          >
+          <Typography variant='subtitle1' sx={{ fontWeight: 'bold', textAlign: 'center' }}>
             {subdescription}
           </Typography>
         )}
       </DialogContent>
       <DialogFooter>
-        <Button
-          variant="outlined"
-          startIcon={<CloseIcon />}
-          onClick={onClose}
-          fullWidth={matches}
-        >
+        <Button variant='outlined' startIcon={<CloseIcon />} onClick={onClose} fullWidth={matches}>
           {t('Hủy bỏ')}
         </Button>
         <LoadingButton
           loading={loading}
-          loadingPosition="start"
+          loadingPosition='start'
           startIcon={<SubmitIcon />}
           color={type === 'delete' ? 'error' : 'success'}
           onClick={handleSubmit}

@@ -1,8 +1,7 @@
 import Box from '@mui/material/Box';
 import { alpha, styled } from '@mui/material/styles';
 import AutoSizer from 'react-virtualized-auto-sizer';
-import 'react-virtualized/styles.css';
-import type { FCC } from 'types/react';
+import type { FCC } from '@/types/react';
 
 interface Props {
   above?: boolean;

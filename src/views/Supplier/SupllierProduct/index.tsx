@@ -1,9 +1,9 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -28,8 +28,7 @@ const InventoryTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(data.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [rowIds, setRowIds] = useState<number[]>([]);
 
   const { columns } = useTableColumns({
@@ -44,7 +43,7 @@ const InventoryTable = () => {
   return (
     <Fragment>
       <ProTable<SupplierProduct>
-        title="Sản phẩm"
+        title='Sản phẩm'
         loading={loading}
         columns={columns}
         data={data}
@@ -66,7 +65,7 @@ const InventoryTable = () => {
         toolBar={
           <Fragment>
             <ProMenu<number>
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Thêm mới',
@@ -83,10 +82,10 @@ const InventoryTable = () => {
                 },
               ]}
             >
-              <ActionButton color="success">Thêm mới</ActionButton>
+              <ActionButton color='success'>Thêm mới</ActionButton>
             </ProMenu>
             <ProMenu<number>
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Nhập kho',
@@ -118,7 +117,7 @@ const InventoryTable = () => {
                 },
               ]}
             >
-              <ActionButton color="info">Thao tác</ActionButton>
+              <ActionButton color='info'>Thao tác</ActionButton>
             </ProMenu>
           </Fragment>
         }

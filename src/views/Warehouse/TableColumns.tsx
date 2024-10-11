@@ -1,12 +1,12 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import Selection from 'components/ProTable/components/Selection';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import Selection from '@/components/ProTable/components/Selection';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { Fragment, useMemo } from 'react';
 import SmsFailedIcon from '@mui/icons-material/SmsFailed';
 import VerticalAlignBottomIcon from '@mui/icons-material/VerticalAlignBottom';
@@ -46,9 +46,9 @@ const useTableColumns = (props: Props) => {
             size: 60,
             header: () => 'ID | Ngày',
             cell: (context) => (
-              <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+              <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
                 239420425{' '}
-                <Typography variant="subtitle2" sx={{ color: '#000' }}>
+                <Typography variant='subtitle2' sx={{ color: '#000' }}>
                   {new Date().getDate()}/0{new Date().getMonth()}
                 </Typography>
               </Typography>
@@ -69,9 +69,7 @@ const useTableColumns = (props: Props) => {
             size: 250,
             header: () => HEAD_CELLS.warehouse,
             cell: (context) => (
-              <Typography variant="subtitle2">
-                VTech Thanh Hoá , Màn Hình
-              </Typography>
+              <Typography variant='subtitle2'>VTech Thanh Hoá , Màn Hình</Typography>
             ),
             meta: {
               title: HEAD_CELLS.warehouse,
@@ -81,9 +79,7 @@ const useTableColumns = (props: Props) => {
             id: 'name',
             size: 150,
             header: () => HEAD_CELLS.style,
-            cell: (context) => (
-              <Typography variant="subtitle2">Xuất chuyển kho</Typography>
-            ),
+            cell: (context) => <Typography variant='subtitle2'>Xuất chuyển kho</Typography>,
             meta: {
               title: HEAD_CELLS.style,
             },
@@ -121,8 +117,8 @@ const useTableColumns = (props: Props) => {
             size: 100,
             enableSorting: false,
             header: () => (
-              <Tooltip title="Chiết khấu">
-                <VerticalAlignBottomIcon color="error" />
+              <Tooltip title='Chiết khấu'>
+                <VerticalAlignBottomIcon color='error' />
               </Tooltip>
             ),
 
@@ -135,9 +131,7 @@ const useTableColumns = (props: Props) => {
             id: 'creator',
             size: 250,
             header: () => HEAD_CELLS.creator,
-            cell: (context) => (
-              <Typography variant="subtitle2">Nguyễn Xuân Anh</Typography>
-            ),
+            cell: (context) => <Typography variant='subtitle2'>Nguyễn Xuân Anh</Typography>,
             meta: {
               title: HEAD_CELLS.creator,
             },
@@ -147,14 +141,12 @@ const useTableColumns = (props: Props) => {
             size: 250,
             enableSorting: false,
             header: () => (
-              <Tooltip title="Ghi chú">
-                <SmsFailedIcon color="error" />
+              <Tooltip title='Ghi chú'>
+                <SmsFailedIcon color='error' />
               </Tooltip>
             ),
             cell: (context) => (
-              <Typography variant="subtitle2">
-                Dây sạc nhanh 3 đầu. lệ yêu cầu gửi
-              </Typography>
+              <Typography variant='subtitle2'>Dây sạc nhanh 3 đầu. lệ yêu cầu gửi</Typography>
             ),
             meta: {
               title: HEAD_CELLS.totalInventory,
@@ -178,8 +170,7 @@ const useTableColumns = (props: Props) => {
               headline: 'Xác nhận xóa?',
               supportingText: (
                 <Fragment>
-                  Bạn có chắc chắn muốn xóa:{' '}
-                  <strong>{context.row.original.name}</strong>
+                  Bạn có chắc chắn muốn xóa: <strong>{context.row.original.name}</strong>
                 </Fragment>
               ),
               onConfirm: async () => {},
@@ -188,7 +179,7 @@ const useTableColumns = (props: Props) => {
 
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'In Phiếu',
@@ -213,7 +204,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="action" />
+              <ActionIconButton actionType='action' />
             </ProMenu>
           );
         },

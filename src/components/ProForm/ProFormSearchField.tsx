@@ -3,7 +3,7 @@ import { InputAdornment } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { memo, useState } from 'react';
 import { useDebounce } from 'react-use';
-import type { ChangeEvent, KeyDownEvent } from 'types/react';
+import type { ChangeEvent, KeyDownEvent } from '@/types/react';
 import ProFormLabel from './ProFormLabel';
 
 interface Props {
@@ -36,7 +36,7 @@ const ProFormSearchField = (props: Props) => {
       }
     },
     350,
-    [searchText, value]
+    [searchText, value],
   );
 
   return (
@@ -47,8 +47,8 @@ const ProFormSearchField = (props: Props) => {
         placeholder={placeHolder}
         InputProps={{
           endAdornment: (
-            <InputAdornment position="end">
-              <SearchIcon fontSize="medium" />
+            <InputAdornment position='end'>
+              <SearchIcon fontSize='medium' />
             </InputAdornment>
           ),
         }}

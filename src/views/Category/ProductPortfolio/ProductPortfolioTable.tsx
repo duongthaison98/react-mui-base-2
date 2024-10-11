@@ -1,12 +1,12 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Button } from '@mui/material';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import { IProductPortfolioTable } from 'types/category';
-import type { FiltersRef } from 'types/refs';
+import { IProductPortfolioTable } from '@/types/category';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -104,8 +104,7 @@ const ProductCategoryTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleSubmitFilters = () => {
     filtersRef.current?.submit();
@@ -133,7 +132,7 @@ const ProductCategoryTable = () => {
       filter={<FiltersForm ref={filtersRef} onSearch={onSearch} />}
       toolBar={
         <Fragment>
-          <ActionButton actionType="search" onClick={handleSubmitFilters}>
+          <ActionButton actionType='search' onClick={handleSubmitFilters}>
             Tìm kiếm
           </ActionButton>
           <ProMenu

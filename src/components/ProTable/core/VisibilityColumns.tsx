@@ -6,8 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import type { Table, VisibilityState } from '@tanstack/react-table';
-import ProPopover from 'components/ProPopover';
-import useScrollbar from 'hooks/useScrollbar';
+import ProPopover from '@/components/ProPopover';
+import useScrollbar from '@/hooks/useScrollbar';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import { useState } from 'react';
@@ -30,9 +30,9 @@ const VisibilityColumns = <T extends object>(props: Props<T>) => {
   return (
     <ProPopover
       anchor={
-        <Tooltip title="Điều chỉnh cột">
-          <IconButton color="primary">
-            <ViewColumnIcon fontSize="medium" />
+        <Tooltip title='Điều chỉnh cột'>
+          <IconButton color='primary'>
+            <ViewColumnIcon fontSize='medium' />
           </IconButton>
         </Tooltip>
       }
@@ -56,7 +56,7 @@ const VisibilityColumns = <T extends object>(props: Props<T>) => {
       >
         <FormControlLabel
           label={
-            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+            <Typography variant='subtitle2' sx={{ ml: 1 }}>
               Hiển thị tất cả
             </Typography>
           }
@@ -64,15 +64,12 @@ const VisibilityColumns = <T extends object>(props: Props<T>) => {
           control={
             <Checkbox
               checked={table.getIsAllColumnsVisible()}
-              indeterminate={
-                table.getIsSomeColumnsVisible() &&
-                !table.getIsAllColumnsVisible()
-              }
+              indeterminate={table.getIsSomeColumnsVisible() && !table.getIsAllColumnsVisible()}
               onChange={table.getToggleAllColumnsVisibilityHandler()}
             />
           }
         />
-        <Button variant="text" onClick={handleResetColumnVisibility}>
+        <Button variant='text' onClick={handleResetColumnVisibility}>
           Đặt lại
         </Button>
       </Box>
@@ -87,7 +84,7 @@ const VisibilityColumns = <T extends object>(props: Props<T>) => {
               <FormControlLabel
                 key={i}
                 label={
-                  <Typography variant="subtitle2" sx={{ ml: 1 }}>
+                  <Typography variant='subtitle2' sx={{ ml: 1 }}>
                     {title}
                   </Typography>
                 }

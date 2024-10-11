@@ -4,9 +4,9 @@ import MoneyOutlinedIcon from '@mui/icons-material/MoneyOutlined';
 import { Grid, InputAdornment } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import { PriceInput } from 'plugins/NumberFormat';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import { PriceInput } from '@/plugins/NumberFormat';
 import { useState } from 'react';
 
 interface ICheckShow {
@@ -72,34 +72,27 @@ const Payment = () => {
         }}
       >
         {/* quỹ tiền mặt */}
-        <Grid
-          xs={12}
-          container
-          item
-          md={12}
-          sx={{ marginBottom: 1, marginTop: 1 }}
-          spacing={2}
-        >
+        <Grid xs={12} container item md={12} sx={{ marginBottom: 1, marginTop: 1 }} spacing={2}>
           <Grid item xs={3}>
             <ProFormSelect
-              name="unit"
+              name='unit'
               options={[
                 { id: 1, label: '%' },
                 { id: 2, label: 'VND' },
               ]}
               renderValue={(item) => item.id}
               renderLabel={(item) => item.label}
-              placeholder="Đơn vị"
+              placeholder='Đơn vị'
             />
           </Grid>
           <Grid item xs={9}>
             <ProFormTextField
-              name="price"
-              placeholder="Chiết khấu"
+              name='price'
+              placeholder='Chiết khấu'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
-                  <InputAdornment position="start" sx={{ cursor: 'pointer' }}>
+                  <InputAdornment position='start' sx={{ cursor: 'pointer' }}>
                     <ArrowForwardIcon />
                   </InputAdornment>
                 ),
@@ -108,12 +101,12 @@ const Payment = () => {
           </Grid>
           <Grid item xs={12}>
             <ProFormTextField
-              name="price"
-              placeholder="Phí trả hàng"
+              name='price'
+              placeholder='Phí trả hàng'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
-                  <InputAdornment position="start" sx={{ cursor: 'pointer' }}>
+                  <InputAdornment position='start' sx={{ cursor: 'pointer' }}>
                     <MoneyOutlinedIcon />
                   </InputAdornment>
                 ),
@@ -123,13 +116,13 @@ const Payment = () => {
           {/* Tài khoản ngân hàng */}
           <Grid item xs={12}>
             <ProFormTextField
-              name="price"
-              placeholder="Tiền mặt"
+              name='price'
+              placeholder='Tiền mặt'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
                   <InputAdornment
-                    position="start"
+                    position='start'
                     sx={{ cursor: 'pointer' }}
                     onClick={() => handleClickShowInput('chuyenKhoan')}
                   >
@@ -142,12 +135,12 @@ const Payment = () => {
 
           <Grid item xs={12}>
             <ProFormTextField
-              name="price"
-              placeholder="Chuyển khoản"
+              name='price'
+              placeholder='Chuyển khoản'
               InputProps={{
                 inputComponent: PriceInput,
                 startAdornment: (
-                  <InputAdornment position="start" sx={{ cursor: 'pointer' }}>
+                  <InputAdornment position='start' sx={{ cursor: 'pointer' }}>
                     <AccountBalanceIcon />
                   </InputAdornment>
                 ),

@@ -1,11 +1,11 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useCallback, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import ConfirmChangeStore from './components/ConfirmChangeStore';
 import EditNote from './components/EditNote';
 import FiltersForm from './FiltersForm';
@@ -74,8 +74,7 @@ const ByProductTable = () => {
   const [loading] = useState<boolean>(false);
   const filtersRef = useRef<FiltersRef>(null);
   const { filters, onSortingChange, onSearch } = useFilters();
-  const [openConfirmChangeStore, setOpenConfirmChangeStore] =
-    useState<boolean>(false);
+  const [openConfirmChangeStore, setOpenConfirmChangeStore] = useState<boolean>(false);
   const [, setEditRowId] = useState<number | null>(null);
   const [value, setValue] = useState<string>('');
   const [openEditNote, setEditNote] = useState<boolean>(false);
@@ -108,13 +107,13 @@ const ByProductTable = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Theo sản phẩm">
+      <PageWrapper title='Theo sản phẩm'>
         <PageBreadcrumbs
-          title="Theo sản phẩm"
+          title='Theo sản phẩm'
           items={[{ link: '/report/customer', text: 'Báo cáo' }]}
         />
         <ProTable<ByProduct>
-          title="Danh sách giao dịch"
+          title='Danh sách giao dịch'
           loading={loading}
           columns={columns}
           data={data}
@@ -123,7 +122,7 @@ const ByProductTable = () => {
           filter={<FiltersForm ref={filtersRef} onSearch={onSearch} />}
           toolBar={
             <ProMenu<number>
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Xuất Excel',
@@ -133,7 +132,7 @@ const ByProductTable = () => {
                 },
               ]}
             >
-              <ActionButton color="info">Thao tác</ActionButton>
+              <ActionButton color='info'>Thao tác</ActionButton>
             </ProMenu>
           }
         />

@@ -1,6 +1,6 @@
 import type { ErrorInfo, ReactNode } from 'react';
 import { Component } from 'react';
-import Common from 'views/Errors/Common';
+import Common from '@/views/Errors/Common';
 
 interface Props {
   children: ReactNode;

@@ -1,10 +1,10 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Button } from '@mui/material';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -15,11 +15,7 @@ const DATA = [
     id: 1,
     store: 'Linh kiện sài gòn',
     code: ['11111', '22222', '333333'],
-    name: [
-      'Tiền mặt 665 Lê Hồng Phong',
-      '1012558168 VIETCOMBANK',
-      'Quỹ Lê hồng phong',
-    ],
+    name: ['Tiền mặt 665 Lê Hồng Phong', '1012558168 VIETCOMBANK', 'Quỹ Lê hồng phong'],
     startBalance: [111111, 222222, 33333],
     totalCol: [111111, 222222, 33333],
     totalPay: [111111, 222222, 33333],
@@ -29,11 +25,7 @@ const DATA = [
     id: 2,
     store: 'Linh kiện sài gòn',
     code: ['11111', '22222', '333333'],
-    name: [
-      'Tiền mặt 665 Lê Hồng Phong',
-      '1012558168 VIETCOMBANK',
-      'Quỹ Lê hồng phong',
-    ],
+    name: ['Tiền mặt 665 Lê Hồng Phong', '1012558168 VIETCOMBANK', 'Quỹ Lê hồng phong'],
     startBalance: [111111, 222222, 33333],
     totalCol: [111111, 222222, 33333],
     totalPay: [111111, 222222, 33333],
@@ -43,11 +35,7 @@ const DATA = [
     id: 3,
     store: 'Linh kiện sài gòn',
     code: ['11111', '22222', '333333'],
-    name: [
-      'Tiền mặt 665 Lê Hồng Phong',
-      '1012558168 VIETCOMBANK',
-      'Quỹ Lê hồng phong',
-    ],
+    name: ['Tiền mặt 665 Lê Hồng Phong', '1012558168 VIETCOMBANK', 'Quỹ Lê hồng phong'],
     startBalance: [111111, 222222, 33333],
     totalCol: [111111, 222222, 33333],
     totalPay: [111111, 222222, 33333],
@@ -57,11 +45,7 @@ const DATA = [
     id: 4,
     store: 'Linh kiện sài gòn',
     code: ['11111', '22222', '333333'],
-    name: [
-      'Tiền mặt 665 Lê Hồng Phong',
-      '1012558168 VIETCOMBANK',
-      'Quỹ Lê hồng phong',
-    ],
+    name: ['Tiền mặt 665 Lê Hồng Phong', '1012558168 VIETCOMBANK', 'Quỹ Lê hồng phong'],
     startBalance: [111111, 222222, 33333],
     totalCol: [111111, 222222, 33333],
     totalPay: [111111, 222222, 33333],
@@ -71,11 +55,7 @@ const DATA = [
     id: 5,
     store: 'Linh kiện sài gòn',
     code: ['11111', '22222', '333333'],
-    name: [
-      'Tiền mặt 665 Lê Hồng Phong',
-      '1012558168 VIETCOMBANK',
-      'Quỹ Lê hồng phong',
-    ],
+    name: ['Tiền mặt 665 Lê Hồng Phong', '1012558168 VIETCOMBANK', 'Quỹ Lê hồng phong'],
     startBalance: [111111, 222222, 33333],
     totalCol: [111111, 222222, 33333],
     totalPay: [111111, 222222, 33333],
@@ -89,8 +69,7 @@ const SumaryCashByStoreTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();

@@ -14,8 +14,7 @@ const typography: ThemeOptions = {
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
-    
-  },
+  }
 };
 
 export default typography;

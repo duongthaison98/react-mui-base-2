@@ -5,9 +5,9 @@ import Paper from '@mui/material/Paper';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
-import Page from 'components/Page';
+import Page from '@/components/Page';
 import { SyntheticEvent, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './components/FiltersForm';
 import Profit from './components/Profit';
 import Revenue from './components/Revenue';
@@ -46,20 +46,12 @@ const Content = () => {
       <FiltersForm ref={filtersRef} onSearch={onSearch} />
       <TabContext value={value}>
         <Paper sx={{ display: 'grid', gridTemplateRows: 'auto auto 1fr' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-          >
+          <Tabs value={value} onChange={handleChange} variant='scrollable' scrollButtons='auto'>
             {tabs.map((tab, i) => (
               <Tab
                 key={i}
                 label={
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ textTransform: 'none' }}
-                  >
+                  <Typography variant='subtitle2' sx={{ textTransform: 'none' }}>
                     {tab.label}
                   </Typography>
                 }

@@ -1,17 +1,17 @@
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { Box, IconButton, Stack, Tooltip, Typography } from '@mui/material';
 import { Address, City, Creator, Expire } from './utils/type';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EditIcon from '@mui/icons-material/Edit';
-import DateTime from 'utils/DateTime';
+import DateTime from '@/utils/DateTime';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import ProMenu from 'components/ProMenu';
+import ProMenu from '@/components/ProMenu';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
 import { useNavigate } from 'react-router-dom';
 
 const columnHelper = getColumnHelper<Expire>();
@@ -77,7 +77,7 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.city,
         cell: (context) => {
           return (
-            <Stack direction="column">
+            <Stack direction='column'>
               <Box>{context.getValue<City>().city}</Box>
               <Box>{context.getValue<City>().district}</Box>
             </Stack>
@@ -94,7 +94,7 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.address,
         cell: (context) => {
           return (
-            <Stack direction="column">
+            <Stack direction='column'>
               {context.getValue<Address>().phone && (
                 <Stack alignItems={'center'}>
                   <LocalPhoneIcon />
@@ -158,14 +158,14 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           if (context.getValue()) {
             return (
-              <Tooltip title="Hiện" placement="top">
-                <CheckIcon color="success" />
+              <Tooltip title='Hiện' placement='top'>
+                <CheckIcon color='success' />
               </Tooltip>
             );
           }
           return (
-            <Tooltip title="Ẩn" placement="top">
-              <CloseIcon color="error" />
+            <Tooltip title='Ẩn' placement='top'>
+              <CloseIcon color='error' />
             </Tooltip>
           );
         },
@@ -180,13 +180,10 @@ const useTableColumns = (props: Props) => {
         header: () => HEAD_CELLS.creator,
         cell: (context) => {
           return (
-            <Stack direction="column">
+            <Stack direction='column'>
               <Box>{context.getValue<Creator>().name}</Box>
-              <Typography variant="caption">
-                {DateTime.Format(
-                  context.getValue<Creator>().time,
-                  'HH:MM DD/MM'
-                )}
+              <Typography variant='caption'>
+                {DateTime.Format(context.getValue<Creator>().time, 'HH:MM DD/MM')}
               </Typography>
             </Stack>
           );
@@ -206,7 +203,7 @@ const useTableColumns = (props: Props) => {
           };
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Sửa',
@@ -216,7 +213,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

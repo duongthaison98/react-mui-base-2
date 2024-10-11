@@ -1,9 +1,11 @@
-export interface User {
-  id: number;
-  username: string;
+export type IUser = {
+  id: string;
   email: string;
-  fullName: string;
-  avatar: string | null;
-  mobile: string;
-  roles: [];
-}
+  active: boolean;
+  verifyEmailAt: string | null;
+  role: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  userDetail: any | null;
+};

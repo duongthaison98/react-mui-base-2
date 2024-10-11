@@ -1,11 +1,11 @@
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { Link, Tooltip } from '@mui/material';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import useDialog from 'hooks/useDialog';
+import useDialog from '@/hooks/useDialog';
 import { Supplier } from './utils/type';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
@@ -50,9 +50,9 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <Link
-              href="https://www.google.com.vn/?hl=vi"
-              underline="none"
-              target="_blank"
+              href='https://www.google.com.vn/?hl=vi'
+              underline='none'
+              target='_blank'
               color={'#007bff'}
             >
               {`${context.getValue()}`}
@@ -103,18 +103,18 @@ const useTableColumns = (props: Props) => {
         size: 50,
         enableSorting: false,
         header: () => (
-          <Tooltip title="Trạng thái" placement="top">
+          <Tooltip title='Trạng thái' placement='top'>
             <DoneIcon sx={{ color: 'text.secondary' }} />
           </Tooltip>
         ),
         cell: (context) => {
           if (!context.getValue()) return;
           return context.getValue() === 1 ? (
-            <Tooltip title="Đang giao dịch" placement="top">
+            <Tooltip title='Đang giao dịch' placement='top'>
               <DoneIcon sx={{ color: 'green' }} />
             </Tooltip>
           ) : (
-            <Tooltip title="Ngừng giao dịch" placement="top">
+            <Tooltip title='Ngừng giao dịch' placement='top'>
               <CloseIcon sx={{ color: 'red' }} />
             </Tooltip>
           );
@@ -137,7 +137,7 @@ const useTableColumns = (props: Props) => {
           };
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Sửa',
@@ -152,7 +152,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

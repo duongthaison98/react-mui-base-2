@@ -1,8 +1,8 @@
 import { Box } from '@mui/material';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import React, { useCallback, useRef, useState } from 'react';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import ActionButtonComponent from './components/ActionButton';
 import CreateCustomerButton from './components/CreateCustomerButton';
 import EditPrice from './components/EditPrice';
@@ -85,8 +85,7 @@ const Table = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [, setEditRowId] = useState<number | null>(null);
   const [openEditNote, setEditNote] = useState<boolean>(false);
   const [value, setValue] = useState<number>(0);
@@ -120,7 +119,7 @@ const Table = () => {
   return (
     <>
       <ProTable<ISettingPriceProduct>
-        title="Danh sách sản phẩm"
+        title='Danh sách sản phẩm'
         loading={loading}
         columns={columns}
         data={banners}

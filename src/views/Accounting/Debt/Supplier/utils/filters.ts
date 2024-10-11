@@ -1,16 +1,16 @@
-import { ProTableSortingState } from 'components/ProTable/types';
-import { SORT_DIRECTION } from 'constants/common';
+import { ProTableSortingState } from '@/components/ProTable/types';
+import { SORT_DIRECTION } from '@/constants/common';
 import { useState } from 'react';
-import { PaginationParams } from 'types/common';
+import { PaginationParams } from '@/types/common';
 
 export interface FilterParams extends PaginationParams {
   startDate: string | null;
   endDate: string | null;
   id: string | null;
-  supplier: string  | null;
+  supplier: string | null;
   typeSupplier: number | string | null;
   debt: number | null;
-  yuan : number | null;
+  yuan: number | null;
 }
 
 const useFilters = () => {
@@ -21,7 +21,7 @@ const useFilters = () => {
     supplier: '',
     typeSupplier: null,
     debt: null,
-    yuan  : 0,
+    yuan: 0,
 
     sortBy: '',
     sortDirection: '',

@@ -1,8 +1,8 @@
-import Loadable from 'components/Loadable';
+import Loadable from '@/components/Loadable';
 import { lazy } from 'react';
 import { Outlet, RouteObject } from 'react-router-dom';
 
-const OrderCOD = Loadable(lazy(() => import('views/Service/OrderCOD')));
+const OrderCOD = Loadable(lazy(() => import('@/views/Service/OrderCOD')));
 
 const Category: RouteObject = {
   path: 'service',

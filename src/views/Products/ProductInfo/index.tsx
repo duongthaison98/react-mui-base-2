@@ -5,10 +5,10 @@ import Divider from '@mui/material/Divider';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
-import Page from 'components/Page';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ProMenu from 'components/ProMenu';
+import Page from '@/components/Page';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ProMenu from '@/components/ProMenu';
 import type { SyntheticEvent } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -59,20 +59,12 @@ const ProductTab = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              variant="scrollable"
-              scrollButtons="auto"
-            >
+            <Tabs value={value} onChange={handleChange} variant='scrollable' scrollButtons='auto'>
               {tabs.map((tab, i) => (
                 <Tab
                   key={i}
                   label={
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ textTransform: 'none' }}
-                    >
+                    <Typography variant='subtitle2' sx={{ textTransform: 'none' }}>
                       {tab.label}
                     </Typography>
                   }

@@ -1,9 +1,9 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -36,8 +36,7 @@ const SupplierTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(data.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const { columns } = useTableColumns({
     pageNumber: filters.pageNumber,
@@ -47,7 +46,7 @@ const SupplierTable = () => {
   return (
     <Fragment>
       <ProTable<Supplier>
-        title="Danh sách giao dịch"
+        title='Danh sách giao dịch'
         loading={loading}
         columns={columns}
         data={data}
@@ -65,7 +64,7 @@ const SupplierTable = () => {
         toolBar={
           <Fragment>
             <ProMenu<number>
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Thêm nhà cung cấp',
@@ -80,10 +79,10 @@ const SupplierTable = () => {
                 },
               ]}
             >
-              <ActionButton color="success">Thêm mới</ActionButton>
+              <ActionButton color='success'>Thêm mới</ActionButton>
             </ProMenu>
             <ProMenu<number>
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Xuất Excel',
@@ -92,7 +91,7 @@ const SupplierTable = () => {
                 },
               ]}
             >
-              <ActionButton color="info">Thao tác</ActionButton>
+              <ActionButton color='info'>Thao tác</ActionButton>
             </ProMenu>
           </Fragment>
         }

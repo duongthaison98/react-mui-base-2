@@ -15,13 +15,13 @@ import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProForm from 'components/ProForm';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProMenu from 'components/ProMenu';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProForm from '@/components/ProForm';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProMenu from '@/components/ProMenu';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import CustomerTable from './CustomerTable';
 import ProductTable from './ProductTable';
 
@@ -60,9 +60,7 @@ const Info = () => {
             <Grid item xs={12} md={6}>
               <Box sx={{ display: 'flex' }}>
                 <PersonIcon />
-                <span style={{ color: '#2196f3' }}>
-                  A Pháp-45 Hùng Vương (SG)
-                </span>
+                <span style={{ color: '#2196f3' }}>A Pháp-45 Hùng Vương (SG)</span>
               </Box>
               <Box sx={{ display: 'flex' }}>
                 <LocalPhoneIcon />
@@ -92,7 +90,7 @@ const Info = () => {
           }}
           container
           direction={'row'}
-          justifyContent="space-between"
+          justifyContent='space-between'
         >
           <Grid item>
             <Box sx={{ display: 'flex' }}>
@@ -136,7 +134,7 @@ const Info = () => {
               Tổng tiền
             </Grid>
             <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
-              <Typography variant="subtitle1" sx={{ color: 'primary.main' }}>
+              <Typography variant='subtitle1' sx={{ color: 'primary.main' }}>
                 960.000
               </Typography>
             </Grid>
@@ -144,7 +142,7 @@ const Info = () => {
               Lợi nhuận
             </Grid>
             <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
-              <Typography variant="subtitle1" sx={{ color: 'primary.main' }}>
+              <Typography variant='subtitle1' sx={{ color: 'primary.main' }}>
                 (31.7%) 304.551
               </Typography>
             </Grid>
@@ -153,7 +151,7 @@ const Info = () => {
             </Grid>
             <Grid item xs={12} md={6} sx={{ textAlign: 'right' }}>
               <ProMenu
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Tạo phiếu thu tiền mặt',
@@ -167,10 +165,7 @@ const Info = () => {
                   },
                 ]}
               >
-                <ActionButton
-                  variant="outlined"
-                  sx={{ padding: 0, marginRight: 1 }}
-                >
+                <ActionButton variant='outlined' sx={{ padding: 0, marginRight: 1 }}>
                   +
                   <ExpandMoreIcon />
                 </ActionButton>
@@ -212,12 +207,12 @@ const Info = () => {
               Linh kiện sài gòn
             </Box>
             <Grid container>
-              <Grid item xs={12} md={6} container alignItems="center">
+              <Grid item xs={12} md={6} container alignItems='center'>
                 Thu ngân
               </Grid>
               <Grid item xs={12} md={6}>
-                <Typography variant="subtitle2">Hòa SG</Typography>
-                <Typography variant="subtitle2">14:39 03/02</Typography>
+                <Typography variant='subtitle2'>Hòa SG</Typography>
+                <Typography variant='subtitle2'>14:39 03/02</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -228,11 +223,7 @@ const Info = () => {
             marginBottom: '10px',
           }}
         >
-          <Grid
-            container
-            justifyContent="space-between"
-            sx={{ padding: '10px 15px' }}
-          >
+          <Grid container justifyContent='space-between' sx={{ padding: '10px 15px' }}>
             <Grid item>
               <Box sx={{ display: 'flex' }}>
                 <PrintIcon />
@@ -281,11 +272,7 @@ const Info = () => {
             marginBottom: '10px',
           }}
         >
-          <Grid
-            container
-            justifyContent="space-between"
-            sx={{ padding: '10px 15px' }}
-          >
+          <Grid container justifyContent='space-between' sx={{ padding: '10px 15px' }}>
             <Box sx={{ display: 'flex' }}>
               <StyleIcon />
               <span
@@ -306,29 +293,16 @@ const Info = () => {
 
           <Box sx={{ padding: '10px 15px' }}>
             {isSHowTag && (
-              <ProForm
-                form={form}
-                onFinish={handleSubmit}
-                PaperProps={{ sx: { p: 2 } }}
-              >
+              <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
                 <Box sx={{ marginBottom: '5px', display: 'flex' }}>
                   <Checkbox />
-                  <ProFormTextField
-                    name="name"
-                    InputLabelProps={{ shrink: true }}
-                  />
+                  <ProFormTextField name='name' InputLabelProps={{ shrink: true }} />
                 </Box>
-                <Grid container justifyContent="flex-end">
-                  <ActionButton
-                    variant="outlined"
-                    sx={{ padding: 0, marginRight: 1 }}
-                  >
+                <Grid container justifyContent='flex-end'>
+                  <ActionButton variant='outlined' sx={{ padding: 0, marginRight: 1 }}>
                     Đóng
                   </ActionButton>
-                  <ActionButton
-                    variant="contained"
-                    sx={{ padding: 0, marginRight: 1 }}
-                  >
+                  <ActionButton variant='contained' sx={{ padding: 0, marginRight: 1 }}>
                     Lưu
                   </ActionButton>
                 </Grid>

@@ -1,14 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Grid } from '@mui/material';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
 import { forwardRef, useImperativeHandle } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import { FilterParams } from './utils/filter';
 
 interface FilterValues {
@@ -73,25 +73,17 @@ const FilterForm = forwardRef<FiltersRef, Props>((props, ref) => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={1.5}>
-          <ProFormTextField
-            name="id"
-            placeholder={t('ID')}
-            InputLabelProps={{ shrink: true }}
-          />
+          <ProFormTextField name='id' placeholder={t('ID')} InputLabelProps={{ shrink: true }} />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.5}>
           <ProFormTextField
-            name="formCare"
+            name='formCare'
             placeholder={t('Hình thức chăm sóc')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2.5}>
-          <ProFormSelect
-            name="action"
-            placeholder={t('-Hành động')}
-            options={optionsActions}
-          />
+          <ProFormSelect name='action' placeholder={t('-Hành động')} options={optionsActions} />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={1}>
           <ProFormFilterAction onSubmit={onSubmit} onClear={onClear} />

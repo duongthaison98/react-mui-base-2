@@ -1,11 +1,11 @@
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Tooltip } from '@mui/material';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProMenu from 'components/ProMenu';
-import Index from 'components/ProTable/components/Index';
-import { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProMenu from '@/components/ProMenu';
+import Index from '@/components/ProTable/components/Index';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { Debt } from '../../utils/type';
 
@@ -58,12 +58,9 @@ const useTableColumns = (props: Props) => {
             enableSorting: false,
             header: () => HEAD_CELLS.debtReminderDate,
             cell: (context) => (
-              <Tooltip title="Lịch sử nhắc nợ">
+              <Tooltip title='Lịch sử nhắc nợ'>
                 <div onClick={handleClickShowPopup}>
-                  <AddCircleIcon
-                    color="success"
-                    sx={{ '&:hover': { cursor: 'pointer' } }}
-                  />
+                  <AddCircleIcon color='success' sx={{ '&:hover': { cursor: 'pointer' } }} />
                 </div>
               </Tooltip>
             ),
@@ -240,7 +237,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           return (
             <ProMenu
-              position="left"
+              position='left'
               items={[
                 {
                   label: 'Lập phiếu thu',
@@ -259,7 +256,7 @@ const useTableColumns = (props: Props) => {
                 },
               ]}
             >
-              <ActionIconButton actionType="more" />
+              <ActionIconButton actionType='more' />
             </ProMenu>
           );
         },

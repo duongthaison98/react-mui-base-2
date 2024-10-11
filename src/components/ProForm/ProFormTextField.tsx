@@ -2,7 +2,7 @@ import type { TextFieldProps } from '@mui/material/TextField';
 import TextField from '@mui/material/TextField';
 import { useController, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { Dictionary } from 'types/common';
+import type { Dictionary } from '@/types/common';
 import ProFormLabel from './ProFormLabel';
 
 interface Props extends Omit<TextFieldProps, 'name'> {
@@ -12,15 +12,7 @@ interface Props extends Omit<TextFieldProps, 'name'> {
 }
 
 const ProFormTextField = (props: Props) => {
-  const {
-    name,
-    placeholder,
-    disabled,
-    required,
-    interpolation,
-    label,
-    ...rest
-  } = props;
+  const { name, placeholder, disabled, required, interpolation, label, ...rest } = props;
 
   const { t } = useTranslation();
 

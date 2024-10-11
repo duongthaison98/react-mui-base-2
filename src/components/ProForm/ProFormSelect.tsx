@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import type { SelectProps } from '@mui/material/Select';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
-import useScrollbar from 'hooks/useScrollbar';
+import useScrollbar from '@/hooks/useScrollbar';
 import { forwardRef, Fragment } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import { useController, useFormContext } from 'react-hook-form';
@@ -33,9 +33,7 @@ interface Props<O extends FieldValues, V extends string | number>
   actionText?: string; // Like placeholder, but for instruction
 }
 
-const ProFormSelect = <O extends FieldValues, V extends string | number>(
-  props: Props<O, V>
-) => {
+const ProFormSelect = <O extends FieldValues, V extends string | number>(props: Props<O, V>) => {
   const {
     name,
     label,
@@ -73,7 +71,7 @@ const ProFormSelect = <O extends FieldValues, V extends string | number>(
       acc.entries.push({ value, label, disabled, key: i });
       return acc;
     },
-    { labels: {}, entries: [] }
+    { labels: {}, entries: [] },
   );
 
   return (
@@ -112,21 +110,17 @@ const ProFormSelect = <O extends FieldValues, V extends string | number>(
           {!options.length && !actionText && (
             <PlainMenuItem value={-1}>{t('Không có lựa chọn')}</PlainMenuItem>
           )}
-          {!options.length && actionText && (
-            <PlainMenuItem value={-1}>{actionText}</PlainMenuItem>
-          )}
+          {!options.length && actionText && <PlainMenuItem value={-1}>{actionText}</PlainMenuItem>}
           {entries.map((entry) => {
             const { value, label, disabled, key } = entry;
             return (
               <MenuItem key={key} value={value} disabled={disabled}>
-                <Typography variant="subtitle2">{label}</Typography>
+                <Typography variant='subtitle2'>{label}</Typography>
               </MenuItem>
             );
           })}
         </Select>
-        {error?.message && (
-          <FormHelperText variant="outlined">{t(error.message)}</FormHelperText>
-        )}
+        {error?.message && <FormHelperText variant='outlined'>{t(error.message)}</FormHelperText>}
       </FormControl>
     </ProFormLabel>
   );

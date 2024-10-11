@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useState } from 'react';
 import useTableColumns from './TableColumns';
 
@@ -54,7 +54,7 @@ const CustomerTable = () => {
     <>
       <Box sx={{ height: '300px' }}>
         <ProTable<any>
-          title="Danh sách"
+          title='Danh sách'
           loading={loading}
           columns={columns}
           data={banners}

@@ -1,13 +1,13 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Box from '@mui/material/Box/Box';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
 
 const ActionButtonComponent = () => {
   return (
     <Box sx={{ margin: '2px' }}>
       <ProMenu
-        position="left"
+        position='left'
         items={[
           {
             label: 'Xuất Excel',
@@ -26,7 +26,7 @@ const ActionButtonComponent = () => {
           },
         ]}
       >
-        <ActionButton variant="contained" color="info">
+        <ActionButton variant='contained' color='info'>
           Thao tác
           <ExpandMoreIcon />
         </ActionButton>

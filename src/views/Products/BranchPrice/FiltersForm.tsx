@@ -1,16 +1,16 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import ProForm from 'components/ProForm';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
+import ProForm from '@/components/ProForm';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
 import { forwardRef, useImperativeHandle } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import type { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import type { FilterParams } from './utils/filters';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
 
 interface FilterValues {
   product: string;
@@ -61,11 +61,11 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2}>
-          <ProFormTextField name="product" placeholder="Sản phẩm" />
+          <ProFormTextField name='product' placeholder='Sản phẩm' />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormCheckboxSelect
-            name="category"
+            name='category'
             placeholder={t('Danh mục')}
             options={[
               { value: 1, label: 'Tuvít' },
@@ -75,7 +75,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormCheckboxSelect
-            name="internalCategory"
+            name='internalCategory'
             placeholder={t('Danh mục nội bộ')}
             options={[
               { value: 1, label: 'Tuvit' },
@@ -85,7 +85,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormCheckboxSelect
-            name="branch"
+            name='branch'
             placeholder={t('Chi nhánh')}
             options={[
               { value: 1, label: 'HN' },
@@ -94,7 +94,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={2} lg={0.6}>
-          <Button type="submit" size="medium">
+          <Button type='submit' size='medium'>
             Lọc
           </Button>
         </Grid>

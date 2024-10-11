@@ -1,7 +1,7 @@
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useState } from 'react';
-// import { Product } from 'types/products';
+// import { Product } from '@/types/products';
 import Box from '@mui/material/Box';
 import useTableColumns from './TableColumns';
 
@@ -122,7 +122,7 @@ const ReturnBill = () => {
     <>
       <Box sx={{ height: '500px' }}>
         <ProTable<any>
-          title="Danh sách"
+          title='Danh sách'
           loading={loading}
           columns={columns}
           data={banners}

@@ -1,12 +1,13 @@
-import { USER } from 'constants/user';
+import { USER } from '@/constants/user';
 import { createContext, useEffect, useState } from 'react';
-import type { FCC } from 'types/react';
-import type { User } from 'types/user';
+import type { FCC } from '@/types/react';
+import type { IUser } from '@/types/user';
+import { __DEV__ } from '@/config';
 
 interface State {
   isInitialized: boolean;
   isAuthenticated: boolean;
-  user: User | null;
+  user: IUser | null;
 }
 
 const initialState: State = {
@@ -20,7 +21,7 @@ export interface AuthContextValue extends State {}
 const AuthContext = createContext<AuthContextValue | null>(null);
 const RefreshAuthContext = createContext<VoidFunction | null>(null);
 
-if (process.env.NODE_ENV === 'development') {
+if (__DEV__) {
   AuthContext.displayName = 'AuthContext';
 }
 
@@ -30,6 +31,7 @@ const AuthProvider: FCC = (props) => {
 
   useEffect(() => {
     // Implement auth here
+
     Promise.resolve(USER).then((user) => {
       setState({
         isInitialized: true,
@@ -39,15 +41,8 @@ const AuthProvider: FCC = (props) => {
     });
   }, []);
 
-  return (
-    <AuthContext.Provider value={{ ...state }}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ ...state }}>{children}</AuthContext.Provider>;
 };
 
 const AuthConsumer = AuthContext.Consumer;
-export {
-  AuthContext as default,
-  AuthProvider,
-  AuthConsumer,
-  RefreshAuthContext,
-};
+export { AuthContext as default, AuthProvider, AuthConsumer, RefreshAuthContext };

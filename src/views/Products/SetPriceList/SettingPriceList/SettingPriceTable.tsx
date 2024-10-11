@@ -1,9 +1,9 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -36,8 +36,7 @@ const SettingPriceTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const navigate = useNavigate();
 
@@ -55,7 +54,7 @@ const SettingPriceTable = () => {
   });
   return (
     <ProTable<ISettingPriceListType>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={banners}
@@ -78,9 +77,9 @@ const SettingPriceTable = () => {
       }
       toolBar={
         <ActionButton
-          variant="contained"
-          color="info"
-          actionType="add"
+          variant='contained'
+          color='info'
+          actionType='add'
           onClick={() => navigate('/products/setting-price-list/add')}
         >
           Thêm mới

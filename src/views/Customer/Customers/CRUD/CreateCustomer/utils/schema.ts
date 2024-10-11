@@ -1,4 +1,4 @@
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 
 export const createCustomerSchema = Validation.shape({
   typeCustomer: Validation.string().optional().nullable().default(null),

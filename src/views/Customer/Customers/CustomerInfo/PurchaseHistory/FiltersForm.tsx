@@ -1,15 +1,15 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Grid } from '@mui/material';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProForm from 'components/ProForm';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProForm from '@/components/ProForm';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
 import React, { forwardRef, useImperativeHandle } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
-import DateTime from 'utils/DateTime';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import DateTime from '@/utils/DateTime';
+import Validation from '@/utils/Validation';
 import { FilterParams } from './utils/filters';
 
 interface Props {
@@ -64,15 +64,11 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
-          <ProDateRange
-            label={t('Khoảng ngày')}
-            from="startDate"
-            to="endDate"
-          />
+          <ProDateRange label={t('Khoảng ngày')} from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormSelect
-            name="type"
+            name='type'
             placeholder={t('--Loại--')}
             options={[
               { value: 1, label: 'Nhập' },
@@ -84,7 +80,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormSelect
-            name="kind"
+            name='kind'
             placeholder={t('--Kiểu--')}
             options={[
               { value: 1, label: 'Bán lẻ' },

@@ -1,22 +1,15 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import AddIcon from '@mui/icons-material/Add';
-import {
-  Box,
-  Divider,
-  Grid,
-  InputAdornment,
-  Stack,
-  Typography,
-} from '@mui/material';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormContent from 'components/ProForm/ProFormContent';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
+import { Box, Divider, Grid, InputAdornment, Stack, Typography } from '@mui/material';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormContent from '@/components/ProForm/ProFormContent';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import { IImportTable } from './utils/types';
 import InfoIcon from '@mui/icons-material/Info';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -51,10 +44,10 @@ const AddNewSupplier = (props: Props) => {
     console.log(data);
   };
   return (
-    <DialogContainer open={open} onClose={onClose} maxWidth="lg">
+    <DialogContainer open={open} onClose={onClose} maxWidth='lg'>
       <Box sx={{ display: 'flex', alignItems: 'center', padding: '8px' }}>
         <AddIcon />
-        <Typography variant="h6">Thêm nhà cung cấp</Typography>
+        <Typography variant='h6'>Thêm nhà cung cấp</Typography>
       </Box>
       <Divider />
       <DialogContent>
@@ -71,10 +64,7 @@ const AddNewSupplier = (props: Props) => {
               <ProFormContent sx={{ minHeight: '100%' }}>
                 <Box sx={{ p: 1, display: 'flex', alignItems: 'center' }}>
                   <InfoIcon />
-                  <Typography
-                    variant="body1"
-                    sx={{ fontWeight: 'medium', marginLeft: '4px' }}
-                  >
+                  <Typography variant='body1' sx={{ fontWeight: 'medium', marginLeft: '4px' }}>
                     {'Thông tin'}
                   </Typography>
                 </Box>
@@ -82,11 +72,11 @@ const AddNewSupplier = (props: Props) => {
                 <Grid container spacing={2} marginTop={1} marginBottom={1}>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="name"
-                      placeholder="Tên"
+                      name='name'
+                      placeholder='Tên'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <PersonIcon />
                           </InputAdornment>
                         ),
@@ -95,11 +85,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="code"
-                      placeholder="Mã"
+                      name='code'
+                      placeholder='Mã'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <KeyIcon />
                           </InputAdornment>
                         ),
@@ -108,11 +98,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="telephone"
-                      placeholder="Điện thoại"
+                      name='telephone'
+                      placeholder='Điện thoại'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <CallIcon />
                           </InputAdornment>
                         ),
@@ -121,11 +111,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="email"
-                      placeholder="Email"
+                      name='email'
+                      placeholder='Email'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <EmailIcon />
                           </InputAdornment>
                         ),
@@ -134,11 +124,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="address"
-                      placeholder="Địa chỉ"
+                      name='address'
+                      placeholder='Địa chỉ'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <HomeIcon />
                           </InputAdornment>
                         ),
@@ -147,11 +137,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="tax"
-                      placeholder="Mã số thuế"
+                      name='tax'
+                      placeholder='Mã số thuế'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <PinIcon />
                           </InputAdornment>
                         ),
@@ -160,7 +150,7 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormSelect
-                      name="type"
+                      name='type'
                       options={[
                         { value: 1, label: 'Cá nhân' },
                         { value: 2, label: 'Doanh nghiệp' },
@@ -170,11 +160,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="identity"
-                      placeholder="Số CMND"
+                      name='identity'
+                      placeholder='Số CMND'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <ContactMailIcon />
                           </InputAdornment>
                         ),
@@ -188,10 +178,7 @@ const AddNewSupplier = (props: Props) => {
               <ProFormContent sx={{ minHeight: '100%' }}>
                 <Box sx={{ p: 1, display: 'flex', alignItems: 'center' }}>
                   <CreditCardIcon />
-                  <Typography
-                    variant="body1"
-                    sx={{ fontWeight: 'medium', marginLeft: '4px' }}
-                  >
+                  <Typography variant='body1' sx={{ fontWeight: 'medium', marginLeft: '4px' }}>
                     {'Thanh toán'}
                   </Typography>
                 </Box>
@@ -199,11 +186,11 @@ const AddNewSupplier = (props: Props) => {
                 <Grid container spacing={2} marginTop={1} marginBottom={1}>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="bank"
-                      placeholder="Ngân hàng"
+                      name='bank'
+                      placeholder='Ngân hàng'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <AccountBalanceIcon />
                           </InputAdornment>
                         ),
@@ -212,11 +199,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="branch"
-                      placeholder="Chi nhánh"
+                      name='branch'
+                      placeholder='Chi nhánh'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <LocationCityIcon />
                           </InputAdornment>
                         ),
@@ -225,11 +212,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="accountNumber"
-                      placeholder="Số tài khoản"
+                      name='accountNumber'
+                      placeholder='Số tài khoản'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <PinIcon />
                           </InputAdornment>
                         ),
@@ -238,11 +225,11 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="accountHolder"
-                      placeholder="Chủ tài khoản"
+                      name='accountHolder'
+                      placeholder='Chủ tài khoản'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <ContactMailIcon />
                           </InputAdornment>
                         ),
@@ -251,13 +238,13 @@ const AddNewSupplier = (props: Props) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <ProFormTextField
-                      name="note"
+                      name='note'
                       multiline
                       rows={4}
-                      placeholder="Ghi chú"
+                      placeholder='Ghi chú'
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
+                          <InputAdornment position='start'>
                             <NoteAltIcon />
                           </InputAdornment>
                         ),
@@ -268,7 +255,7 @@ const AddNewSupplier = (props: Props) => {
               </ProFormContent>
             </Stack>
             <Box margin={'20px 0px'}>
-              <ActionButton actionType="save" type="submit">
+              <ActionButton actionType='save' type='submit'>
                 Lưu
               </ActionButton>
             </Box>

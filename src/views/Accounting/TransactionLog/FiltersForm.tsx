@@ -1,16 +1,16 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import Validation from 'utils/Validation';
-import DateTime from 'utils/DateTime';
+import Validation from '@/utils/Validation';
+import DateTime from '@/utils/DateTime';
 import { Button, Grid } from '@mui/material';
-import ProForm from 'components/ProForm';
+import ProForm from '@/components/ProForm';
 import { forwardRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import { FilterParams } from './utils/filters';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
 import { useTranslation } from 'react-i18next';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
 
 interface FiltersValues {
   transactionId: string;
@@ -55,8 +55,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
   });
 
   const handleSubmit = (values: FiltersValues) => {
-    const { startDate, endDate, transStartDate, transEndDate, ...rest } =
-      values;
+    const { startDate, endDate, transStartDate, transEndDate, ...rest } = values;
 
     onSearch({
       ...rest,
@@ -75,24 +74,17 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3} lg={2}>
-          <ProFormTextField
-            name="transactionId"
-            placeholder={t('ID giao dịch')}
-          />
+          <ProFormTextField name='transactionId' placeholder={t('ID giao dịch')} />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
-          <ProDateRange label={t('Chọn ngày')} from="startDate" to="endDate" />
+          <ProDateRange label={t('Chọn ngày')} from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
-          <ProDateRange
-            label={t('Ngày giao dịch')}
-            from="transStartDate"
-            to="transEndDate"
-          />
+          <ProDateRange label={t('Ngày giao dịch')} from='transStartDate' to='transEndDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormSelect
-            name="actionType"
+            name='actionType'
             label={t('Thao tác')}
             placeholder={t('Thao tác')}
             options={[
@@ -105,7 +97,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormSelect
-            name="documentType"
+            name='documentType'
             label={t('Loại chứng từ')}
             placeholder={t('Loại chứng từ')}
             options={[
@@ -116,11 +108,11 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
-          <ProFormTextField name="document" placeholder={t('Chứng từ')} />
+          <ProFormTextField name='document' placeholder={t('Chứng từ')} />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormSelect
-            name="type"
+            name='type'
             label={t('Loại phiếu')}
             placeholder={t('Loại phiếu')}
             options={[
@@ -132,7 +124,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormSelect
-            name="objectType"
+            name='objectType'
             label={t('Loại đối tượng')}
             placeholder={t('Loại đối tượng')}
             options={[
@@ -144,15 +136,15 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={3} lg={2}>
-          <ProFormTextField name="object" placeholder={t('Đối tượng')} />
+          <ProFormTextField name='object' placeholder={t('Đối tượng')} />
         </Grid>
 
         <Grid item xs={12} sm={6} md={3} lg={2}>
-          <ProFormTextField name="operator" placeholder={t('Người thao tác')} />
+          <ProFormTextField name='operator' placeholder={t('Người thao tác')} />
         </Grid>
 
         <Grid item xs={12} sm={6} md={3} lg={2}>
-          <Button type="submit" sx={{ height: '100%' }}>
+          <Button type='submit' sx={{ height: '100%' }}>
             Filter
           </Button>
         </Grid>

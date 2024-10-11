@@ -4,16 +4,16 @@ import { TabList } from '@mui/lab';
 import { Checkbox, Grid, Tab } from '@mui/material';
 import Box from '@mui/material/Box';
 import { Stack } from '@mui/system';
-import DropdownCustom from 'components/DropdownCustom';
-import ActionButton from 'components/ProButton/ActionButton';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import ProForm from 'components/ProForm';
-import ProFormAutocomplete from 'components/ProForm/Label/ProFormAutocomplete';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import { PriceInput } from 'plugins/NumberFormat';
+import DropdownCustom from '@/components/DropdownCustom';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import ProForm from '@/components/ProForm';
+import ProFormAutocomplete from '@/components/ProForm/Label/ProFormAutocomplete';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import { PriceInput } from '@/plugins/NumberFormat';
 import { Fragment, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 
 interface IForm {}
 
@@ -57,8 +57,8 @@ const Header = (props: IProps) => {
         <Grid item container xs={12} md={8} spacing={2}>
           <Grid item xs={12} md={1}>
             <ProFormAutocomplete
-              name="store"
-              placeholder=""
+              name='store'
+              placeholder=''
               options={[
                 { value: 1, label: 'Tìm sản phẩm' },
                 { value: 2, label: 'Bán theo ri' },
@@ -70,8 +70,8 @@ const Header = (props: IProps) => {
           <Grid item xs={12} md={3} container spacing={1}>
             <Grid item xs={12} md={isShowAmountInput ? 9 : 11}>
               <ProFormAutocomplete
-                name="store"
-                placeholder="Sản phẩm"
+                name='store'
+                placeholder='Sản phẩm'
                 options={[
                   { value: 1, label: 'TM' },
                   { value: 2, label: 'HN-1' },
@@ -86,8 +86,8 @@ const Header = (props: IProps) => {
             {isShowAmountInput && (
               <Grid item xs={12} md={2}>
                 <ProFormTextField
-                  name="price"
-                  placeholder="SL"
+                  name='price'
+                  placeholder='SL'
                   InputProps={{
                     inputComponent: PriceInput,
                   }}
@@ -96,7 +96,7 @@ const Header = (props: IProps) => {
             )}
             <Grid item xs={12} md={1}>
               <ActionIconButton
-                actionType="scan"
+                actionType='scan'
                 onClick={() => setShowAmountInput(!isShowAmountInput)}
               />
             </Grid>
@@ -104,8 +104,8 @@ const Header = (props: IProps) => {
 
           <Grid item xs={12} md={2}>
             <ProFormAutocomplete
-              name="store"
-              placeholder="Bảng giá"
+              name='store'
+              placeholder='Bảng giá'
               options={[
                 { value: 1, label: 'Bảng giá' },
                 { value: 2, label: 'SL1' },
@@ -117,15 +117,14 @@ const Header = (props: IProps) => {
           <Grid item xs={12} md={5.5}>
             <TabList
               onChange={handleChange}
-              variant="scrollable"
+              variant='scrollable'
               sx={{ margin: 0, height: '40px', minHeight: '40px' }}
             >
               {ids.map((item, index) => (
                 <Tab
                   style={{
                     padding: '0 12px 10px 12px',
-                    backgroundColor:
-                      tab === index.toString() ? '#eeeeee' : '#c6c6c6',
+                    backgroundColor: tab === index.toString() ? '#eeeeee' : '#c6c6c6',
                     marginRight: 4,
                     borderRadius: '5px 5px 0 0',
                   }}
@@ -133,21 +132,17 @@ const Header = (props: IProps) => {
                   label={
                     <Fragment>
                       <Stack
-                        flexDirection="row"
-                        alignItems="center"
-                        justifyContent="space-between"
+                        flexDirection='row'
+                        alignItems='center'
+                        justifyContent='space-between'
                         sx={{
-                          color:
-                            tab === index.toString() ? 'primary.main' : '#000',
+                          color: tab === index.toString() ? 'primary.main' : '#000',
                           fontSize: '12px',
                           padding: 0,
                         }}
                       >
                         Hóa đơn {item}
-                        <Stack
-                          justifyContent="center"
-                          onClick={() => handleRemoveTab(index)}
-                        >
+                        <Stack justifyContent='center' onClick={() => handleRemoveTab(index)}>
                           <CloseIcon />
                         </Stack>
                       </Stack>
@@ -159,22 +154,15 @@ const Header = (props: IProps) => {
             </TabList>
           </Grid>
           <Grid item xs={12} md={0.5}>
-            <ActionIconButton actionType="add" onClick={handleAddTab} />
+            <ActionIconButton actionType='add' onClick={handleAddTab} />
           </Grid>
         </Grid>
-        <Grid
-          item
-          container
-          justifyContent={'space-between'}
-          xs={12}
-          md={4}
-          spacing={1}
-        >
+        <Grid item container justifyContent={'space-between'} xs={12} md={4} spacing={1}>
           <Grid item>
             <DropdownCustom
               open={openCart}
               setOpen={() => setOpenCart(!openCart)}
-              actionType="cart"
+              actionType='cart'
             >
               <>
                 {/* <Box>Chưa có hóa đơn nào được thêm</Box> */}
@@ -197,28 +185,25 @@ const Header = (props: IProps) => {
             <DropdownCustom
               open={openTags}
               setOpen={() => setOpenTags(!openTags)}
-              actionType="tags"
+              actionType='tags'
             >
               <ProForm form={form} onFinish={handleSubmit}>
                 <Box sx={{ marginBottom: '5px', display: 'flex' }}>
                   <Checkbox />
                   <ProFormTextField
-                    name="name"
+                    name='name'
                     InputLabelProps={{ shrink: true }}
-                    placeholder="Tìm kiếm nhãn"
+                    placeholder='Tìm kiếm nhãn'
                   />
                 </Box>
-                <Grid container justifyContent="flex-end">
-                  <ActionButton
-                    variant="outlined"
-                    sx={{ padding: 0, marginRight: 1 }}
-                  >
+                <Grid container justifyContent='flex-end'>
+                  <ActionButton variant='outlined' sx={{ padding: 0, marginRight: 1 }}>
                     Đóng
                   </ActionButton>
                   <ActionButton
-                    variant="contained"
+                    variant='contained'
                     sx={{ padding: 0, marginRight: 1 }}
-                    color="success"
+                    color='success'
                   >
                     Lưu
                   </ActionButton>
@@ -227,10 +212,7 @@ const Header = (props: IProps) => {
             </DropdownCustom>
           </Grid>
           <Grid item sx={{ textAlign: 'right', marginRight: 2 }}>
-            <ActionIconButton
-              actionType="company"
-              onClick={openDialogSelectedStore}
-            />
+            <ActionIconButton actionType='company' onClick={openDialogSelectedStore} />
           </Grid>
         </Grid>
       </Grid>

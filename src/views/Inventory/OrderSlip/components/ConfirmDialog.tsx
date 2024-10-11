@@ -1,21 +1,21 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import DialogFooter from 'components/ProDialog/DialogFooter';
-import DialogHeader from 'components/ProDialog/DialogHeader';
-import ProForm from 'components/ProForm';
-import ProFormAutocomplete from 'components/ProForm/ProFormAutocomplete';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import ProTable from 'components/ProTable';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
+import DialogHeader from '@/components/ProDialog/DialogHeader';
+import ProForm from '@/components/ProForm';
+import ProFormAutocomplete from '@/components/ProForm/ProFormAutocomplete';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import ProTable from '@/components/ProTable';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import TypedObject from 'utils/TypedObject';
-import Validation from 'utils/Validation';
+import TypedObject from '@/utils/TypedObject';
+import Validation from '@/utils/Validation';
 import useTableColumns from '../OrderColumns';
 
 interface IProps {
@@ -168,17 +168,17 @@ const ConfirmDialog = (props: IProps) => {
   const { columns } = useTableColumns();
 
   return (
-    <DialogContainer open={open} onClose={handleReset} maxWidth="lg" fullWidth>
+    <DialogContainer open={open} onClose={handleReset} maxWidth='lg' fullWidth>
       <ProForm<FormValues> form={form} onFinish={handleSubmit}>
         <DialogHeader title={t('Xác nhận phiếu đặt hàng')} />
         <DialogContent>
-          <Typography variant="subtitle1" fontWeight="medium">
+          <Typography variant='subtitle1' fontWeight='medium'>
             Thông tin cơ bản
           </Typography>
           <Grid container spacing={2} mb={2}>
             <Grid item xs={12} sm={12} lg={6}>
               <ProFormAutocomplete
-                name="acv"
+                name='acv'
                 options={[{ id: 1, label: '123' }]}
                 renderValue={(item) => item.id}
                 renderLabel={(item) => item.label}
@@ -187,7 +187,7 @@ const ConfirmDialog = (props: IProps) => {
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
               <ProFormCheckboxSelect
-                name="store"
+                name='store'
                 label={t('Cửa hàng')}
                 placeholder={t('Cửa hàng')}
                 options={[
@@ -197,58 +197,42 @@ const ConfirmDialog = (props: IProps) => {
               />
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
-              <ProFormTextField name="store" placeholder={t('Số kiện')} />
+              <ProFormTextField name='store' placeholder={t('Số kiện')} />
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
-              <ProFormTextField
-                name="store"
-                placeholder={t('VAT của hóa đơn')}
-              />
+              <ProFormTextField name='store' placeholder={t('VAT của hóa đơn')} />
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
-              <ProFormTextField
-                name="store"
-                placeholder={t('Số hóa đơn VAT')}
-              />
+              <ProFormTextField name='store' placeholder={t('Số hóa đơn VAT')} />
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
-              <ProFormTextField name="store" placeholder={t('Chiết khấu')} />
+              <ProFormTextField name='store' placeholder={t('Chiết khấu')} />
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
-              <ProFormTextField name="store" placeholder={t('Tiền mặt')} />
+              <ProFormTextField name='store' placeholder={t('Tiền mặt')} />
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
-              <ProFormTextField
-                name="store"
-                placeholder={t('Tiền chuyển khoản')}
-              />
+              <ProFormTextField name='store' placeholder={t('Tiền chuyển khoản')} />
             </Grid>
             <Grid item xs={12} sm={12} lg={12}>
-              <ProFormTextField name="store" placeholder={t('Ghi chú')} />
+              <ProFormTextField name='store' placeholder={t('Ghi chú')} />
             </Grid>
           </Grid>
-          <Typography variant="subtitle1" fontWeight="medium">
+          <Typography variant='subtitle1' fontWeight='medium'>
             Thông tin đơn hàng
           </Typography>
-          <Box height="500px" mb={2}>
-            <ProTable<any>
-              title="Danh sách sản phẩm"
-              columns={columns}
-              data={DATA}
-            />
+          <Box height='500px' mb={2}>
+            <ProTable<any> title='Danh sách sản phẩm' columns={columns} data={DATA} />
           </Box>
-          <Typography fontWeight="bold" textAlign="right">
+          <Typography fontWeight='bold' textAlign='right'>
             Tổng cộng: 38,554,800 VNĐ
           </Typography>
         </DialogContent>
         <DialogFooter>
-          <ActionButton actionType="cancel" onClick={handleReset}>
+          <ActionButton actionType='cancel' onClick={handleReset}>
             {t('Hủy')}
           </ActionButton>
-          <ActionButton
-            type="submit"
-            disabled={TypedObject.isExist(form.formState.errors)}
-          >
+          <ActionButton type='submit' disabled={TypedObject.isExist(form.formState.errors)}>
             {t('Duyệt')}
           </ActionButton>
         </DialogFooter>

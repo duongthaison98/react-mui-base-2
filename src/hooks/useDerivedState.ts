@@ -1,10 +1,9 @@
-import isEqual from 'lodash.isequal';
+import isEqual from 'lodash/isequal';
 import { useEffect, useState } from 'react';
 import usePrevious from './usePrevious';
 
 const useDerivedState = <T>(initialState: T | (() => T)) => {
-  const computedState =
-    initialState instanceof Function ? initialState() : initialState;
+  const computedState = initialState instanceof Function ? initialState() : initialState;
 
   const [state, setState] = useState<T>(computedState);
 

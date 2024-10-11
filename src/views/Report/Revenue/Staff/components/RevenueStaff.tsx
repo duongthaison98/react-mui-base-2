@@ -1,11 +1,11 @@
 import { Box } from '@mui/system';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import useFilters from 'views/Products/utils/filters';
+import useFilters from '@/views/Products/utils/filters';
 import { IReportRevenueStaff } from '../utils/types';
 import useTableColumns from './RevenueStaffColumns';
 
@@ -33,8 +33,7 @@ const RevenueStaff = () => {
   const [loading] = useState<boolean>(false);
   const [banners] = useState<IReportRevenueStaff[]>(DATA);
   const [total] = useState<number>(banners.length || 0);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange } = useFilters();
 
   const { columns } = useTableColumns({
     pageNumber: filters.pageNumber,
@@ -42,9 +41,9 @@ const RevenueStaff = () => {
   });
 
   return (
-    <Box height="600px">
+    <Box height='600px'>
       <ProTable<IReportRevenueStaff>
-        title="Danh sách"
+        title='Danh sách'
         loading={loading}
         columns={columns}
         data={banners}
@@ -59,7 +58,7 @@ const RevenueStaff = () => {
         }}
         toolBar={
           <ProMenu
-            position="right"
+            position='right'
             items={[
               {
                 label: 'Xuất excel',
@@ -73,7 +72,7 @@ const RevenueStaff = () => {
               },
             ]}
           >
-            <ActionButton iconPosition="end" actionType="expand">
+            <ActionButton iconPosition='end' actionType='expand'>
               {t('Thao tác')}
             </ActionButton>
           </ProMenu>

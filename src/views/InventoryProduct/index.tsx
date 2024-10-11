@@ -1,11 +1,11 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import ConfirmChangeProvider from './components/ConfirmChangeProvider';
 import ConfirmChangeStore from './components/ConfirmChangeStore';
 import FiltersForm from './FiltersForm';
@@ -96,13 +96,10 @@ const InventoryTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(data.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [rowIds, setRowIds] = useState<number[]>([]);
-  const [openConfirmChangeStore, setOpenConfirmChangeStore] =
-    useState<boolean>(false);
-  const [openConfirmChangeProvider, setOpenConfirmChangeProvider] =
-    useState<boolean>(false);
+  const [openConfirmChangeStore, setOpenConfirmChangeStore] = useState<boolean>(false);
+  const [openConfirmChangeProvider, setOpenConfirmChangeProvider] = useState<boolean>(false);
 
   const { columns } = useTableColumns({
     pageNumber: filters.pageNumber,
@@ -127,13 +124,13 @@ const InventoryTable = () => {
 
   return (
     <Fragment>
-      <PageWrapper title="Tồn kho">
+      <PageWrapper title='Tồn kho'>
         <PageBreadcrumbs
-          title="Tồn kho"
+          title='Tồn kho'
           items={[{ link: '/products/item/index', text: 'Sản phẩm' }]}
         />
         <ProTable<Inventory>
-          title="Danh sách sản phẩm"
+          title='Danh sách sản phẩm'
           loading={loading}
           columns={columns}
           data={data}
@@ -151,7 +148,7 @@ const InventoryTable = () => {
           toolBar={
             <Fragment>
               <ProMenu<number>
-                position="left"
+                position='left'
                 items={[
                   {
                     label: 'Xuất Excel',
@@ -175,7 +172,7 @@ const InventoryTable = () => {
                   },
                 ]}
               >
-                <ActionButton color="info">Thao tác</ActionButton>
+                <ActionButton color='info'>Thao tác</ActionButton>
               </ProMenu>
             </Fragment>
           }

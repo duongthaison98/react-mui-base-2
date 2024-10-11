@@ -1,12 +1,12 @@
-import LinkButton from 'components/LinkButton';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-// import useDialog from 'hooks/useDialog';
-import useRefresh from 'hooks/useRefresh';
+import LinkButton from '@/components/LinkButton';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+// import useDialog from '@/hooks/useDialog';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import EditNoteDialog from './Dialog/EditNoteDialog';
 
 import FiltersForm from './FiltersForm';
@@ -44,8 +44,6 @@ const DATA = [
     note: 'string;',
     id: '1',
   },
- 
-
 ];
 
 const ProductTable = () => {
@@ -56,11 +54,9 @@ const ProductTable = () => {
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
   const [isOpenDialogInfo, setOpenDialogInfo] = useState<boolean>(false);
-  const [isOpenDialogEditNote, setOpenDialogEditNote] =
-    useState<boolean>(false);
+  const [isOpenDialogEditNote, setOpenDialogEditNote] = useState<boolean>(false);
   const [dataSelected, setDataSelected] = useState<any>({});
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   // const dialog = useDialog();
 
   const handleResetFilters = () => {
@@ -103,7 +99,7 @@ const ProductTable = () => {
   return (
     <>
       <ProTable<any>
-        title="Danh sách"
+        title='Danh sách'
         loading={loading}
         columns={columns}
         data={banners}
@@ -126,16 +122,11 @@ const ProductTable = () => {
         }
         toolBar={
           <Fragment>
-            <LinkButton
-              to="/sales/return/create"
-              variant="contained"
-              type="create"
-              color="success"
-            >
+            <LinkButton to='/sales/return/create' variant='contained' type='create' color='success'>
               {t('Trả hàng không cần hóa đơn')}
             </LinkButton>
             <ProMenu
-              position="right"
+              position='right'
               items={[
                 {
                   label: 'Xuất Excel',
@@ -144,14 +135,14 @@ const ProductTable = () => {
                 },
               ]}
             >
-              <ActionButton iconPosition="end" actionType="expand" color="info">
+              <ActionButton iconPosition='end' actionType='expand' color='info'>
                 {t('Thao tác')}
               </ActionButton>
             </ProMenu>
           </Fragment>
         }
       />
-       <EditNoteDialog
+      <EditNoteDialog
         open={isOpenDialogEditNote}
         onClose={() => {
           setOpenDialogEditNote(!isOpenDialogEditNote);

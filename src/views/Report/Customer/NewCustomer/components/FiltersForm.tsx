@@ -1,17 +1,17 @@
-import { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import { FilterParams } from '../utils/filters';
 import { forwardRef, useImperativeHandle } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import DateTime from 'utils/DateTime';
-import ProForm from 'components/ProForm';
+import DateTime from '@/utils/DateTime';
+import ProForm from '@/components/ProForm';
 import { Grid } from '@mui/material';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
 
 interface FilterValues {
   startDate: string | null;
@@ -64,15 +64,11 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
-          <ProDateRange
-            label={t('Khoảng ngày')}
-            from="startDate"
-            to="endDate"
-          />
+          <ProDateRange label={t('Khoảng ngày')} from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.4}>
           <ProFormSelect
-            name="timeUnit"
+            name='timeUnit'
             placeholder={t('Chọn thời gian')}
             options={[
               { value: 1, label: 'Ngày' },
@@ -84,8 +80,8 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={6} sm={3} md={2} lg={2.4}>
           <ProFormTextField
-            name="personInCharge"
-            placeholder="Tên người phụ trách"
+            name='personInCharge'
+            placeholder='Tên người phụ trách'
             InputLabelProps={{ shrink: true }}
           />
         </Grid>

@@ -1,16 +1,16 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Typography } from '@mui/material';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import DialogFooter from 'components/ProDialog/DialogFooter';
-import ProForm from 'components/ProForm';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
+import ProForm from '@/components/ProForm';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import sleep from 'utils/sleep';
-import TypedObject from 'utils/TypedObject';
-import Validation from 'utils/Validation';
+import sleep from '@/utils/sleep';
+import TypedObject from '@/utils/TypedObject';
+import Validation from '@/utils/Validation';
 
 interface FormValues {
   note: string;
@@ -47,11 +47,11 @@ const DeliveryDialog = (props: Props) => {
   };
 
   return (
-    <DialogContainer open={open} onClose={handleReset} maxWidth="md">
+    <DialogContainer open={open} onClose={handleReset} maxWidth='md'>
       <ProForm<FormValues> form={form} onFinish={handleSubmit}>
         <DialogContent>
           <Typography
-            variant="subtitle1"
+            variant='subtitle1'
             sx={{
               fontWeight: 'medium',
               mb: 2,
@@ -62,12 +62,12 @@ const DeliveryDialog = (props: Props) => {
           </Typography>
         </DialogContent>
         <DialogFooter>
-          <ActionButton actionType="cancel" onClick={handleReset}>
+          <ActionButton actionType='cancel' onClick={handleReset}>
             {t('Đóng')}
           </ActionButton>
           <ActionButton
-            type="submit"
-            color="success"
+            type='submit'
+            color='success'
             disabled={TypedObject.isExist(form.formState.errors)}
           >
             {t('Áp dụng')}

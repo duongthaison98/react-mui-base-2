@@ -1,14 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Grid } from '@mui/material';
-import ProForm from 'components/ProForm';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
-import ProFormFilterAction from 'components/ProForm/ProFormFilterAction';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
+import ProForm from '@/components/ProForm';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
+import ProFormFilterAction from '@/components/ProForm/ProFormFilterAction';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
 import { forwardRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import { FilterParams } from './utils/filters';
 
 interface FilterValues {
@@ -51,7 +51,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={2.5}>
           <ProFormCheckboxSelect
-            name="store"
+            name='store'
             placeholder={t('Cửa hàng')}
             options={[
               { value: 1, label: 'Hà Nội' },
@@ -64,7 +64,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.5}>
           <ProFormCheckboxSelect
-            name="selected"
+            name='selected'
             placeholder={t('Bảng giá')}
             options={[
               { value: 1, label: 'Cell 500/đơn' },
@@ -79,7 +79,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2.5}>
           <ProFormTextField
-            name="code"
+            name='code'
             placeholder={t('Mã/Mã vạch/Tên sản phẩm')}
             InputLabelProps={{ shrink: true }}
           />

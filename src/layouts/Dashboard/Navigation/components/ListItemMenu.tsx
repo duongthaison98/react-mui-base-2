@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
-import type { MouseEvent } from 'types/react';
+import type { MouseEvent } from '@/types/react';
 
 export interface ListItemMenuItem {
   title: string;
@@ -71,9 +71,7 @@ const ListItemMenu = (props: ListItemMenuProps) => {
               })}
             >
               <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primaryTypographyProps={{ variant: 'body2' }}>
-                {title}
-              </ListItemText>
+              <ListItemText primaryTypographyProps={{ variant: 'body2' }}>{title}</ListItemText>
               {hasChildren && (
                 <ChevronRightIcon
                   sx={{

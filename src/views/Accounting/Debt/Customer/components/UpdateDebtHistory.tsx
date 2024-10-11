@@ -4,13 +4,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Grid from '@mui/material/Grid';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/ProFormSelect';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 
 interface Props {
   open: boolean;
@@ -55,7 +55,7 @@ const UpdateDebtHistory = (props: Props) => {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <ProFormTextField
-                name="paymentAppointmentDate"
+                name='paymentAppointmentDate'
                 label={t('Ngày hẹn trả')}
                 placeholder={t('Ngày hẹn trả')}
                 InputLabelProps={{ shrink: true }}
@@ -63,7 +63,7 @@ const UpdateDebtHistory = (props: Props) => {
             </Grid>
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <ProFormTextField
-                name="customerName"
+                name='customerName'
                 label={t('Tên khách hàng')}
                 placeholder={t('Tên khách hàng')}
                 InputLabelProps={{ shrink: true }}
@@ -71,7 +71,7 @@ const UpdateDebtHistory = (props: Props) => {
             </Grid>
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <ProFormSelect
-                name="store"
+                name='store'
                 label={t('Tên cửa hàng')}
                 placeholder={t('Tên cửa hàng')}
                 options={[
@@ -85,7 +85,7 @@ const UpdateDebtHistory = (props: Props) => {
             </Grid>
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <ProFormTextField
-                name="content"
+                name='content'
                 label={t('Nội dung')}
                 placeholder={t('Nội dung')}
                 InputLabelProps={{ shrink: true }}
@@ -95,10 +95,10 @@ const UpdateDebtHistory = (props: Props) => {
         </ProForm>
       </DialogContent>
       <DialogActions>
-        <ActionButton variant="contained" color="primary" onClick={handleClose}>
+        <ActionButton variant='contained' color='primary' onClick={handleClose}>
           Hủy
         </ActionButton>
-        <ActionButton variant="contained" color="success" type="submit">
+        <ActionButton variant='contained' color='success' type='submit'>
           Tạo
         </ActionButton>
       </DialogActions>

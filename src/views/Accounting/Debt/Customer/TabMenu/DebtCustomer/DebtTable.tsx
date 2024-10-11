@@ -1,10 +1,10 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FiltersRef } from 'types/refs';
+import { FiltersRef } from '@/types/refs';
 import UpdateDebtHistory from '../../components/UpdateDebtHistory';
 import FiltersForm from './FilterForm';
 import useTableColumns from './TableColumns';
@@ -37,8 +37,7 @@ const DebtTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
   const [isShowPopup, setIsShowPopup] = useState<boolean>(false);
 
   const handleClickShowPopup = () => {
@@ -61,7 +60,7 @@ const DebtTable = () => {
 
   return (
     <ProTable<Debt>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={DATA}
@@ -85,7 +84,7 @@ const DebtTable = () => {
       toolBar={
         <Fragment>
           <ProMenu
-            position="right"
+            position='right'
             items={[
               {
                 label: 'Xuất Excel',
@@ -100,15 +99,11 @@ const DebtTable = () => {
               },
             ]}
           >
-            <ActionButton iconPosition="end" actionType="expand" color="info">
+            <ActionButton iconPosition='end' actionType='expand' color='info'>
               {t('Thao tác')}
             </ActionButton>
           </ProMenu>
-          <UpdateDebtHistory
-            open={isShowPopup}
-            handleClose={() => setIsShowPopup(false)}
-          />
-          ,
+          <UpdateDebtHistory open={isShowPopup} handleClose={() => setIsShowPopup(false)} />,
         </Fragment>
       }
     />

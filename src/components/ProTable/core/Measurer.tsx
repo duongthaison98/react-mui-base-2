@@ -1,6 +1,6 @@
-import useMeasure from 'hooks/useMeasure';
+import useMeasure from '@/hooks/useMeasure';
 import type { RefObject } from 'react';
-import type { FCC } from 'types/react';
+import type { FCC } from '@/types/react';
 import Box from '@mui/material/Box';
 
 interface Props {

@@ -1,7 +1,7 @@
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { Box, IconButton } from '@mui/material';
 import { Branch } from './utils/type';
 import EditIcon from '@mui/icons-material/Edit';
@@ -57,11 +57,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {productPrice?.retail && Numeral.price(productPrice?.retail)}
-                  <IconButton
-                    onClick={() =>
-                      handleEditNote(id, productPrice?.retail || '')
-                    }
-                  >
+                  <IconButton onClick={() => handleEditNote(id, productPrice?.retail || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -87,11 +83,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {productPrice?.whole && Numeral.price(productPrice?.whole)}
-                  <IconButton
-                    onClick={() =>
-                      handleEditNote(id, productPrice?.whole || '')
-                    }
-                  >
+                  <IconButton onClick={() => handleEditNote(id, productPrice?.whole || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -117,9 +109,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {productPrice?.spa && Numeral.price(productPrice?.spa)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, productPrice?.spa || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, productPrice?.spa || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -154,9 +144,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {vinh?.retail && Numeral.price(vinh?.retail)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, vinh?.retail || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, vinh?.retail || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -182,9 +170,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {vinh?.whole && Numeral.price(vinh?.whole)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, vinh?.whole || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, vinh?.whole || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -210,9 +196,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {vinh?.spa && Numeral.price(vinh?.spa)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, vinh?.spa || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, vinh?.spa || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -247,9 +231,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {phatdat?.retail && Numeral.price(phatdat?.retail)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, phatdat?.retail || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, phatdat?.retail || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -275,9 +257,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {phatdat?.whole && Numeral.price(phatdat?.whole)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, phatdat?.whole || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, phatdat?.whole || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -303,9 +283,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {phatdat?.spa && Numeral.price(phatdat?.spa)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, phatdat?.spa || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, phatdat?.spa || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -340,9 +318,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {hcm?.retail && Numeral.price(hcm?.retail)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, hcm?.retail || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, hcm?.retail || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -368,9 +344,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {hcm?.whole && Numeral.price(hcm?.whole)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, hcm?.whole || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, hcm?.whole || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -396,9 +370,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {hcm?.spa && Numeral.price(hcm?.spa)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, hcm?.spa || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, hcm?.spa || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -433,9 +405,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {dn?.retail && Numeral.price(dn?.retail)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, dn?.retail || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, dn?.retail || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>
@@ -461,9 +431,7 @@ const useTableColumns = (props: Props) => {
                   }}
                 >
                   {dn?.whole && Numeral.price(dn?.whole)}
-                  <IconButton
-                    onClick={() => handleEditNote(id, dn?.whole || '')}
-                  >
+                  <IconButton onClick={() => handleEditNote(id, dn?.whole || '')}>
                     <EditIcon sx={{ color: 'text.secondary', ml: 1 }} />
                   </IconButton>
                 </Box>

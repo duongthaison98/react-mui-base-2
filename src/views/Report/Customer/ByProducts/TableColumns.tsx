@@ -1,9 +1,9 @@
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { Box, Link, Stack, Typography } from '@mui/material';
-import DateTime from 'utils/DateTime';
+import DateTime from '@/utils/DateTime';
 import type { ByProduct, Customer } from './utils/type';
 
 const columnHelper = getColumnHelper<ByProduct>();
@@ -44,13 +44,13 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (rowIndex === 0) {
                 return (
-                  <Typography variant="subtitle1" fontWeight={500}>
+                  <Typography variant='subtitle1' fontWeight={500}>
                     {context.getValue<Customer>().name}
                   </Typography>
                 );
               } else {
                 return (
-                  <Stack direction="column">
+                  <Stack direction='column'>
                     <Box>{context.getValue<Customer>().name}</Box>
                     <Box>{context.getValue<Customer>().phone}</Box>
                   </Stack>
@@ -114,13 +114,13 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (rowIndex === 0) {
                 return (
-                  <Typography variant="subtitle1" fontWeight={500}>
+                  <Typography variant='subtitle1' fontWeight={500}>
                     {Numeral.price(context.getValue())}
                   </Typography>
                 );
               }
               return (
-                <Link href="#" target="_blank" color="#2196F3">
+                <Link href='#' target='_blank' color='#2196F3'>
                   {Numeral.price(context.getValue())}
                 </Link>
               );
@@ -144,13 +144,13 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (rowIndex === 0) {
                 return (
-                  <Typography variant="subtitle1" fontWeight={500}>
+                  <Typography variant='subtitle1' fontWeight={500}>
                     {Numeral.price(context.getValue())}
                   </Typography>
                 );
               }
               return (
-                <Link href="#" target="_blank" color="#2196F3">
+                <Link href='#' target='_blank' color='#2196F3'>
                   {Numeral.price(context.getValue())}
                 </Link>
               );
@@ -174,7 +174,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (rowIndex === 0) {
                 return (
-                  <Typography variant="subtitle1" fontWeight={500}>
+                  <Typography variant='subtitle1' fontWeight={500}>
                     {Numeral.price(context.getValue())}
                   </Typography>
                 );
@@ -200,7 +200,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (rowIndex === 0) {
                 return (
-                  <Typography variant="subtitle1" fontWeight={500}>
+                  <Typography variant='subtitle1' fontWeight={500}>
                     {Numeral.price(context.getValue())}
                   </Typography>
                 );
@@ -247,7 +247,7 @@ const useTableColumns = (props: Props) => {
               const rowIndex = context.row.index;
               if (rowIndex === 0) {
                 return (
-                  <Typography variant="subtitle1" fontWeight={500}>
+                  <Typography variant='subtitle1' fontWeight={500}>
                     {Numeral.price(context.getValue())}
                   </Typography>
                 );
@@ -269,8 +269,7 @@ const useTableColumns = (props: Props) => {
             id: 'purchaseDate',
             enableSorting: false,
             header: () => '[13]',
-            cell: (context) =>
-              DateTime.Format(context.getValue(), 'DD/MM/YYYY'),
+            cell: (context) => DateTime.Format(context.getValue(), 'DD/MM/YYYY'),
             meta: {
               title: HEAD_CELLS.purchaseDate,
             },

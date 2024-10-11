@@ -3,19 +3,19 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import MarkunreadIcon from '@mui/icons-material/Markunread';
 import PersonIcon from '@mui/icons-material/Person';
 import { Grid, InputAdornment } from '@mui/material';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
 
 const Customer = () => {
   return (
     <Grid container spacing={2} sx={{ marginTop: 1, paddingBottom: 1 }}>
       <Grid item xs={12} md={6}>
         <ProFormTextField
-          name="name"
-          placeholder="Họ tên"
+          name='name'
+          placeholder='Họ tên'
           InputLabelProps={{ shrink: true }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <PersonIcon />
               </InputAdornment>
             ),
@@ -24,12 +24,12 @@ const Customer = () => {
       </Grid>
       <Grid item xs={12} md={6}>
         <ProFormTextField
-          name="name"
-          placeholder="Địa chỉ"
+          name='name'
+          placeholder='Địa chỉ'
           InputLabelProps={{ shrink: true }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <CreditCardIcon />
               </InputAdornment>
             ),
@@ -38,12 +38,12 @@ const Customer = () => {
       </Grid>
       <Grid item xs={12} md={6}>
         <ProFormTextField
-          name="name"
-          placeholder="Số điện thoại"
+          name='name'
+          placeholder='Số điện thoại'
           InputLabelProps={{ shrink: true }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <CallIcon />
               </InputAdornment>
             ),

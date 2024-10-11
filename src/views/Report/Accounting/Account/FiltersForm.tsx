@@ -1,19 +1,19 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import ProDateRange from 'components/ProDateTime/ProDateRange';
-import ProForm from 'components/ProForm';
-import ProFormSelect from 'components/ProForm/Label/ProFormSelect';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
-import ProFormHiddenInput from 'components/ProForm/ProFormHiddenInput';
+import ProDateRange from '@/components/ProDateTime/ProDateRange';
+import ProForm from '@/components/ProForm';
+import ProFormSelect from '@/components/ProForm/Label/ProFormSelect';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
+import ProFormHiddenInput from '@/components/ProForm/ProFormHiddenInput';
 import { forwardRef, useImperativeHandle } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
-import Validation from 'utils/Validation';
+import type { FiltersRef } from '@/types/refs';
+import Validation from '@/utils/Validation';
 import type { FilterParams } from './utils/filters';
-import DateTime from 'utils/DateTime';
-import { PriceInput } from 'plugins/NumberFormat';
+import DateTime from '@/utils/DateTime';
+import { PriceInput } from '@/plugins/NumberFormat';
 
 interface FilterValues {
   status: number;
@@ -70,11 +70,11 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={3}>
-          <ProDateRange from="startDate" to="endDate" label="Chọn ngày" />
+          <ProDateRange from='startDate' to='endDate' label='Chọn ngày' />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
           <ProFormSelect
-            name="status"
+            name='status'
             placeholder={t('Trạng thái')}
             options={[
               { value: 0, label: '-Trạng thái-' },
@@ -84,20 +84,17 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={2}>
-          <ProFormTextField
-            name="billCreator"
-            placeholder="Nhân viên lập phiếu"
-          />
+          <ProFormTextField name='billCreator' placeholder='Nhân viên lập phiếu' />
         </Grid>
         <Grid item xs={12} sm={6} md={2} lg={0.6}>
-          <Button type="submit" size="medium">
+          <Button type='submit' size='medium'>
             Lọc
           </Button>
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={2}>
           <ProFormTextField
-            name="money"
-            placeholder="Nhân dân tệ"
+            name='money'
+            placeholder='Nhân dân tệ'
             InputProps={{
               inputComponent: PriceInput,
             }}

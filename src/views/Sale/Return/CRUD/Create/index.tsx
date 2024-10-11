@@ -4,13 +4,13 @@ import TokenIcon from '@mui/icons-material/Token';
 import { Grid, TextField, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProForm from 'components/ProForm';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProForm from '@/components/ProForm';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 import Customer from './Customer';
 import Information from './Information';
 import Payment from './Payment';
@@ -64,34 +64,22 @@ const EditRetail = () => {
                 </Grid>
                 <Grid item xs={12} md={4.5} container alignContent={'center'}>
                   <Grid item xs={2}>
-                    <Typography
-                      gutterBottom
-                      variant="subtitle2"
-                      sx={{ color: 'primary.main' }}
-                    >
+                    <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
                       GHCN
                     </Typography>
                   </Grid>
                   <Grid item xs={4}>
-                    <Typography
-                      gutterBottom
-                      variant="subtitle2"
-                      sx={{ color: 'primary.main' }}
-                    >
+                    <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
                       Tổng: 3.700.00
                     </Typography>
                   </Grid>
                   <Grid item xs={2}>
-                    <Typography gutterBottom variant="subtitle2">
+                    <Typography gutterBottom variant='subtitle2'>
                       CN: 0
                     </Typography>
                   </Grid>
                   <Grid item xs={4}>
-                    <Typography
-                      gutterBottom
-                      variant="subtitle2"
-                      sx={{ color: 'primary.main' }}
-                    >
+                    <Typography gutterBottom variant='subtitle2' sx={{ color: 'primary.main' }}>
                       CN cuối: 3.700.00
                     </Typography>
                   </Grid>
@@ -114,9 +102,9 @@ const EditRetail = () => {
                 <Grid item xs={12} md={5} container spacing={1}>
                   <Grid item xs={12} md={12}>
                     <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      placeholder="(F3) Gõ tên, mã sản phẩm hoặc dùng đầu đọc mã vạch"
+                      id='outlined-basic'
+                      variant='outlined'
+                      placeholder='(F3) Gõ tên, mã sản phẩm hoặc dùng đầu đọc mã vạch'
                     />
                   </Grid>
                 </Grid>
@@ -135,17 +123,13 @@ const EditRetail = () => {
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               <ActionButton
                 sx={{ marginRight: 1 }}
-                iconPosition="start"
-                actionType="save"
-                color="success"
+                iconPosition='start'
+                actionType='save'
+                color='success'
               >
                 {t('Lưu')}
               </ActionButton>
-              <ActionButton
-                iconPosition="start"
-                actionType="print"
-                color="info"
-              >
+              <ActionButton iconPosition='start' actionType='print' color='info'>
                 {t('Lưu và in')}
               </ActionButton>
             </Box>

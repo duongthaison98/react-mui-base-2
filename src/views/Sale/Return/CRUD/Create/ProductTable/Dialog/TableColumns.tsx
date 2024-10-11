@@ -1,8 +1,8 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Checkbox, IconButton, TextField } from '@mui/material';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 const columnHelper = getColumnHelper<any>();
 
@@ -43,7 +43,7 @@ const useTableColumns = (props: Props) => {
         id: 'amount',
         size: 100,
         header: () => HEAD_CELLS.amount,
-        cell: (context) => <TextField id="outlined-basic" variant="outlined" />,
+        cell: (context) => <TextField id='outlined-basic' variant='outlined' />,
         meta: {
           title: HEAD_CELLS.amount,
         },

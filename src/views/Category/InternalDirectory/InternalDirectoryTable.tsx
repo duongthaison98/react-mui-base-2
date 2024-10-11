@@ -1,11 +1,11 @@
 import { Button } from '@mui/material';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
-import { IInternalDirectoryTable } from 'types/category';
-import type { FiltersRef } from 'types/refs';
+import { IInternalDirectoryTable } from '@/types/category';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -83,8 +83,7 @@ const InternalDirectoryTable = () => {
   const [loading] = useState<boolean>(false);
   const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -116,10 +115,10 @@ const InternalDirectoryTable = () => {
       filter={<FiltersForm ref={filtersRef} onSearch={onSearch} />}
       toolBar={
         <Fragment>
-          <ActionButton variant="text" onClick={handleResetFilters}>
+          <ActionButton variant='text' onClick={handleResetFilters}>
             Xóa bộ lọc
           </ActionButton>
-          <ActionButton actionType="search" onClick={handleSubmitFilters}>
+          <ActionButton actionType='search' onClick={handleSubmitFilters}>
             Tìm kiếm
           </ActionButton>
           <ProMenu

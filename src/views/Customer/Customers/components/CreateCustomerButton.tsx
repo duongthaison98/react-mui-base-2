@@ -1,7 +1,7 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Box from '@mui/material/Box';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
 import { useNavigate } from 'react-router-dom';
 
 const CreateCustomerButton = () => {
@@ -10,7 +10,7 @@ const CreateCustomerButton = () => {
   return (
     <Box sx={{ margin: '2px' }}>
       <ProMenu
-        position="left"
+        position='left'
         items={[
           {
             label: 'Thêm mới',
@@ -28,8 +28,8 @@ const CreateCustomerButton = () => {
         ]}
       >
         <ActionButton
-          variant="contained"
-          color="primary"
+          variant='contained'
+          color='primary'
           // onClick={handleSubmitFilters}
         >
           Thêm mới

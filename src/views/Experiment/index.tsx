@@ -1,13 +1,13 @@
-import PageBreadcrumbs from 'components/PageBreadcrumbs';
-import PageWrapper from 'components/PageWrapper';
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
-import flatMap from 'lodash.flatmap';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import PageWrapper from '@/components/PageWrapper';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
+import flatMap from 'lodash/flatmap';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
@@ -21,8 +21,7 @@ const ProductTable = () => {
   const [loading] = useState<boolean>(false);
   const [total, setTotal] = useState<number>(0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   useEffect(() => {
     getBills()
@@ -62,7 +61,7 @@ const ProductTable = () => {
         items={[{ link: '/products', text: 'Sản phẩm' }]}
       />
       <ProTable<FlattenedBill>
-        title="Danh sách sản phẩm"
+        title='Danh sách sản phẩm'
         loading={loading}
         columns={columns}
         data={bills}
@@ -86,7 +85,7 @@ const ProductTable = () => {
         toolBar={
           <Fragment>
             <ProMenu
-              position="right"
+              position='right'
               items={[
                 {
                   label: 'Thêm mới',
@@ -105,16 +104,12 @@ const ProductTable = () => {
                 },
               ]}
             >
-              <ActionButton
-                iconPosition="end"
-                actionType="expand"
-                color="success"
-              >
+              <ActionButton iconPosition='end' actionType='expand' color='success'>
                 {t('Thêm mới')}
               </ActionButton>
             </ProMenu>
             <ProMenu
-              position="right"
+              position='right'
               items={[
                 {
                   label: 'Xuất Excel',
@@ -159,7 +154,7 @@ const ProductTable = () => {
                 },
               ]}
             >
-              <ActionButton iconPosition="end" actionType="expand" color="info">
+              <ActionButton iconPosition='end' actionType='expand' color='info'>
                 {t('Thao tác')}
               </ActionButton>
             </ProMenu>

@@ -4,9 +4,9 @@ import ReplyIcon from '@mui/icons-material/Reply';
 import { Checkbox, Grid, InputAdornment, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import ProFormTextField from 'components/ProForm/Label/ProFormTextField';
+import ProFormTextField from '@/components/ProForm/Label/ProFormTextField';
 // import { useForm } from 'react-hook-form';
-// import Validation from 'utils/Validation';
+// import Validation from '@/utils/Validation';
 // const schema = Validation.shape({
 //   name: Validation.string().optional(),
 // });
@@ -27,11 +27,7 @@ const Tag = () => {
         marginBottom: '10px',
       }}
     >
-      <Grid
-        container
-        justifyContent="space-between"
-        sx={{ padding: '10px 15px' }}
-      >
+      <Grid container justifyContent='space-between' sx={{ padding: '10px 15px' }}>
         <Box sx={{ display: 'flex' }}>
           <MoneyIcon />
           <span
@@ -44,12 +40,7 @@ const Tag = () => {
             Tổng Trả
           </span>
         </Box>
-        <Typography
-          gutterBottom
-          variant="subtitle2"
-          align="right"
-          sx={{ color: 'primary.main' }}
-        >
+        <Typography gutterBottom variant='subtitle2' align='right' sx={{ color: 'primary.main' }}>
           0
         </Typography>
         <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -63,19 +54,19 @@ const Tag = () => {
       <Box sx={{ padding: '10px 15px' }}>
         <ProFormTextField
           sx={{ marginBottom: 1 }}
-          name="customer"
+          name='customer'
           placeholder={'Phí trả hàng'}
           InputLabelProps={{ shrink: true }}
           InputProps={{
             startAdornment: (
-              <InputAdornment position="start">
+              <InputAdornment position='start'>
                 <ReplyIcon />
               </InputAdornment>
             ),
           }}
         />
       </Box>
-      <Grid container justifyContent="space-between" sx={{ padding: '0 10px' }}>
+      <Grid container justifyContent='space-between' sx={{ padding: '0 10px' }}>
         <Box sx={{ display: 'flex' }}>
           <span
             style={{
@@ -87,12 +78,7 @@ const Tag = () => {
             Trả lại khách
           </span>
         </Box>
-        <Typography
-          gutterBottom
-          variant="subtitle2"
-          align="right"
-          sx={{ color: 'primary.main' }}
-        >
+        <Typography gutterBottom variant='subtitle2' align='right' sx={{ color: 'primary.main' }}>
           0
         </Typography>
       </Grid>

@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import Index from 'components/ProTable/components/Index';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import Index from '@/components/ProTable/components/Index';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 import { SumaryCashStore } from './utils/type';
 
 const columnHelper = getColumnHelper<SumaryCashStore>();

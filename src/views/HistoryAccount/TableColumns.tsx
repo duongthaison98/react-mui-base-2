@@ -1,9 +1,9 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Typography from '@mui/material/Typography';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { useMemo } from 'react';
 const columnHelper = getColumnHelper<any>();
 
@@ -39,9 +39,7 @@ const useTableColumns = (props: Props) => {
         id: 'code',
         size: 160,
         header: () => 'ID Phiếu XNK',
-        cell: (context) => (
-          <Typography variant="subtitle2">239636506</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>239636506</Typography>,
         meta: {
           title: HEAD_CELLS.code,
         },
@@ -50,9 +48,7 @@ const useTableColumns = (props: Props) => {
         id: 'name',
         size: 160,
         header: () => 'ID sản phẩm XNK',
-        cell: (context) => (
-          <Typography variant="subtitle2">613787323</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>613787323</Typography>,
         meta: {
           title: HEAD_CELLS.code,
         },
@@ -61,7 +57,7 @@ const useTableColumns = (props: Props) => {
         id: 'name1',
         size: 120,
         header: () => 'Kiểu log',
-        cell: (context) => <Typography variant="subtitle2">Sửa XNK</Typography>,
+        cell: (context) => <Typography variant='subtitle2'>Sửa XNK</Typography>,
         meta: {
           title: HEAD_CELLS.name,
         },
@@ -71,7 +67,7 @@ const useTableColumns = (props: Props) => {
         id: 'name2',
         size: 120,
         header: () => 'Loại XNK',
-        cell: (context) => <Typography variant="subtitle2">Xuất</Typography>,
+        cell: (context) => <Typography variant='subtitle2'>Xuất</Typography>,
         meta: {
           title: HEAD_CELLS.name,
         },
@@ -80,9 +76,7 @@ const useTableColumns = (props: Props) => {
         id: 'name3',
         size: 160,
         header: () => 'Kiểu XNK',
-        cell: (context) => (
-          <Typography variant="subtitle2">[L] Bán lẻ</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>[L] Bán lẻ</Typography>,
         meta: {
           title: HEAD_CELLS.name,
         },
@@ -93,9 +87,7 @@ const useTableColumns = (props: Props) => {
         size: 250,
         enableSorting: false,
         header: () => HEAD_CELLS.inventory,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.inventory,
         },
@@ -126,9 +118,7 @@ const useTableColumns = (props: Props) => {
         size: 250,
         enableSorting: false,
         header: () => HEAD_CELLS.markCode,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.markCode,
         },
@@ -138,9 +128,7 @@ const useTableColumns = (props: Props) => {
         size: 250,
         enableSorting: false,
         header: () => HEAD_CELLS.priceVAT,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.priceVAT,
         },
@@ -154,7 +142,7 @@ const useTableColumns = (props: Props) => {
         cell: (context) => (
           <Typography>
             {' '}
-            <ActionIconButton onClick={openDialog} actionType="view" />
+            <ActionIconButton onClick={openDialog} actionType='view' />
           </Typography>
         ),
       },

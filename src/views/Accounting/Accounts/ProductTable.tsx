@@ -1,24 +1,24 @@
-import ActionButton from 'components/ProButton/ActionButton';
-import ProMenu from 'components/ProMenu';
-import ProTable from 'components/ProTable';
-import useRefresh from 'hooks/useRefresh';
+import ActionButton from '@/components/ProButton/ActionButton';
+import ProMenu from '@/components/ProMenu';
+import ProTable from '@/components/ProTable';
+import useRefresh from '@/hooks/useRefresh';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { FiltersRef } from 'types/refs';
+import type { FiltersRef } from '@/types/refs';
 import FiltersForm from './FiltersForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
 import type { Product } from './utils/types';
 import Dialog from '@mui/material/Dialog';
-import DialogHeader from 'components/ProDialog/DialogHeader';
-import DialogForm from 'components/ProDialog/DialogForm';
-import DialogContent from 'components/ProDialog/DialogContent';
+import DialogHeader from '@/components/ProDialog/DialogHeader';
+import DialogForm from '@/components/ProDialog/DialogForm';
+import DialogContent from '@/components/ProDialog/DialogContent';
 import CloseIcon from '@mui/icons-material/Close';
 import { Button, Grid, TextField } from '@mui/material';
-import DialogFooter from 'components/ProDialog/DialogFooter';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SaveIcon from '@mui/icons-material/Save';
-import ProFormLabel from 'components/ProForm/ProFormLabel';
+import ProFormLabel from '@/components/ProForm/ProFormLabel';
 const DATA = [
   {
     id: 1,
@@ -210,8 +210,7 @@ const AccountTable = () => {
   const [open, setDialogs] = useState<boolean>(false);
   const [total] = useState<number>(products.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
-  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } =
-    useFilters();
+  const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
@@ -234,7 +233,7 @@ const AccountTable = () => {
 
   return (
     <ProTable<any>
-      title="Danh sách sản phẩm"
+      title='Danh sách sản phẩm'
       loading={loading}
       columns={columns}
       data={products}
@@ -259,14 +258,14 @@ const AccountTable = () => {
         <Fragment>
           <ActionButton
             onClick={handleSelect}
-            iconPosition="end"
-            actionType="expand"
-            color="success"
+            iconPosition='end'
+            actionType='expand'
+            color='success'
           >
             {t('Thêm mới')}
           </ActionButton>
           <ProMenu
-            position="right"
+            position='right'
             items={[
               {
                 label: 'Xuất Excel',
@@ -280,92 +279,54 @@ const AccountTable = () => {
               },
             ]}
           >
-            <ActionButton iconPosition="end" actionType="expand" color="info">
+            <ActionButton iconPosition='end' actionType='expand' color='info'>
               {t('Thao tác')}
             </ActionButton>
           </ProMenu>
-          <Dialog open={open} scroll="body" fullWidth>
+          <Dialog open={open} scroll='body' fullWidth>
             <DialogHeader title={t('Thêm tài khoản kế toán')} />
             <DialogForm>
               <DialogContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={6} md={3}>
-                    <ProFormLabel
-                      required
-                      title={t('Loại tài khoản')}
-                      name="name"
-                      gutterBottom
-                    />
+                    <ProFormLabel required title={t('Loại tài khoản')} name='name' gutterBottom />
                   </Grid>
                   <Grid item xs={12} sm={6} md={9}>
                     <TextField
-                      placeholder="-Loại tài khoản-"
-                      id="outlined-basic"
-                      variant="outlined"
+                      placeholder='-Loại tài khoản-'
+                      id='outlined-basic'
+                      variant='outlined'
                     />{' '}
                   </Grid>
                   <Grid item xs={12} sm={6} md={3}>
-                    <ProFormLabel
-                      required
-                      title={t('Cửa hàng')}
-                      name="name"
-                      gutterBottom
-                    />
+                    <ProFormLabel required title={t('Cửa hàng')} name='name' gutterBottom />
                   </Grid>
                   <Grid item xs={12} sm={6} md={9}>
-                    <TextField
-                      placeholder="-Cửa hàng-"
-                      id="outlined-basic"
-                      variant="outlined"
-                    />{' '}
+                    <TextField placeholder='-Cửa hàng-' id='outlined-basic' variant='outlined' />{' '}
                   </Grid>
                   <Grid item xs={12} sm={6} md={3}>
-                    <ProFormLabel
-                      required
-                      title={t('Tài khoản cha')}
-                      name="name"
-                      gutterBottom
-                    />
+                    <ProFormLabel required title={t('Tài khoản cha')} name='name' gutterBottom />
                   </Grid>
                   <Grid item xs={12} sm={6} md={9}>
-                    <TextField id="outlined-basic" variant="outlined" />{' '}
+                    <TextField id='outlined-basic' variant='outlined' />{' '}
                   </Grid>
                   <Grid item xs={12} sm={6} md={3}>
-                    <ProFormLabel
-                      required
-                      title={t('Mã tài khoản')}
-                      name="name"
-                      gutterBottom
-                    />
+                    <ProFormLabel required title={t('Mã tài khoản')} name='name' gutterBottom />
                   </Grid>
                   <Grid item xs={12} sm={6} md={9}>
-                    <TextField id="outlined-basic" variant="outlined" />{' '}
+                    <TextField id='outlined-basic' variant='outlined' />{' '}
                   </Grid>
                   <Grid item xs={12} sm={6} md={3}>
-                    <ProFormLabel
-                      required
-                      title={t('Tên')}
-                      name="name"
-                      gutterBottom
-                    />
+                    <ProFormLabel required title={t('Tên')} name='name' gutterBottom />
                   </Grid>
                   <Grid item xs={12} sm={6} md={9}>
-                    <TextField id="outlined-basic" variant="outlined" />{' '}
+                    <TextField id='outlined-basic' variant='outlined' />{' '}
                   </Grid>
                   <Grid item xs={12} sm={6} md={3}>
-                    <ProFormLabel
-                      required
-                      title={t('Trạng thái')}
-                      name="name"
-                      gutterBottom
-                    />
+                    <ProFormLabel required title={t('Trạng thái')} name='name' gutterBottom />
                   </Grid>
                   <Grid item xs={12} sm={6} md={9}>
-                    <TextField
-                      placeholder="Kích Hoạt"
-                      id="outlined-basic"
-                      variant="outlined"
-                    />{' '}
+                    <TextField placeholder='Kích Hoạt' id='outlined-basic' variant='outlined' />{' '}
                   </Grid>
                 </Grid>
               </DialogContent>
@@ -373,11 +334,7 @@ const AccountTable = () => {
                 <LoadingButton startIcon={<SaveIcon />} onClick={handleReset}>
                   {t('Lưu')}
                 </LoadingButton>
-                <Button
-                  variant="outlined"
-                  startIcon={<CloseIcon />}
-                  onClick={handleReset}
-                >
+                <Button variant='outlined' startIcon={<CloseIcon />} onClick={handleReset}>
                   {t('Đóng')}
                 </Button>
               </DialogFooter>

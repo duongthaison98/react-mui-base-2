@@ -1,17 +1,16 @@
-import useAuth from 'hooks/useAuth';
-import { Fragment } from 'react';
 import { Navigate } from 'react-router-dom';
-import type { FCC } from 'types/react';
+import type { FCC } from '@/types/react';
+import { useAppSelector } from '@/store';
+import { ROUTE_PATH } from '@/constants/routes';
 
-const PublicRoute: FCC = (props) => {
-  const { children } = props;
-  const { isAuthenticated } = useAuth();
+const PublicRoute: FCC = ({ children }) => {
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
 
   if (isAuthenticated) {
-    return <Navigate to="/" />;
+    return <Navigate to={ROUTE_PATH.HOME} />;
   }
 
-  return <Fragment>{children}</Fragment>;
+  return children;
 };
 
 export default PublicRoute;

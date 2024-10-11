@@ -1,11 +1,11 @@
 import { Box, Link } from '@mui/material';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
-import useDialog from 'hooks/useDialog';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
+import useDialog from '@/hooks/useDialog';
 import { useMemo } from 'react';
 import { Inventorys } from '.';
 import WarehouseIcon from '@mui/icons-material/Warehouse';
-import Numeral from 'utils/Numeral';
+import Numeral from '@/utils/Numeral';
 
 const columnHelper = getColumnHelper<Inventorys>();
 
@@ -57,7 +57,7 @@ const useTableColumns = (props: Props) => {
         size: 40,
         header: () => HEAD_CELLS.inventory,
         cell: (context) => (
-          <Link href="/inventory?value=filter1" color="#077BFF">
+          <Link href='/inventory?value=filter1' color='#077BFF'>
             {Numeral.price(context.getValue())}
           </Link>
         ),

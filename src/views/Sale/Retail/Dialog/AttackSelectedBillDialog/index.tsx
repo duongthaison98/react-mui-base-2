@@ -4,15 +4,15 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { nanoid } from '@reduxjs/toolkit';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import DialogFooter from 'components/ProDialog/DialogFooter';
-import ProForm from 'components/ProForm';
-import ProFormCheckboxSelect from 'components/ProForm/ProFormCheckboxSelect';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
+import ProForm from '@/components/ProForm';
+import ProFormCheckboxSelect from '@/components/ProForm/ProFormCheckboxSelect';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import Validation from 'utils/Validation';
+import Validation from '@/utils/Validation';
 interface Props {
   open: boolean;
   onClose: () => void;
@@ -39,7 +39,7 @@ const AttackSelectedBillDialog = (props: Props) => {
   const handleSubmit = (values: IForm) => {};
 
   return (
-    <DialogContainer open={open} onClose={onClose} maxWidth="sm">
+    <DialogContainer open={open} onClose={onClose} maxWidth='sm'>
       <Box
         sx={{
           display: 'flex',
@@ -49,7 +49,7 @@ const AttackSelectedBillDialog = (props: Props) => {
         }}
       >
         <Box>
-          <Typography variant="h6">Gắn nhãn danh sách đã chọn</Typography>
+          <Typography variant='h6'>Gắn nhãn danh sách đã chọn</Typography>
         </Box>
         <Box>
           <CloseIcon onClick={onClose} style={{ cursor: 'pointer' }} />
@@ -59,13 +59,9 @@ const AttackSelectedBillDialog = (props: Props) => {
         <Divider />
       </Box>
       <DialogContent>
-        <ProForm
-          form={form}
-          onFinish={handleSubmit}
-          PaperProps={{ sx: { p: 2 } }}
-        >
+        <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
           <ProFormCheckboxSelect
-            name="idBill"
+            name='idBill'
             placeholder={t('Chọn nhãn')}
             options={[
               { value: nanoid(), label: 'TM' },
@@ -75,14 +71,13 @@ const AttackSelectedBillDialog = (props: Props) => {
               { value: nanoid(), label: 'VTech Thanh Hóa' },
             ]}
           />
-        
         </ProForm>
       </DialogContent>
       <DialogFooter>
-        <ActionButton iconPosition="end" color="success">
+        <ActionButton iconPosition='end' color='success'>
           {t('Gán nhãn')}
         </ActionButton>
-        <ActionButton iconPosition="end" color="inherit" onClick={onClose}>
+        <ActionButton iconPosition='end' color='inherit' onClick={onClose}>
           {t('Đóng')}
         </ActionButton>
       </DialogFooter>

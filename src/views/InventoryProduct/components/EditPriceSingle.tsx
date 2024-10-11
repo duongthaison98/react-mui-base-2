@@ -1,18 +1,18 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import ActionButton from 'components/ProButton/ActionButton';
-import DialogContainer from 'components/ProDialog/DialogContainer';
-import DialogContent from 'components/ProDialog/DialogContent';
-import DialogFooter from 'components/ProDialog/DialogFooter';
-import ProForm from 'components/ProForm';
+import ActionButton from '@/components/ProButton/ActionButton';
+import DialogContainer from '@/components/ProDialog/DialogContainer';
+import DialogContent from '@/components/ProDialog/DialogContent';
+import DialogFooter from '@/components/ProDialog/DialogFooter';
+import ProForm from '@/components/ProForm';
 import { useForm } from 'react-hook-form';
-import TypedObject from 'utils/TypedObject';
-import Validation from 'utils/Validation';
+import TypedObject from '@/utils/TypedObject';
+import Validation from '@/utils/Validation';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
-import sleep from 'utils/sleep';
-import ProFormTextField from 'components/ProForm/ProFormTextField';
-import { PriceInput } from 'plugins/NumberFormat';
-import ProInputAdornment from 'components/ProForm/ProInputAdornment';
+import sleep from '@/utils/sleep';
+import ProFormTextField from '@/components/ProForm/ProFormTextField';
+import { PriceInput } from '@/plugins/NumberFormat';
+import ProInputAdornment from '@/components/ProForm/ProInputAdornment';
 import { useEffect } from 'react';
 
 interface FormValues {
@@ -59,7 +59,7 @@ const EditSinglePrice = (props: Props) => {
       <ProForm<FormValues> form={form} onFinish={handleSubmit}>
         <DialogContent>
           <Typography
-            variant="subtitle1"
+            variant='subtitle1'
             sx={{
               fontWeight: 'medium',
               mb: 2,
@@ -69,8 +69,8 @@ const EditSinglePrice = (props: Props) => {
             Sửa giá bán lẻ sản phẩm
           </Typography>
           <ProFormTextField
-            name="price"
-            placeholder="Nhập giá bán lẻ"
+            name='price'
+            placeholder='Nhập giá bán lẻ'
             InputProps={{
               inputComponent: PriceInput,
               endAdornment: <ProInputAdornment>VND</ProInputAdornment>,
@@ -78,13 +78,10 @@ const EditSinglePrice = (props: Props) => {
           />
         </DialogContent>
         <DialogFooter>
-          <ActionButton actionType="cancel" onClick={handleReset}>
+          <ActionButton actionType='cancel' onClick={handleReset}>
             {t('Đóng')}
           </ActionButton>
-          <ActionButton
-            type="submit"
-            disabled={TypedObject.isExist(form.formState.errors)}
-          >
+          <ActionButton type='submit' disabled={TypedObject.isExist(form.formState.errors)}>
             {t('Lưu')}
           </ActionButton>
         </DialogFooter>

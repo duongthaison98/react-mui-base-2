@@ -1,11 +1,11 @@
-import { HeadCell, ProColumn } from 'components/ProTable/types';
+import { HeadCell, ProColumn } from '@/components/ProTable/types';
 import React, { useMemo } from 'react';
 import { ISettingPriceProduct } from './utils/type';
-import Selection from 'components/ProTable/components/Selection';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import Selection from '@/components/ProTable/components/Selection';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { IconButton, Stack, Typography } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
-import useDialog from 'hooks/useDialog';
+import useDialog from '@/hooks/useDialog';
 interface Props {
   pageNumber: number;
   pageSize: number;
@@ -39,7 +39,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         header: () => HEAD_CELLS.code,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+          <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -52,7 +52,7 @@ const useTableColumns = (props: Props) => {
         size: 100,
         header: () => HEAD_CELLS.productsName,
         cell: (context) => (
-          <Typography variant="subtitle2" sx={{ color: '#007bff' }}>
+          <Typography variant='subtitle2' sx={{ color: '#007bff' }}>
             {context.getValue()}
           </Typography>
         ),
@@ -64,9 +64,7 @@ const useTableColumns = (props: Props) => {
         id: 'invetoryQuantity',
         size: 60,
         header: () => HEAD_CELLS.invetoryQuantity,
-        cell: (context) => (
-          <Typography variant="subtitle2">{context.getValue()}</Typography>
-        ),
+        cell: (context) => <Typography variant='subtitle2'>{context.getValue()}</Typography>,
         meta: {
           title: HEAD_CELLS.invetoryQuantity,
         },
@@ -76,7 +74,7 @@ const useTableColumns = (props: Props) => {
         size: 60,
         header: () => HEAD_CELLS.importPrice,
         cell: (context) => (
-          <Typography variant="subtitle2">
+          <Typography variant='subtitle2'>
             {context.getValue()?.toLocaleString('it-IT', {
               style: 'currency',
               currency: 'VND',
@@ -92,7 +90,7 @@ const useTableColumns = (props: Props) => {
         size: 60,
         header: () => HEAD_CELLS.retailPrice,
         cell: (context) => (
-          <Typography variant="subtitle2">
+          <Typography variant='subtitle2'>
             {context.getValue()?.toLocaleString('it-IT', {
               style: 'currency',
               currency: 'VND',
@@ -110,11 +108,11 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { id } = context.row.original;
           return (
-            <Stack alignItems="center">
+            <Stack alignItems='center'>
               <IconButton onClick={() => handleEditPrice(id)}>
-                <EditIcon color="inherit" />
+                <EditIcon color='inherit' />
               </IconButton>
-              <Typography color="default">
+              <Typography color='default'>
                 {context.getValue()?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
@@ -134,11 +132,11 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { id } = context.row.original;
           return (
-            <Stack alignItems="center">
+            <Stack alignItems='center'>
               <IconButton onClick={() => handleEditPrice(id)}>
-                <EditIcon color="inherit" />
+                <EditIcon color='inherit' />
               </IconButton>
-              <Typography color="default">
+              <Typography color='default'>
                 {context.getValue()?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
@@ -158,11 +156,11 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { id } = context.row.original;
           return (
-            <Stack alignItems="center">
+            <Stack alignItems='center'>
               <IconButton onClick={() => handleEditPrice(id)}>
-                <EditIcon color="inherit" />
+                <EditIcon color='inherit' />
               </IconButton>
-              <Typography color="default">
+              <Typography color='default'>
                 {context.getValue()?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
@@ -183,11 +181,11 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { id } = context.row.original;
           return (
-            <Stack alignItems="center">
+            <Stack alignItems='center'>
               <IconButton onClick={() => handleEditPrice(id)}>
-                <EditIcon color="inherit" />
+                <EditIcon color='inherit' />
               </IconButton>
-              <Typography color="default">
+              <Typography color='default'>
                 {context.getValue()?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
@@ -207,11 +205,11 @@ const useTableColumns = (props: Props) => {
         cell: (context) => {
           const { id } = context.row.original;
           return (
-            <Stack alignItems="center">
+            <Stack alignItems='center'>
               <IconButton onClick={() => handleEditPrice(id)}>
-                <EditIcon color="inherit" />
+                <EditIcon color='inherit' />
               </IconButton>
-              <Typography color="default">
+              <Typography color='default'>
                 {context.getValue()?.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',

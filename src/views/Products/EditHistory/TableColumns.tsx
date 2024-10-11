@@ -1,9 +1,9 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Box, Link } from '@mui/material';
-import ActionIconButton from 'components/ProButton/ActionIconButton';
-import Selection from 'components/ProTable/components/Selection';
-import type { HeadCell, ProColumn } from 'components/ProTable/types';
-import { getColumnHelper } from 'components/ProTable/utils/getColumnHelper';
+import ActionIconButton from '@/components/ProButton/ActionIconButton';
+import Selection from '@/components/ProTable/components/Selection';
+import type { HeadCell, ProColumn } from '@/components/ProTable/types';
+import { getColumnHelper } from '@/components/ProTable/utils/getColumnHelper';
 import { useMemo } from 'react';
 import { EditHistory } from './utils/type';
 
@@ -47,9 +47,9 @@ const useTableColumns = (props: Props) => {
         cell: (context) => (
           <Box>
             <Link
-              href="https://www.google.com.vn/?hl=vi"
-              underline="none"
-              target="_blank"
+              href='https://www.google.com.vn/?hl=vi'
+              underline='none'
+              target='_blank'
               color={'#007bff'}
             >
               {context.getValue()}
@@ -97,9 +97,7 @@ const useTableColumns = (props: Props) => {
         enableSorting: false,
         header: () => <SettingsOutlinedIcon sx={{ color: 'text.secondary' }} />,
         cell: (context) => {
-          return (
-            <ActionIconButton actionType="more" onClick={handleToggleDialog} />
-          );
+          return <ActionIconButton actionType='more' onClick={handleToggleDialog} />;
         },
         meta: {
           title: HEAD_CELLS.actions,

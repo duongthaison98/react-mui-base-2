@@ -11,7 +11,7 @@ const products = [
 
 export const generateBill = (): Bill => {
   return {
-    id: faker.datatype.uuid(),
+    id: faker.name.fullName(),
     createdBy: faker.name.fullName(),
     store: faker.company.name(),
     customer: faker.name.fullName(),
