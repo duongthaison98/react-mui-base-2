@@ -12,7 +12,7 @@ const Logo = () => {
       <Box sx={{ paddingX: '17px', paddingY: '20px' }}>
         <Typography sx={{ whiteSpace: 'nowrap' }}>HLG</Typography>
       </Box>
-    )
+    );
   }
 
   return (

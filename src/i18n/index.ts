@@ -4,7 +4,7 @@ import HttpBackend from 'i18next-http-backend';
 
 let i18nInstance: I18nInstance;
 
-const NS = ['products', 'auth', 'sidebar', 'common'];
+const NS = ['products', 'auth', 'sidebar', 'common', 'customers'  ];
 
 const initI18n = (): I18nInstance => {
   if (i18nInstance) {
@@ -12,7 +12,7 @@ const initI18n = (): I18nInstance => {
   }
 
   const userCache = localStorage.getItem('i18nConfig');
-  const langCode = userCache ? JSON.parse(userCache).selectedLang : 'en';
+  const langCode = userCache ? JSON.parse(userCache).selectedLang : 'vi';
 
   i18nInstance = i18next.createInstance();
   i18nInstance

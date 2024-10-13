@@ -74,6 +74,7 @@ interface Props<T> {
   form?: UseFormReturn<any, any>;
   size?: DensitySeverity;
   totalRow?: React.ReactElement;
+  hiddenFooter?: boolean;
 }
 
 const ProTable = <T extends object>(props: Props<T>, tableRef: ForwardedRef<TableRef>) => {
@@ -101,6 +102,7 @@ const ProTable = <T extends object>(props: Props<T>, tableRef: ForwardedRef<Tabl
       hiddenVisibilityColumns: false,
     },
     totalRow,
+    hiddenFooter = false,
   } = props;
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -480,9 +482,10 @@ const ProTable = <T extends object>(props: Props<T>, tableRef: ForwardedRef<Tabl
               })}
               {totalRow}
             </TableBody>
-            <TableFooter>
-              {getRowModel().rows.length > 0
-                ? getFooterGroups().map((footerGroup) => (
+            {!hiddenFooter && getRowModel().rows.length > 0 && (
+              <TableFooter>
+                {getFooterGroups().map((footerGroup) => {
+                  return (
                     <TableRow key={footerGroup.id}>
                       {footerGroup.headers.map((header) => {
                         const align = header.column.columnDef.meta?.align;
@@ -505,9 +508,10 @@ const ProTable = <T extends object>(props: Props<T>, tableRef: ForwardedRef<Tabl
                         );
                       })}
                     </TableRow>
-                  ))
-                : null}
-            </TableFooter>
+                  );
+                })}
+              </TableFooter>
+            )}
           </Table>
         </TableContainer>
       </ProFormProvider>

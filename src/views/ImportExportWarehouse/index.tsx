@@ -50,7 +50,7 @@ const InventoryTab = () => {
   }, [value, navigate]);
 
   return (
-    <PageWrapper title={t('Xuất nhập kho')}>
+    <PageWrapper title={t('Xuất nhập kho 11')}>
       <PageBreadcrumbs
         title={t('Xuất nhập kho')}
         items={[{ link: '/inventory/bill', text: 'Kho hàng' }]}

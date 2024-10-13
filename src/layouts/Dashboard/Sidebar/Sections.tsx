@@ -1,4 +1,4 @@
-import type { SvgIconComponent } from '@mui/icons-material';
+import { Group, type SvgIconComponent } from '@mui/icons-material';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
@@ -57,6 +57,18 @@ const AdminSections = (t: TFunction): Section[] => [
         title: t('Khách hàng'),
         path: '/customers',
         icon: PeopleIcon,
+        children: [
+          {
+            title: t('Khách hàng'),
+            icon: PeopleIcon,
+            path: '/customers',
+          },
+          {
+            title: t('Nhóm khách hàng'),
+            icon: PeopleIcon,
+            path: '/customers/customer-groups',
+          },
+        ],
       },
     ],
   },
@@ -180,6 +192,16 @@ const AdminSections = (t: TFunction): Section[] => [
         ],
       },
     ],
+  },
+  {
+    section: null,
+    items: [
+      {
+        title: t('Upload File'),
+        path: '/upload',
+        icon: AdminPanelSettingsIcon,
+      }
+    ]
   },
 ];
 

@@ -15,17 +15,20 @@ const useFilters = () => {
     id: null,
     cardCode: null,
     name: '',
-    sort: {},
-    search: null,
-    page: 1,
-    limit: 25,
+    // status: STATUS.all,
+
+    sortBy: '',
+    sortDirection: '',
+    pageNumber: 1,
+    pageSize: 25,
   });
 
   const onSortingChange = (sorting?: ProTableSortingState) => {
     if (!sorting || !sorting.length) {
       setFilters((state) => ({
         ...state,
-        sort: {},
+        sortBy: '',
+        sortDirection: '',
       }));
 
       return;
@@ -35,23 +38,22 @@ const useFilters = () => {
 
     setFilters((state) => ({
       ...state,
-      sort: {
-        [column.id]: column.desc ? 'desc' : 'asc',
-      },
+      sortBy: column.id,
+      sortDirection: column.desc ? SORT_DIRECTION.desc : SORT_DIRECTION.asc,
     }));
   };
 
-  const onPageChange = (page: number) => {
+  const onPageChange = (pageNumber: number) => {
     setFilters((state) => ({
       ...state,
-      page,
+      pageNumber,
     }));
   };
 
-  const onPageSizeChange = (limit: number) => {
+  const onPageSizeChange = (pageSize: number) => {
     setFilters((state) => ({
       ...state,
-      limit: limit,
+      pageSize,
     }));
   };
 
@@ -59,14 +61,14 @@ const useFilters = () => {
     setFilters((state) => ({
       ...state,
       ...params,
-      page: 1,
+      pageNumber: 1,
     }));
   };
 
   const onChangeStatus = (status: number) => {
     setFilters((state) => ({
       ...state,
-      page: 1,
+      pageNumber: 1,
       status,
     }));
   };

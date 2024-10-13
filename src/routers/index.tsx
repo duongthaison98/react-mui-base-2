@@ -16,6 +16,7 @@ import History from './HistoryAccount';
 import HistoryBillion from './HistoryBillion';
 import Service from './Service';
 import Setting from './Setting';
+import Upload from './UploadFile';
 import AuthLayout from '@/layouts/Auth/AuthLayout';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import Login from '@/views/Auth/Login';
@@ -39,9 +40,9 @@ const routes: RouteObject[] = [
   {
     path: '/',
     element: (
-      <PublicRoute>
+      <ProtectedRoute>
         <DashboardLayout />
-      </PublicRoute>
+      </ProtectedRoute>
     ),
     children: [
       { index: true, element: <Home /> },
@@ -61,23 +62,24 @@ const routes: RouteObject[] = [
       HistoryBillion,
       Service,
       Setting,
+      Upload
     ],
   },
-  // {
-  //   path: 'auth',
-  //   element: (
-  //     <PublicRoute>
-  //       <AuthLayout />
-  //     </PublicRoute>
-  //   ),
-  //   children: [
-  //     { index: true, element: <Navigate to={'login'} replace /> },
-  //     { path: 'login', element: <Login /> },
-  //     { path: 'registration', element: <Registration /> },
-  //     { path: 'forgot-password', element: <ForgotPassword /> },
-  //     { path: 'change-password', element: <ChangePassword /> },
-  //   ],
-  // },
+  {
+    path: 'auth',
+    element: (
+      <PublicRoute>
+        <AuthLayout />
+      </PublicRoute>
+    ),
+    children: [
+      { index: true, element: <Navigate to={'login'} replace /> },
+      { path: 'login', element: <Login /> },
+      { path: 'registration', element: <Registration /> },
+      { path: 'forgot-password', element: <ForgotPassword /> },
+      { path: 'change-password', element: <ChangePassword /> },
+    ],
+  },
   {
     path: '*',
     element: <Outlet />,

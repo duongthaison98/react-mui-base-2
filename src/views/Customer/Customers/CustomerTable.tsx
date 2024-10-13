@@ -1,221 +1,72 @@
-import { Box } from '@mui/material';
 import ProTable from '@/components/ProTable';
 import useRefresh from '@/hooks/useRefresh';
-import { useRef, useState } from 'react';
-import { Customer } from '@/types/customer';
+import { fetchCustomers, selectCustomers, setLoading } from '@/slices/customter-slice';
+import { useAppDispatch, useAppSelector } from '@/store';
+
+import { getCustomers } from '@/services/customer-service';
+import { Customer } from '@/types/customer-types';
 import { FiltersRef } from '@/types/refs';
+import { Box } from '@mui/material';
+import { useEffect, useRef } from 'react';
 import ActionButtonComponent from './components/ActionButton';
 import CreateCustomerButton from './components/CreateCustomerButton';
 import FiltersForm from './FilterForm';
 import useTableColumns from './TableColumns';
 import useFilters from './utils/filters';
-
-const Data = [
-  {
-    id: 1,
-    customer: 'Anh Hùng Huế ĐL(SG)',
-    address: 'Hà Nội',
-    typeCustomer: 'Khách lẻ',
-    phoneNumber: '0123456789',
-    store: 'Thái Hà',
-    email: null,
-    birthDay: null,
-    level: '',
-    group: 'Đạt',
-    totalMoney: 12900000,
-    point: null,
-    numberPurchase: 1,
-    daysPurchase: 1,
-    daysNotPurchase: 1,
-    lastDatePurchase: null,
-    amount: 60,
-    note: null,
-    buyingCycle: null,
-  },
-  {
-    id: 2,
-    customer: 'Anh Hùng Huế ĐL(SG)',
-    address: 'Hà Nội',
-    store: 'Thái Hà',
-    typeCustomer: 'Khách lẻ',
-    phoneNumber: '0123456789',
-    email: null,
-    birthDay: null,
-    level: '',
-    group: 'Đạt',
-    totalMoney: 12900000,
-    point: null,
-    numberPurchase: 1,
-    daysPurchase: 1,
-    daysNotPurchase: 1,
-    lastDatePurchase: null,
-    amount: 60,
-    buyingCycle: null,
-    note: null,
-  },
-
-  {
-    id: 3,
-    customer: 'Anh Hùng Huế ĐL(SG)',
-    address: 'Hà Nội',
-    store: 'Thái Hà',
-    typeCustomer: 'Khách lẻ',
-    phoneNumber: '0123456789',
-    email: null,
-    birthDay: null,
-    level: '',
-    group: 'Đạt',
-    totalMoney: 12900000,
-    point: null,
-    numberPurchase: 1,
-    daysPurchase: 1,
-    daysNotPurchase: 1,
-    lastDatePurchase: null,
-    amount: 60,
-    buyingCycle: null,
-    note: null,
-  },
-  {
-    id: 4,
-    customer: 'Anh Hùng Huế ĐL(SG)',
-    address: 'Hà Nội',
-    store: 'Thái Hà',
-    typeCustomer: 'Khách lẻ',
-    phoneNumber: '0123456789',
-    email: null,
-    birthDay: null,
-    level: '',
-    group: 'Đạt',
-    totalMoney: 12900000,
-    point: null,
-    numberPurchase: 1,
-    daysPurchase: 1,
-    daysNotPurchase: 1,
-    lastDatePurchase: null,
-    amount: 60,
-    buyingCycle: null,
-    note: null,
-  },
-
-  {
-    id: 15,
-    customer: 'Anh Hùng Huế ĐL(SG)',
-    address: 'Hà Nội',
-    store: 'Thái Hà',
-    typeCustomer: 'Khách lẻ',
-    phoneNumber: '0123456789',
-    email: null,
-    birthDay: null,
-    level: '',
-    group: 'Đạt',
-    totalMoney: 12900000,
-    point: null,
-    numberPurchase: 1,
-    daysPurchase: 1,
-    daysNotPurchase: 1,
-    lastDatePurchase: null,
-    amount: 60,
-    buyingCycle: null,
-    note: null,
-  },
-  {
-    id: 16,
-    customer: 'Anh Hùng Huế ĐL(SG)',
-    address: 'Hà Nội',
-    store: 'Thái Hà',
-    typeCustomer: 'Khách lẻ',
-    phoneNumber: '0123456789',
-    email: null,
-    birthDay: null,
-    level: '',
-    group: 'Đạt',
-    totalMoney: 12900000,
-    point: null,
-    numberPurchase: 1,
-    daysPurchase: 1,
-    daysNotPurchase: 1,
-    lastDatePurchase: null,
-    amount: 60,
-    buyingCycle: null,
-    note: null,
-  },
-  {
-    id: 17,
-    customer: 'Anh Hùng Huế ĐL(SG)',
-    address: 'Hà Nội',
-    store: 'Thái Hà',
-    typeCustomer: 'Khách lẻ',
-    phoneNumber: '0123456789',
-    email: null,
-    birthDay: null,
-    level: '',
-    group: 'Đạt',
-    totalMoney: 12900000,
-    point: null,
-    numberPurchase: 1,
-    daysPurchase: 1,
-    daysNotPurchase: 1,
-    lastDatePurchase: null,
-    amount: 60,
-    buyingCycle: null,
-    note: null,
-  },
-  {
-    id: 18,
-    customer: 'Anh Hùng Huế ĐL(SG)',
-    address: 'Hà Nội',
-    store: 'Thái Hà',
-    typeCustomer: 'Khách lẻ',
-    phoneNumber: '0123456789',
-    email: null,
-    birthDay: null,
-    level: '',
-    group: 'Đạt',
-    totalMoney: 12900000,
-    point: null,
-    numberPurchase: 1,
-    daysPurchase: 1,
-    daysNotPurchase: 1,
-    lastDatePurchase: null,
-    amount: 60,
-    buyingCycle: null,
-    note: null,
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const CustomerTable = () => {
+  const { t } = useTranslation('customers');
   const [, refetch] = useRefresh();
-  const [banners] = useState<Customer[]>(Data);
-  const [loading] = useState<boolean>(false);
-  const [total] = useState<number>(banners.length || 0);
   const filtersRef = useRef<FiltersRef>(null);
   const { filters, onSortingChange, onPageChange, onPageSizeChange, onSearch } = useFilters();
+  const dispatch = useAppDispatch();
+  const { data, loading, total } = useAppSelector(selectCustomers);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch(setLoading(true));
+      try {
+        const response = await getCustomers(filters);
+        if (response.data) {
+          dispatch(fetchCustomers(response.data));
+        }
+      } catch (error) {
+        console.error('Failed to fetch customer groups', error);
+      } finally {
+        dispatch(setLoading(false));
+      }
+    };
+    fetchData();
+  }, [filters, refetch]);
 
   const handleResetFilters = () => {
     filtersRef.current?.reset();
   };
 
   const handleSubmitFilters = () => {
+    console.log('filtersRef.current?.getValues()', filtersRef.current);
     filtersRef.current?.submit();
   };
 
   const { columns } = useTableColumns({
-    pageNumber: filters.pageNumber,
-    pageSize: filters.pageSize,
+    page: filters.page,
+    limit: filters.limit,
   });
 
   return (
     <ProTable<Customer>
-      title='Danh sách sản phẩm'
+      title={t('title')}
       loading={loading}
       columns={columns}
-      data={banners}
+      data={data}
       refetch={refetch}
       onSortingChange={onSortingChange}
+      hiddenFooter={true}
       pagination={{
-        page: filters.pageNumber,
+        page: filters.page,
+        limit: filters.limit,
         total,
-        pageSize: filters.pageSize,
         onPageChange,
         onPageSizeChange,
       }}

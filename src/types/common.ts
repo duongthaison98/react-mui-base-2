@@ -7,10 +7,12 @@ export type SortDirection = 'asc' | 'desc';
 export type PickUnion<T> = { [K in keyof T]: Pick<T, K> }[keyof T];
 
 export interface PaginationParams {
-  pageNumber: number;
-  pageSize: number;
-  sortBy?: string | null;
-  sortDirection?: string | null;
+  page: number;
+  limit: number;
+  sort?: {
+    [key: string]: SortDirection;
+  };
+  search?: string | null;
 }
 
 export interface HttpResponse<T = any> {

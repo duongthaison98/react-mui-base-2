@@ -64,7 +64,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
   return (
     <ProForm form={form} onFinish={handleSubmit} PaperProps={{ sx: { p: 2 } }}>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={4} lg={2.4}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
           <ProFormSelect
             name='company'
             placeholder={t('Chọn doanh nghiệp')}
@@ -77,7 +77,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             ]}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={2.4}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
           <ProFormCheckboxSelect
             name='store'
             placeholder={t('Chọn cửa hàng')}
@@ -99,14 +99,14 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             renderValue={(option) => option.value}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={2.4}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
           <ProFormTextField
             name='id'
             placeholder={t('Nhập ID')}
             InputLabelProps={{ shrink: true }}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={2.4}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
           <ProFormSelect
             name='type'
             placeholder={t('Chọn loại phiếu')}
@@ -116,7 +116,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             ]}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={2.4}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
           <ProFormCheckboxSelect
             name='shape'
             placeholder={t('Chọn kiểu')}
@@ -129,7 +129,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
             renderValue={(option) => option.value}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={2.4}>
+        <Grid item xs={12} sm={6} md={6} lg={3}>
           <ProDateRange label={t('Từ - đến')} from='startDate' to='endDate' />
         </Grid>
         <Grid item xs={12} sm={6} md={2} lg={1.5}>
@@ -202,7 +202,7 @@ const FiltersForm = forwardRef<FiltersRef, Props>((props, ref) => {
                   InputLabelProps={{ shrink: true }}
                 />
               </Grid>
-              <Grid item xs={12} sm={6} md={3} lg={3}>
+              <Grid item xs={12} sm={6} md={3} lg={2.5}>
                 <ProFormCheckboxSelect
                   name='nhan'
                   placeholder={t('Chọn nhãn')}

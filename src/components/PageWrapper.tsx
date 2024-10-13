@@ -17,12 +17,12 @@ const PageWrapper = (props: Props) => {
         <title>{title}</title>
       </Helmet>
       <Container
-        maxWidth="xxl"
         sx={{
           height: 1,
           display: 'grid',
           gridTemplateRows: 'auto 1fr',
           pb: 3,
+          maxWidth: '100% !important'
         }}
       >
         {children}

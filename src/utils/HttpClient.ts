@@ -33,6 +33,7 @@ class Axios {
         if (accessToken) {
           config.headers.Authorization = `Bearer ${accessToken}`;
         }
+        console.log('config' , config)
         return config;
       },
       (error) => Promise.reject(error),
@@ -136,7 +137,9 @@ class Axios {
     return new Promise((resolve, reject) => {
       this.Instance.get<T, AxiosResponse<R>, D>(url, config)
         .then((response) => resolve(response.data))
-        .catch((error: AxiosError) => reject(error.response?.data));
+        .catch((error: AxiosError) => {
+          reject(error.response?.data)
+        });
     });
   }
 

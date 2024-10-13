@@ -8,17 +8,17 @@ import Typography from '@mui/material/Typography';
 import type { ChangeEvent } from 'react';
 
 export interface ProTablePaginationProps {
-  pageSize: number;
+  limit: number;
   page: number;
   rowsPerPageOptions?: number[];
   total: number;
   onPageChange: (page: number) => void;
-  onPageSizeChange: (pageSize: number) => void;
+  onPageSizeChange: (limit: number) => void;
 }
 
 const ProTablePagination = (props: ProTablePaginationProps) => {
   const {
-    pageSize,
+    limit,
     page,
     total,
     onPageChange,
@@ -35,7 +35,7 @@ const ProTablePagination = (props: ProTablePaginationProps) => {
     onPageChange(1);
   };
 
-  const count = Math.ceil(total / pageSize);
+  const count = Math.ceil(total / limit);
 
   return (
     <Box
@@ -53,17 +53,14 @@ const ProTablePagination = (props: ProTablePaginationProps) => {
     >
       <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography
-            variant="subtitle2"
-            sx={{ display: { xs: 'none', sm: 'revert' } }}
-          >
+          <Typography variant='subtitle2' sx={{ display: { xs: 'none', sm: 'revert' } }}>
             Số hàng trên trang:
           </Typography>
           <FormControl sx={{ mx: 1.5 }}>
             <Select<number>
-              size="small"
-              variant="standard"
-              value={pageSize}
+              size='small'
+              variant='standard'
+              value={limit}
               onChange={handlePageSizeChange}
               MenuProps={{
                 MenuListProps: { dense: true },
@@ -79,22 +76,21 @@ const ProTablePagination = (props: ProTablePaginationProps) => {
             >
               {rowsPerPageOptions.map((rowsPerPage) => (
                 <MenuItem key={rowsPerPage} value={rowsPerPage}>
-                  <Typography variant="subtitle2">{rowsPerPage}</Typography>
+                  <Typography variant='subtitle2'>{rowsPerPage}</Typography>
                 </MenuItem>
               ))}
             </Select>
           </FormControl>
         </Box>
-        <Typography variant="subtitle2">
-          {count === 0 ? 0 : (page - 1) * pageSize + 1}-{page * pageSize} {'/'}{' '}
-          {total}
+        <Typography variant='subtitle2'>
+          {count === 0 ? 0 : (page - 1) * limit + 1}-{page * limit} {'/'} {total}
         </Typography>
       </Box>
       <Pagination
-        shape="rounded"
+        shape='rounded'
         showFirstButton
         showLastButton
-        size="medium"
+        size='medium'
         count={count}
         page={page}
         onChange={handleChange}
